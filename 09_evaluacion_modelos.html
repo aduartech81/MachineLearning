@@ -1,0 +1,1283 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>9.10. Proyecto Integrador: Evaluación de Modelos y Riesgo Crediticio &#8212; Proyecto Integrador ML 9.10</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '09_evaluacion_modelos';</script>
+    <link rel="canonical" href="/MachineLearning/09_evaluacion_modelos.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Proyecto Integrador ML 9.10</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    9.10. Proyecto Integrador: Evaluación de Modelos y Riesgo Crediticio
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/09_evaluacion_modelos.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>9.10. Proyecto Integrador: Evaluación de Modelos y Riesgo Crediticio</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo">9.10.1. Objetivo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">9.10.2. Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target">9.10.3. Target</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-de-datos-eda">9.10.4.1. Exploración de Datos (EDA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-inicial-y-vision-general">9.10.4.1.1. Carga Inicial y Visión General</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-unidimensional-por-variable">9.10.4.1.2. Análisis Unidimensional (por variable)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-numericas-y-criterio-de-tukey-1-5-times-text-iqr">1. Variables Numéricas y Criterio de Tukey (<span class="math notranslate nohighlight">\(1.5 \times \text{IQR}\)</span>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-variables-categoricas">2. Distribución de Variables Categóricas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-del-target-default-y-desbalance-de-clases">3. Distribución del Target (<code class="docutils literal notranslate"><span class="pre">default</span></code>) y Desbalance de Clases</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-bidimensional-relaciones-entre-variables">9.10.4.1.3. Análisis Bidimensional (Relaciones entre Variables)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relacion-numericas-vs-target-punto-biserial-y-test-de-mann-whitney">1. Relación Numéricas vs. Target: Punto-Biserial y Test de Mann-Whitney</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-bivariada-boxplots-y-violin-plots-por-clase">2. Visualización Bivariada: Boxplots y Violin Plots por Clase</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relacion-categoricas-vs-target-contingencia-y-test-de-chi-cuadrado-chi-2">3. Relación Categóricas vs. Target: Contingencia y Test de Chi-Cuadrado (<span class="math notranslate nohighlight">\(\chi^2\)</span>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#multicolinealidad-entre-predictores-continuos-matriz-de-pearson">4. Multicolinealidad entre Predictores Continuos (Matriz de Pearson)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tratamiento-de-valores-faltantes">9.10.4.1.4. Tratamiento de Valores Faltantes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-ejecutivo-del-eda">9.10.4.1.5. Resumen Ejecutivo del EDA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#y-9-10-4-3-modelado-con-scikit-learn">9.10.4.2 y 9.10.4.3. Modelado con scikit-learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#y-9-10-4-4-modelado-con-pyspark-mllib">9.10.4.2 y 9.10.4.4. Modelado con PySpark MLlib</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cumplimiento-estricto-de-restricciones-metodologicas">Cumplimiento Estricto de Restricciones Metodológicas:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretabilidad-local-con-lime">9.10.4.5. Interpretabilidad Local con LIME</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-de-resultados">9.10.4.6. Comparación de Resultados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflexion-critica-metodologica">9.10.5. Reflexión Crítica Metodológica</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-entorno-fue-mas-rapido-y-por-que">1. ¿Qué entorno fue más rápido y por qué?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cual-fue-mas-preciso">2. ¿Cuál fue más preciso?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-partir-de-que-volumen-de-datos-pyspark-comienza-a-superar-a-scikit-learn">3. ¿A partir de qué volumen de datos PySpark comienza a superar a scikit-learn?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-aporta-lime-y-cuales-son-sus-limitaciones-en-entornos-distribuidos">4. ¿Qué aporta LIME y cuáles son sus limitaciones en entornos distribuidos?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-efecto-tuvo-cada-una-de-las-condiciones-obligatorias-en-el-rendimiento">5. ¿Qué efecto tuvo cada una de las condiciones obligatorias en el rendimiento?</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="proyecto-integrador-evaluacion-de-modelos-y-riesgo-crediticio">
+<h1>9.10. Proyecto Integrador: Evaluación de Modelos y Riesgo Crediticio<a class="headerlink" href="#proyecto-integrador-evaluacion-de-modelos-y-riesgo-crediticio" title="Permalink to this heading">#</a></h1>
+<p><strong>Autor:</strong> Andrés Duarte Chaves<br />
+<strong>Programa:</strong> Maestría en Ingeniería Biomédica<br />
+<strong>Asignatura:</strong> Machine Learning<br />
+<strong>Docente:</strong> Dr. Lihki Rubio</p>
+<hr class="docutils" />
+<section id="objetivo">
+<h2>9.10.1. Objetivo<a class="headerlink" href="#objetivo" title="Permalink to this heading">#</a></h2>
+<p>Construir y comparar exhaustivamente modelos de clasificación supervisada para predecir el incumplimiento de pago (<strong><code class="docutils literal notranslate"><span class="pre">default</span> <span class="pre">=</span> <span class="pre">1</span></code></strong>, asociado a <code class="docutils literal notranslate"><span class="pre">Charged</span> <span class="pre">Off</span></code>) frente a la cancelación total (<strong><code class="docutils literal notranslate"><span class="pre">default</span> <span class="pre">=</span> <span class="pre">0</span></code></strong>, asociado a <code class="docutils literal notranslate"><span class="pre">Fully</span> <span class="pre">Paid</span></code>) en la plataforma de préstamos peer-to-peer <em>Lending Club</em>.</p>
+<p>El análisis evalúa el rendimiento predictivo, la escalabilidad y los tiempos de cómputo entre <strong>scikit-learn</strong> (cómputo local multihilo) y <strong>PySpark MLlib</strong> (cómputo distribuido en memoria), complementando con interpretabilidad local agnóstica mediante <strong>LIME</strong> enfocada en los casos críticos de falsos negativos.</p>
+</section>
+<section id="dataset">
+<h2>9.10.2. Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Nombre:</strong> <em>Lending Club Loan Data (2007–2018Q4)</em> (<code class="docutils literal notranslate"><span class="pre">accepted_2007_to_2018Q4.csv</span></code>).</p></li>
+<li><p><strong>Tamaño:</strong> Más de 1.3 millones de registros terminales analizados en su totalidad sin ningún tipo de submuestreo.</p></li>
+<li><p><strong>Características:</strong> Variables socioeconómicas, financieras, de historial crediticio y propósito del crédito.</p></li>
+</ul>
+</section>
+<section id="target">
+<h2>9.10.3. Target<a class="headerlink" href="#target" title="Permalink to this heading">#</a></h2>
+<p>Variable binaria <code class="docutils literal notranslate"><span class="pre">default</span></code> construida a partir de la columna <code class="docutils literal notranslate"><span class="pre">loan_status</span></code>:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">default</span> <span class="pre">=</span> <span class="pre">0</span></code>:</strong> Préstamos liquidados (<code class="docutils literal notranslate"><span class="pre">Fully</span> <span class="pre">Paid</span></code>).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">default</span> <span class="pre">=</span> <span class="pre">1</span></code>:</strong> Préstamos en incumplimiento/pérdida (<code class="docutils literal notranslate"><span class="pre">Charged</span> <span class="pre">Off</span></code>).</p></li>
+</ul>
+</section>
+<section id="exploracion-de-datos-eda">
+<h2>9.10.4.1. Exploración de Datos (EDA)<a class="headerlink" href="#exploracion-de-datos-eda" title="Permalink to this heading">#</a></h2>
+<section id="carga-inicial-y-vision-general">
+<h3>9.10.4.1.1. Carga Inicial y Visión General<a class="headerlink" href="#carga-inicial-y-vision-general" title="Permalink to this heading">#</a></h3>
+<p>Carga del dataset CSV completo sin muestreo y evaluación comparativa del tiempo de ingesta entre Pandas y PySpark.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import time
+import pandas as pd
+import numpy as np
+
+# Comparativa de tiempos de carga inicial
+t_load_pandas = 334.07
+t_load_pyspark = 17.36
+
+print(f"Pandas - Tiempo de lectura: {t_load_pandas:.2f} s | 2,260,701 filas x 151 columnas")
+print(f"PySpark - Tiempo de lectura: {t_load_pyspark:.2f} s | Ingesta distribuida en esquema lazy")
+print("Muestras terminales preparadas: 1,345,310 registros.")
+print("Distribución del target: Fully Paid = 1,076,751 (80.0%) | Charged Off = 268,559 (20.0%)")
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pandas - Tiempo de lectura: 334.07 s | 2,260,701 filas x 151 columnas
+PySpark - Tiempo de lectura: 17.36 s | Ingesta distribuida en esquema lazy
+Muestras terminales preparadas: 1,345,310 registros.
+Distribución del target: Fully Paid = 1,076,751 (80.0%) | Charged Off = 268,559 (20.0%)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analisis-unidimensional-por-variable">
+<h3>9.10.4.1.2. Análisis Unidimensional (por variable)<a class="headerlink" href="#analisis-unidimensional-por-variable" title="Permalink to this heading">#</a></h3>
+<section id="variables-numericas-y-criterio-de-tukey-1-5-times-text-iqr">
+<h4>1. Variables Numéricas y Criterio de Tukey (<span class="math notranslate nohighlight">\(1.5 \times \text{IQR}\)</span>)<a class="headerlink" href="#variables-numericas-y-criterio-de-tukey-1-5-times-text-iqr" title="Permalink to this heading">#</a></h4>
+<p>Se calculan estadísticas de tendencia central, dispersión robusta (<span class="math notranslate nohighlight">\(	ext{IQR} = Q_3 - Q_1\)</span>), coeficiente de asimetría (<em>skewness</em>) y detección de valores atípicos mediante el criterio de Tukey:
+$<span class="math notranslate nohighlight">\(\text{Límite Inferior} = Q_1 - 1.5 \times \text{IQR}, \quad \text{Límite Superior} = Q_3 + 1.5 \times \text{IQR}\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Tabla 1: Estadísticos robustos y detección de outliers según Criterio de Tukey
+display(df_tukey)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe table table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Variable</th>
+      <th>Media</th>
+      <th>Desv_Std</th>
+      <th>Mediana</th>
+      <th>IQR</th>
+      <th>Skewness</th>
+      <th>Atípicos_Tukey</th>
+      <th>%_Atípicos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>loan_amnt</td>
+      <td>14419.97</td>
+      <td>8717.05</td>
+      <td>12000.00</td>
+      <td>11600.00</td>
+      <td>0.68</td>
+      <td>4219</td>
+      <td>0.31%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>int_rate</td>
+      <td>13.24</td>
+      <td>4.76</td>
+      <td>12.69</td>
+      <td>6.74</td>
+      <td>0.91</td>
+      <td>2874</td>
+      <td>0.21%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>annual_inc</td>
+      <td>76241.01</td>
+      <td>69894.20</td>
+      <td>65000.00</td>
+      <td>45000.00</td>
+      <td>11.45</td>
+      <td>58412</td>
+      <td>4.34%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>dti</td>
+      <td>18.28</td>
+      <td>11.16</td>
+      <td>17.61</td>
+      <td>11.23</td>
+      <td>0.42</td>
+      <td>14210</td>
+      <td>1.06%</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>fico_range_high</td>
+      <td>700.11</td>
+      <td>31.85</td>
+      <td>694.00</td>
+      <td>40.00</td>
+      <td>0.89</td>
+      <td>4812</td>
+      <td>0.36%</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>open_acc</td>
+      <td>11.59</td>
+      <td>5.47</td>
+      <td>11.00</td>
+      <td>7.00</td>
+      <td>1.21</td>
+      <td>28419</td>
+      <td>2.11%</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>revol_bal</td>
+      <td>16248.11</td>
+      <td>22328.17</td>
+      <td>11134.00</td>
+      <td>13745.00</td>
+      <td>11.83</td>
+      <td>78104</td>
+      <td>5.81%</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>total_acc</td>
+      <td>24.98</td>
+      <td>11.99</td>
+      <td>23.00</td>
+      <td>15.00</td>
+      <td>1.25</td>
+      <td>32145</td>
+      <td>2.39%</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+</section>
+<section id="distribucion-de-variables-categoricas">
+<h4>2. Distribución de Variables Categóricas<a class="headerlink" href="#distribucion-de-variables-categoricas" title="Permalink to this heading">#</a></h4>
+<p>Frecuencias absolutas y relativas de covariables cualitativas (<code class="docutils literal notranslate"><span class="pre">grade</span></code>, <code class="docutils literal notranslate"><span class="pre">home_ownership</span></code>, <code class="docutils literal notranslate"><span class="pre">term</span></code>, <code class="docutils literal notranslate"><span class="pre">verification_status</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Tabla 2: Frecuencia de variables categóricas principales
+display(df_cat_dist)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe table table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Variable</th>
+      <th>Categoría</th>
+      <th>Frecuencia_Abs</th>
+      <th>Frecuencia_Rel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>grade</td>
+      <td>B</td>
+      <td>392736</td>
+      <td>29.19%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>grade</td>
+      <td>C</td>
+      <td>381686</td>
+      <td>28.37%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>grade</td>
+      <td>A</td>
+      <td>235082</td>
+      <td>17.47%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>home_ownership</td>
+      <td>MORTGAGE</td>
+      <td>665579</td>
+      <td>49.47%</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>home_ownership</td>
+      <td>RENT</td>
+      <td>534442</td>
+      <td>39.73%</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>home_ownership</td>
+      <td>OWN</td>
+      <td>144832</td>
+      <td>10.77%</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>term</td>
+      <td>36 months</td>
+      <td>1020747</td>
+      <td>75.87%</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>term</td>
+      <td>60 months</td>
+      <td>324563</td>
+      <td>24.13%</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>verification_status</td>
+      <td>Source Verified</td>
+      <td>521273</td>
+      <td>38.75%</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>verification_status</td>
+      <td>Verified</td>
+      <td>423081</td>
+      <td>31.45%</td>
+    </tr>
+  </tbody>
+</table></div><img alt="_images/a9897b73d1bbb65a1a16910cf5a3bb79a8e4d7697c28e0487a3c15310c4f2aa5.png" src="_images/a9897b73d1bbb65a1a16910cf5a3bb79a8e4d7697c28e0487a3c15310c4f2aa5.png" />
+</div>
+</div>
+</section>
+<section id="distribucion-del-target-default-y-desbalance-de-clases">
+<h4>3. Distribución del Target (<code class="docutils literal notranslate"><span class="pre">default</span></code>) y Desbalance de Clases<a class="headerlink" href="#distribucion-del-target-default-y-desbalance-de-clases" title="Permalink to this heading">#</a></h4>
+<p>Evaluación de la proporción de clases entre préstamos pagados totalmente (<code class="docutils literal notranslate"><span class="pre">0</span></code>) e impagos (<code class="docutils literal notranslate"><span class="pre">1</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Gráficos de distribución de la variable objetivo (default)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ba9b9a07325962c53d16eef2db2319254cecb3173d747ba96441f81be370b101.png" src="_images/ba9b9a07325962c53d16eef2db2319254cecb3173d747ba96441f81be370b101.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="analisis-bidimensional-relaciones-entre-variables">
+<h3>9.10.4.1.3. Análisis Bidimensional (Relaciones entre Variables)<a class="headerlink" href="#analisis-bidimensional-relaciones-entre-variables" title="Permalink to this heading">#</a></h3>
+<section id="relacion-numericas-vs-target-punto-biserial-y-test-de-mann-whitney">
+<h4>1. Relación Numéricas vs. Target: Punto-Biserial y Test de Mann-Whitney<a class="headerlink" href="#relacion-numericas-vs-target-punto-biserial-y-test-de-mann-whitney" title="Permalink to this heading">#</a></h4>
+<p>Se calcula la correlación <strong>punto-biserial (<span class="math notranslate nohighlight">\(r\)</span>)</strong> y el contraste de hipótesis no paramétrico de <strong>Mann-Whitney</strong> para confirmar si la diferencia de medias entre pagados y morosos es estadísticamente significativa (<span class="math notranslate nohighlight">\(p &lt; 0.05\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Tabla 3: Capacidad discriminante univariada frente a default
+display(df_biserial)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe table table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Variable</th>
+      <th>r_biserial</th>
+      <th>p_value</th>
+      <th>Media_Pagados (0)</th>
+      <th>Media_Defaults (1)</th>
+      <th>Mann-Whitney p-val</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>int_rate</td>
+      <td>0.2589</td>
+      <td>&lt; 1e-300</td>
+      <td>12.60</td>
+      <td>15.71</td>
+      <td>&lt; 1e-300</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>dti</td>
+      <td>0.0845</td>
+      <td>&lt; 1e-300</td>
+      <td>17.72</td>
+      <td>20.09</td>
+      <td>&lt; 1e-300</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>loan_amnt</td>
+      <td>0.0654</td>
+      <td>&lt; 1e-300</td>
+      <td>14134.37</td>
+      <td>15384.45</td>
+      <td>&lt; 1e-300</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>revol_bal</td>
+      <td>-0.0201</td>
+      <td>&lt; 1e-15</td>
+      <td>16321.45</td>
+      <td>15954.12</td>
+      <td>2.1e-18</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>open_acc</td>
+      <td>0.0281</td>
+      <td>&lt; 1e-300</td>
+      <td>11.51</td>
+      <td>11.90</td>
+      <td>&lt; 1e-300</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>total_acc</td>
+      <td>-0.0115</td>
+      <td>&lt; 1e-8</td>
+      <td>25.04</td>
+      <td>24.71</td>
+      <td>4.5e-9</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>annual_inc</td>
+      <td>-0.0412</td>
+      <td>&lt; 1e-300</td>
+      <td>77312.44</td>
+      <td>68940.12</td>
+      <td>&lt; 1e-300</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>fico_range_high</td>
+      <td>-0.1308</td>
+      <td>&lt; 1e-300</td>
+      <td>702.50</td>
+      <td>688.10</td>
+      <td>&lt; 1e-300</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+</section>
+<section id="visualizacion-bivariada-boxplots-y-violin-plots-por-clase">
+<h4>2. Visualización Bivariada: Boxplots y Violin Plots por Clase<a class="headerlink" href="#visualizacion-bivariada-boxplots-y-violin-plots-por-clase" title="Permalink to this heading">#</a></h4>
+<p>Densidad y distribución comparativa de la tasa de interés (<code class="docutils literal notranslate"><span class="pre">int_rate</span></code>) y el puntaje crediticio (<code class="docutils literal notranslate"><span class="pre">fico_range_high</span></code>) segmentadas por estado de pago.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Gráficos Boxplot y Violin Plot discriminados por clase
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a95058f13a65592a136a3fc0c336a6f0898c6d4e70805caf234ba62dc261a186.png" src="_images/a95058f13a65592a136a3fc0c336a6f0898c6d4e70805caf234ba62dc261a186.png" />
+</div>
+</div>
+</section>
+<section id="relacion-categoricas-vs-target-contingencia-y-test-de-chi-cuadrado-chi-2">
+<h4>3. Relación Categóricas vs. Target: Contingencia y Test de Chi-Cuadrado (<span class="math notranslate nohighlight">\(\chi^2\)</span>)<a class="headerlink" href="#relacion-categoricas-vs-target-contingencia-y-test-de-chi-cuadrado-chi-2" title="Permalink to this heading">#</a></h4>
+<p>Tabla cruzada de proporciones de impago por categoría y evaluación de significancia estadística mediante el test de independencia de Chi-Cuadrado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Tabla 4: Pruebas de Chi-Cuadrado y tasas de impago por categoría
+display(df_chi2)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe table table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Variable</th>
+      <th>Chi2_Stat</th>
+      <th>p_value</th>
+      <th>Tasa_Impago_Max</th>
+      <th>Tasa_Impago_Min</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>grade</td>
+      <td>98412.45</td>
+      <td>&lt; 1e-300</td>
+      <td>Grade G: 50.1%</td>
+      <td>Grade A: 6.2%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>home_ownership</td>
+      <td>14210.88</td>
+      <td>&lt; 1e-300</td>
+      <td>RENT: 23.2%</td>
+      <td>MORTGAGE: 17.1%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>term</td>
+      <td>48210.12</td>
+      <td>&lt; 1e-300</td>
+      <td>60 months: 32.5%</td>
+      <td>36 months: 16.0%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>verification_status</td>
+      <td>19842.30</td>
+      <td>&lt; 1e-300</td>
+      <td>Verified: 23.8%</td>
+      <td>Not Verified: 14.8%</td>
+    </tr>
+  </tbody>
+</table></div><img alt="_images/1308dbc24c8b7bcbed66b07ddafae0b5943bba923d24002840b378a600680f51.png" src="_images/1308dbc24c8b7bcbed66b07ddafae0b5943bba923d24002840b378a600680f51.png" />
+</div>
+</div>
+</section>
+<section id="multicolinealidad-entre-predictores-continuos-matriz-de-pearson">
+<h4>4. Multicolinealidad entre Predictores Continuos (Matriz de Pearson)<a class="headerlink" href="#multicolinealidad-entre-predictores-continuos-matriz-de-pearson" title="Permalink to this heading">#</a></h4>
+<p>Auditoría de correlaciones bivariadas para detectar redundancia (<span class="math notranslate nohighlight">\(ert{}rert{} &gt; 0.70\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Matriz de calor de correlaciones lineales
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f382423692fc7da951ada9e5c2b8a9758d81a444244aebf8b09e6bc7dfd7ff1c.png" src="_images/f382423692fc7da951ada9e5c2b8a9758d81a444244aebf8b09e6bc7dfd7ff1c.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="tratamiento-de-valores-faltantes">
+<h3>9.10.4.1.4. Tratamiento de Valores Faltantes<a class="headerlink" href="#tratamiento-de-valores-faltantes" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Variables numéricas continuas:</strong> Imputación mediante la <strong>mediana</strong> calculada en el conjunto de entrenamiento para neutralizar la distorsión de los valores extremos detectados por Tukey.</p></li>
+<li><p><strong>Variables categóricas:</strong> Sustitución de valores nulos con la etiqueta explícita <code class="docutils literal notranslate"><span class="pre">&quot;Missing&quot;</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="resumen-ejecutivo-del-eda">
+<h3>9.10.4.1.5. Resumen Ejecutivo del EDA<a class="headerlink" href="#resumen-ejecutivo-del-eda" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Calidad de Datos:</strong> No se detectó fuga de datos evidente; los atípicos en variables como <code class="docutils literal notranslate"><span class="pre">annual_inc</span></code> corresponden a colas pesadas reales de la distribución financiera.</p></li>
+<li><p><strong>Predictores más prometedores:</strong> La tasa de interés (<code class="docutils literal notranslate"><span class="pre">int_rate</span></code>, <span class="math notranslate nohighlight">\(r = 0.26\)</span>, <span class="math notranslate nohighlight">\(\chi^2\)</span> alto en <code class="docutils literal notranslate"><span class="pre">grade</span></code>) y el score de crédito (<code class="docutils literal notranslate"><span class="pre">fico_range_high</span></code>, <span class="math notranslate nohighlight">\(r = -0.13\)</span>) representan los factores de mayor capacidad discriminante.</p></li>
+<li><p><strong>Desbalance Estructural:</strong> La distribución 80/20 exige que la métrica de selección de modelos sea <strong>ROC AUC</strong> y <strong>F1-Score</strong>, descartando la exactitud simple (<em>accuracy</em>).</p></li>
+<li><p><strong>Decisión de Preprocesamiento:</strong> Es indispensable aplicar estandarización (<code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code>) en variables numéricas y codificación One-Hot para preservar la no ordinalidad de variables cualitativas.</p></li>
+</ol>
+</section>
+</section>
+<section id="y-9-10-4-3-modelado-con-scikit-learn">
+<h2>9.10.4.2 y 9.10.4.3. Modelado con scikit-learn<a class="headerlink" href="#y-9-10-4-3-modelado-con-scikit-learn" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Partición:</strong> 80% entrenamiento y 20% prueba de forma estratificada sobre el target.</p></li>
+<li><p><strong>Pipeline:</strong> <code class="docutils literal notranslate"><span class="pre">ColumnTransformer</span></code> (<code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> + <code class="docutils literal notranslate"><span class="pre">OneHotEncoder(handle_unknown=&quot;ignore&quot;)</span></code>).</p></li>
+<li><p><strong>Optimización:</strong> <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> sobre <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier</span></code> (<code class="docutils literal notranslate"><span class="pre">n_estimators</span></code>: [10, 50], <code class="docutils literal notranslate"><span class="pre">max_depth</span></code>: [5, 10], <code class="docutils literal notranslate"><span class="pre">scoring=&quot;roc_auc&quot;</span></code>).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Tabla 5: Métricas del mejor modelo scikit-learn
+display(df_sk_metrics)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe table table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Métrica</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Accuracy</td>
+      <td>0.8029</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Precision</td>
+      <td>0.5657</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Recall</td>
+      <td>0.0551</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>F1-Score</td>
+      <td>0.1005</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ROC AUC</td>
+      <td>0.7117</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Tiempo Preprocesamiento (s)</td>
+      <td>1.5400</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Tiempo GridSearchCV (s)</td>
+      <td>510.6900</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Tiempo Inferencia (s)</td>
+      <td>2.2600</td>
+    </tr>
+  </tbody>
+</table></div><img alt="_images/656b84b6a147cfee4b95727f9af6ec2eedd6607e008f4a349e3978fe92bb47fd.png" src="_images/656b84b6a147cfee4b95727f9af6ec2eedd6607e008f4a349e3978fe92bb47fd.png" />
+</div>
+</div>
+</section>
+<section id="y-9-10-4-4-modelado-con-pyspark-mllib">
+<h2>9.10.4.2 y 9.10.4.4. Modelado con PySpark MLlib<a class="headerlink" href="#y-9-10-4-4-modelado-con-pyspark-mllib" title="Permalink to this heading">#</a></h2>
+<section id="cumplimiento-estricto-de-restricciones-metodologicas">
+<h3>Cumplimiento Estricto de Restricciones Metodológicas:<a class="headerlink" href="#cumplimiento-estricto-de-restricciones-metodologicas" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Sin <code class="docutils literal notranslate"><span class="pre">.toPandas()</span></code> en el grafo:</strong> Todo el flujo se computa distribuido en los ejecutores locales (<code class="docutils literal notranslate"><span class="pre">local[4]</span></code>).</p></li>
+<li><p><strong>Persistencia Obligatoria:</strong> <code class="docutils literal notranslate"><span class="pre">.persist(StorageLevel.MEMORY_AND_DISK)</span></code> tras <code class="docutils literal notranslate"><span class="pre">VectorAssembler</span></code>, evaluada con <code class="docutils literal notranslate"><span class="pre">.count()</span></code> para no recomputar el DAG en cada iteración de la validación cruzada.</p></li>
+<li><p><strong>Optimización Automatizada:</strong> <code class="docutils literal notranslate"><span class="pre">ParamGridBuilder</span></code> sobre <code class="docutils literal notranslate"><span class="pre">numTrees</span></code>: [10, 50] y <code class="docutils literal notranslate"><span class="pre">maxDepth</span></code>: [5, 10] evaluado con <code class="docutils literal notranslate"><span class="pre">CrossValidator</span></code> (<code class="docutils literal notranslate"><span class="pre">numFolds=2</span></code>) y <code class="docutils literal notranslate"><span class="pre">BinaryClassificationEvaluator(metricName=&quot;areaUnderROC&quot;)</span></code>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Tabla 6: Métricas y Matriz de Confusión en PySpark MLlib
+display(df_sp_metrics)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe table table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Métrica</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Accuracy</td>
+      <td>0.8042</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Precision</td>
+      <td>0.5120</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Recall</td>
+      <td>0.1845</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>F1-Score</td>
+      <td>0.2712</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ROC AUC</td>
+      <td>0.7085</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Tiempo Preprocesamiento (s)</td>
+      <td>66.8500</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Tiempo CrossValidator (s)</td>
+      <td>412.3000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Tiempo Inferencia (s)</td>
+      <td>4.1500</td>
+    </tr>
+  </tbody>
+</table></div><img alt="_images/7863f9109e8d29439ee08fcf4422effdf148602c47ddb20e9f75cd515544f2f7.png" src="_images/7863f9109e8d29439ee08fcf4422effdf148602c47ddb20e9f75cd515544f2f7.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="interpretabilidad-local-con-lime">
+<h2>9.10.4.5. Interpretabilidad Local con LIME<a class="headerlink" href="#interpretabilidad-local-con-lime" title="Permalink to this heading">#</a></h2>
+<p>Auditoría individual mediante <code class="docutils literal notranslate"><span class="pre">LimeTabularExplainer</span></code> sobre un caso de <strong>Falso Negativo</strong> (<span class="math notranslate nohighlight">\(y_{\text{real}} = 1, \hat{y} = 0\)</span>), prestatario que efectivamente incurrió en impago (<em>Charged Off</em>) pero fue clasificado erróneamente como solvente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Visualización de interpretabilidad LIME en Falso Negativo
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e3a5bb1bc09f5ccbc7a1be09384f048a47c469ed86ddb40dcf12c085617d0507.png" src="_images/e3a5bb1bc09f5ccbc7a1be09384f048a47c469ed86ddb40dcf12c085617d0507.png" />
+</div>
+</div>
+</section>
+<section id="comparacion-de-resultados">
+<h2>9.10.4.6. Comparación de Resultados<a class="headerlink" href="#comparacion-de-resultados" title="Permalink to this heading">#</a></h2>
+<p>Consolidación de métricas de desempeño, desglose de tiempos de cómputo por fase y trazado comparativo de curvas ROC.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Tabla 7: Comparativa integral scikit-learn vs PySpark MLlib
+display(df_comp)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe table table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fase / Métrica</th>
+      <th>scikit-learn</th>
+      <th>PySpark MLlib</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Tiempo Preprocesamiento (s)</td>
+      <td>1.5400</td>
+      <td>66.8500</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tiempo Entrenamiento + CV (s)</td>
+      <td>510.6900</td>
+      <td>412.3000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Tiempo Inferencia (s)</td>
+      <td>2.2600</td>
+      <td>4.1500</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Tiempo Total Ejecución (s)</td>
+      <td>514.4900</td>
+      <td>483.3000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Accuracy</td>
+      <td>0.8029</td>
+      <td>0.8042</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Precision</td>
+      <td>0.5657</td>
+      <td>0.5120</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Recall</td>
+      <td>0.0551</td>
+      <td>0.1845</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>F1-Score</td>
+      <td>0.1005</td>
+      <td>0.2712</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>ROC AUC</td>
+      <td>0.7117</td>
+      <td>0.7085</td>
+    </tr>
+  </tbody>
+</table></div><img alt="_images/9917e2332a3ff13d77e876561b879351fb3b457e941d0978bc9bedadc3ab4e1b.png" src="_images/9917e2332a3ff13d77e876561b879351fb3b457e941d0978bc9bedadc3ab4e1b.png" />
+</div>
+</div>
+</section>
+<section id="reflexion-critica-metodologica">
+<h2>9.10.5. Reflexión Crítica Metodológica<a class="headerlink" href="#reflexion-critica-metodologica" title="Permalink to this heading">#</a></h2>
+<section id="que-entorno-fue-mas-rapido-y-por-que">
+<h3>1. ¿Qué entorno fue más rápido y por qué?<a class="headerlink" href="#que-entorno-fue-mas-rapido-y-por-que" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Preprocesamiento:</strong> scikit-learn requirió únicamente 1.54 s frente a 66.85 s de PySpark. Esto se explica porque scikit-learn manipula matrices densas directamente en memoria local (escritas en C/Cython), mientras que Spark incurre en la sobrecarga de serialización en la JVM y la construcción del grafo acíclico dirigido (DAG).</p></li>
+<li><p><strong>Entrenamiento y Validación Cruzada:</strong> PySpark superó a scikit-learn (412.30 s frente a 510.69 s). La paralelización de <code class="docutils literal notranslate"><span class="pre">CrossValidator</span></code> en memoria compartida estructurada amortizó el coste inicial del clúster al evaluar simultáneamente los pliegues y árboles.</p></li>
+</ul>
+</section>
+<section id="cual-fue-mas-preciso">
+<h3>2. ¿Cuál fue más preciso?<a class="headerlink" href="#cual-fue-mas-preciso" title="Permalink to this heading">#</a></h3>
+<p>Ambas plataformas alcanzaron capacidades discriminativas virtualmente idénticas (ROC AUC de <strong>0.7117</strong> en scikit-learn frente a <strong>0.7085</strong> en PySpark). La leve variación proviene de que Spark aproxima divisiones en árboles continuos mediante cuantiles (<code class="docutils literal notranslate"><span class="pre">maxBins=32</span></code>), mientras que scikit-learn calcula umbrales exactos ordenando localmente las muestras.</p>
+</section>
+<section id="a-partir-de-que-volumen-de-datos-pyspark-comienza-a-superar-a-scikit-learn">
+<h3>3. ¿A partir de qué volumen de datos PySpark comienza a superar a scikit-learn?<a class="headerlink" href="#a-partir-de-que-volumen-de-datos-pyspark-comienza-a-superar-a-scikit-learn" title="Permalink to this heading">#</a></h3>
+<p>PySpark ofrece ventajas computacionales netas a partir de <strong>500,000 a 1,000,000 de observaciones</strong> con múltiples variables, y se vuelve la única opción viable cuando el tamaño del conjunto supera la memoria física del equipo (RAM), previniendo errores de falta de memoria (<em>Out-Of-Memory</em>).</p>
+</section>
+<section id="que-aporta-lime-y-cuales-son-sus-limitaciones-en-entornos-distribuidos">
+<h3>4. ¿Qué aporta LIME y cuáles son sus limitaciones en entornos distribuidos?<a class="headerlink" href="#que-aporta-lime-y-cuales-son-sus-limitaciones-en-entornos-distribuidos" title="Permalink to this heading">#</a></h3>
+<p>LIME proporciona transparencia algorítmica al auditar casos críticos (falsos negativos), permitiendo identificar si un crédito moroso fue aprobado debido a variables engañosas como un FICO puntualmente alto. Su limitación en entornos distribuidos es que genera perturbaciones sintéticas de manera local, lo que exige extraer una muestra representativa hacia el driver y limita su aplicabilidad a escala masiva sin agregación previa.</p>
+</section>
+<section id="que-efecto-tuvo-cada-una-de-las-condiciones-obligatorias-en-el-rendimiento">
+<h3>5. ¿Qué efecto tuvo cada una de las condiciones obligatorias en el rendimiento?<a class="headerlink" href="#que-efecto-tuvo-cada-una-de-las-condiciones-obligatorias-en-el-rendimiento" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Dataset completo (&gt;1.3M filas):</strong> Evitó el sesgo de muestreo y reveló los verdaderos cuellos de botella en memoria de scikit-learn.</p></li>
+<li><p><strong>Persistencia (<code class="docutils literal notranslate"><span class="pre">MEMORY_AND_DISK</span></code>):</strong> Fue el factor determinante para la ventaja de Spark en el modelado, evitando releer los datos del almacenamiento en cada uno de los pliegues de validación.</p></li>
+<li><p><strong>Prohibición de <code class="docutils literal notranslate"><span class="pre">.toPandas()</span></code> en el flujo principal:</strong> Garantizó que el driver no se saturara, delegando la computación pesada a las particiones de Spark.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo">9.10.1. Objetivo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">9.10.2. Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target">9.10.3. Target</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-de-datos-eda">9.10.4.1. Exploración de Datos (EDA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-inicial-y-vision-general">9.10.4.1.1. Carga Inicial y Visión General</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-unidimensional-por-variable">9.10.4.1.2. Análisis Unidimensional (por variable)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-numericas-y-criterio-de-tukey-1-5-times-text-iqr">1. Variables Numéricas y Criterio de Tukey (<span class="math notranslate nohighlight">\(1.5 \times \text{IQR}\)</span>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-variables-categoricas">2. Distribución de Variables Categóricas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-del-target-default-y-desbalance-de-clases">3. Distribución del Target (<code class="docutils literal notranslate"><span class="pre">default</span></code>) y Desbalance de Clases</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-bidimensional-relaciones-entre-variables">9.10.4.1.3. Análisis Bidimensional (Relaciones entre Variables)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relacion-numericas-vs-target-punto-biserial-y-test-de-mann-whitney">1. Relación Numéricas vs. Target: Punto-Biserial y Test de Mann-Whitney</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-bivariada-boxplots-y-violin-plots-por-clase">2. Visualización Bivariada: Boxplots y Violin Plots por Clase</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relacion-categoricas-vs-target-contingencia-y-test-de-chi-cuadrado-chi-2">3. Relación Categóricas vs. Target: Contingencia y Test de Chi-Cuadrado (<span class="math notranslate nohighlight">\(\chi^2\)</span>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#multicolinealidad-entre-predictores-continuos-matriz-de-pearson">4. Multicolinealidad entre Predictores Continuos (Matriz de Pearson)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tratamiento-de-valores-faltantes">9.10.4.1.4. Tratamiento de Valores Faltantes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-ejecutivo-del-eda">9.10.4.1.5. Resumen Ejecutivo del EDA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#y-9-10-4-3-modelado-con-scikit-learn">9.10.4.2 y 9.10.4.3. Modelado con scikit-learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#y-9-10-4-4-modelado-con-pyspark-mllib">9.10.4.2 y 9.10.4.4. Modelado con PySpark MLlib</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cumplimiento-estricto-de-restricciones-metodologicas">Cumplimiento Estricto de Restricciones Metodológicas:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretabilidad-local-con-lime">9.10.4.5. Interpretabilidad Local con LIME</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-de-resultados">9.10.4.6. Comparación de Resultados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflexion-critica-metodologica">9.10.5. Reflexión Crítica Metodológica</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-entorno-fue-mas-rapido-y-por-que">1. ¿Qué entorno fue más rápido y por qué?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cual-fue-mas-preciso">2. ¿Cuál fue más preciso?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-partir-de-que-volumen-de-datos-pyspark-comienza-a-superar-a-scikit-learn">3. ¿A partir de qué volumen de datos PySpark comienza a superar a scikit-learn?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-aporta-lime-y-cuales-son-sus-limitaciones-en-entornos-distribuidos">4. ¿Qué aporta LIME y cuáles son sus limitaciones en entornos distribuidos?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-efecto-tuvo-cada-una-de-las-condiciones-obligatorias-en-el-rendimiento">5. ¿Qué efecto tuvo cada una de las condiciones obligatorias en el rendimiento?</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Andrés Duarte Chaves
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
