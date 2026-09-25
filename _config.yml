@@ -1,0 +1,8 @@
+title: "Proyecto Integrador ML 9.10"
+author: "Andrés Duarte Chaves"
+repository:
+  url: "https://github.com/aduartech81/MachineLearning"
+html:
+  baseurl: "/MachineLearning/"
+execute:
+  execute_notebooks: "off"
