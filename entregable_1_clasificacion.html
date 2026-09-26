@@ -1,0 +1,1390 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Primer Entregable del Proyecto de Investigación &#8212; Proyectos de Machine Learning - Maestría en Ingeniería Biomédica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'entregable_1_clasificacion';</script>
+    <link rel="canonical" href="/MachineLearning/entregable_1_clasificacion.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="9.10. Proyecto Integrador: Evaluación de Modelos y Riesgo Crediticio" href="09_evaluacion_modelos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="09_evaluacion_modelos.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Proyectos de Machine Learning - Maestría en Ingeniería Biomédica</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="09_evaluacion_modelos.html">
+                    9.10. Proyecto Integrador: Evaluación de Modelos y Riesgo Crediticio
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Primer Entregable del Proyecto de Investigación</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/entregable_1_clasificacion.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Primer Entregable del Proyecto de Investigación</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-base-de-datos-analisis-exploratorio-e-implementacion-de-modelo-base-ruta-a-clasificacion">Selección de Base de Datos, Análisis Exploratorio e Implementación de Modelo Base (Ruta A: Clasificación)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-de-datos-y-definicion-del-problema-de-investigacion">1. Base de Datos y Definición del Problema de Investigación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-fisiologico-y-formulacion-del-problema">1.1. Contexto Fisiológico y Formulación del Problema</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#justificacion-y-fuente-del-dataset">1.2. Justificación y Fuente del Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-del-desbalance-del-target-y-reserva-preventiva">1.3. Análisis del Desbalance del Target y Reserva Preventiva</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-de-datos-eda">2. Análisis Exploratorio de Datos (EDA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-oro-metodologica-reserva-preventiva-del-conjunto-de-prueba">2.1. Regla de Oro Metodológica: Reserva Preventiva del Conjunto de Prueba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-univariado-y-criterio-de-tukey-1-5-times-text-iqr">2.2. Análisis Univariado y Criterio de Tukey (<span class="math notranslate nohighlight">\(1.5 \times \text{IQR}\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-exhaustiva-del-analisis-univariado-y-criterio-de-tukey">2.2. Interpretación Exhaustiva del Análisis Univariado y Criterio de Tukey</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-bivariado-pruebas-de-hipotesis-y-tamanos-de-efecto">2.3. Análisis Bivariado, Pruebas de Hipótesis y Tamaños de Efecto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-rigurosa-del-analisis-bivariado-y-tamanos-de-efecto">2.4. Interpretación Rigurosa del Análisis Bivariado y Tamaños de Efecto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multicolinealidad-vif-matriz-de-correlacion-y-pca-exploratorio">2.4. Multicolinealidad (VIF), Matriz de Correlación y PCA Exploratorio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-la-estructura-multivariada-y-reduccion-dimensional-pca">2.6. Interpretación de la Estructura Multivariada y Reducción Dimensional (PCA)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auditoria-de-fuga-de-datos-data-leakage">2.5. Auditoría de Fuga de Datos (<em>Data Leakage</em>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-la-auditoria-de-fuga-de-datos-data-leakage">2.8. Interpretación de la Auditoría de Fuga de Datos (<em>Data Leakage</em>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-base-vs-linea-base-trivial-dummy">3. Modelo Base vs Línea Base Trivial (Dummy)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#justificacion-y-comparacion-de-modelos">3.1. Justificación y Comparación de Modelos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-confusion-del-modelo-base-conjunto-de-prueba">3.2. Matriz de Confusión del Modelo Base (Conjunto de Prueba)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-diagnostica-detallada-del-modelo-base-vs-linea-base-trivial">3.3. Interpretación Diagnóstica Detallada del Modelo Base vs Línea Base Trivial</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-y-plan-para-siguientes-entregables">4. Conclusiones y Plan para Siguientes Entregables</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="primer-entregable-del-proyecto-de-investigacion">
+<h1>Primer Entregable del Proyecto de Investigación<a class="headerlink" href="#primer-entregable-del-proyecto-de-investigacion" title="Permalink to this heading">#</a></h1>
+<section id="seleccion-de-base-de-datos-analisis-exploratorio-e-implementacion-de-modelo-base-ruta-a-clasificacion">
+<h2>Selección de Base de Datos, Análisis Exploratorio e Implementación de Modelo Base (Ruta A: Clasificación)<a class="headerlink" href="#seleccion-de-base-de-datos-analisis-exploratorio-e-implementacion-de-modelo-base-ruta-a-clasificacion" title="Permalink to this heading">#</a></h2>
+<p><strong>Autor:</strong> Andrés Duarte Chaves<br />
+<strong>Docente:</strong> Dr. Lihki Rubio<br />
+<strong>Programa:</strong> Maestría en Ingeniería Biomédica<br />
+<strong>Fecha:</strong> Septiembre de 2026</p>
+</section>
+<hr class="docutils" />
+<section id="base-de-datos-y-definicion-del-problema-de-investigacion">
+<h2>1. Base de Datos y Definición del Problema de Investigación<a class="headerlink" href="#base-de-datos-y-definicion-del-problema-de-investigacion" title="Permalink to this heading">#</a></h2>
+<section id="contexto-fisiologico-y-formulacion-del-problema">
+<h3>1.1. Contexto Fisiológico y Formulación del Problema<a class="headerlink" href="#contexto-fisiologico-y-formulacion-del-problema" title="Permalink to this heading">#</a></h3>
+<p>La caries dental es una patología crónica multifactorial caracterizada por la desmineralización ácida localizada de los tejidos duros del diente (esmalte y dentina), mediada por la disbiosis de la biopelícula oral ante la exposición a carbohidratos fermentables y modulada por la respuesta inmunológica, metabólica y salival del huésped.</p>
+<p>El problema consiste en clasificar la presencia activa de <strong>caries dental (<code class="docutils literal notranslate"><span class="pre">dental</span> <span class="pre">caries</span> <span class="pre">=</span> <span class="pre">1</span></code>)</strong> frente a individuos sanos (<strong><code class="docutils literal notranslate"><span class="pre">dental</span> <span class="pre">caries</span> <span class="pre">=</span> <span class="pre">0</span></code></strong>) a partir de chequeos preventivos integrales que combinan analítica sanguínea, antropometría, hábitos de consumo y evaluación estomatológica.</p>
+</section>
+<section id="justificacion-y-fuente-del-dataset">
+<h3>1.2. Justificación y Fuente del Dataset<a class="headerlink" href="#justificacion-y-fuente-del-dataset" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Dataset Oficial:</strong> <em>Body Signal of Smoking / National Health Checkup</em> (<code class="docutils literal notranslate"><span class="pre">smoking.csv</span></code>).</p></li>
+<li><p><strong>Fuente:</strong> Repositorio Kaggle (Korean National Health Insurance Service - KNHIS). Licencia: CC0 Public Domain.</p></li>
+<li><p><strong>Tamaño Muestral:</strong> <span class="math notranslate nohighlight">\(n = 55{,}692\)</span> registros (<span class="math notranslate nohighlight">\(n \gg 20{,}000\)</span>, cumpliendo holgadamente el criterio de la rúbrica).</p></li>
+<li><p><strong>Estructura:</strong> Datos transversales (<em>cross-sectional</em>). Cada fila representa una evaluación independiente de un adulto único, sin componentes longitudinales de panel ni coordenadas espaciales.</p></li>
+<li><p><strong>Relación n/p:</strong> Con <span class="math notranslate nohighlight">\(p = 22\)</span> covariables predictoras primarias, <span class="math notranslate nohighlight">\(n/p \approx 2{,}531:1\)</span>, garantizando grados de libertad suficientes y descartando sobreparametrización.</p></li>
+<li><p><strong>Calidad y Ética:</strong> Registros anonimizados sin identificadores personales directos. Mecanismo de faltantes <strong>MAR (<em>Missing at Random</em>)</strong> por criterios etarios oficiales del chequeo preventivo.</p></li>
+</ul>
+</section>
+<section id="analisis-del-desbalance-del-target-y-reserva-preventiva">
+<h3>1.3. Análisis del Desbalance del Target y Reserva Preventiva<a class="headerlink" href="#analisis-del-desbalance-del-target-y-reserva-preventiva" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Prevalencia:</strong> <span class="math notranslate nohighlight">\(21.33\%\)</span> de casos positivos (<span class="math notranslate nohighlight">\(n=11{,}881\)</span>) frente a <span class="math notranslate nohighlight">\(78.67\%\)</span> de controles sanos (<span class="math notranslate nohighlight">\(n=43{,}811\)</span>).</p></li>
+<li><p><strong>Implicación Metodológica:</strong> El desbalance inhabilita al <em>Accuracy</em> como criterio de optimización; predecir siempre la clase mayoritaria daría un <span class="math notranslate nohighlight">\(78.67\%\)</span> sin valor clínico. Por ende, la evaluación se fundamenta en <strong>ROC AUC</strong>, <strong>Precision-Recall (PR AUC)</strong> y <strong>F1-Score</strong>.</p></li>
+<li><p><strong>Regla de Oro:</strong> La partición estratificada 80/20 (<span class="math notranslate nohighlight">\(n_{\text{train}}=44{,}553\)</span>, <span class="math notranslate nohighlight">\(n_{\text{test}}=11{,}139\)</span>) se ejecutó preventivamente <strong>antes</strong> de cualquier cálculo descriptivo o preprocesamiento.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Partición Estratificada Preventiva (80/20)
+display(df_part)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe table table-sm table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Subconjunto</th>
+      <th>Observaciones</th>
+      <th>Casos Caries (1)</th>
+      <th>Prevalencia (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Train (80%)</td>
+      <td>44553</td>
+      <td>9505</td>
+      <td>21.33%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Test (20%)</td>
+      <td>11139</td>
+      <td>2376</td>
+      <td>21.33%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Total</td>
+      <td>55692</td>
+      <td>11881</td>
+      <td>21.33%</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+</section>
+</section>
+<section id="analisis-exploratorio-de-datos-eda">
+<h2>2. Análisis Exploratorio de Datos (EDA)<a class="headerlink" href="#analisis-exploratorio-de-datos-eda" title="Permalink to this heading">#</a></h2>
+<section id="regla-de-oro-metodologica-reserva-preventiva-del-conjunto-de-prueba">
+<h3>2.1. Regla de Oro Metodológica: Reserva Preventiva del Conjunto de Prueba<a class="headerlink" href="#regla-de-oro-metodologica-reserva-preventiva-del-conjunto-de-prueba" title="Permalink to this heading">#</a></h3>
+<p>La división estratificada 80/20 se realizó <strong>antes</strong> de calcular estadísticas, umbrales de atípicos o transformaciones, preservando al conjunto de prueba (<span class="math notranslate nohighlight">\(n=11{,}139\)</span>) completamente ciego para evitar fuga de información (<em>data leakage</em>).</p>
+</section>
+<section id="analisis-univariado-y-criterio-de-tukey-1-5-times-text-iqr">
+<h3>2.2. Análisis Univariado y Criterio de Tukey (<span class="math notranslate nohighlight">\(1.5 \times \text{IQR}\)</span>)<a class="headerlink" href="#analisis-univariado-y-criterio-de-tukey-1-5-times-text-iqr" title="Permalink to this heading">#</a></h3>
+<p>Se calculan estadísticas descriptivas robustas y la cuantificación de atípicos univariados bajo el criterio de Tukey:</p>
+</section>
+<section id="interpretacion-exhaustiva-del-analisis-univariado-y-criterio-de-tukey">
+<h3>2.2. Interpretación Exhaustiva del Análisis Univariado y Criterio de Tukey<a class="headerlink" href="#interpretacion-exhaustiva-del-analisis-univariado-y-criterio-de-tukey" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Asimetría Marcada en el Perfil Hepático y Metabólico:</strong> Se evidencia asimetría severa en aminotransferasas (<code class="docutils literal notranslate"><span class="pre">ALT</span></code> con <em>skewness</em> 36.34, curtosis 2429.53; <code class="docutils literal notranslate"><span class="pre">AST</span></code> con 24.91; y <code class="docutils literal notranslate"><span class="pre">Gtp</span></code> con 6.70). En fisiología clínica, estas colas derechas extendidas no constituyen errores de registro ni artefactos de medición, sino la manifestación patológica de daño hepatocelular, esteatosis hepática no alcohólica o consumo crónico de alcohol en la cohorte adulta.</p></li>
+<li><p><strong>Atípicos de Tukey:</strong> La glucemia en ayunas (<code class="docutils literal notranslate"><span class="pre">fasting</span> <span class="pre">blood</span> <span class="pre">sugar</span></code>) presenta un <span class="math notranslate nohighlight">\(5.91\%\)</span> de valores fuera del rango <span class="math notranslate nohighlight">\([Q_1 - 1.5\text{IQR}, Q_3 + 1.5\text{IQR}]\)</span>, correspondiente a individuos con síndrome metabólico o diabetes mellitus tipo 2 no controlada. Dado que estos registros representan condiciones clínicas reales y de alta relevancia biológica, <strong>no se descartan</strong>, sino que se tratan dentro del Pipeline de modelado mediante estandarización robusta.</p></li>
+<li><p><strong>Distribución Antropométrica:</strong> Estatura y peso presentan morfologías unimodales con baja asimetría, representativas de la población general adulta.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Estadísticos robustos sobre Train Set
+display(df_tukey)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe table table-sm table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Variable</th>
+      <th>Media</th>
+      <th>Mediana</th>
+      <th>IQR</th>
+      <th>Skew</th>
+      <th>Kurtosis</th>
+      <th>Atipicos</th>
+      <th>% Atip</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>age</td>
+      <td>44.19</td>
+      <td>40.0</td>
+      <td>15.0</td>
+      <td>0.26</td>
+      <td>-0.17</td>
+      <td>234</td>
+      <td>0.53%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>height(cm)</td>
+      <td>164.67</td>
+      <td>165.0</td>
+      <td>10.0</td>
+      <td>-0.14</td>
+      <td>-0.62</td>
+      <td>190</td>
+      <td>0.43%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>weight(kg)</td>
+      <td>65.85</td>
+      <td>65.0</td>
+      <td>20.0</td>
+      <td>0.54</td>
+      <td>0.32</td>
+      <td>159</td>
+      <td>0.36%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>waist(cm)</td>
+      <td>82.04</td>
+      <td>82.0</td>
+      <td>12.0</td>
+      <td>0.24</td>
+      <td>0.14</td>
+      <td>396</td>
+      <td>0.89%</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>systolic</td>
+      <td>121.46</td>
+      <td>120.0</td>
+      <td>18.0</td>
+      <td>0.44</td>
+      <td>1.14</td>
+      <td>521</td>
+      <td>1.17%</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>relaxation</td>
+      <td>76.00</td>
+      <td>76.0</td>
+      <td>12.0</td>
+      <td>0.37</td>
+      <td>0.83</td>
+      <td>541</td>
+      <td>1.21%</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>fasting blood sugar</td>
+      <td>99.33</td>
+      <td>96.0</td>
+      <td>15.0</td>
+      <td>4.63</td>
+      <td>38.37</td>
+      <td>2631</td>
+      <td>5.91%</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Cholesterol</td>
+      <td>196.93</td>
+      <td>195.0</td>
+      <td>48.0</td>
+      <td>0.40</td>
+      <td>0.65</td>
+      <td>497</td>
+      <td>1.12%</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>triglyceride</td>
+      <td>126.48</td>
+      <td>108.0</td>
+      <td>86.0</td>
+      <td>1.33</td>
+      <td>2.01</td>
+      <td>1781</td>
+      <td>4.00%</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>HDL</td>
+      <td>57.27</td>
+      <td>55.0</td>
+      <td>19.0</td>
+      <td>2.06</td>
+      <td>47.93</td>
+      <td>808</td>
+      <td>1.81%</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>LDL</td>
+      <td>115.03</td>
+      <td>113.0</td>
+      <td>44.0</td>
+      <td>11.48</td>
+      <td>391.11</td>
+      <td>505</td>
+      <td>1.13%</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>hemoglobin</td>
+      <td>14.63</td>
+      <td>14.8</td>
+      <td>2.1</td>
+      <td>-0.65</td>
+      <td>1.16</td>
+      <td>602</td>
+      <td>1.35%</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>serum creatinine</td>
+      <td>0.89</td>
+      <td>0.9</td>
+      <td>0.2</td>
+      <td>9.09</td>
+      <td>330.87</td>
+      <td>2508</td>
+      <td>5.63%</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>AST</td>
+      <td>26.23</td>
+      <td>23.0</td>
+      <td>10.0</td>
+      <td>24.91</td>
+      <td>1160.61</td>
+      <td>2389</td>
+      <td>5.36%</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>ALT</td>
+      <td>27.11</td>
+      <td>21.0</td>
+      <td>16.0</td>
+      <td>36.34</td>
+      <td>2429.53</td>
+      <td>3011</td>
+      <td>6.76%</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Gtp</td>
+      <td>39.92</td>
+      <td>26.0</td>
+      <td>26.0</td>
+      <td>6.70</td>
+      <td>73.32</td>
+      <td>3975</td>
+      <td>8.92%</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Distribuciones univariadas y boxplots clave
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b0b88fb101783c6498aaf4619f708a7892d71db852adc722503e701ea08683e3.png" src="_images/b0b88fb101783c6498aaf4619f708a7892d71db852adc722503e701ea08683e3.png" />
+</div>
+</div>
+</section>
+<section id="analisis-bivariado-pruebas-de-hipotesis-y-tamanos-de-efecto">
+<h3>2.3. Análisis Bivariado, Pruebas de Hipótesis y Tamaños de Efecto<a class="headerlink" href="#analisis-bivariado-pruebas-de-hipotesis-y-tamanos-de-efecto" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Predictoras Numéricas:</strong> Contraste no paramétrico de <strong>Mann-Whitney U</strong> reportando el p-valor y el tamaño de efecto de Rosenthal: <strong>r = |Z| / √N</strong>.</p></li>
+<li><p><strong>Predictoras Categóricas:</strong> Prueba de independencia de <strong>Chi-Cuadrado</strong> con el coeficiente de asociación <strong>V de Cramér</strong>.</p></li>
+</ul>
+</section>
+<section id="interpretacion-rigurosa-del-analisis-bivariado-y-tamanos-de-efecto">
+<h3>2.4. Interpretación Rigurosa del Análisis Bivariado y Tamaños de Efecto<a class="headerlink" href="#interpretacion-rigurosa-del-analisis-bivariado-y-tamanos-de-efecto" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Rigor Estadístico ante Muestras Masivas:</strong> Con un subconjunto de entrenamiento de <span class="math notranslate nohighlight">\(n = 44{,}553\)</span>, prácticamente todas las pruebas de hipótesis formales arrojan <span class="math notranslate nohighlight">\(p &lt; 10^{-4}\)</span> debido a la elevada potencia estadística (el error estándar tiende a cero). Por consiguiente, el criterio de selección y priorización clínica debe regirse estrictamente por los <strong>tamaños de efecto</strong> y no por el p-valor aislado.</p></li>
+<li><p><strong>Factores Clínicos Orales y Estilos de Vida:</strong> Los predictores con mayor asociación bivariada con la caries dental son el tártaro/cálculo dental (<code class="docutils literal notranslate"><span class="pre">tartar</span></code>, <span class="math notranslate nohighlight">\(V = 0.175\)</span>) y el consumo activo de tabaco (<code class="docutils literal notranslate"><span class="pre">smoking</span></code>, <span class="math notranslate nohighlight">\(V = 0.108\)</span>). Biológicamente, el cálculo dental actúa como un nicho retentivo que perpetúa biopelículas cariogénicas disbióticas, mientras que el tabaquismo altera el flujo y pH salival, disminuyendo la capacidad amortiguadora del bicarbonato y deprimiendo la inmunoglobulina A secretora (sIgA).</p></li>
+<li><p><strong>Diferencias Demográficas y Metabólicas:</strong> Los pacientes con caries presentan una mediana de edad menor (40 vs 44 años, <span class="math notranslate nohighlight">\(r = 0.121\)</span>) y niveles superiores de triglicéridos y perímetro abdominal (<span class="math notranslate nohighlight">\(p &lt; 10^{-4}\)</span>), concordante con estilos de vida modernos de mayor consumo de azúcares fermentables y carbohidratos refinados.</p></li>
+<li><p><strong>Variables sin Discriminación:</strong> El colesterol total (<span class="math notranslate nohighlight">\(p = 0.3586, r = 0.004\)</span>) y el colesterol LDL (<span class="math notranslate nohighlight">\(p = 0.2466, r = 0.005\)</span>) no muestran diferencias estadísticamente significativas ni relevancia biológica con la patología cariosa.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Bivariado con tamaños de efecto
+display(df_biv_num)
+display(df_biv_cat)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe table table-sm table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Predictor</th>
+      <th>Media Sin Caries</th>
+      <th>Media Con Caries</th>
+      <th>p-val</th>
+      <th>Rosenthal r</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>age</td>
+      <td>44.92</td>
+      <td>41.50</td>
+      <td>&lt; 1e-4</td>
+      <td>0.121</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>height(cm)</td>
+      <td>164.27</td>
+      <td>166.12</td>
+      <td>&lt; 1e-4</td>
+      <td>0.083</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>weight(kg)</td>
+      <td>65.35</td>
+      <td>67.68</td>
+      <td>&lt; 1e-4</td>
+      <td>0.072</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>waist(cm)</td>
+      <td>81.82</td>
+      <td>82.84</td>
+      <td>&lt; 1e-4</td>
+      <td>0.043</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>systolic</td>
+      <td>121.26</td>
+      <td>122.18</td>
+      <td>&lt; 1e-4</td>
+      <td>0.027</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>relaxation</td>
+      <td>75.85</td>
+      <td>76.54</td>
+      <td>&lt; 1e-4</td>
+      <td>0.029</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>fasting blood sugar</td>
+      <td>99.34</td>
+      <td>99.33</td>
+      <td>0.0189</td>
+      <td>0.011</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Cholesterol</td>
+      <td>196.96</td>
+      <td>196.80</td>
+      <td>0.3586</td>
+      <td>0.004</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>triglyceride</td>
+      <td>125.37</td>
+      <td>130.58</td>
+      <td>&lt; 1e-4</td>
+      <td>0.033</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>HDL</td>
+      <td>57.50</td>
+      <td>56.44</td>
+      <td>&lt; 1e-4</td>
+      <td>0.031</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>LDL</td>
+      <td>115.04</td>
+      <td>114.98</td>
+      <td>0.2466</td>
+      <td>0.005</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>hemoglobin</td>
+      <td>14.57</td>
+      <td>14.83</td>
+      <td>&lt; 1e-4</td>
+      <td>0.074</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>serum creatinine</td>
+      <td>0.88</td>
+      <td>0.90</td>
+      <td>&lt; 1e-4</td>
+      <td>0.038</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>AST</td>
+      <td>26.15</td>
+      <td>26.50</td>
+      <td>0.4888</td>
+      <td>0.003</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>ALT</td>
+      <td>26.74</td>
+      <td>28.49</td>
+      <td>&lt; 1e-4</td>
+      <td>0.031</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Gtp</td>
+      <td>38.85</td>
+      <td>43.88</td>
+      <td>&lt; 1e-4</td>
+      <td>0.059</td>
+    </tr>
+  </tbody>
+</table></div><div class="output text_html"><table class="dataframe table table-sm table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Predictor Categorico</th>
+      <th>Chi2</th>
+      <th>p-val</th>
+      <th>Cramer V</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>gender</td>
+      <td>341.40</td>
+      <td>&lt; 1e-4</td>
+      <td>0.088</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>tartar</td>
+      <td>1367.10</td>
+      <td>&lt; 1e-4</td>
+      <td>0.175</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>smoking</td>
+      <td>522.61</td>
+      <td>&lt; 1e-4</td>
+      <td>0.108</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>hearing(left)</td>
+      <td>9.93</td>
+      <td>0.0016</td>
+      <td>0.015</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>hearing(right)</td>
+      <td>14.54</td>
+      <td>0.0001</td>
+      <td>0.018</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Urine protein</td>
+      <td>7.42</td>
+      <td>0.1912</td>
+      <td>0.013</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+</section>
+<section id="multicolinealidad-vif-matriz-de-correlacion-y-pca-exploratorio">
+<h3>2.4. Multicolinealidad (VIF), Matriz de Correlación y PCA Exploratorio<a class="headerlink" href="#multicolinealidad-vif-matriz-de-correlacion-y-pca-exploratorio" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Factor de Inflación de la Varianza (VIF):</strong> Se evalúa la colinealidad en las covariables continuas.</p></li>
+<li><p><strong>PCA Exploratorio (Sec. 2.4 de la Rúbrica):</strong> Análisis de componentes principales sobre el espacio estandarizado para cuantificar redundancia dimensional.</p></li>
+</ul>
+</section>
+<section id="interpretacion-de-la-estructura-multivariada-y-reduccion-dimensional-pca">
+<h3>2.6. Interpretación de la Estructura Multivariada y Reducción Dimensional (PCA)<a class="headerlink" href="#interpretacion-de-la-estructura-multivariada-y-reduccion-dimensional-pca" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Multicolinealidad y Estabilidad Lineal:</strong> Los factores de inflación de varianza se mantienen en niveles tolerables (<span class="math notranslate nohighlight">\(	ext{VIF} &lt; 7\)</span>). La colinealidad moderada entre <code class="docutils literal notranslate"><span class="pre">weight(kg)</span></code> (<span class="math notranslate nohighlight">\(	ext{VIF} = 6.68\)</span>) y <code class="docutils literal notranslate"><span class="pre">waist(cm)</span></code> (<span class="math notranslate nohighlight">\(	ext{VIF} = 4.47\)</span>), así como la correlación observada entre presión sistólica y diastólica (<span class="math notranslate nohighlight">\(r = 0.78\)</span>), es esperable por fisiología antropométrica y cardiovascular. No se requiere amputar variables en esta fase inicial.</p></li>
+<li><p><strong>Estructura Latente (PCA):</strong> Los primeros 5 componentes principales acumulan el <strong><span class="math notranslate nohighlight">\(66.29\%\)</span></strong> de la varianza total:</p>
+<ul class="simple">
+<li><p><strong>PC1 (<span class="math notranslate nohighlight">\(24.79\%\)</span>):</strong> Eje antropométrico y metabólico general (peso, cintura, estatura, hemoglobina).</p></li>
+<li><p><strong>PC2 (<span class="math notranslate nohighlight">\(12.70\%\)</span>):</strong> Eje cardiovascular hemodinámico (presión sistólica y diastólica).</p></li>
+<li><p><strong>PC3 (<span class="math notranslate nohighlight">\(10.71\%\)</span>):</strong> Eje enzimático hepático (<code class="docutils literal notranslate"><span class="pre">AST</span></code>, <code class="docutils literal notranslate"><span class="pre">ALT</span></code>, <code class="docutils literal notranslate"><span class="pre">Gtp</span></code>).
+Esto corrobora que la señal clínica se distribuye en dimensiones fisiológicas heterogéneas y no colapsa en un solo factor dominante.</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Diagnóstico VIF y PCA Exploratorio
+display(df_vif.T)
+display(df_pca)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe table table-sm table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Predictor</th>
+      <td>age</td>
+      <td>height(cm)</td>
+      <td>weight(kg)</td>
+      <td>waist(cm)</td>
+      <td>systolic</td>
+      <td>relaxation</td>
+      <td>fasting blood sugar</td>
+      <td>Cholesterol</td>
+      <td>triglyceride</td>
+      <td>HDL</td>
+      <td>LDL</td>
+      <td>hemoglobin</td>
+      <td>serum creatinine</td>
+      <td>AST</td>
+      <td>ALT</td>
+      <td>Gtp</td>
+    </tr>
+    <tr>
+      <th>VIF</th>
+      <td>1.62</td>
+      <td>2.81</td>
+      <td>6.68</td>
+      <td>4.47</td>
+      <td>2.49</td>
+      <td>2.44</td>
+      <td>1.14</td>
+      <td>3.41</td>
+      <td>1.91</td>
+      <td>1.82</td>
+      <td>2.88</td>
+      <td>1.67</td>
+      <td>1.25</td>
+      <td>2.27</td>
+      <td>2.27</td>
+      <td>1.35</td>
+    </tr>
+  </tbody>
+</table></div><div class="output text_html"><table class="dataframe table table-sm table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Componente Principal</th>
+      <th>% Varianza Explicada</th>
+      <th>% Varianza Acumulada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PC1</td>
+      <td>24.79</td>
+      <td>24.79</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PC2</td>
+      <td>12.70</td>
+      <td>37.49</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PC3</td>
+      <td>10.71</td>
+      <td>48.20</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>PC4</td>
+      <td>10.22</td>
+      <td>58.42</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>PC5</td>
+      <td>7.87</td>
+      <td>66.29</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Heatmap de correlación lineal
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d3a62a853fe5bf1aa2d9053df76df2b8fe47d21475c68f052c1d2e86e076ed13.png" src="_images/d3a62a853fe5bf1aa2d9053df76df2b8fe47d21475c68f052c1d2e86e076ed13.png" />
+</div>
+</div>
+</section>
+<section id="auditoria-de-fuga-de-datos-data-leakage">
+<h3>2.5. Auditoría de Fuga de Datos (<em>Data Leakage</em>)<a class="headerlink" href="#auditoria-de-fuga-de-datos-data-leakage" title="Permalink to this heading">#</a></h3>
+<p>Se evalúa el AUC univariado de cada predictor individual. La ausencia de valores anómalos (&gt; 0.75) confirma que ninguna variable actúa como proxy posterior al diagnóstico.</p>
+</section>
+<section id="interpretacion-de-la-auditoria-de-fuga-de-datos-data-leakage">
+<h3>2.8. Interpretación de la Auditoría de Fuga de Datos (<em>Data Leakage</em>)<a class="headerlink" href="#interpretacion-de-la-auditoria-de-fuga-de-datos-data-leakage" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Disponibilidad Temporal:</strong> Todas las variables predictoras (antropometría, analítica sanguínea y cuestionario de hábitos) se recogen durante la fase previa de enfermería y laboratorio, garantizando su disponibilidad antes de la exploración estomatológica con sonda y espejo.</p></li>
+<li><p><strong>Ausencia de Proxies y Fuga:</strong> Ninguna variable alcanza valores de AUC univariado anómalos; el mayor valor corresponde a la edad (<span class="math notranslate nohighlight">\(0.586\)</span>), manteniéndose todas muy por debajo del umbral de alerta de fuga (<span class="math notranslate nohighlight">\(0.75\)</span>). Se confirma la integridad del flujo de datos sin contaminaciones del target.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Auditoría de fuga: AUC Univariado
+display(df_leak.T)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe table table-sm table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Predictor</th>
+      <td>age</td>
+      <td>height(cm)</td>
+      <td>weight(kg)</td>
+      <td>waist(cm)</td>
+      <td>systolic</td>
+      <td>relaxation</td>
+      <td>fasting blood sugar</td>
+      <td>Cholesterol</td>
+      <td>triglyceride</td>
+      <td>HDL</td>
+      <td>LDL</td>
+      <td>hemoglobin</td>
+      <td>serum creatinine</td>
+      <td>AST</td>
+      <td>ALT</td>
+      <td>Gtp</td>
+    </tr>
+    <tr>
+      <th>AUC Univariado</th>
+      <td>0.586</td>
+      <td>0.559</td>
+      <td>0.55</td>
+      <td>0.53</td>
+      <td>0.519</td>
+      <td>0.52</td>
+      <td>0.508</td>
+      <td>0.503</td>
+      <td>0.523</td>
+      <td>0.522</td>
+      <td>0.504</td>
+      <td>0.552</td>
+      <td>0.527</td>
+      <td>0.502</td>
+      <td>0.522</td>
+      <td>0.542</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+</section>
+</section>
+<section id="modelo-base-vs-linea-base-trivial-dummy">
+<h2>3. Modelo Base vs Línea Base Trivial (Dummy)<a class="headerlink" href="#modelo-base-vs-linea-base-trivial-dummy" title="Permalink to this heading">#</a></h2>
+<section id="justificacion-y-comparacion-de-modelos">
+<h3>3.1. Justificación y Comparación de Modelos<a class="headerlink" href="#justificacion-y-comparacion-de-modelos" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Línea Base Trivial:</strong> <code class="docutils literal notranslate"><span class="pre">DummyClassifier(strategy=&quot;most_frequent&quot;)</span></code>. Clasificador ingenuo que predice la clase mayoritaria (0), demostrando que una exactitud de 78.67% no captura casos clínicos (F1 = 0.0000, Recall = 0.0000).</p></li>
+<li><p><strong>Modelo Base:</strong> <code class="docutils literal notranslate"><span class="pre">LogisticRegression(max_iter=1000)</span></code> integrado en un <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> con <code class="docutils literal notranslate"><span class="pre">ColumnTransformer</span></code> (<code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> + <code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code>).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Métricas comparativas con Bootstrap (B=500)
+display(df_models)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe table table-sm table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Metrica</th>
+      <th>Linea Base Trivial (Dummy)</th>
+      <th>Modelo Base (Regresion Logistica)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Accuracy</td>
+      <td>0.7867</td>
+      <td>0.7868</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Precision</td>
+      <td>0.0000</td>
+      <td>0.6667</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Recall</td>
+      <td>0.0000</td>
+      <td>0.0008</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>F1-Score</td>
+      <td>0.0000</td>
+      <td>0.0017</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ROC AUC</td>
+      <td>0.5000</td>
+      <td>0.6441</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>IC 95% ROC AUC (B=500)</td>
+      <td>[0.5000, 0.5000]</td>
+      <td>[0.6320, 0.6555]</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+</section>
+<section id="matriz-de-confusion-del-modelo-base-conjunto-de-prueba">
+<h3>3.2. Matriz de Confusión del Modelo Base (Conjunto de Prueba)<a class="headerlink" href="#matriz-de-confusion-del-modelo-base-conjunto-de-prueba" title="Permalink to this heading">#</a></h3>
+<p>Al emplear el umbral por defecto (0.5), el modelo lineal favorece fuertemente la especificidad debido al desbalance del 21.3%.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Matriz de confusión
+display(df_cm)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe table table-sm table-striped table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Pred: Sin Caries (0)</th>
+      <th>Pred: Con Caries (1)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Real: Sin Caries (0)</th>
+      <td>8762</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Real: Con Caries (1)</th>
+      <td>2374</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Gráficos Diagnósticos
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f3c861e2e4ac12671ee5eb2f5e43a806df5a4237b7b28422311fdb6cfbc9f663.png" src="_images/f3c861e2e4ac12671ee5eb2f5e43a806df5a4237b7b28422311fdb6cfbc9f663.png" />
+</div>
+</div>
+</section>
+<section id="interpretacion-diagnostica-detallada-del-modelo-base-vs-linea-base-trivial">
+<h3>3.3. Interpretación Diagnóstica Detallada del Modelo Base vs Línea Base Trivial<a class="headerlink" href="#interpretacion-diagnostica-detallada-del-modelo-base-vs-linea-base-trivial" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Superación Estadística del Azar:</strong> La Regresión Logística alcanza un <strong>ROC AUC de 0.6441</strong> (IC 95% Bootstrap: <strong>[0.6320, 0.6555]</strong> con <span class="math notranslate nohighlight">\(B=500\)</span>). Al no solaparse con el estimador trivial (<span class="math notranslate nohighlight">\(0.5000\)</span>), se demuestra capacidad discriminativa estadísticamente sólida.</p></li>
+<li><p><strong>Análisis Crítico de la Matriz de Confusión y Umbral de Decisión:</strong> La matriz sobre el conjunto de prueba evidencia que, bajo el umbral simétrico por defecto de <span class="math notranslate nohighlight">\(0.5\)</span>, el modelo clasifica casi todas las instancias como clase negativa, generando <strong><span class="math notranslate nohighlight">\(2{,}374\)</span> falsos negativos</strong> y detectando únicamente <span class="math notranslate nohighlight">\(2\)</span> verdaderos positivos (<span class="math notranslate nohighlight">\(	ext{Recall} = 0.0008\)</span>). Esto no representa un fallo del algoritmo, sino el efecto de la función logística estándar minimizando la pérdida global ante un desbalance del <span class="math notranslate nohighlight">\(21.33\%\)</span>. Este hallazgo justifica formalmente la necesidad de calibración de umbrales sobre la curva Precision-Recall o esquemas de balanceo (SMOTE/Class Weights) para los siguientes entregables.</p></li>
+<li><p><strong>Curva Precision-Recall:</strong> Alcanza un <strong>Average Precision (AP) de 0.3156</strong>, superando claramente la línea base horizontal de prevalencia (<span class="math notranslate nohighlight">\(21.33\%\)</span>), lo que ratifica la presencia de aprendizaje efectivo.</p></li>
+<li><p><strong>Calibración Probabilística:</strong> La curva de calibración muestra consistencia diagonal en el intervalo <span class="math notranslate nohighlight">\([0.0, 0.45]\)</span>, confirmando que las probabilidades emitidas reflejan el riesgo relativo real del paciente.</p></li>
+<li><p><strong>Diagnóstico de Sesgo y Varianza (Curva de Aprendizaje):</strong> Las curvas de Train y Validación convergen asintóticamente a partir de las <span class="math notranslate nohighlight">\(20{,}000\)</span> muestras con una brecha insignificante (<span class="math notranslate nohighlight">\(\Delta &lt; 0.01\)</span>), descartando sobreajuste (<em>overfitting</em>) y confirmando que un aumento del tamaño de muestra no modificará el desempeño lineal.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="conclusiones-y-plan-para-siguientes-entregables">
+<h2>4. Conclusiones y Plan para Siguientes Entregables<a class="headerlink" href="#conclusiones-y-plan-para-siguientes-entregables" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Línea Base Establecida:</strong> Modelo logístico con ROC AUC referencial de <strong>0.6441</strong> y AP de <strong>0.3156</strong>.</p></li>
+<li><p><strong>Covariables Relevantes:</strong> El tártaro dental, el tabaquismo y la edad constituyen la tríada de mayor impacto estomatológico.</p></li>
+<li><p><strong>Próximos Pasos (Entregables 2 y 3):</strong> Exploración de modelos de ensamble no lineales (Random Forest, XGBoost), ingeniería de interacción (cintura/triglicéridos) y optimización del umbral de corte mediante el índice Youden / F1 ponderado.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="09_evaluacion_modelos.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">9.10. Proyecto Integrador: Evaluación de Modelos y Riesgo Crediticio</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-base-de-datos-analisis-exploratorio-e-implementacion-de-modelo-base-ruta-a-clasificacion">Selección de Base de Datos, Análisis Exploratorio e Implementación de Modelo Base (Ruta A: Clasificación)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-de-datos-y-definicion-del-problema-de-investigacion">1. Base de Datos y Definición del Problema de Investigación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-fisiologico-y-formulacion-del-problema">1.1. Contexto Fisiológico y Formulación del Problema</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#justificacion-y-fuente-del-dataset">1.2. Justificación y Fuente del Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-del-desbalance-del-target-y-reserva-preventiva">1.3. Análisis del Desbalance del Target y Reserva Preventiva</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-de-datos-eda">2. Análisis Exploratorio de Datos (EDA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-oro-metodologica-reserva-preventiva-del-conjunto-de-prueba">2.1. Regla de Oro Metodológica: Reserva Preventiva del Conjunto de Prueba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-univariado-y-criterio-de-tukey-1-5-times-text-iqr">2.2. Análisis Univariado y Criterio de Tukey (<span class="math notranslate nohighlight">\(1.5 \times \text{IQR}\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-exhaustiva-del-analisis-univariado-y-criterio-de-tukey">2.2. Interpretación Exhaustiva del Análisis Univariado y Criterio de Tukey</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-bivariado-pruebas-de-hipotesis-y-tamanos-de-efecto">2.3. Análisis Bivariado, Pruebas de Hipótesis y Tamaños de Efecto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-rigurosa-del-analisis-bivariado-y-tamanos-de-efecto">2.4. Interpretación Rigurosa del Análisis Bivariado y Tamaños de Efecto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multicolinealidad-vif-matriz-de-correlacion-y-pca-exploratorio">2.4. Multicolinealidad (VIF), Matriz de Correlación y PCA Exploratorio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-la-estructura-multivariada-y-reduccion-dimensional-pca">2.6. Interpretación de la Estructura Multivariada y Reducción Dimensional (PCA)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auditoria-de-fuga-de-datos-data-leakage">2.5. Auditoría de Fuga de Datos (<em>Data Leakage</em>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-la-auditoria-de-fuga-de-datos-data-leakage">2.8. Interpretación de la Auditoría de Fuga de Datos (<em>Data Leakage</em>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-base-vs-linea-base-trivial-dummy">3. Modelo Base vs Línea Base Trivial (Dummy)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#justificacion-y-comparacion-de-modelos">3.1. Justificación y Comparación de Modelos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-confusion-del-modelo-base-conjunto-de-prueba">3.2. Matriz de Confusión del Modelo Base (Conjunto de Prueba)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-diagnostica-detallada-del-modelo-base-vs-linea-base-trivial">3.3. Interpretación Diagnóstica Detallada del Modelo Base vs Línea Base Trivial</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-y-plan-para-siguientes-entregables">4. Conclusiones y Plan para Siguientes Entregables</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Andrés Duarte Chaves
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
