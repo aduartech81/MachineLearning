@@ -1,2 +1,4 @@
-format: jb-article
+format: jb-book
 root: 09_evaluacion_modelos
+chapters:
+  - file: entregable_1_clasificacion
