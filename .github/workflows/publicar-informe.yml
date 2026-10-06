@@ -1,0 +1,50 @@
+name: Publicar informe de nuevas entregas
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'jbook_entregas_2/**'
+      - '.github/workflows/publicar-informe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: sitio-anterior
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install 'jupyter-book==1.0.4.post1'
+      - run: jupyter-book build jbook_entregas_2 --warningiserror
+      - name: Conservar sitio anterior y añadir informe
+        run: |
+          python - <<'PY'
+          import shutil
+          from pathlib import Path
+          shutil.copytree('sitio-anterior', '_site', ignore=shutil.ignore_patterns('.git'))
+          destino = Path('_site/entregas-2')
+          if destino.exists():
+              shutil.rmtree(destino)
+          shutil.copytree('jbook_entregas_2/_build/html', destino)
+          Path('_site/.nojekyll').touch()
+          PY
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - uses: actions/deploy-pages@v4
+        id: deployment
