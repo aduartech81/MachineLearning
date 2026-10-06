@@ -48,10 +48,12 @@ tártaro para el escenario previo al examen oral. No deben sustituirse sin expli
 
 ## Pendientes de publicación y orquestación
 
-- Publicar estos archivos en GitHub y observar el workflow CI remoto.
-- Crear el servicio Render con `render.yaml` y verificar sus tres pestañas en la URL pública.
+- Código publicado y validación remota completada.
+- Dashboard: https://machinelearning-caries-andres-duarte.onrender.com
+- Informe: https://aduartech81.github.io/MachineLearning/entregas-2/intro.html
+- Dashboard desplegado; callbacks de las tres pestañas verificados. Falta revisión visual de filtros y umbral.
 - Ejecutar Docker y Minikube en una máquina que disponga de ellos. En este entorno no están instalados.
-- Publicar el JBook como sitio estático si se requiere enlace público.
+- JBook publicado en GitHub Pages.
 
 La sección `ejecucion` del JBook incluye los comandos de Docker/Minikube y configuración de Render.
 El archivo de ejemplo README del docente menciona otro proyecto de forecasting; aquí la documentación

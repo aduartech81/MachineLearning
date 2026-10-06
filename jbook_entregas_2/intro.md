@@ -10,5 +10,8 @@ los archivos anteriores entregados al docente no se modificaron.
 
 El dashboard contiene exactamente tres pestañas. El informe interpreta los gráficos y presenta
 las decisiones metodológicas, limitaciones, procedencia y detalles de reproducción adicionales.
-El despliegue público de Dash y la ejecución de Docker/Minikube siguen pendientes; no se presentan
-como servicios publicados ni pruebas ya realizadas.
+Dashboard publicado: https://machinelearning-caries-andres-duarte.onrender.com
+
+Informe publicado: https://aduartech81.github.io/MachineLearning/entregas-2/intro.html
+
+Docker y Minikube siguen pendientes de ejecución.

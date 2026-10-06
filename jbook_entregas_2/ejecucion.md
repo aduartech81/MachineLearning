@@ -59,7 +59,7 @@ usando `render.yaml`, o configurar:
 - Root Directory: raíz del repositorio.
 
 Los resultados deben estar versionados antes del despliegue. Después verificar las tres pestañas,
-filtros y control de umbral en la URL pública. No se ha creado un servicio Render ni una URL pública.
+filtros y control de umbral en la URL pública. Dashboard publicado: https://machinelearning-caries-andres-duarte.onrender.com. Los endpoints y callbacks de las tres pestañas respondieron correctamente; falta comprobar visualmente filtros y umbral.
 GitHub Pages puede alojar el JBook estático, pero no ejecutar el servidor Python de Dash.
 
 ## Estado comprobado
@@ -72,8 +72,8 @@ GitHub Pages puede alojar el JBook estático, pero no ejecutar el servidor Pytho
 | API: predicción y validación | Probadas localmente |
 | Evidently: dos reportes | Generados |
 | Docker / Minikube | Archivos preparados; ejecución pendiente |
-| GitHub Actions | Workflow preparado; ejecución remota pendiente |
-| Render y publicación JBook | Configuración preparada; publicación pendiente |
+| GitHub Actions | Validación remota completada con éxito |
+| Render y publicación JBook | Dashboard y JBook publicados |
 
 ## Verificación de notebooks y límite de vista previa
 
