@@ -14,4 +14,4 @@ Dashboard publicado: https://machinelearning-caries-andres-duarte.onrender.com
 
 Informe publicado: https://aduartech81.github.io/MachineLearning/entregas-2/intro.html
 
-Docker y Minikube siguen pendientes de ejecución.
+Docker y Minikube ejecutados y verificados en el Mac del autor.

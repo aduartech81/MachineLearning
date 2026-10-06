@@ -64,16 +64,13 @@ de entrenamiento. El endpoint `/health` comprueba la carga del modelo. `/predict
 clase a umbral 0,5 y alcance académico. La probabilidad no está calibrada para atención clínica.
 
 Docker incluye las dependencias y el artefacto. Kubernetes configura Deployment, Service NodePort,
-readiness probe y límites de recursos. **Docker y Kubernetes no se ejecutaron en este entorno**, que
-no dispone de sus comandos. Sus archivos se entregan para validación local con las instrucciones del
-capítulo siguiente; no se afirma que la etapa de orquestación esté desplegada.
+readiness probe y límites de recursos. Docker y Kubernetes se ejecutaron en el Mac del autor. Minikube completó el rollout y el pod quedó Running, READY 1/1. Las pruebas mediante port-forward del servicio devolvieron el modelo cargado y la misma predicción que Docker. Evidencia: `tarea_2/results/verificacion_despliegue/respuestas.json`.
 
 ## 5. Integración continua
 
 El workflow de GitHub Actions instala dependencias, verifica errores esenciales de sintaxis/nombres
 y ejecuta pruebas de separación de perfiles, equivalencia entre API y pipeline, rechazo de entradas
-inválidas y callbacks del dashboard. Las pruebas se ejecutaron localmente. El workflow remoto
-queda pendiente hasta publicar los archivos y observar una ejecución satisfactoria en GitHub.
+inválidas y callbacks del dashboard. Las pruebas se ejecutaron localmente. La validación remota de GitHub Actions se completó con éxito.
 
 ## 6. Monitoreo ilustrativo con Evidently
 

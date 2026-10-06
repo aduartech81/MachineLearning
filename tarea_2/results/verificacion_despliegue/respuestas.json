@@ -1,0 +1,42 @@
+{
+  "fecha_utc": "2026-10-06T13:10:12.228148+00:00",
+  "entrada": {
+    "Age": 54,
+    "Sex": "M",
+    "ChestPainType": "ASY",
+    "RestingBP": 130,
+    "Cholesterol": 240,
+    "FastingBS": 0,
+    "RestingECG": "Normal",
+    "MaxHR": 150,
+    "ExerciseAngina": "N",
+    "Oldpeak": 1.0,
+    "ST_Slope": "Flat"
+  },
+  "resultados": {
+    "docker": {
+      "health": {
+        "status": "ok",
+        "model_loaded": true
+      },
+      "predict": {
+        "heart_disease_probability": 0.7890747996765479,
+        "prediction": 1,
+        "threshold": 0.5,
+        "scope": "Clasificación académica de enfermedad cardíaca registrada; no diagnóstico clínico."
+      }
+    },
+    "kubernetes": {
+      "health": {
+        "status": "ok",
+        "model_loaded": true
+      },
+      "predict": {
+        "heart_disease_probability": 0.7890747996765479,
+        "prediction": 1,
+        "threshold": 0.5,
+        "scope": "Clasificación académica de enfermedad cardíaca registrada; no diagnóstico clínico."
+      }
+    }
+  }
+}

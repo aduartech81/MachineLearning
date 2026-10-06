@@ -71,7 +71,7 @@ GitHub Pages puede alojar el JBook estático, pero no ejecutar el servidor Pytho
 | Dashboard: endpoints y callbacks | Probados localmente |
 | API: predicción y validación | Probadas localmente |
 | Evidently: dos reportes | Generados |
-| Docker / Minikube | Archivos preparados; ejecución pendiente |
+| Docker / Minikube | Ejecutados; health y predict verificados |
 | GitHub Actions | Validación remota completada con éxito |
 | Render y publicación JBook | Dashboard y JBook publicados |
 

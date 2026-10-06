@@ -52,7 +52,7 @@ tártaro para el escenario previo al examen oral. No deben sustituirse sin expli
 - Dashboard: https://machinelearning-caries-andres-duarte.onrender.com
 - Informe: https://aduartech81.github.io/MachineLearning/entregas-2/intro.html
 - Dashboard desplegado; callbacks de las tres pestañas verificados. Falta revisión visual de filtros y umbral.
-- Ejecutar Docker y Minikube en una máquina que disponga de ellos. En este entorno no están instalados.
+- Docker y Minikube ejecutados en el Mac del autor. Respuestas verificadas y guardadas en `tarea_2/results/verificacion_despliegue/respuestas.json`.
 - JBook publicado en GitHub Pages.
 
 La sección `ejecucion` del JBook incluye los comandos de Docker/Minikube y configuración de Render.
