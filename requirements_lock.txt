@@ -1,0 +1,16 @@
+numpy==2.3.5
+pandas==2.2.3
+scikit-learn==1.8.0
+joblib==1.5.3
+dash==3.4.0
+plotly==5.24.1
+gunicorn==26.2.0
+fastapi==0.142.2
+uvicorn==0.54.0
+evidently==0.7.23
+jupyter-book==1.0.4.post1
+nbformat==5.11.1
+nbclient==0.11.0
+pytest==9.1.1
+httpx==0.28.1
+flake8==7.4.1

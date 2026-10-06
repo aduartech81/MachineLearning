@@ -1,0 +1,13 @@
+name: Validación de nuevas entregas
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements_nuevas.txt
+      - run: flake8 ml_common.py entregable_2 tarea_2 tests --select=E9,F63,F7,F82 --exclude=data,results
+      - run: pytest -q

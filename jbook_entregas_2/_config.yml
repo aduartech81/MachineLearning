@@ -1,0 +1,8 @@
+title: "Machine Learning — Tarea 2 y Entregable 2"
+author: "Andrés Duarte Chaves"
+execute:
+  execute_notebooks: "off"
+html:
+  use_repository_button: true
+repository:
+  url: "https://github.com/aduartech81/MachineLearning"

@@ -1,0 +1,10 @@
+:root {color-scheme: light; font-family: Arial, sans-serif; color:#172d3d; background:#eef3f6}
+body {margin:0} .shell {max-width:1250px; margin:auto; background:white; min-height:100vh}
+header {background:#17384a; color:white; padding:40px 45px} h1 {font-size:48px; margin:10px 0}
+.eyebrow {letter-spacing:2px; font-size:12px; color:#91d0d6} main {padding:30px 40px}
+h2 {font-size:26px} p {line-height:1.6} .note {border-left:4px solid #147d92; padding:12px 16px; background:#f0f6f7; font-size:14px}
+.cards {display:flex; gap:16px; flex-wrap:wrap; margin:24px 0} .card {background:#f0f5f7; border:1px solid #dce7eb; padding:20px; flex:1; min-width:145px}
+.card strong {display:block; font-size:27px; color:#147d92} .card span {display:block; margin-top:8px; font-size:13px}
+.grid,.filters {display:grid; grid-template-columns:1fr 1fr; gap:20px} table {border-collapse:collapse; width:100%; font-size:13px}
+th,td {padding:12px; border-bottom:1px solid #dce7eb; text-align:left} th {background:#edf4f6}
+a {color:#147d92} label {display:block; margin:10px 0} @media(max-width:760px){.grid,.filters{grid-template-columns:1fr}main{padding:18px}header{padding:25px}h1{font-size:36px}table{display:block;overflow:auto}}

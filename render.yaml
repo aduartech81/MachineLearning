@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: caries-andres-duarte
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements_dashboard.txt
+    startCommand: gunicorn entregable_2.app:server --bind 0.0.0.0:$PORT --workers 1 --timeout 120
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11

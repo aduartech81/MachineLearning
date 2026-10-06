@@ -1,0 +1,6 @@
+format: jb-book
+root: intro
+chapters:
+  - file: entregable_2
+  - file: tarea_2
+  - file: ejecucion
