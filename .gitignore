@@ -13,3 +13,7 @@ jbook_entregas_2/_build/
 tarea_1/results/canonical.csv
 tarea_1/results/splits.csv
 tarea_1/results/spark_predictions/
+# Modelos y matrices de entrenamiento regenerables de Tarea 1
+tarea_1/results/*.joblib
+tarea_1/results/spark_*_model/
+tarea_1/results/*_predictions.csv

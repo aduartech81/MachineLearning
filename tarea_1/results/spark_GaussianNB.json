@@ -1,0 +1,27 @@
+{
+  "framework": "spark",
+  "model": "GaussianNB",
+  "implementation": "NaiveBayes",
+  "rows": 1345310,
+  "train": 1076248,
+  "test": 269062,
+  "cv_auc": 0.6820864352462402,
+  "cv_sd": 0.00029733048867479133,
+  "read_seconds": 4.588301443000091,
+  "fit_cv_seconds": 67.6954104610013,
+  "predict_seconds": 2.306210471000668,
+  "transfer_seconds": 1.0092240900012257,
+  "parameters": {
+    "cv_auc": 0.6820864352462402
+  },
+  "maxBins": 64,
+  "roc_auc": 0.6815219706798702,
+  "accuracy": 0.7907805635875746,
+  "precision": 0.43496447109812025,
+  "recall": 0.16069034852546918,
+  "f1": 0.2346815308272721,
+  "tn": 204138,
+  "fp": 11212,
+  "fn": 45081,
+  "tp": 8631
+}

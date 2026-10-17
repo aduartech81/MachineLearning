@@ -1,0 +1,25 @@
+{
+  "framework": "sklearn",
+  "model": "DecisionTree",
+  "rows": 1345310,
+  "train": 1076248,
+  "test": 269062,
+  "cv_auc": 0.7009494632257098,
+  "cv_sd": 0.0002915838223549628,
+  "fit_cv_seconds": 72.45314997199966,
+  "predict_seconds": 0.21205422099956195,
+  "read_seconds": 1.2394166539997968,
+  "final_preprocess_seconds": 2.245345986000757,
+  "parameters": {
+    "estimator__max_depth": 10
+  },
+  "roc_auc": 0.7028175800435437,
+  "accuracy": 0.8011276211430822,
+  "precision": 0.5118782913984786,
+  "recall": 0.0814343163538874,
+  "f1": 0.140514319674896,
+  "tn": 211179,
+  "fp": 4171,
+  "fn": 49338,
+  "tp": 4374
+}

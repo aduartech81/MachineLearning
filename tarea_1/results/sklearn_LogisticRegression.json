@@ -1,0 +1,25 @@
+{
+  "framework": "sklearn",
+  "model": "LogisticRegression",
+  "rows": 1345310,
+  "train": 1076248,
+  "test": 269062,
+  "cv_auc": 0.7072890378335049,
+  "cv_sd": 0.0003805543420917225,
+  "fit_cv_seconds": 34.76181761499902,
+  "predict_seconds": 0.19275241300056223,
+  "read_seconds": 1.2394166539997968,
+  "final_preprocess_seconds": 2.1539751260024786,
+  "parameters": {
+    "reg": 1e-06
+  },
+  "roc_auc": 0.7072258157584977,
+  "accuracy": 0.801666530390765,
+  "precision": 0.5342250196695515,
+  "recall": 0.050565981531128984,
+  "f1": 0.09238723722702225,
+  "tn": 212982,
+  "fp": 2368,
+  "fn": 50996,
+  "tp": 2716
+}
