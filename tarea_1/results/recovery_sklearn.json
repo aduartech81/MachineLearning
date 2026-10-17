@@ -1,0 +1,32 @@
+[
+  {
+    "model": "GaussianNB",
+    "seconds": 3.18062435200045,
+    "metrics_match": true
+  },
+  {
+    "model": "LogisticRegression",
+    "seconds": 5.941199714001414,
+    "metrics_match": true
+  },
+  {
+    "model": "DecisionTree",
+    "seconds": 11.281346718998975,
+    "metrics_match": true
+  },
+  {
+    "model": "HistGradientBoosting",
+    "seconds": 13.91826165800012,
+    "metrics_match": true
+  },
+  {
+    "model": "LinearSVC",
+    "seconds": 16.95471511300275,
+    "metrics_match": true
+  },
+  {
+    "model": "RandomForest",
+    "seconds": 43.91950324299978,
+    "metrics_match": true
+  }
+]

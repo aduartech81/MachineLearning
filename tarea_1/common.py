@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from sklearn.base import BaseEstimator,ClassifierMixin,clone
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import StandardScaler,OneHotEncoder
+from sklearn.preprocessing import StandardScaler,OneHotEncoder,normalize
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import roc_auc_score,accuracy_score,precision_score,recall_score,f1_score,confusion_matrix
 ROOT=Path(__file__).parent
@@ -23,8 +23,8 @@ def metrics(y,score,pred):
 
 class FoldClassifier(ClassifierMixin,BaseEstimator):
     """GridSearchCV sin Pipeline: ajusta transformaciones dentro de cada fit."""
-    def __init__(self,estimator=None,scale=False,reg=None):
-        self.estimator=estimator;self.scale=scale;self.reg=reg
+    def __init__(self,estimator=None,scale=False,reg=None,normalize_rows=False):
+        self.estimator=estimator;self.scale=scale;self.reg=reg;self.normalize_rows=normalize_rows
     def fit(self,X,y):
         start=time.perf_counter()
         self.imputer_=SimpleImputer(strategy='median').fit(X[NUM])
@@ -47,7 +47,8 @@ class FoldClassifier(ClassifierMixin,BaseEstimator):
     def transform(self,X):
         a=self.imputer_.transform(X[NUM])
         if self.scaler_ is not None:a=self.scaler_.transform(a)
-        return np.column_stack([a,self.encoder_.transform(X[CAT])]).astype(np.float32)
+        result=np.column_stack([a,self.encoder_.transform(X[CAT])]).astype(np.float64 if getattr(self,'normalize_rows',False) else np.float32)
+        return normalize(result,norm='l2') if getattr(self,'normalize_rows',False) else result
     def predict(self,X):return self.model_.predict(self.transform(X))
     def predict_proba(self,X):return self.model_.predict_proba(self.transform(X))
     def decision_function(self,X):

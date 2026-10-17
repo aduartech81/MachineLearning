@@ -1,0 +1,23 @@
+[
+  {
+    "model": "GaussianNB",
+    "rows": 269062,
+    "delta_auc": -9.778411103322782e-05,
+    "ids_match": true,
+    "labels_match": true
+  },
+  {
+    "model": "LogisticRegression",
+    "rows": 269062,
+    "delta_auc": -2.274917853373193e-05,
+    "ids_match": true,
+    "labels_match": true
+  },
+  {
+    "model": "DecisionTree",
+    "rows": 269062,
+    "delta_auc": 0.0008373131449318505,
+    "ids_match": true,
+    "labels_match": true
+  }
+]

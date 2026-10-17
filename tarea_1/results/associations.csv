@@ -1,0 +1,14 @@
+variable,test,p,effect,effect_type,q_bh
+loan_amnt,Mann Whitney,0.0,0.10193821419576499,biserial rangos,0.0
+int_rate,Mann Whitney,0.0,0.36738925584409965,biserial rangos,0.0
+annual_inc,Mann Whitney,0.0,-0.09714003126043402,biserial rangos,0.0
+dti,Mann Whitney,0.0,0.15333914394936365,biserial rangos,0.0
+fico_range_high,Mann Whitney,0.0,-0.18668826258391413,biserial rangos,0.0
+open_acc,Mann Whitney,4.5635834136561685e-174,0.039077423956463964,biserial rangos,5.3933258525027445e-174
+revol_bal,Mann Whitney,5.709798631181588e-17,-0.011654920177840644,biserial rangos,5.709798631181588e-17
+total_acc,Mann Whitney,8.853073586046881e-54,-0.021488326683560377,biserial rangos,9.590829718217453e-54
+term,Chi cuadrado,0.0,0.1762614352804039,V de Cramer,0.0
+grade,Chi cuadrado,0.0,0.2620934465200653,V de Cramer,0.0
+home_ownership,Chi cuadrado,0.0,0.07085056006462245,V de Cramer,0.0
+verification_status,Chi cuadrado,0.0,0.09247204327573401,V de Cramer,0.0
+purpose,Chi cuadrado,0.0,0.055563012042666296,V de Cramer,0.0

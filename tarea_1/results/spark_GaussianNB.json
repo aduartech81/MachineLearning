@@ -11,10 +11,8 @@
   "fit_cv_seconds": 67.6954104610013,
   "predict_seconds": 2.306210471000668,
   "transfer_seconds": 1.0092240900012257,
-  "parameters": {
-    "cv_auc": 0.6820864352462402
-  },
-  "maxBins": 64,
+  "parameters": {},
+  "maxBins": null,
   "roc_auc": 0.6815219706798702,
   "accuracy": 0.7907805635875746,
   "precision": 0.43496447109812025,

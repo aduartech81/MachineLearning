@@ -4,7 +4,7 @@ from pathlib import Path
 from pyspark.sql import SparkSession,functions as F,types as T
 from pyspark.ml import Pipeline,Transformer
 from pyspark.ml.util import DefaultParamsReadable,DefaultParamsWritable
-from pyspark.ml.feature import Imputer,StringIndexer,OneHotEncoder,VectorAssembler,StandardScaler
+from pyspark.ml.feature import Imputer,StringIndexer,OneHotEncoder,VectorAssembler,StandardScaler,Normalizer
 from pyspark.ml.classification import LogisticRegression,DecisionTreeClassifier,RandomForestClassifier,GBTClassifier,LinearSVC,NaiveBayes
 from pyspark.ml.tuning import ParamGridBuilder,CrossValidator
 from pyspark.ml.evaluation import BinaryClassificationEvaluator
@@ -34,10 +34,13 @@ def main():
     ntrain,ntest=train.count(),test.count();read_time=time.perf_counter()-t
     assert ntrain==1076248 and ntest==269062
     selected=sys.argv[1:]
+    restoring='--restore' in selected;selected=[n for n in selected if n!='--restore']
     for name in ['GaussianNB','LogisticRegression','DecisionTree','HistGradientBoosting','LinearSVC','RandomForest']:
         if selected and name not in selected:continue
         dest=OUT/f'spark_{name}.json'
-        if dest.exists():print('Ya calculado',name,flush=True);continue
+        if restoring and not dest.exists():continue
+        if dest.exists() and not restoring:print('Ya calculado',name,flush=True);continue
+        original=json.loads(dest.read_text()) if restoring else None
         print('INICIO Spark',name,flush=True)
         spark.catalog.clearCache()
         stages=[Imputer(inputCols=NUM,outputCols=[c+'_imp' for c in NUM],strategy='median',relativeError=0.0)]
@@ -49,7 +52,8 @@ def main():
             stages += [VectorAssembler(inputCols=[c+'_imp' for c in NUM],outputCol='numeric_raw'),
                        StandardScaler(inputCol='numeric_raw',outputCol='numeric_scaled',withMean=True,withStd=True)]
         inputs=(['numeric_scaled'] if scale else [c+'_imp' for c in NUM])+[c+'_vec' for c in CAT]
-        stages += [VectorAssembler(inputCols=inputs,outputCol='features')]
+        stages += [VectorAssembler(inputCols=inputs,outputCol=('pre_norm' if name=='LinearSVC' else 'features'))]
+        if name=='LinearSVC':stages += [Normalizer(inputCol='pre_norm',outputCol='features',p=2.0)]
         feature_col='features'
         common=dict(labelCol='label',featuresCol=feature_col)
         grid=ParamGridBuilder()
@@ -73,7 +77,14 @@ def main():
         evaluator=BinaryClassificationEvaluator(labelCol='label',metricName='areaUnderROC',numBins=0,rawPredictionCol=('rawPrediction' if name=='LinearSVC' else 'probability'))
         cv=CrossValidator(estimator=Pipeline(stages=stages),estimatorParamMaps=params,evaluator=evaluator,
                           numFolds=3,foldCol='fold',parallelism=1,seed=42)
-        t=time.perf_counter();fit=cv.fit(train);fit_time=time.perf_counter()-t
+        t=time.perf_counter()
+        if restoring:
+            wanted={k:v for k,v in original['parameters'].items() if k!='cv_auc'}
+            matches=[item for item in params if {p.name:v for p,v in item.items()}==wanted]
+            assert len(matches)==1,(name,wanted)
+            fit=Pipeline(stages=stages).fit(train,matches[0])
+        else:fit=cv.fit(train)
+        fit_time=time.perf_counter()-t
         t=time.perf_counter()
         col='rawPrediction' if name=='LinearSVC' else 'probability'
         pred=fit.transform(test).select('row_id','label','prediction',vector_to_array(col)[1].alias('score')).persist(StorageLevel.MEMORY_AND_DISK)
@@ -84,6 +95,16 @@ def main():
         frame=pred.toPandas().rename(columns={'label':'actual'})
         transfer_time=time.perf_counter()-t
         frame.to_csv(OUT/f'spark_{name}_predictions.csv',index=False)
+        if restoring:
+            checked=metrics(frame.actual,frame.score,frame.prediction)
+            for k in ['roc_auc','accuracy','precision','recall','f1']:
+                assert np.isclose(checked[k],original[k],atol=1e-5),(name,k,checked[k],original[k])
+            for k in ['tn','fp','fn','tp']:assert checked[k]==original[k],(name,k)
+            fit.write().overwrite().save(str((OUT/f'spark_{name}_model').resolve()))
+            audit=OUT/'recovery_spark.jsonl'
+            with audit.open('a') as f:f.write(json.dumps(dict(model=name,seconds=fit_time,metrics_match=True))+'\n')
+            print('Modelo reconstruido y métricas verificadas',name,flush=True)
+            continue
         avg=np.asarray(fit.avgMetrics);best=int(avg.argmax())
         param_rows=[{**{p.name:v for p,v in item.items()},'cv_auc':float(avg[i])} for i,item in enumerate(params)]
         pd.DataFrame(param_rows).to_csv(OUT/f'spark_{name}_cv.csv',index=False)
@@ -91,7 +112,8 @@ def main():
                     train=ntrain,test=ntest,cv_auc=float(avg[best]),
                     cv_sd=float(fit.stdMetrics[best]) if hasattr(fit,'stdMetrics') else None,
                     read_seconds=read_time,fit_cv_seconds=fit_time,predict_seconds=predict_time,
-                    transfer_seconds=transfer_time,parameters=param_rows[best],maxBins=64,
+                    transfer_seconds=transfer_time,parameters={k:v for k,v in param_rows[best].items() if k!='cv_auc'},
+                    maxBins=64 if name in ['DecisionTree','RandomForest','HistGradientBoosting'] else None,
                     **metrics(frame.actual,frame.score,frame.prediction))
         fit.bestModel.write().overwrite().save(str((OUT/f'spark_{name}_model').resolve()))
         dest.write_text(json.dumps(result,indent=2));print(json.dumps(result),flush=True)

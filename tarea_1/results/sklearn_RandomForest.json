@@ -1,0 +1,27 @@
+{
+  "framework": "sklearn",
+  "model": "RandomForest",
+  "rows": 1345310,
+  "train": 1076248,
+  "test": 269062,
+  "cv_auc": 0.7111442371937624,
+  "cv_sd": 0.00014555085065222549,
+  "fit_cv_seconds": 443.2523786899983,
+  "predict_seconds": 1.7545731649988738,
+  "read_seconds": 1.414175483998406,
+  "final_preprocess_seconds": 2.281484831997659,
+  "parameters": {
+    "estimator__max_depth": 15,
+    "estimator__n_estimators": 100
+  },
+  "iterations": null,
+  "roc_auc": 0.7115735271965147,
+  "accuracy": 0.802811247965153,
+  "precision": 0.5623574144486692,
+  "recall": 0.05507149240393208,
+  "f1": 0.10031879536051007,
+  "tn": 213048,
+  "fp": 2302,
+  "fn": 50754,
+  "tp": 2958
+}

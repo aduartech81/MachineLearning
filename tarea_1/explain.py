@@ -1,6 +1,7 @@
 from tarea_1.common import prediction_path
 """LIME sobre variables originales: categorías perturbadas como categorías válidas."""
 import json
+import sys
 import numpy as np
 import pandas as pd
 import joblib
@@ -29,8 +30,11 @@ def main():
     background=encode(train.sample(n=5000,random_state=42))
     explainer=LimeTabularExplainer(background,feature_names=FEATURES,class_names=['Fully Paid','Charged Off'],
         categorical_features=list(category_names),categorical_names=category_names,random_state=42,mode='classification')
-    rows=[];spark=None
-    for framework in ['sklearn','spark']:
+    prior=pd.read_csv(OUT/'lime_explanations.csv') if (OUT/'lime_explanations.csv').exists() else pd.DataFrame()
+    rows=prior.to_dict('records');spark=None
+    for framework in (sys.argv[1:] or ['sklearn','spark']):
+        if len(prior) and framework in set(prior.framework):
+            print('LIME ya guardado',framework,flush=True);continue
         candidates=[json.loads((OUT/f'{framework}_{name}.json').read_text()) for name in NAMES if name!='LinearSVC']
         winner=max(candidates,key=lambda r:r['cv_auc'])['model']
         prediction=pd.read_csv(prediction_path(framework,winner))

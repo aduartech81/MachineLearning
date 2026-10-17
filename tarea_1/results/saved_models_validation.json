@@ -1,0 +1,44 @@
+[
+  {
+    "model": "DecisionTree",
+    "rows": 100,
+    "max_abs_error": 9.71445146547012e-17,
+    "classes_match": true,
+    "tolerance": 1e-07
+  },
+  {
+    "model": "GaussianNB",
+    "rows": 100,
+    "max_abs_error": 2.9308319104970337e-08,
+    "classes_match": true,
+    "tolerance": 1e-07
+  },
+  {
+    "model": "HistGradientBoosting",
+    "rows": 100,
+    "max_abs_error": 9.020562075079397e-17,
+    "classes_match": true,
+    "tolerance": 1e-07
+  },
+  {
+    "model": "LinearSVC",
+    "rows": 100,
+    "max_abs_error": 2.220446049250313e-16,
+    "classes_match": true,
+    "tolerance": 1e-07
+  },
+  {
+    "model": "LogisticRegression",
+    "rows": 100,
+    "max_abs_error": 9.71445146547012e-17,
+    "classes_match": true,
+    "tolerance": 1e-07
+  },
+  {
+    "model": "RandomForest",
+    "rows": 100,
+    "max_abs_error": 1.1102230246251565e-16,
+    "classes_match": true,
+    "tolerance": 1e-07
+  }
+]
