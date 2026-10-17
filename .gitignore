@@ -8,3 +8,8 @@ __pycache__/
 .venv/
 .DS_Store
 jbook_entregas_2/_build/
+
+# Archivos de ejecución completa de Lending Club (no versionar datos sensibles/grandes)
+tarea_1/results/canonical.csv
+tarea_1/results/splits.csv
+tarea_1/results/spark_predictions/

@@ -73,6 +73,7 @@ def main():
         search = train_pipeline(X_train, y_train, estimator, grid)
         searches[name] = search
         ranked.append({'model': name, 'cv_auc': float(search.best_score_),
+                       'cv_auc_sd': float(search.cv_results_['std_test_score'][search.best_index_]),
                        'seconds': time.perf_counter()-start,
                        'parameters': json.dumps(search.best_params_)})
         pd.DataFrame(search.cv_results_).to_csv(out/f'cv_{name}.csv', index=False)

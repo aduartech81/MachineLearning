@@ -49,3 +49,17 @@ def test_dashboard_tabs_and_callbacks():
         assert len(figures[0].data) == 2
     fig, cards = update_threshold(0.5)
     assert len(cards) == 4 and len(fig.data) == 1
+
+
+def test_caries_final_features_never_cross_folds():
+    from sklearn.model_selection import StratifiedGroupKFold
+    from entregable_2.train import CATEGORICAL
+    from ml_common import preprocessor
+    _, train, _, X, X_test = prepare()
+    groups = pd.util.hash_pandas_object(X, index=False)
+    assert not set(groups).intersection(pd.util.hash_pandas_object(X_test, index=False))
+    for a, b in StratifiedGroupKFold(5, shuffle=True, random_state=42).split(X, train['dental caries'], groups):
+        assert not set(groups.iloc[a]).intersection(groups.iloc[b])
+    prep = preprocessor(X, CATEGORICAL)
+    assert set(prep.transformers[1][2]) == set(CATEGORICAL)
+    assert not {'tartar', 'oral', 'ID', 'dental caries'}.intersection(X.columns)

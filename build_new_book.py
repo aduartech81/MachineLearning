@@ -1,408 +1,266 @@
-"""Genera informe y notebooks a partir de resultados realmente calculados."""
-import json
+"""Construye informes a partir de artefactos calculados, sin reentrenar."""
 from pathlib import Path
-import nbformat as nbf
+import json
+import nbformat as nb
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
-from sklearn.metrics import roc_curve
-from entregable_2.app import context, models, update_eda
-
-ROOT = Path(__file__).parent
-BOOK = ROOT/'jbook_entregas_2'
-STATIC = BOOK/'_static'
-STATIC.mkdir(parents=True, exist_ok=True)
-D = json.loads((ROOT/'entregable_2/results/summary.json').read_text())
-H = json.loads((ROOT/'tarea_2/results/summary.json').read_text())
-R = pd.read_csv(ROOT/'tarea_2/results/ranking.csv')
-
-
-def collect_figures(component):
-    if hasattr(component, 'figure'):
-        yield component.figure
-    children = getattr(component, 'children', [])
-    if not isinstance(children, (list, tuple)):
-        children = [children]
+from entregable_2.app import context, models, eda, update_eda
+ROOT=Path(__file__).parent
+BOOK=ROOT/'jbook_entregas_2'
+STATIC=BOOK/'_static'
+D=json.loads((ROOT/'entregable_2/results/summary.json').read_text())
+H=json.loads((ROOT/'tarea_2/results/summary.json').read_text())
+R=pd.read_csv(ROOT/'tarea_2/results/ranking.csv')
+A=pd.read_csv(ROOT/'entregable_2/results/associations.csv')
+C=pd.read_csv(ROOT/'entregable_2/results/categorical_eda.csv')
+B=pd.read_csv(ROOT/'entregable_2/results/coefficients.csv')
+O=json.loads((ROOT/'entregable_2/results/eda_summary.json').read_text())
+def table(x): return x.to_markdown(index=False,floatfmt='.5f')
+def figures(c):
+    if hasattr(c,'figure'): yield c.figure
+    children=getattr(c,'children',[])
+    if not isinstance(children,(list,tuple)): children=[children]
     for child in children:
-        if child is not None and not isinstance(child, (str, int, float)):
-            yield from collect_figures(child)
+        if child is not None and not isinstance(child,(str,int,float)): yield from figures(child)
+def embed(fig,name):
+    fig.write_html(STATIC/f'{name}.html',include_plotlyjs='directory')
+    return f'```{{raw}} html\n<iframe src="_static/{name}.html" width="100%" height="550" style="border:0" title="{name}"></iframe>\n```\n'
+metrics=pd.DataFrame([{'modelo':k,**D[k]} for k in ['logistic','dummy']])
+revision=f'''# Caries dental: revisión metodológica del 17 de octubre de 2026
 
+Autor: Andrés Duarte Chaves · Docente: Dr. Lihki Rubio.
 
-def save_figure(fig, name):
-    fig.write_html(STATIC/f'{name}.html', include_plotlyjs='directory')
-    return f'```{{raw}} html\n<iframe src="_static/{name}.html" width="100%" height="540" style="border:0" title="{name}"></iframe>\n```\n'
+Esta revisión responde a la retroalimentación del primer entregable y actualiza el modelo base
+del segundo. No sustituye el proyecto final ni añade otras familias de modelos al dashboard.
+La versión originalmente evaluada permanece en el historial Git. Las cifras siguientes proceden
+de la nueva ejecución; no se presentan como resultados de aquella entrega.
 
+## Problema, procedencia y escenario
 
-def table(df):
-    return df.to_markdown(index=False, floatfmt='.4f')
+Se clasifica caries **registrada** en un chequeo; no incidencia futura ni diagnóstico clínico.
+Se conservan {D['rows']:,} registros y {D['positive_rows']:,} positivos ({D['prevalence']:.2%}).
+El archivo original adjunto y la copia usada coinciden en valores y orden de filas después de
+normalizar smoking 0/1 a N/Y y las representaciones numéricas. Sus hashes de bytes son distintos.
+Esto no verifica licencia, protocolo clínico ni independencia por paciente.
 
+SHA-256 de la copia utilizada: `{D['sha256']}`.
+Ver `entregable_2/results/comparacion_csv_original.json` para la comparación documentada.
+Fuente: [Body Signal of Smoking](https://www.kaggle.com/datasets/kucuro3/body-signal-of-smoking).
 
-def notebook(path, title, cells):
-    n = nbf.v4.new_notebook()
-    n.cells = [nbf.v4.new_markdown_cell(title), nbf.v4.new_code_cell(
-        'from pathlib import Path\nimport os, sys\n'
-        '# Puede abrirse desde la raíz o desde la carpeta de notebooks.\n'
-        'root = next(p for p in [Path.cwd(), *Path.cwd().parents] if (p/"ml_common.py").exists())\n'
-        'os.chdir(root)\nsys.path.insert(0, str(root))\n')]
-    for kind, source in cells:
-        n.cells.append(nbf.v4.new_code_cell(source) if kind == 'code' else nbf.v4.new_markdown_cell(source))
-    n.metadata.kernelspec = {'display_name': 'Python 3', 'language': 'python', 'name': 'python3'}
-    path.parent.mkdir(parents=True, exist_ok=True)
-    nbf.write(n, path)
+## Respuesta a las observaciones del profesor
 
+| Observación | Corrección verificable |
+|---|---|
+| Faltaban categóricas | Conteos, proporciones, chi cuadrado y V de Cramer en entrenamiento |
+| Sin corrección múltiple | Benjamini–Hochberg sobre los {len(A)} contrastes de asociación |
+| Sin atípicos multivariados | Isolation Forest exploratorio en entrenamiento; sin eliminar filas |
+| Tártaro no disponible antes del examen | Exclusión explícita de tartar, además de ID y oral constante |
+| Mecanismos clínicos atribuidos a efectos pequeños | Se reportan asociaciones y magnitudes, sin explicaciones causales |
+| Escalado y MAR incoherentes | StandardScaler realmente ejecutado; no se presume MAR |
+| Sin coeficientes ni CV | Coeficientes regularizados y cinco folds agrupados sin copias compartidas |
 
-BOOK.joinpath('_config.yml').write_text('''title: "Machine Learning — Tarea 2 y Entregable 2"
-author: "Andrés Duarte Chaves"
-execute:
-  execute_notebooks: "off"
-html:
-  use_repository_button: true
-repository:
-  url: "https://github.com/aduartech81/MachineLearning"
-''')
-BOOK.joinpath('_toc.yml').write_text('''format: jb-book
-root: intro
-chapters:
-  - file: entregable_2
-  - file: tarea_2
-  - file: ejecucion
-''')
-BOOK.joinpath('intro.md').write_text('''# Tarea 2 y Entregable 2
+## Partición y preprocesamiento
 
-**Autor:** Andrés Duarte Chaves · **Docente:** Dr. Lihki Rubio
-**Programa:** Maestría en Ingeniería Biomédica · **Fecha de ejecución:** 4 de octubre de 2026
+Se agrupan perfiles de los **23 predictores finales**, excluyendo ID, oral, tartar y objetivo.
+Un mismo perfil no cruza entrenamiento/prueba ni folds. Hay {D['train_rows']:,} filas train y
+{D['test_rows']:,} test. El EDA inferencial usa {O['profiles']:,} perfiles únicos de entrenamiento
+para no contabilizar copias como observaciones independientes; esto no demuestra independencia clínica.
+Se conservan todas las filas en el ajuste y CV, con ponderación por fila consistente.
 
-Este informe acompaña dos productos: un dashboard Dash Plotly sobre caries dental y un proyecto
-integrador de clasificación de enfermedad cardíaca mediante pipelines y herramientas de MLOps.
-Los productos conservan objetivos y datasets distintos. Los resultados provienen de código ejecutado;
-los archivos anteriores entregados al docente no se modificaron.
+Género, tabaquismo, audición izquierda/derecha y proteína urinaria se codifican como categorías.
+No se impone una distancia lineal entre códigos ordinales. El resto usa imputación por mediana
+y StandardScaler; las categorías usan moda y OneHotEncoder. Cada fold ajusta sus transformaciones
+sólo en entrenamiento. Hay {D['missing_values']} celdas vacías en el archivo: no se deduce mecanismo MAR.
+Los extremos se conservan; el uso de StandardScaler no se denomina escalado robusto.
 
-El dashboard contiene exactamente tres pestañas. El informe interpreta los gráficos y presenta
-las decisiones metodológicas, limitaciones, procedencia y detalles de reproducción adicionales.
-El despliegue público de Dash y la ejecución de Docker/Minikube siguen pendientes; no se presentan
-como servicios publicados ni pruebas ya realizadas.
-''')
+## EDA categórico
 
-charts = list(collect_figures(context()))
-eda = update_eda('age', 'Todos')
-model_figs = list(collect_figures(models()))
-metrics = pd.DataFrame([{'Modelo': name, **D[key]} for name, key in [('Logística', 'logistic'), ('Dummy', 'dummy')]])
-fields = ['Modelo', 'roc_auc', 'average_precision', 'accuracy', 'recall', 'specificity', 'f1', 'brier']
-text = f'''# Entregable 2 — Dashboard de caries dental
+{table(C)}
 
-## 1. Contexto del problema
+Las proporciones dependen del tamaño de cada categoría. Una diferencia observada no implica causa.
+Para celdas esperadas pequeñas, chi cuadrado es aproximado; no se usa como prueba clínica confirmatoria.
 
-Se clasifica la presencia de caries **registrada en un chequeo**, no el riesgo de desarrollarla en el
-futuro. La tarea es binaria: `dental caries=1` frente a `0`. Una etiqueta negativa no significa que
-el individuo esté sano respecto de otras enfermedades. La motivación es explorar cuánto discrimina
-un modelo lineal a partir de variables generales de chequeo. No se propone un dispositivo diagnóstico.
+## Asociaciones y multiplicidad
 
-La copia utilizada contiene **{D['rows']:,} filas**, **{D['positive_rows']:,} positivas** y una proporción
-positiva de **{D['prevalence']:.2%}**. Estos conteos coinciden con el primer entregable. La fuente inmediata
-es [la copia pública en GitHub](https://github.com/aliabdallah7/smoking-detection/blob/main/smoking.csv),
-asociada al dataset [Body Signal of Smoking](https://www.kaggle.com/datasets/kucuro3/body-signal-of-smoking).
-No se ha comprobado su identidad byte a byte con el archivo original del estudiante; tampoco se
-verificaron de forma independiente los supuestos de edad, independencia por persona o licencia del origen.
-SHA-256 del archivo utilizado: `{D['sha256']}`.
+{table(A)}
 
-### Interpretación del gráfico de clases
+Para continuas, el efecto es correlación biserial de rangos (positivo: valores mayores en positivos).
+Para categorías se informa V de Cramer, sin signo. No son magnitudes intercambiables.
+`q_bh` controla FDR bajo los supuestos del procedimiento; no es probabilidad de que una hipótesis sea cierta.
+Un p o q pequeño con efecto pequeño no demuestra relevancia clínica. Las variables no se seleccionan
+por estos contrastes ni se atribuyen mecanismos fisiológicos a asociaciones transversales.
 
-La clase negativa domina la base. Un clasificador mayoritario alcanza una exactitud elevada sin
-detectar positivos. Por ello se presentan discriminación, precision–recall y sensibilidad además de exactitud.
+## Atípicos multivariados
 
-{save_figure(charts[0], 'caries_clases')}
+Isolation Forest identifica {O['flagged']:,} de {O['profiles']:,} perfiles de entrenamiento usando
+contaminación prefijada del 5%. Este porcentaje es una decisión exploratoria, **no una estimación de
+prevalencia de errores o enfermedad**. Se usa preprocesamiento ajustado sólo en entrenamiento.
+No se elimina ninguna fila ni se usa este diagnóstico para modificar el test. Los scores e indicadores
+están en `entregable_2/results/outliers.csv`. Requieren revisión de origen antes de cualquier exclusión.
 
-## 2. Auditoría y partición
+## Modelo base y validación
 
-El archivo tiene **{D['missing_values']} faltantes** y **{D['duplicates_without_ID']:,} filas duplicadas**
-cuando se elimina `ID`. No se presupone MAR ni se confirma independencia individual a partir de un ID
-de fila. Se construyen grupos mediante hash de los predictores originales; los perfiles únicos se
-dividen de forma estratificada, con semilla 42, y cada copia se conserva en el grupo de su perfil.
-Quedan **{D['train_rows']:,} filas de entrenamiento** y **{D['test_rows']:,} de prueba**. Las proporciones
-de filas no son exactamente 80/20 porque la unidad de asignación es el perfil, no cada copia.
+Regresión logística L2, sin búsqueda de hiperparámetros. Cinco folds StratifiedGroupKFold:
+AUC **{D['cv_auc_mean']:.5f} ± {D['cv_auc_sd']:.5f}** (media ± desviación estándar poblacional de folds,
+no intervalo de confianza). Tanto CV como ajuste final usan todas las filas y la misma ponderación.
+La CV de una familia fija no implica comparación exhaustiva ni validación externa.
 
-El modelo utiliza **{len(D['features'])} predictores**. Se excluyen `ID`, `oral` (constante) y `tartar`.
-La exclusión de tártaro define un escenario previo al examen oral: su disponibilidad temporal antes
-del registro de caries no está demostrada. La codificación categórica aplica a género y tabaquismo;
-los restantes valores numéricos se tratan como numéricos, incluidas variables ordinales codificadas.
+{table(metrics)}
 
-Un AUC univariado bajo no demuestra ausencia de fuga. La revisión de fuga exige verificar el origen
-de cada variable, disponibilidad en el escenario propuesto, separación de grupos y ajuste de
-transformaciones sólo con entrenamiento. La protección frente a duplicados no sustituye una
-partición por paciente cuando existan identificadores clínicos fiables.
+AUC test {D['logistic']['roc_auc']:.5f} y AP {D['logistic']['average_precision']:.5f} muestran una
+señal limitada. La referencia AP es la prevalencia de prueba {D['test_prevalence']:.5f}.
+A umbral 0,5: TP={D['logistic']['tp']}, FN={D['logistic']['fn']}, TN={D['logistic']['tn']}, FP={D['logistic']['fp']}.
+Por tanto, la exactitud elevada oculta que casi todos los positivos se pierden. No se recomienda
+este umbral para un uso clínico. El slider es retrospectivo y no selecciona cortes en test.
+El Brier describe error probabilístico; la curva de calibración no demuestra transportabilidad.
 
-## 3. EDA del entrenamiento
+## Coeficientes e interpretación
 
-El dashboard permite seleccionar variable numérica y sexo registrado. Frecuencias, mediana,
-dispersión y proporción de caries describen el conjunto seleccionado; no se interpretan como
-efectos causales. El informe muestra la selección inicial (edad, ambos sexos).
+{table(B)}
 
-### Distribución y dispersión de la edad
-
-Los histogramas usan conteos: una barra mayor puede reflejar más registros en una clase. El boxplot
-permite comparar posición y dispersión. La edad está registrada en valores discretizados, por lo que
-no debe interpretarse como una medida continua de resolución anual en todos los casos.
-
-{save_figure(eda[0], 'caries_histograma')}
-{save_figure(eda[1], 'caries_boxplot')}
-
-### Proporción de caries por edad
-
-Las barras presentan positivos sobre el total del grupo de edad. El tamaño de cada grupo aparece
-en el cursor del gráfico. Un grupo pequeño ofrece una estimación menos estable. Diferencias entre
-edades pueden involucrar factores de selección y confusión; no representan una trayectoria individual.
-
-{save_figure(eda[2], 'caries_edad')}
-
-### Correlaciones
-
-La matriz corresponde al entrenamiento completo y no cambia con los filtros. Las correlaciones
-entre variables de tamaño corporal y laboratorio señalan redundancia potencial. El escalado no
-elimina colinealidad; la regresión logística emplea regularización L2 por defecto. Valores extremos
-se conservan y no se clasifican automáticamente como errores o enfermedad específica.
-
-{save_figure(list(collect_figures(__import__('entregable_2.app', fromlist=['eda']).eda()))[0], 'caries_correlacion')}
-
-## 4. Modelo base y resultados
-
-El Pipeline contiene `ColumnTransformer`, imputación por mediana/moda, `StandardScaler`,
-`OneHotEncoder(handle_unknown='ignore')` y `LogisticRegression(max_iter=2000)`.
-Las transformaciones se aprenden exclusivamente en entrenamiento. El imputador permite manejar
-faltantes futuros aunque este archivo no tenga celdas vacías.
-
-La validación cruzada usa cinco pliegues estratificados sobre perfiles únicos de los predictores
-finales de entrenamiento: AUC **{D['cv_auc_mean']:.4f} ± {D['cv_auc_sd']:.4f}** (media ± desviación estándar,
-no intervalo de confianza). El modelo final usa todas las filas de entrenamiento; por tanto las copias
-ponderan algunos perfiles más que otros. Esa diferencia de ponderación limita la comparación directa
-entre el estimador de CV y el de prueba. El modelo base no incluye búsqueda de hiperparámetros.
-
-### Tabla comparativa, umbral 0,5
-
-{table(metrics[fields])}
-
-La AUC de prueba de **{D['logistic']['roc_auc']:.4f}** indica discriminación modesta. AP
-**{D['logistic']['average_precision']:.4f}** supera la referencia de prevalencia de prueba
-**{D['test_prevalence']:.4f}**. AP es un resumen ponderado de precision–recall y no debe confundirse con
-integración trapezoidal. Brier menor sugiere menor error cuadrático probabilístico frente a Dummy.
-No se concluye utilidad clínica a partir de una mejora estadística aislada.
-
-{save_figure(model_figs[0], 'caries_roc')}
-{save_figure(model_figs[1], 'caries_pr')}
-
-### Matriz de confusión y control de umbral
-
-Con corte 0,5 se observan TN={D['logistic']['tn']}, FP={D['logistic']['fp']},
-FN={D['logistic']['fn']} y TP={D['logistic']['tp']}. La sensibilidad resulta casi nula, aunque la
-exactitud se aproxime a la del clasificador mayoritario. El control de umbral del dashboard muestra
-el intercambio entre sensibilidad y especificidad sobre las mismas predicciones. Es una herramienta
-descriptiva, **no un procedimiento para elegir el mejor corte en test**. Un corte operativo debe fijarse
-en validación de entrenamiento con un criterio de costos explícito y después evaluarse en prueba.
-
-### Calibración
-
-Cada punto compara probabilidad media y frecuencia positiva en un decil. La cercanía a la diagonal
-es evidencia descriptiva de calibración en esta muestra, sin demostrar equivalencia al riesgo clínico
-ni transportabilidad. No se ha realizado calibración adicional o validación externa.
-
-{save_figure(model_figs[2], 'caries_calibracion')}
-
-## 5. Comparación con el primer entregable y límites
-
-El primer informe reportó AUC 0,6441 y AP 0,3156. Aquí se usan una partición que agrupa copias y
-un escenario sin tártaro; por ello **no son reproducciones directas del mismo experimento**.
-No puede atribuirse la diferencia a un único cambio. También falta comprobar la identidad del CSV
-original. No se reutiliza la cifra anterior como resultado nuevo.
-
-El test pertenece a la misma base pública que se exploró anteriormente: no se presenta como una
-validación externa ni totalmente inédita. No hay confirmación de independencia por paciente,
-representatividad colombiana, protocolo diagnóstico de caries o secuencia temporal de las variables.
-La magnitud de n/p no garantiza ausencia de sobreajuste y una curva de aprendizaje no demuestra
-que aumentar la muestra nunca pueda mejorar el modelo. Las conclusiones se restringen al experimento.
+Los coeficientes numéricos corresponden a una desviación estándar de entrenamiento, manteniendo
+los demás términos fijos. Son asociaciones ajustadas de un modelo penalizado, no efectos causales.
+Para una variable continua, exp(coeficiente) es el multiplicador de odds por esa unidad estandarizada.
+OneHotEncoder conserva todas las categorías: **exp(coeficiente) de una categoría no es por sí solo
+un odds ratio frente a una categoría de referencia**. La comparación A vs B usa exp(beta_A-beta_B).
+No se reportan intervalos ni significación inferencial de coeficientes regularizados.
 '''
-BOOK.joinpath('entregable_2.md').write_text(text)
+# Descriptivos calculados sólo en perfiles de entrenamiento.
+train = pd.read_csv(ROOT/'entregable_2/results/train.csv').drop_duplicates(subset=D['features'])
+num = [c for c in D['features'] if c not in D['categorical_features']]
+stats = train[num].describe().T.reset_index(names='variable')
+stats['IQR'] = stats['75%']-stats['25%']
+stats['skew'] = [train[c].skew() for c in num]
+stats['tukey_count'] = [int(((train[c]<train[c].quantile(.25)-1.5*train[c].quantile(.75)+1.5*train[c].quantile(.25)) | (train[c]>train[c].quantile(.75)+1.5*(train[c].quantile(.75)-train[c].quantile(.25)))).sum()) for c in num]
+stats.to_csv(ROOT/'entregable_2/results/descriptive.csv',index=False)
+revision += '\n## Descriptivos univariados y extremos\n\n'+table(stats)+'\n\nTukey es una regla descriptiva; sus extremos no se eliminan automáticamente. Asimetría no demuestra enfermedad ni mecanismo clínico.\n'
+# Computed categorical contrast, not a mechanistic interpretation.
+for prefix in ['cat__gender_','cat__smoking_']:
+    v=B.loc[B.feature.str.startswith(prefix)]
+    if len(v)==2:
+        import numpy as np
+        a,b=v.iloc[0],v.iloc[1]
+        revision+=f'\nContraste {a.feature} frente a {b.feature}: OR ajustado descriptivo **{np.exp(a.coefficient-b.coefficient):.3f}**.\n'
+revision+='''
+## Límites y comparación histórica
 
-heart_preds = pd.read_csv(ROOT/'tarea_2/results/predictions.csv')
-fig = go.Figure()
-for name in R.model:
-    fpr, tpr, _ = roc_curve(heart_preds.actual, heart_preds[name])
-    fig.add_scatter(x=fpr, y=tpr, name=name)
-fig.add_scatter(x=[0, 1], y=[0, 1], name='Azar', line_dash='dash')
-fig.update_layout(title='ROC: predicciones reales de prueba', xaxis_title='FPR', yaxis_title='Sensibilidad')
-BOOK.joinpath('tarea_2.md').write_text(f'''# Tarea 2 — Proyecto integrador con pipelines
+La cifra anterior AUC 0,6441 procede de otro escenario y partición; no se interpreta como
+reproducción de este experimento ni se atribuye la diferencia únicamente a excluir tártaro.
+Un AUC univariado bajo no descarta fuga: importan origen y disponibilidad temporal de cada predictor.
+El test es interno y la base se ha usado anteriormente. No existe validación externa ni confirmación
+de representatividad colombiana, independencia por persona o protocolo diagnóstico del origen.
 
-## 1. Lineamientos y objetivo
+## Reproducción
 
-El enlace docente corresponde actualmente a **10.20 Proyecto Integrador**, aunque la consigna
-lo llama 10.10. Se implementan estructura modular, demostración de fuga, pipelines con búsqueda,
-API FastAPI, Docker, manifiestos Kubernetes, GitHub Actions y reportes Evidently.
-
-Se utiliza Heart Failure Prediction (918 registros, 11 predictores y `HeartDisease` binaria).
-El nombre comercial del dataset **no permite equiparar la etiqueta HeartDisease con insuficiencia
-cardíaca ni con incidencia futura**. Se clasifica el estado registrado de enfermedad cardíaca.
-Fuente original: [Kaggle](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction).
-Archivo obtenido de [copia pública en GitHub](https://github.com/amankataria100/Data-Visualization-on-Heart-Disease-Dataset/blob/main/heart.csv).
-SHA-256: `{H['sha256']}`. La copia tiene 918 filas y 508 positivos. No se sustituye silenciosamente
-por la base UCI de diferente esquema ni se cambia el target a `target`.
-
-## 2. Preprocesamiento y fuga
-
-Se reservan {H['test_rows']} filas para prueba mediante partición estratificada, semilla 42;
-las {H['train_rows']} restantes se usan para entrenamiento y validación cruzada.
-Se interpretan los ceros de colesterol ({H['zero_cholesterol']}) y presión en reposo
-({H['zero_resting_bp']}) como valores no plausibles para estas mediciones, se reemplazan por NaN
-y se imputan dentro del pipeline. La regla es fija y se documenta; no se aprende del test.
-
-El ejemplo docente añade `leaky_feature=y+ruido` y no la elimina en el supuesto flujo correcto.
-Se corrige: la variable sólo existe en el experimento contaminado y **nunca se incorpora al modelo
-válido**. La demostración contaminada obtiene AUC {H['leakage_demo']['roc_auc']:.4f}; un rendimiento
-perfecto es aquí producto de acceso artificial a la respuesta, no de descubrimiento clínico.
-Un Pipeline evita fuga por ajuste de transformaciones, pero no elimina automáticamente proxies del target.
-
-## 3. Entrenamiento y comparación
-
-Se comparan seis clasificadores: regresión logística, SVC, Random Forest, KNN, Gradient Boosting
-y Gaussian Naive Bayes. Cada uno se integra con el mismo preprocesamiento dentro de `Pipeline`
-y se optimiza con `GridSearchCV`, cinco pliegues estratificados y ROC AUC.
-El ranking se ordena por AUC de validación cruzada, no por AUC de prueba. La selección de
-hiperparámetros y modelo queda dentro de entrenamiento. El ranking de CV tras selección puede
-ser optimista; no se presenta como una estimación de validación cruzada anidada.
-
-{table(R[['model', 'cv_auc', 'roc_auc', 'accuracy', 'recall', 'f1', 'seconds']])}
-
-El modelo seleccionado por CV es **{H['winner_by_cv']}**. Otro modelo puede alcanzar mayor AUC
-en test sin que eso autorice a cambiar el ganador usando ese mismo test. Las diferencias pequenas
-no permiten afirmar superioridad definitiva sin análisis de incertidumbre o validación externa.
-Los tiempos son mediciones de esta ejecución local y no una comparación entre plataformas.
-
-{save_figure(fig, 'heart_roc')}
-
-## 4. API, contenedor y Kubernetes
-
-Se guarda el pipeline completo como `model.joblib`. La API acepta campos nombrados, limita categorías,
-rechaza campos extra y comprueba rangos básicos. Los campos numéricos nulos se imputan con parámetros
-de entrenamiento. El endpoint `/health` comprueba la carga del modelo. `/predict` devuelve probabilidad,
-clase a umbral 0,5 y alcance académico. La probabilidad no está calibrada para atención clínica.
-
-Docker incluye las dependencias y el artefacto. Kubernetes configura Deployment, Service NodePort,
-readiness probe y límites de recursos. **Docker y Kubernetes no se ejecutaron en este entorno**, que
-no dispone de sus comandos. Sus archivos se entregan para validación local con las instrucciones del
-capítulo siguiente; no se afirma que la etapa de orquestación esté desplegada.
-
-## 5. Integración continua
-
-El workflow de GitHub Actions instala dependencias, verifica errores esenciales de sintaxis/nombres
-y ejecuta pruebas de separación de perfiles, equivalencia entre API y pipeline, rechazo de entradas
-inválidas y callbacks del dashboard. Las pruebas se ejecutaron localmente. El workflow remoto
-queda pendiente hasta publicar los archivos y observar una ejecución satisfactoria en GitHub.
-
-## 6. Monitoreo ilustrativo con Evidently
-
-Se generan `drift_report.html` y `drift_simulated.html`. El primero compara train contra test y
-el segundo agrega **20 años artificiales a Age** como control positivo de cambio. La alteración
-es simulada y se declara explícitamente; no representa pacientes nuevos ni un evento real.
-Los reportes son archivos exportados, no un servicio continuo de monitoreo en producción.
-La deriva de distribuciones no implica por sí sola caída de desempeño ni cambio causal.
-
-## 7. Fuentes metodológicas
-
-- [Consigna de pipelines del docente](https://lihkir.github.io/MachineLearning/chains_pipelines.html#proyecto-integrador-de-aprendizaje-automatico)
-- [Prevención de fuga: scikit-learn](https://scikit-learn.org/stable/common_pitfalls.html)
-- [Reportes: Evidently](https://docs.evidentlyai.com/docs/library/report)
-- [Publicación de Dash](https://dash.plotly.com/deployment)
-''')
-
-BOOK.joinpath('ejecucion.md').write_text('''# Ejecución y estado de entrega
-
-## Preparar el entorno
-
-Desde la raíz del repositorio, con Python 3.11 o 3.12:
+Desde la raíz del repositorio:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements_nuevas.txt
+pip install -r requirements_nuevas.txt
 python -m entregable_2.train
-python -m tarea_2.train
-python -m tarea_2.drift
+python -m entregable_2.audit
 python build_new_book.py
 python -m pytest -q
-jupyter-book build jbook_entregas_2 --warningiserror
 ```
+'''
+# Teacher-facing notebook: complete computed report plus executable data inspection.
+n=nb.v4.new_notebook();n.metadata.kernelspec=dict(display_name='Python 3',language='python',name='python3')
+n.cells=[nb.v4.new_markdown_cell(revision),nb.v4.new_code_cell('''from pathlib import Path
+import os, sys, json
+import pandas as pd
+root = next(p for p in [Path.cwd(), *Path.cwd().parents] if (p/'ml_common.py').exists())
+os.chdir(root)
+sys.path.insert(0, str(root))
+from entregable_2.train import prepare
+_, train, test, X_train, X_test = prepare()
+a = set(pd.util.hash_pandas_object(X_train,index=False))
+b = set(pd.util.hash_pandas_object(X_test,index=False))
+assert not a.intersection(b)
+display(pd.read_csv('entregable_2/results/cv.csv'))
+display(pd.read_csv('entregable_2/results/coefficients.csv'))
+''')]
+nb.write(n,ROOT/'entregable_1_clasificacion.ipynb')
+(ROOT/'REVISION_ENTREGABLE_1.md').write_text(revision)
+visual='\n## Gráficos del dashboard\n'
+for group,component in [('contexto',context()),('modelo',models()),('eda',eda())]:
+    for i,fig in enumerate(figures(component)): visual+=embed(fig,f'revision_{group}_{i}')
+for i,fig in enumerate(update_eda('age','Todos')[:3]): visual+=embed(fig,f'revision_edad_{i}')
+BOOK.joinpath('entregable_2.md').write_text(revision+visual)
+BOOK.joinpath('tarea_2.md').write_text(f'''# Tarea 2 — Revisión del 17 de octubre de 2026
 
-Los entrenamientos requieren los CSV incluidos y nunca generan sustitutos sintéticos cuando falta un archivo.
-Los notebooks también se pueden abrir en Jupyter; localizan la raíz del proyecto y usan sus módulos.
-`requirements_lock.txt` registra las versiones de los paquetes principales que se usaron en esta ejecución.
+Se clasifica HeartDisease registrada en Heart Failure Prediction, sin equiparar la etiqueta a
+incidencia futura o insuficiencia cardíaca. Hay {H['rows']} filas, {H['train_rows']} train y {H['test_rows']} test.
+La partición es estratificada, semilla 42. Los ceros de Cholesterol y RestingBP se convierten a
+faltantes por una regla fija, antes de imputar dentro de Pipeline. La variable artificial de fuga
+se usa sólo en la demostración y no forma parte del modelo desplegado.
 
-## Abrir dashboard y API
+## Selección e incertidumbre
+
+{table(R[['model','cv_auc','cv_auc_sd','roc_auc','average_precision','recall','specificity','f1']])}
+
+`cv_auc_sd` procede de la misma fila ganadora de los archivos cv_*.csv guardados, sin inventar
+ni recalcular entrenamientos. Es dispersión entre cinco folds, no intervalo de confianza.
+El ganador **{H['winner_by_cv']}** se seleccionó por CV exclusivamente. No se cambia por el ranking
+de test. La CV después de búsqueda puede ser optimista y no es anidada. Las diferencias pequeñas
+no establecen superioridad definitiva. Los datos no tienen validación externa.
+
+## Errores a umbral 0,5
+
+{table(R[['model','tn','fp','fn','tp']])}
+
+Los falsos negativos corresponden a registros positivos que el modelo no detecta; los falsos
+positivos a negativos clasificados como positivos. Ni exactitud ni AUC sustituyen este análisis.
+El umbral se mantiene en 0,5; no se optimiza con el test.
+
+## API, Docker y Kubernetes
+
+Se conserva el pipeline completo. La API valida campos, categorías y entradas adicionales;
+se verifica equivalencia numérica entre `/predict` y predict_proba. La probabilidad es académica.
+La evidencia guardada el 6 de octubre de 2026 en `tarea_2/results/verificacion_despliegue/respuestas.json`
+registra `/health` y `/predict` para Docker y Kubernetes: ambos respondieron probabilidad
+0,7890747996765479 para la misma entrada. Esta revisión no constituye un nuevo despliegue.
+
+## Monitoreo ilustrativo
+
+`drift_report.html` compara train y test. `drift_simulated.html` añade artificialmente 20 años a Age.
+La simulación es un control de funcionamiento, no un evento observado en producción. Cambios de
+variables no demuestran caída de desempeño; para ello se necesitan resultados etiquetados posteriores.
+Los reportes completos se conservan en `tarea_2/results/` y el resumen se presenta a continuación.
+
+## Reproducción
 
 ```bash
-python -m entregable_2.app
+python -m tarea_2.train
+python -m tarea_2.drift
+python -m pytest -q
 ```
 
-Abrir `http://127.0.0.1:8050`. Para la API en otra terminal:
-
-```bash
-python -m uvicorn tarea_2.api:app --host 127.0.0.1 --port 8000
-```
-
-Abrir `http://127.0.0.1:8000/docs` para probar `/predict` con el esquema mostrado.
-
-## Docker y Kubernetes local
-
-```bash
-docker build -t heart-api:local -f tarea_2/docker/Dockerfile .
-docker run --rm -p 8000:8000 heart-api:local
-minikube start
-minikube image load heart-api:local
-kubectl apply -f tarea_2/k8s/deployment.yaml
-kubectl apply -f tarea_2/k8s/service.yaml
-kubectl rollout status deployment/heart-model
-minikube service heart-service --url
-```
-
-Verificar `/health` y `/predict` en la URL obtenida. No se dieron por realizadas estas pruebas.
-
-## Publicar Dash con Render
-
-La referencia del docente usa Render. Desde Render, conectar este repositorio y crear el servicio
-usando `render.yaml`, o configurar:
-
-- Build: `pip install -r requirements_dashboard.txt`
-- Start: `gunicorn entregable_2.app:server --bind 0.0.0.0:$PORT --workers 1 --timeout 120`
-- Root Directory: raíz del repositorio.
-
-Los resultados deben estar versionados antes del despliegue. Después verificar las tres pestañas,
-filtros y control de umbral en la URL pública. No se ha creado un servicio Render ni una URL pública.
-GitHub Pages puede alojar el JBook estático, pero no ejecutar el servidor Python de Dash.
-
-## Estado comprobado
-
-| Elemento | Estado |
-|---|---|
-| Entrenamiento de ambos productos | Ejecutado |
-| Datos, hashes y predicciones | Guardados |
-| Dashboard: endpoints y callbacks | Probados localmente |
-| API: predicción y validación | Probadas localmente |
-| Evidently: dos reportes | Generados |
-| Docker / Minikube | Archivos preparados; ejecución pendiente |
-| GitHub Actions | Workflow preparado; ejecución remota pendiente |
-| Render y publicación JBook | Configuración preparada; publicación pendiente |
+La ejecución Docker/Kubernetes se documenta en `ejecucion.md`; el workflow remoto verifica el código.
 ''')
+# Preserve existing operational guide, which includes actual deployment evidence.
+BOOK.joinpath('intro.md').write_text('''# Revisión de las entregas
 
-notebook(ROOT/'entregable_2/entregable_2_caries.ipynb', '# Entregable 2: Caries dental', [
-    ('markdown', 'El código completo vive en `entregable_2/train.py` y `ml_common.py`; este notebook lo ejecuta sin depender de variables ocultas. Datos, semilla y split se documentan en el JBook.'),
-    ('code', 'from entregable_2.train import main\nmain()'),
-    ('code', 'import json, pandas as pd\nfrom IPython.display import display\ns = json.loads(Path("entregable_2/results/summary.json").read_text())\ndisplay(pd.DataFrame([s["logistic"], s["dummy"]], index=["Logística", "Dummy"]))'),
-    ('code', 'from entregable_2.app import update_eda\nfor fig in update_eda("age", "Todos")[:3]:\n    display(fig)'),
-    ('markdown', 'Con umbral 0,5 la sensibilidad es casi nula: la exactitud no describe por sí sola la detección de positivos. El JBook interpreta las figuras, documenta duplicados y compara con el primer entregable.')])
-notebook(ROOT/'tarea_2/notebooks/1_model_leakage_demo.ipynb', '# Tarea 2 — Demostración de fuga', [
-    ('code', 'from tarea_2.train import load_split, leakage_demo\ndf, (X_train, X_test, y_train, y_test) = load_split()\nleakage_demo(X_train, X_test, y_train, y_test)'),
-    ('markdown', 'La característica contaminada usa la respuesta y produce AUC artificialmente alta incluso dentro de un pipeline. El entrenamiento seguro elimina completamente esa característica.'),
-    ('code', 'from tarea_2.train import train_pipeline\nfrom sklearn.linear_model import LogisticRegression\nfrom ml_common import evaluate\nsafe = train_pipeline(X_train, y_train, LogisticRegression(max_iter=2000), {"model__C": [0.1, 1]})\nevaluate(y_test, safe.predict_proba(X_test)[:, 1])')])
-notebook(ROOT/'tarea_2/notebooks/2_model_pipeline_cv.ipynb', '# Tarea 2 — Modelado seguro', [
-    ('code', 'from tarea_2.train import main\nmain()'),
-    ('code', 'import pandas as pd\nfrom IPython.display import display\ndisplay(pd.read_csv("tarea_2/results/ranking.csv"))'),
-    ('markdown', 'El ganador se selecciona con CV de entrenamiento. La tabla de prueba evalúa modelos ya fijados y no se usa para elegir nuevamente el ganador.'),
-    ('code', 'import json, plotly.express as px, plotly.graph_objects as go\nfrom sklearn.metrics import confusion_matrix, roc_curve\ns = json.loads(Path("tarea_2/results/summary.json").read_text())\np = pd.read_csv("tarea_2/results/predictions.csv")\nname = s["winner_by_cv"]\ncm = confusion_matrix(p.actual, (p[name] >= 0.5).astype(int))\ndisplay(px.imshow(cm, text_auto=True, x=["Predicción 0", "Predicción 1"], y=["Real 0", "Real 1"], title=f"Matriz de confusión: {name}"))\nfpr, tpr, _ = roc_curve(p.actual, p[name])\nfig = go.Figure(go.Scatter(x=fpr, y=tpr, name=name))\nfig.add_scatter(x=[0,1], y=[0,1], name="Azar", line_dash="dash")\nfig.update_layout(title="ROC de prueba", xaxis_title="FPR", yaxis_title="Sensibilidad")\ndisplay(fig)'),
-    ('code', 'from tarea_2.drift import main as drift\ndrift()')])
-print('Informe, figuras y tres notebooks generados.')
+Andrés Duarte Chaves · Dr. Lihki Rubio · Actualización: 17 de octubre de 2026.
+
+Se actualizan Entregable 1 (retroalimentación), Entregable 2 (dashboard) y Tarea 2 (pipelines).
+Tarea 1 se corrige en el notebook raíz; su ejecución completa de Spark sigue pendiente y no se
+presentan cifras manuales como resultados. El historial conserva las entregas originales.
+
+[Dashboard de caries](https://machinelearning-caries-andres-duarte.onrender.com)
+
+[Repositorio y registro de correcciones](https://github.com/aduartech81/MachineLearning)
+
+El dashboard conserva exactamente tres pestañas. Estos ejercicios no se mezclan con el proyecto final.
+''')
+# Drift summary extraction: scalar metrics only, no speculative interpretation.
+for filename in ['drift_report.json','drift_simulated.json']:
+    data=json.loads((ROOT/'tarea_2/results'/filename).read_text())
+    rows=[]
+    count=data['metrics'][0]['value']
+    with (BOOK/'tarea_2.md').open('a') as f:
+        f.write(f"\n{filename}: {int(count['count'])}/11 variables con alerta ({count['share']:.1%}). La regla global requiere al menos 50%: no se activa en ninguno de los dos escenarios. Age sí activa una alerta individual en la simulación; los contrastes de monitoreo son exploratorios sin ajuste múltiple.\n")
+    for m in data.get('metrics',[]):
+        value=m.get('value')
+        if isinstance(value,(int,float,str,bool)):
+            rows.append({'metric':m.get('metric_name',m.get('metric_id',m.get('id',''))),'value':value})
+    if rows:
+        with (BOOK/'tarea_2.md').open('a') as f:f.write('\n### '+filename+'\n\n'+table(pd.DataFrame(rows))+'\n')
+print('Informes y notebook corregidos generados desde artefactos calculados.')

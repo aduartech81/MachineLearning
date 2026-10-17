@@ -4,6 +4,10 @@ on:
     branches: [main]
     paths:
       - 'jbook_entregas_2/**'
+      - '09_evaluacion_modelos.ipynb'
+      - 'entregable_1_clasificacion.ipynb'
+      - '_config.yml'
+      - '_toc.yml'
       - '.github/workflows/publicar-informe.yml'
   workflow_dispatch:
 permissions:
@@ -30,12 +34,14 @@ jobs:
           python-version: '3.11'
       - run: pip install 'jupyter-book==1.0.4.post1'
       - run: jupyter-book build jbook_entregas_2 --warningiserror
+      - run: jupyter-book build . --warningiserror
       - name: Conservar sitio anterior y añadir informe
         run: |
           python - <<'PY'
           import shutil
           from pathlib import Path
           shutil.copytree('sitio-anterior', '_site', ignore=shutil.ignore_patterns('.git'))
+          shutil.copytree('_build/html', '_site', dirs_exist_ok=True)
           destino = Path('_site/entregas-2')
           if destino.exists():
               shutil.rmtree(destino)

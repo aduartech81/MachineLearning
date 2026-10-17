@@ -7,3 +7,16 @@ html:
   baseurl: "/MachineLearning/"
 execute:
   execute_notebooks: "off"
+
+only_build_toc_files: true
+
+exclude_patterns:
+  - "_build"
+  - ".*"
+  - "*.md"
+  - "entregable_2/**"
+  - "tarea_2/**"
+  - "jbook_entregas_2/**"
+  - "sitio-anterior/**"
+  - "proyecto_final/**"
+  - "proyecto_final_caries/**"

@@ -1,17 +1,13 @@
-# Tarea 2 y Entregable 2
+# Revisión de las entregas
 
-**Autor:** Andrés Duarte Chaves · **Docente:** Dr. Lihki Rubio
-**Programa:** Maestría en Ingeniería Biomédica · **Fecha de ejecución:** 4 de octubre de 2026
+Andrés Duarte Chaves · Dr. Lihki Rubio · Actualización: 17 de octubre de 2026.
 
-Este informe acompaña dos productos: un dashboard Dash Plotly sobre caries dental y un proyecto
-integrador de clasificación de enfermedad cardíaca mediante pipelines y herramientas de MLOps.
-Los productos conservan objetivos y datasets distintos. Los resultados provienen de código ejecutado;
-los archivos anteriores entregados al docente no se modificaron.
+Se actualizan Entregable 1 (retroalimentación), Entregable 2 (dashboard) y Tarea 2 (pipelines).
+Tarea 1 se corrige en el notebook raíz; su ejecución completa de Spark sigue pendiente y no se
+presentan cifras manuales como resultados. El historial conserva las entregas originales.
 
-El dashboard contiene exactamente tres pestañas. El informe interpreta los gráficos y presenta
-las decisiones metodológicas, limitaciones, procedencia y detalles de reproducción adicionales.
-Dashboard publicado: https://machinelearning-caries-andres-duarte.onrender.com
+[Dashboard de caries](https://machinelearning-caries-andres-duarte.onrender.com)
 
-Informe publicado: https://aduartech81.github.io/MachineLearning/entregas-2/intro.html
+[Repositorio y registro de correcciones](https://github.com/aduartech81/MachineLearning)
 
-Docker y Minikube ejecutados y verificados en el Mac del autor.
+El dashboard conserva exactamente tres pestañas. Estos ejercicios no se mezclan con el proyecto final.

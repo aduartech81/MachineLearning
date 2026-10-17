@@ -53,8 +53,8 @@ def context():
         html.H3('Fuente y alcance'),
         html.P(['Body Signal of Smoking, copia pública del archivo smoking.csv. ',
                 html.A('Fuente utilizada', href='https://github.com/aliabdallah7/smoking-detection', target='_blank'),
-                '. Los conteos coinciden con el primer entregable; la identidad con el archivo original '
-                'del estudiante no está confirmada por checksum.']),
+                '. La equivalencia con el archivo original '
+                'del estudiante fue comprobada por valores, normalizando smoking 0/1 a N/Y; los bytes difieren.']),
         html.P('Se excluyen ID, oral (constante) y tartar. Esta última variable requiere exploración '
                'oral y no se presume disponible antes del examen que registra caries.'),
         html.H3('Diseño de evaluación'),
@@ -68,7 +68,7 @@ def context():
 
 
 def eda():
-    nums = train.select_dtypes(include=np.number).columns.difference(['ID', 'dental caries']).tolist()
+    nums = [c for c in summary['features'] if c not in summary['categorical_features']]
     return html.Div([
         html.H2('Exploración del conjunto de entrenamiento'),
         html.Div([html.Div([html.Label('Variable numérica'),
@@ -82,13 +82,31 @@ def eda():
         dcc.Graph(id='association'),
         note('Las proporciones por edad se calculan en entrenamiento y dependen del filtro de sexo. '
              'Son asociaciones transversales; no estiman incidencia ni efectos causales.'),
-        graph(px.imshow(train[summary['features']].select_dtypes(include=np.number).corr(),
+        graph(px.imshow(train[nums].corr(),
                         zmin=-1, zmax=1, color_continuous_scale='RdBu_r',
                         title='Correlaciones numéricas de entrenamiento')),
         note('Correlaciones altas señalan redundancia entre predictores. No prueban relación causal '
              'ni ausencia de fuga de información. Esta matriz usa todo el entrenamiento y no cambia con los filtros.'),
+        categorical_panel(),
         html.P(f"Faltantes en el archivo recibido: {summary['missing_values']}. No se asume un mecanismo MAR. "
                'Las filas extremas se conservan; una distribución por sí sola no permite diagnosticar enfermedades.')])
+
+
+def categorical_panel():
+    path = ROOT/'results/categorical_eda.csv'
+    if not path.exists():
+        return note('Ejecute python -m entregable_2.audit para generar el EDA categórico.')
+    counts = pd.read_csv(path)
+    figures=[]
+    for variable, subset in counts.groupby('variable', sort=False):
+        subset = subset.copy()
+        subset['category'] = subset['category'].astype(str)
+        figures.append(graph(px.bar(subset, x='category', y='prevalence', hover_data=['n','positive'],
+            title=f'Caries por {variable} · perfiles únicos de entrenamiento')))
+    return html.Div([html.H3('Variables categóricas'), *figures,
+        note('Audición y proteína urinaria se codifican como categorías para evitar imponer distancias lineales. '
+             'Los conteos usan perfiles únicos. Asociaciones, corrección Benjamini–Hochberg y '
+             'análisis multivariado de atípicos se documentan en el informe. No implican causalidad.')])
 
 
 def models():
@@ -112,8 +130,8 @@ def models():
     return html.Div([
         html.H2('Modelo base: regresión logística frente a Dummy'),
         html.P('Imputación, estandarización y codificación categórica dentro de un Pipeline. '
-               'Validación cruzada en perfiles únicos de entrenamiento; modelo final ajustado con todas '
-               'las filas de entrenamiento. La duplicación puede ponderar algunos perfiles más que otros.'),
+               'Validación cruzada agrupada por perfiles de los predictores finales; CV y modelo usan todas '
+               'las filas con la misma ponderación. Ningún perfil cruza conjuntos ni pliegues.'),
         html.Div([card(f"{summary['logistic']['roc_auc']:.3f}", 'ROC AUC'),
                   card(f"{summary['logistic']['average_precision']:.3f}", 'Average Precision'),
                   card(f"{summary['cv_auc_mean']:.3f} ± {summary['cv_auc_sd']:.3f}", 'AUC CV: media ± DE')], className='cards'),

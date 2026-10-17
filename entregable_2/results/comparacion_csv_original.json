@@ -1,0 +1,40 @@
+{
+  "original_sha256": "cf41279453479fa5f62b1de2e67a69e3b1ab6d935b7582d1c6ef7a6beb52f5c4",
+  "repository_sha256": "da697e1d194e6eeedbc643057a4e84f058496db61d0ee5574e212ce4aa102637",
+  "rows": 55692,
+  "columns": 27,
+  "mapping_smoking": {
+    "0": "N",
+    "1": "Y"
+  },
+  "cell_differences_after_numeric_comparison_and_smoking_mapping": {
+    "ID": 0,
+    "gender": 0,
+    "age": 0,
+    "height(cm)": 0,
+    "weight(kg)": 0,
+    "waist(cm)": 0,
+    "eyesight(left)": 0,
+    "eyesight(right)": 0,
+    "hearing(left)": 0,
+    "hearing(right)": 0,
+    "systolic": 0,
+    "relaxation": 0,
+    "fasting blood sugar": 0,
+    "Cholesterol": 0,
+    "triglyceride": 0,
+    "HDL": 0,
+    "LDL": 0,
+    "hemoglobin": 0,
+    "Urine protein": 0,
+    "serum creatinine": 0,
+    "AST": 0,
+    "ALT": 0,
+    "Gtp": 0,
+    "oral": 0,
+    "dental caries": 0,
+    "tartar": 0,
+    "smoking": 0
+  },
+  "note": "Equivalencia de valores; archivos no idénticos byte a byte. No prueba procedencia clínica ni licencia."
+}

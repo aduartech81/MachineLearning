@@ -1,88 +1,100 @@
-# Tarea 2 — Proyecto integrador con pipelines
+# Tarea 2 — Revisión del 17 de octubre de 2026
 
-## 1. Lineamientos y objetivo
+Se clasifica HeartDisease registrada en Heart Failure Prediction, sin equiparar la etiqueta a
+incidencia futura o insuficiencia cardíaca. Hay 918 filas, 734 train y 184 test.
+La partición es estratificada, semilla 42. Los ceros de Cholesterol y RestingBP se convierten a
+faltantes por una regla fija, antes de imputar dentro de Pipeline. La variable artificial de fuga
+se usa sólo en la demostración y no forma parte del modelo desplegado.
 
-El enlace docente corresponde actualmente a **10.20 Proyecto Integrador**, aunque la consigna
-lo llama 10.10. Se implementan estructura modular, demostración de fuga, pipelines con búsqueda,
-API FastAPI, Docker, manifiestos Kubernetes, GitHub Actions y reportes Evidently.
+## Selección e incertidumbre
 
-Se utiliza Heart Failure Prediction (918 registros, 11 predictores y `HeartDisease` binaria).
-El nombre comercial del dataset **no permite equiparar la etiqueta HeartDisease con insuficiencia
-cardíaca ni con incidencia futura**. Se clasifica el estado registrado de enfermedad cardíaca.
-Fuente original: [Kaggle](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction).
-Archivo obtenido de [copia pública en GitHub](https://github.com/amankataria100/Data-Visualization-on-Heart-Disease-Dataset/blob/main/heart.csv).
-SHA-256: `948420b084d8a3a0ca42b8419fce9aee175879e43f8aedf712377899a67aa49b`. La copia tiene 918 filas y 508 positivos. No se sustituye silenciosamente
-por la base UCI de diferente esquema ni se cambia el target a `target`.
+| model              |   cv_auc |   cv_auc_sd |   roc_auc |   average_precision |   recall |   specificity |      f1 |
+|:-------------------|---------:|------------:|----------:|--------------------:|---------:|--------------:|--------:|
+| RandomForest       |  0.93072 |     0.02766 |   0.92994 |             0.93176 |  0.92157 |       0.81707 | 0.89100 |
+| GradientBoosting   |  0.92368 |     0.03722 |   0.92581 |             0.93617 |  0.90196 |       0.89024 | 0.90640 |
+| LogisticRegression |  0.92199 |     0.03372 |   0.93293 |             0.94401 |  0.91176 |       0.85366 | 0.89855 |
+| SVC                |  0.91979 |     0.03445 |   0.93759 |             0.94508 |  0.91176 |       0.84146 | 0.89423 |
+| KNN                |  0.91429 |     0.03059 |   0.93675 |             0.94077 |  0.93137 |       0.85366 | 0.90909 |
+| GaussianNB         |  0.90869 |     0.04403 |   0.90686 |             0.89262 |  0.87255 |       0.86585 | 0.88119 |
 
-## 2. Preprocesamiento y fuga
+`cv_auc_sd` procede de la misma fila ganadora de los archivos cv_*.csv guardados, sin inventar
+ni recalcular entrenamientos. Es dispersión entre cinco folds, no intervalo de confianza.
+El ganador **RandomForest** se seleccionó por CV exclusivamente. No se cambia por el ranking
+de test. La CV después de búsqueda puede ser optimista y no es anidada. Las diferencias pequeñas
+no establecen superioridad definitiva. Los datos no tienen validación externa.
 
-Se reservan 184 filas para prueba mediante partición estratificada, semilla 42;
-las 734 restantes se usan para entrenamiento y validación cruzada.
-Se interpretan los ceros de colesterol (172) y presión en reposo
-(1) como valores no plausibles para estas mediciones, se reemplazan por NaN
-y se imputan dentro del pipeline. La regla es fija y se documenta; no se aprende del test.
+## Errores a umbral 0,5
 
-El ejemplo docente añade `leaky_feature=y+ruido` y no la elimina en el supuesto flujo correcto.
-Se corrige: la variable sólo existe en el experimento contaminado y **nunca se incorpora al modelo
-válido**. La demostración contaminada obtiene AUC 1.0000; un rendimiento
-perfecto es aquí producto de acceso artificial a la respuesta, no de descubrimiento clínico.
-Un Pipeline evita fuga por ajuste de transformaciones, pero no elimina automáticamente proxies del target.
+| model              |   tn |   fp |   fn |   tp |
+|:-------------------|-----:|-----:|-----:|-----:|
+| RandomForest       |   67 |   15 |    8 |   94 |
+| GradientBoosting   |   73 |    9 |   10 |   92 |
+| LogisticRegression |   70 |   12 |    9 |   93 |
+| SVC                |   69 |   13 |    9 |   93 |
+| KNN                |   70 |   12 |    7 |   95 |
+| GaussianNB         |   71 |   11 |   13 |   89 |
 
-## 3. Entrenamiento y comparación
+Los falsos negativos corresponden a registros positivos que el modelo no detecta; los falsos
+positivos a negativos clasificados como positivos. Ni exactitud ni AUC sustituyen este análisis.
+El umbral se mantiene en 0,5; no se optimiza con el test.
 
-Se comparan seis clasificadores: regresión logística, SVC, Random Forest, KNN, Gradient Boosting
-y Gaussian Naive Bayes. Cada uno se integra con el mismo preprocesamiento dentro de `Pipeline`
-y se optimiza con `GridSearchCV`, cinco pliegues estratificados y ROC AUC.
-El ranking se ordena por AUC de validación cruzada, no por AUC de prueba. La selección de
-hiperparámetros y modelo queda dentro de entrenamiento. El ranking de CV tras selección puede
-ser optimista; no se presenta como una estimación de validación cruzada anidada.
+## API, Docker y Kubernetes
 
-| model              |   cv_auc |   roc_auc |   accuracy |   recall |     f1 |   seconds |
-|:-------------------|---------:|----------:|-----------:|---------:|-------:|----------:|
-| RandomForest       |   0.9307 |    0.9299 |     0.8750 |   0.9216 | 0.8910 |    6.5991 |
-| GradientBoosting   |   0.9237 |    0.9258 |     0.8967 |   0.9020 | 0.9064 |    2.2238 |
-| LogisticRegression |   0.9220 |    0.9329 |     0.8859 |   0.9118 | 0.8986 |    0.2278 |
-| SVC                |   0.9198 |    0.9376 |     0.8804 |   0.9118 | 0.8942 |    1.6070 |
-| KNN                |   0.9143 |    0.9368 |     0.8967 |   0.9314 | 0.9091 |    0.5267 |
-| GaussianNB         |   0.9087 |    0.9069 |     0.8696 |   0.8725 | 0.8812 |    0.1475 |
+Se conserva el pipeline completo. La API valida campos, categorías y entradas adicionales;
+se verifica equivalencia numérica entre `/predict` y predict_proba. La probabilidad es académica.
+La evidencia guardada el 6 de octubre de 2026 en `tarea_2/results/verificacion_despliegue/respuestas.json`
+registra `/health` y `/predict` para Docker y Kubernetes: ambos respondieron probabilidad
+0,7890747996765479 para la misma entrada. Esta revisión no constituye un nuevo despliegue.
 
-El modelo seleccionado por CV es **RandomForest**. Otro modelo puede alcanzar mayor AUC
-en test sin que eso autorice a cambiar el ganador usando ese mismo test. Las diferencias pequenas
-no permiten afirmar superioridad definitiva sin análisis de incertidumbre o validación externa.
-Los tiempos son mediciones de esta ejecución local y no una comparación entre plataformas.
+## Monitoreo ilustrativo
 
-```{raw} html
-<iframe src="_static/heart_roc.html" width="100%" height="540" style="border:0" title="heart_roc"></iframe>
+`drift_report.html` compara train y test. `drift_simulated.html` añade artificialmente 20 años a Age.
+La simulación es un control de funcionamiento, no un evento observado en producción. Cambios de
+variables no demuestran caída de desempeño; para ello se necesitan resultados etiquetados posteriores.
+Los reportes completos se conservan en `tarea_2/results/` y el resumen se presenta a continuación.
+
+## Reproducción
+
+```bash
+python -m tarea_2.train
+python -m tarea_2.drift
+python -m pytest -q
 ```
 
+La ejecución Docker/Kubernetes se documenta en `ejecucion.md`; el workflow remoto verifica el código.
 
-## 4. API, contenedor y Kubernetes
+drift_report.json: 0/11 variables con alerta (0.0%). La regla global requiere al menos 50%: no se activa en ninguno de los dos escenarios. Age sí activa una alerta individual en la simulación; los contrastes de monitoreo son exploratorios sin ajuste múltiple.
 
-Se guarda el pipeline completo como `model.joblib`. La API acepta campos nombrados, limita categorías,
-rechaza campos extra y comprueba rangos básicos. Los campos numéricos nulos se imputan con parámetros
-de entrenamiento. El endpoint `/health` comprueba la carga del modelo. `/predict` devuelve probabilidad,
-clase a umbral 0,5 y alcance académico. La probabilidad no está calibrada para atención clínica.
+### drift_report.json
 
-Docker incluye las dependencias y el artefacto. Kubernetes configura Deployment, Service NodePort,
-readiness probe y límites de recursos. Docker y Kubernetes se ejecutaron en el Mac del autor. Minikube completó el rollout y el pod quedó Running, READY 1/1. Las pruebas mediante port-forward del servicio devolvieron el modelo cargado y la misma predicción que Docker. Evidencia: `tarea_2/results/verificacion_despliegue/respuestas.json`.
+| metric                                                                    |   value |
+|:--------------------------------------------------------------------------|--------:|
+| ValueDrift(column=Age,method=K-S p_value,threshold=0.05)                  | 0.07214 |
+| ValueDrift(column=RestingBP,method=K-S p_value,threshold=0.05)            | 0.57696 |
+| ValueDrift(column=Cholesterol,method=K-S p_value,threshold=0.05)          | 0.17155 |
+| ValueDrift(column=MaxHR,method=K-S p_value,threshold=0.05)                | 0.60824 |
+| ValueDrift(column=Oldpeak,method=K-S p_value,threshold=0.05)              | 0.32288 |
+| ValueDrift(column=Sex,method=Z-test p_value,threshold=0.05)               | 0.88991 |
+| ValueDrift(column=ChestPainType,method=chi-square p_value,threshold=0.05) | 0.19888 |
+| ValueDrift(column=FastingBS,method=Z-test p_value,threshold=0.05)         | 0.54466 |
+| ValueDrift(column=RestingECG,method=chi-square p_value,threshold=0.05)    | 0.51726 |
+| ValueDrift(column=ExerciseAngina,method=Z-test p_value,threshold=0.05)    | 0.57222 |
+| ValueDrift(column=ST_Slope,method=chi-square p_value,threshold=0.05)      | 0.31492 |
 
-## 5. Integración continua
+drift_simulated.json: 1/11 variables con alerta (9.1%). La regla global requiere al menos 50%: no se activa en ninguno de los dos escenarios. Age sí activa una alerta individual en la simulación; los contrastes de monitoreo son exploratorios sin ajuste múltiple.
 
-El workflow de GitHub Actions instala dependencias, verifica errores esenciales de sintaxis/nombres
-y ejecuta pruebas de separación de perfiles, equivalencia entre API y pipeline, rechazo de entradas
-inválidas y callbacks del dashboard. Las pruebas se ejecutaron localmente. La validación remota de GitHub Actions se completó con éxito.
+### drift_simulated.json
 
-## 6. Monitoreo ilustrativo con Evidently
-
-Se generan `drift_report.html` y `drift_simulated.html`. El primero compara train contra test y
-el segundo agrega **20 años artificiales a Age** como control positivo de cambio. La alteración
-es simulada y se declara explícitamente; no representa pacientes nuevos ni un evento real.
-Los reportes son archivos exportados, no un servicio continuo de monitoreo en producción.
-La deriva de distribuciones no implica por sí sola caída de desempeño ni cambio causal.
-
-## 7. Fuentes metodológicas
-
-- [Consigna de pipelines del docente](https://lihkir.github.io/MachineLearning/chains_pipelines.html#proyecto-integrador-de-aprendizaje-automatico)
-- [Prevención de fuga: scikit-learn](https://scikit-learn.org/stable/common_pitfalls.html)
-- [Reportes: Evidently](https://docs.evidentlyai.com/docs/library/report)
-- [Publicación de Dash](https://dash.plotly.com/deployment)
+| metric                                                                    |   value |
+|:--------------------------------------------------------------------------|--------:|
+| ValueDrift(column=Age,method=K-S p_value,threshold=0.05)                  | 0.00000 |
+| ValueDrift(column=RestingBP,method=K-S p_value,threshold=0.05)            | 0.57696 |
+| ValueDrift(column=Cholesterol,method=K-S p_value,threshold=0.05)          | 0.17155 |
+| ValueDrift(column=MaxHR,method=K-S p_value,threshold=0.05)                | 0.60824 |
+| ValueDrift(column=Oldpeak,method=K-S p_value,threshold=0.05)              | 0.32288 |
+| ValueDrift(column=Sex,method=Z-test p_value,threshold=0.05)               | 0.88991 |
+| ValueDrift(column=ChestPainType,method=chi-square p_value,threshold=0.05) | 0.19888 |
+| ValueDrift(column=FastingBS,method=Z-test p_value,threshold=0.05)         | 0.54466 |
+| ValueDrift(column=RestingECG,method=chi-square p_value,threshold=0.05)    | 0.51726 |
+| ValueDrift(column=ExerciseAngina,method=Z-test p_value,threshold=0.05)    | 0.57222 |
+| ValueDrift(column=ST_Slope,method=chi-square p_value,threshold=0.05)      | 0.31492 |

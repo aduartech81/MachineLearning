@@ -7,12 +7,13 @@ import numpy as np
 import pandas as pd
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import StratifiedKFold, cross_validate, train_test_split
+from sklearn.model_selection import StratifiedGroupKFold, cross_validate, train_test_split
 from sklearn.pipeline import Pipeline
 from ml_common import preprocessor, evaluate
 
 ROOT = Path(__file__).parent
 SEED = 42
+CATEGORICAL = ["gender", "smoking", "hearing(left)", "hearing(right)", "Urine protein"]
 
 
 def prepare():
@@ -21,7 +22,7 @@ def prepare():
     if len(df) != 55692 or 'dental caries' not in df:
         raise ValueError('La base no corresponde al esquema esperado.')
     # Hash sólo de predictores: evita compartir perfiles repetidos entre splits.
-    raw = df.drop(columns=['ID', 'dental caries'])
+    raw = df.drop(columns=['ID', 'dental caries', 'oral', 'tartar'])
     groups = pd.util.hash_pandas_object(raw, index=False)
     if df.groupby(groups)['dental caries'].nunique().gt(1).any():
         raise ValueError('Perfiles idénticos con etiquetas discordantes: revisar.')
@@ -44,12 +45,12 @@ def main():
     out.mkdir(exist_ok=True)
     df, train, test, X_train, X_test = prepare()
     y_train, y_test = train['dental caries'], test['dental caries']
-    # CV sobre perfiles únicos: las copias tampoco cruzan pliegues internos.
-    unique_mask = ~pd.util.hash_pandas_object(X_train, index=False).duplicated()
-    cv = StratifiedKFold(5, shuffle=True, random_state=SEED)
-    model = Pipeline([('preprocess', preprocessor(X_train)),
+    # Mismos pesos por fila en CV y ajuste final; copias nunca cruzan folds.
+    groups = pd.util.hash_pandas_object(X_train, index=False)
+    cv = StratifiedGroupKFold(5, shuffle=True, random_state=SEED)
+    model = Pipeline([('preprocess', preprocessor(X_train, CATEGORICAL)),
                       ('model', LogisticRegression(max_iter=2000))])
-    scores = cross_validate(model, X_train.loc[unique_mask], y_train.loc[unique_mask],
+    scores = cross_validate(model, X_train, y_train, groups=groups,
                             cv=cv, scoring=['roc_auc', 'average_precision'],
                             return_train_score=True, n_jobs=1)
     model.fit(X_train, y_train)
@@ -63,6 +64,8 @@ def main():
                'missing_values': int(df.isna().sum().sum()),
                'test_prevalence': float(y_test.mean()),
                'features': X_train.columns.tolist(),
+               'categorical_features': CATEGORICAL,
+               'validation': 'StratifiedGroupKFold: todas las filas, grupos de predictores finales',
                'excluded': ['ID', 'oral', 'tartar'],
                'logistic': evaluate(y_test, probs), 'dummy': evaluate(y_test, baseline),
                'cv_auc_mean': float(scores['test_roc_auc'].mean()),
@@ -73,6 +76,10 @@ def main():
     pd.DataFrame({'index': test.index, 'actual': y_test, 'probability': probs,
                   'dummy_probability': baseline}).to_csv(out/'predictions.csv', index=False)
     train.to_csv(out/'train.csv', index=False)
+    coef = model.named_steps['model'].coef_[0]
+    pd.DataFrame({'feature': model.named_steps['preprocess'].get_feature_names_out(),
+                  'coefficient': coef, 'exp_coefficient': np.exp(coef)}).to_csv(
+                      out/'coefficients.csv', index=False)
     joblib.dump(model, out/'model.joblib')
     print(json.dumps(summary, indent=2))
 
