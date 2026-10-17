@@ -1,0 +1,11 @@
+a,b,p,cramer_v,q_bh
+term,grade,0.0,0.431037930009628,0.0
+term,home_ownership,0.0,0.10183961100525807,0.0
+term,verification_status,0.0,0.13277832744919194,0.0
+term,purpose,0.0,0.09493665781040601,0.0
+grade,home_ownership,0.0,0.038222049700138504,0.0
+grade,verification_status,0.0,0.17620900597410272,0.0
+grade,purpose,0.0,0.08290223357691524,0.0
+home_ownership,verification_status,0.0,0.028787306762627505,0.0
+home_ownership,purpose,0.0,0.08640322566954796,0.0
+verification_status,purpose,0.0,0.06163642739506757,0.0

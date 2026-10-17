@@ -4,7 +4,7 @@ from pathlib import Path
 from pyspark.sql import SparkSession,functions as F,types as T
 from pyspark.ml import Pipeline,Transformer
 from pyspark.ml.util import DefaultParamsReadable,DefaultParamsWritable
-from pyspark.ml.feature import Imputer,StringIndexer,OneHotEncoder,VectorAssembler,StandardScaler
+from pyspark.ml.feature import Imputer,StringIndexer,OneHotEncoder,VectorAssembler,StandardScaler,Normalizer
 from pyspark.ml.classification import LogisticRegression,DecisionTreeClassifier,RandomForestClassifier,GBTClassifier,LinearSVC,NaiveBayes
 from pyspark.ml.tuning import ParamGridBuilder,CrossValidator
 from pyspark.ml.evaluation import BinaryClassificationEvaluator
@@ -49,7 +49,8 @@ def main():
             stages += [VectorAssembler(inputCols=[c+'_imp' for c in NUM],outputCol='numeric_raw'),
                        StandardScaler(inputCol='numeric_raw',outputCol='numeric_scaled',withMean=True,withStd=True)]
         inputs=(['numeric_scaled'] if scale else [c+'_imp' for c in NUM])+[c+'_vec' for c in CAT]
-        stages += [VectorAssembler(inputCols=inputs,outputCol='features')]
+        stages += [VectorAssembler(inputCols=inputs,outputCol=('pre_norm' if name=='LinearSVC' else 'features'))]
+        if name=='LinearSVC':stages += [Normalizer(inputCol='pre_norm',outputCol='features',p=2.0)]
         feature_col='features'
         common=dict(labelCol='label',featuresCol=feature_col)
         grid=ParamGridBuilder()

@@ -1,0 +1,28 @@
+{
+  "framework": "spark",
+  "model": "LogisticRegression",
+  "implementation": "LogisticRegression",
+  "rows": 1345310,
+  "train": 1076248,
+  "test": 269062,
+  "cv_auc": 0.707324762657919,
+  "cv_sd": 0.0003800816738164124,
+  "read_seconds": 4.516513302998646,
+  "fit_cv_seconds": 172.15650592199745,
+  "predict_seconds": 1.89129434500137,
+  "transfer_seconds": 1.090933089999453,
+  "parameters": {
+    "regParam": 1e-05,
+    "cv_auc": 0.707324762657919
+  },
+  "maxBins": 64,
+  "roc_auc": 0.7072485649370316,
+  "accuracy": 0.801666530390765,
+  "precision": 0.5344827586206896,
+  "recall": 0.05021224307417337,
+  "f1": 0.09180026549576228,
+  "tn": 213001,
+  "fp": 2349,
+  "fn": 51015,
+  "tp": 2697
+}

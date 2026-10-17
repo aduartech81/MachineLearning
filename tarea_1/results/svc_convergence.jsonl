@@ -1,0 +1,10 @@
+{"rows": 717499, "reg": 1e-06, "C": 1.3937301654775827, "iterations": 14, "max_iter": 2000, "tol": 0.001, "reached_limit": false}
+{"rows": 717498, "reg": 1e-06, "C": 1.393732107964064, "iterations": 516, "max_iter": 2000, "tol": 0.001, "reached_limit": false}
+{"rows": 717498, "reg": 1e-05, "C": 0.13937321079640638, "iterations": 28, "max_iter": 2000, "tol": 0.001, "reached_limit": false}
+{"rows": 717499, "reg": 1e-05, "C": 0.13937301654775824, "iterations": 11, "max_iter": 2000, "tol": 0.001, "reached_limit": false}
+{"rows": 717499, "reg": 1e-05, "C": 0.13937301654775824, "iterations": 6, "max_iter": 2000, "tol": 0.001, "reached_limit": false}
+{"rows": 717498, "reg": 0.0001, "C": 0.013937321079640639, "iterations": 27, "max_iter": 2000, "tol": 0.001, "reached_limit": false}
+{"rows": 717499, "reg": 0.0001, "C": 0.013937301654775826, "iterations": 7, "max_iter": 2000, "tol": 0.001, "reached_limit": false}
+{"rows": 717499, "reg": 0.0001, "C": 0.013937301654775826, "iterations": 7, "max_iter": 2000, "tol": 0.001, "reached_limit": false}
+{"rows": 717499, "reg": 1e-06, "C": 1.3937301654775827, "iterations": 927, "max_iter": 2000, "tol": 0.001, "reached_limit": false}
+{"rows": 1076248, "reg": 1e-05, "C": 0.09291538753149832, "iterations": 44, "max_iter": 2000, "tol": 0.001, "reached_limit": false}

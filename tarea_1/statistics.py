@@ -36,7 +36,15 @@ def validate():
     assert np.allclose(cov,direct)
     assert np.allclose(auc,[roc_auc_score(y,v) for v in s])
     assert np.allclose(holm([.01,.04,.03]),[.03,.06,.06])
-    return dict(delong_direct_covariance_match=True,auc_sklearn_match=True,holm_known_example=True)
+    weights=np.array([2,0,1,1,0,2,1])
+    for score in s:
+        order=np.argsort(score,kind='stable');starts=np.r_[0,np.flatnonzero(np.diff(score[order])!=0)+1]
+        positive=np.add.reduceat(weights[order]*y[order],starts)
+        negative=np.add.reduceat(weights[order]*(1-y[order]),starts)
+        weighted=np.dot(positive,np.cumsum(negative)-.5*negative)/(weights[y==1].sum()*weights[y==0].sum())
+        assert np.isclose(weighted,roc_auc_score(np.repeat(y,weights),np.repeat(score,weights)))
+    return dict(delong_direct_covariance_match=True,auc_sklearn_match=True,holm_known_example=True,
+                weighted_bootstrap_matches_expansion=True)
 
 def main():
     validation=validate()

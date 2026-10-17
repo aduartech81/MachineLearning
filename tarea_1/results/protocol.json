@@ -27,5 +27,7 @@
   "numpy": "2.3.5",
   "pandas": "2.2.3",
   "spark_concurrent_start_utc": "2026-10-17T11:15:04.622168+00:00",
-  "svc_execution_revision": "Primera búsqueda serial con max_iter=10000 interrumpida por costo sin resultados completados. Nueva búsqueda threading n_jobs=2, max_iter=2000, tol=1e-3; se registra convergencia de cada fit, sin cambiar filas ni grilla regParam."
+  "svc_execution_revision": "Primera búsqueda serial con max_iter=10000 interrumpida por costo sin resultados completados. Nueva búsqueda threading n_jobs=2, max_iter=2000, tol=1e-3; se registra convergencia de cada fit, sin cambiar filas ni grilla regParam.",
+  "spark_memory_revision": "Primer intento LR falló con Java heap 4 GiB por caches acumulados; se limita cache a vectores y columnas necesarias y se libera el anterior en CV serial. No se cambian filas, folds ni grillas.",
+  "svc_numerical_stability": "Dos folds con alto C llegaron al límite e inestabilidad. Se descartan. SVC aplica StandardScaler numérico seguido de normalización L2 por fila del vector completo en ambos entornos. Regla sin parámetros aprendidos, sin eliminar filas. CV de selección tras revisión exploratoria no es anidada."
 }

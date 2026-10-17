@@ -1,0 +1,28 @@
+{
+  "framework": "spark",
+  "model": "DecisionTree",
+  "implementation": "DecisionTreeClassifier",
+  "rows": 1345310,
+  "train": 1076248,
+  "test": 269062,
+  "cv_auc": 0.7008973201122091,
+  "cv_sd": 0.00029504126398053205,
+  "read_seconds": 4.516513302998646,
+  "fit_cv_seconds": 135.70128719399872,
+  "predict_seconds": 2.0528988229998504,
+  "transfer_seconds": 1.05794254400098,
+  "parameters": {
+    "maxDepth": 10,
+    "cv_auc": 0.7008973201122091
+  },
+  "maxBins": 64,
+  "roc_auc": 0.7019802668986117,
+  "accuracy": 0.8010309891400496,
+  "precision": 0.5127945641173919,
+  "recall": 0.06603738456955616,
+  "f1": 0.11700671295914496,
+  "tn": 211980,
+  "fp": 3370,
+  "fn": 50165,
+  "tp": 3547
+}
