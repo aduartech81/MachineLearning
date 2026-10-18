@@ -3,7 +3,10 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split,StratifiedKFold
-data_path = "accepted_2007_to_2018Q4.csv"
+from tarea_1.common import OUT
+data_path = os.environ.get("TAREA1_CSV", "accepted_2007_to_2018Q4.csv")
+if any((OUT / n).exists() for n in ("canonical.csv", "splits.csv")):
+    raise FileExistsError("Ya existen datos preparados; revisar antes de repetir.")
 if not os.path.exists(data_path):
     raise FileNotFoundError("Se requiere el CSV real completo de Lending Club; no se generan sustitutos sintéticos.")
 num_cols = ["loan_amnt", "int_rate", "annual_inc", "dti", "fico_range_high", "open_acc", "revol_bal", "total_acc"]
@@ -27,10 +30,10 @@ train_frame = full.loc[train_ids]
 folds = StratifiedKFold(3, shuffle=True, random_state=42)
 for k, (_, valid) in enumerate(folds.split(train_frame, train_frame[target])):
     full.loc[train_frame.index[valid], "fold"] = k
-Path("tarea_1/results").mkdir(parents=True, exist_ok=True)
-full[["row_id","split","fold",target]].to_csv("tarea_1/results/splits.csv", index=False)
+OUT.mkdir(parents=True, exist_ok=True)
+full[["row_id","split","fold",target]].to_csv(OUT/"splits.csv", index=False)
 # Archivo canónico sin transformaciones aprendidas: evita diferencias de parsing entre motores.
-full.drop(columns="loan_status").to_csv("tarea_1/results/canonical.csv", index=False)
+full.drop(columns="loan_status").to_csv(OUT/"canonical.csv", index=False)
 t_load_pandas = time.perf_counter()-t0
 # EDA sólo sobre train; no se submuestrea el entrenamiento supervisado.
 df = full.loc[train_ids].copy()

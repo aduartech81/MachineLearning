@@ -5,6 +5,8 @@ on:
     paths:
       - 'jbook_entregas_2/**'
       - '09_evaluacion_modelos.ipynb'
+      - 'revision_tarea1_mac.ipynb'
+      - '_static/tarea1_revision_mac/**'
       - 'entregable_1_clasificacion.ipynb'
       - '_config.yml'
       - '_toc.yml'

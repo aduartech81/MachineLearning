@@ -17,3 +17,5 @@ tarea_1/results/spark_predictions/
 tarea_1/results/*.joblib
 tarea_1/results/spark_*_model/
 tarea_1/results/*_predictions.csv
+/.venv_tarea1/
+/resultados_tarea1_mac/

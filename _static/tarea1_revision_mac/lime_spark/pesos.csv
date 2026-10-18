@@ -1,0 +1,17 @@
+row_id,tipo,condicion,peso_local_clase_1
+509,falso_positivo,int_rate > 15.99,0.11576305958636676
+509,falso_positivo,term= 60 months,0.07863526360936882
+509,falso_positivo,loan_amnt > 20000.00,0.04738347723678088
+509,falso_positivo,dti > 24.48,0.043729722127834596
+509,falso_positivo,annual_inc <= 45000.00,0.038239070419321806
+509,falso_positivo,home_ownership=MORTGAGE,-0.036375858452743375
+509,falso_positivo,11208.50 < revol_bal <= 20110.25,-0.012821089306057774
+509,falso_positivo,674.00 < fico_range_high <= 694.00,0.011500175405603493
+25,falso_negativo,term= 36 months,-0.08433887778135495
+25,falso_negativo,annual_inc <= 45000.00,0.04510245841946654
+25,falso_negativo,loan_amnt <= 7943.75,-0.043304250832209644
+25,falso_negativo,home_ownership=RENT,0.04006919223129304
+25,falso_negativo,open_acc <= 8.00,-0.03808159955190875
+25,falso_negativo,fico_range_high > 714.00,-0.03680697427078089
+25,falso_negativo,total_acc <= 16.00,0.03146760869072795
+25,falso_negativo,revol_bal <= 5914.00,0.02107944142468007

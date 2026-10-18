@@ -9,7 +9,8 @@ from sklearn.preprocessing import StandardScaler,OneHotEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import roc_auc_score,accuracy_score,precision_score,recall_score,f1_score,confusion_matrix
 ROOT=Path(__file__).parent
-OUT=ROOT/'results'
+import os
+OUT=Path(os.environ.get('TAREA1_OUTPUT', str(ROOT/'results')))
 NUM=['loan_amnt','int_rate','annual_inc','dti','fico_range_high','open_acc','revol_bal','total_acc']
 CAT=['term','grade','home_ownership','verification_status','purpose']
 FEATURES=NUM+CAT

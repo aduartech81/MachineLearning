@@ -1,0 +1,14 @@
+{
+  "datos": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/canonical.csv",
+  "particion_analizada": "train",
+  "filas_train": 1076248,
+  "clases_train": {
+    "0": 861401,
+    "1": 214847
+  },
+  "momento": "Revision exploratoria posterior a los entrenamientos",
+  "uso": "Documentacion; no cambia modelos ni selecciona contra test",
+  "extremos": "Conservados; omitidos visualmente en boxplots",
+  "multiplicidad": "BH por conjunto de pruebas del script",
+  "alcance": "EDA descriptivo y asociaciones; no auditoria exhaustiva"
+}

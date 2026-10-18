@@ -1,0 +1,60 @@
+{
+  "registrado_en": "2026-10-18T05:18:39.484237-05:00",
+  "alcance": "Documentación retrospectiva de las ejecuciones locales conservadas.",
+  "protocolo_historico": "tarea_1/results/protocol.json; conservado sin cambios",
+  "datos": {
+    "csv": "/Users/andresduarte/Desktop/ML_PROYECTOS/accepted_2007_to_2018Q4.csv",
+    "sha256_verificado_previamente": "3eae03c28fd9d2e8a076ebeb73507e8d4d0f44d90500decdb0936e0933d1f36a",
+    "bytes_verificados_previamente": 1675133810,
+    "filas_elegibles": 1345310,
+    "train": 1076248,
+    "test": 269062,
+    "objetivo": {
+      "Fully Paid": 0,
+      "Charged Off": 1
+    },
+    "otros_estados": "Excluidos; no todos deben describirse como no terminales.",
+    "particion": "80/20 estratificada por objetivo, por filas",
+    "folds": 3,
+    "seed": 42,
+    "categoricas_faltantes": "Reemplazadas por Missing antes del EDA",
+    "independencia_por_prestatario": "No verificada",
+    "validacion_temporal": false
+  },
+  "equipo_reportado": {
+    "memoria_bytes": 8589934592,
+    "cpu_logicas": 6
+  },
+  "entorno_observado_ahora": {
+    "python": "3.11.16 (main, Aug 12 2026, 23:03:19) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "ejecutable": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/.venv_tarea1/bin/python",
+    "plataforma": "macOS-26.4-arm64-arm-64bit",
+    "paquetes": {
+      "scikit-learn": "1.8.0",
+      "pyspark": "3.5.7",
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "scipy": "1.17.1"
+    },
+    "nota": "Inventario actual; no sustituye las evidencias de cada ejecución."
+  },
+  "ejecuciones": {
+    "sklearn": "GridSearchCV n_jobs=1; RandomForest n_jobs=4",
+    "spark": "local[2], driver 3g; búsquedas secuenciales",
+    "tiempos": "Tiempos observados por ejecución. Recursos diferentes entre motores; sin réplicas temporales controladas ni monitorización continua de carga.",
+    "svm_original": "Conservada; candidato seleccionado y ajuste final alcanzaron max_iter.",
+    "svm_adicional": "squared_hinge, dual=False; variante separada, no reemplazo silencioso.",
+    "boosting": "HistGradientBoostingClassifier frente a GBTClassifier; implementaciones diferentes."
+  },
+  "analisis": {
+    "lectura_predicciones": "pandas float_precision=round_trip",
+    "contrastes": "DeLong pareado; Holm sobre 38 comparaciones de AUC",
+    "intervalos": "IC95 individuales, no simultáneos; condicionados a modelos ajustados",
+    "dependencia": "Los contrastes asumen independencia entre unidades evaluadas.",
+    "margen_auc_0_005": "Referencia ilustrativa histórica; no criterio de equivalencia.",
+    "eda": "Descriptivo posterior al entrenamiento, restringido a train",
+    "lime": "Mismos dos casos en ambos motores; aproximaciones locales con fidelidad limitada. No son efectos causales ni evidencia de estabilidad."
+  },
+  "git_commit_base": "45a9959b1cb61536779aca5e3ba0311d14d627f1",
+  "git_estado_al_registrar": "## tarea1-mac-20261017_072109...origin/main\n M tarea_1/common.py\n M tarea_1/prepare.py\n M tarea_1/run_sklearn.py\n?? .venv_tarea1/\n?? resultados_tarea1_mac/\n?? tarea_1/run_sklearn_squared_hinge.py\n?? tarea_1/run_spark_mac.py\n"
+}

@@ -1,0 +1,62 @@
+{
+  "modelo_cargado": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_HistGradientBoosting.joblib",
+  "fondo_train": 5000,
+  "perturbaciones": 2000,
+  "variables_explicadas": 8,
+  "discretizacion_continuas": true,
+  "categorias": {
+    "8": [
+      " 36 months",
+      " 60 months"
+    ],
+    "9": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G"
+    ],
+    "10": [
+      "ANY",
+      "MORTGAGE",
+      "NONE",
+      "OTHER",
+      "OWN",
+      "RENT"
+    ],
+    "11": [
+      "Not Verified",
+      "Source Verified",
+      "Verified"
+    ],
+    "12": [
+      "car",
+      "credit_card",
+      "debt_consolidation",
+      "educational",
+      "home_improvement",
+      "house",
+      "major_purchase",
+      "medical",
+      "moving",
+      "other",
+      "renewable_energy",
+      "small_business",
+      "vacation",
+      "wedding"
+    ]
+  },
+  "medianas_train": {
+    "loan_amnt": 12000.0,
+    "int_rate": 12.74,
+    "annual_inc": 65000.0,
+    "dti": 17.62,
+    "fico_range_high": 694.0,
+    "open_acc": 11.0,
+    "revol_bal": 11135.0,
+    "total_acc": 23.0
+  },
+  "nota": "Explicaciones locales ilustrativas; no efectos causales."
+}

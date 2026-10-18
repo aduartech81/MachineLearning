@@ -1,0 +1,19 @@
+{
+  "validacion_implementacion": {
+    "delong_direct_covariance_match": true,
+    "auc_sklearn_match": true,
+    "holm_known_example": true
+  },
+  "test_ids_verificados": true,
+  "n_test": 269062,
+  "nivel_confianza": 0.95,
+  "intervalos": "DeLong, aproximacion normal; individuales, no simultaneos",
+  "comparaciones": 38,
+  "multiplicidad": "Holm global para 38 DeLong; separado para 38 McNemar",
+  "lectura_csv": "round_trip",
+  "alcance": "Exploratorio; modelos fijos, sin incertidumbre de reentrenamiento",
+  "supuesto": "Registros independientes; dependencia por prestatario no verificada",
+  "delta": "AUC de a menos AUC de b",
+  "svm": "Se preservan hinge con advertencia y squared_hinge como variante",
+  "boosting": "HistGradientBoosting de sklearn y GBTClassifier de Spark"
+}

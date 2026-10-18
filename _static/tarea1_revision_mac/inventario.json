@@ -1,0 +1,127 @@
+{
+  "creado": "2026-10-18T04:41:46.514011-05:00",
+  "python_analisis": "3.11.16 (main, Aug 12 2026, 23:03:19) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "plataforma_analisis": "macOS-26.4-arm64-arm-64bit",
+  "canonical": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/canonical.csv",
+  "splits": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/splits.csv",
+  "lectura_scores": "pandas.read_csv(float_precision='round_trip')",
+  "ejecuciones": [
+    {
+      "id": "sklearn_GaussianNB",
+      "framework": "sklearn",
+      "familia": "GaussianNB",
+      "resumen": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_GaussianNB.json",
+      "predicciones": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_GaussianNB_predictions.csv",
+      "cv": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_GaussianNB_cv.csv",
+      "advertencia": ""
+    },
+    {
+      "id": "sklearn_LogisticRegression",
+      "framework": "sklearn",
+      "familia": "LogisticRegression",
+      "resumen": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_LogisticRegression.json",
+      "predicciones": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_LogisticRegression_predictions.csv",
+      "cv": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_LogisticRegression_cv.csv",
+      "advertencia": ""
+    },
+    {
+      "id": "sklearn_DecisionTree",
+      "framework": "sklearn",
+      "familia": "DecisionTree",
+      "resumen": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_DecisionTree.json",
+      "predicciones": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_DecisionTree_predictions.csv",
+      "cv": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_DecisionTree_cv.csv",
+      "advertencia": ""
+    },
+    {
+      "id": "sklearn_HistGradientBoosting",
+      "framework": "sklearn",
+      "familia": "HistGradientBoosting",
+      "resumen": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_HistGradientBoosting.json",
+      "predicciones": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_HistGradientBoosting_predictions.csv",
+      "cv": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_HistGradientBoosting_cv.csv",
+      "advertencia": ""
+    },
+    {
+      "id": "sklearn_LinearSVC",
+      "framework": "sklearn",
+      "familia": "LinearSVC",
+      "resumen": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_LinearSVC.json",
+      "predicciones": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_LinearSVC_predictions.csv",
+      "cv": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_LinearSVC_cv.csv",
+      "advertencia": "SVM hinge: alcanzó el límite en el ajuste final y en los tres folds del candidato seleccionado."
+    },
+    {
+      "id": "sklearn_RandomForest",
+      "framework": "sklearn",
+      "familia": "RandomForest",
+      "resumen": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_RandomForest.json",
+      "predicciones": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_RandomForest_predictions.csv",
+      "cv": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/sklearn_RandomForest_cv.csv",
+      "advertencia": ""
+    },
+    {
+      "id": "spark_GaussianNB",
+      "framework": "spark",
+      "familia": "GaussianNB",
+      "resumen": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_GaussianNB.json",
+      "predicciones": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_GaussianNB_predictions.csv",
+      "cv": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_GaussianNB_cv.csv",
+      "advertencia": ""
+    },
+    {
+      "id": "spark_LogisticRegression",
+      "framework": "spark",
+      "familia": "LogisticRegression",
+      "resumen": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_LogisticRegression.json",
+      "predicciones": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_LogisticRegression_predictions.csv",
+      "cv": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_LogisticRegression_cv.csv",
+      "advertencia": ""
+    },
+    {
+      "id": "spark_DecisionTree",
+      "framework": "spark",
+      "familia": "DecisionTree",
+      "resumen": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_DecisionTree.json",
+      "predicciones": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_DecisionTree_predictions.csv",
+      "cv": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_DecisionTree_cv.csv",
+      "advertencia": ""
+    },
+    {
+      "id": "spark_HistGradientBoosting",
+      "framework": "spark",
+      "familia": "HistGradientBoosting",
+      "resumen": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_HistGradientBoosting.json",
+      "predicciones": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_HistGradientBoosting_predictions.csv",
+      "cv": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_HistGradientBoosting_cv.csv",
+      "advertencia": ""
+    },
+    {
+      "id": "spark_LinearSVC",
+      "framework": "spark",
+      "familia": "LinearSVC",
+      "resumen": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_LinearSVC.json",
+      "predicciones": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_LinearSVC_predictions.csv",
+      "cv": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_LinearSVC_cv.csv",
+      "advertencia": ""
+    },
+    {
+      "id": "spark_RandomForest",
+      "framework": "spark",
+      "familia": "RandomForest",
+      "resumen": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_RandomForest.json",
+      "predicciones": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_RandomForest_predictions.csv",
+      "cv": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/spark_mac_20261017_113555/spark_RandomForest_cv.csv",
+      "advertencia": ""
+    },
+    {
+      "id": "sklearn_LinearSVC_squared_hinge",
+      "framework": "sklearn",
+      "familia": "LinearSVC",
+      "resumen": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/svm_squared_hinge_20261017_113243/sklearn_LinearSVC.json",
+      "predicciones": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/svm_squared_hinge_20261017_113243/sklearn_LinearSVC_predictions.csv",
+      "cv": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/resultados_tarea1_mac/svm_squared_hinge_20261017_113243/sklearn_LinearSVC_cv.csv",
+      "advertencia": "Variante adicional squared_hinge, dual=False; no equivale a la pérdida hinge de Spark."
+    }
+  ]
+}
