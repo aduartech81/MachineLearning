@@ -1,0 +1,35 @@
+
+.pf-shell {background:#f5f8fa;color:#172d3d}
+.pf-hero {background:#17384a;padding:48px max(24px,calc((100% - 1120px)/2))}
+.pf-hero h1 {font-size:clamp(36px,6vw,58px)}
+.pf-kicker {letter-spacing:1.5px;font-size:12px;font-weight:bold}
+.pf-hero .pf-kicker {color:#a5dce0}
+.pf-badge {display:inline-block;background:#315665;padding:8px 12px;border-radius:5px}
+.pf-links {display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.pf-button {display:inline-block;padding:10px 15px;border:1px solid #147d92;
+border-radius:6px;text-decoration:none;color:#115b6c;background:white;margin:4px 4px 4px 0}
+.pf-button:hover {background:#e4f1f3}
+.pf-nav {display:flex;gap:22px;flex-wrap:wrap;padding:18px 24px;
+background:white;border-bottom:1px solid #dce7eb;justify-content:center}
+.pf-nav a {font-weight:bold;text-decoration:none}
+.pf-main {max-width:1120px;margin:auto;padding:30px 24px}
+.pf-metrics {display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pf-metrics>div {background:white;padding:20px;border:1px solid #dce7eb;border-radius:8px}
+.pf-metrics strong {display:block;font-size:30px;color:#147d92}
+.pf-metrics span {font-size:13px}
+.pf-finding {margin-top:24px;padding:20px;background:#fff4e9;border-left:5px solid #b76524}
+.pf-section {background:white;border:1px solid #dce7eb;border-radius:8px;
+padding:28px;margin-top:24px;scroll-margin-top:20px}
+.pf-section .pf-kicker {color:#147d92}
+.pf-section figure {margin:24px 0}
+.pf-section img {width:100%;height:auto}
+.pf-section figcaption {font-size:13px;color:#425d6c;margin-top:8px}
+.pf-table {overflow-x:auto}
+.pf-table table {min-width:620px}
+.pf-section summary {cursor:pointer;font-weight:bold;padding:12px 0}
+.pf-footer {padding:25px;text-align:center;color:#425d6c;font-size:13px}
+.pf-return {padding:10px 24px;background:#eef3f6}
+@media(max-width:760px){
+.pf-metrics{grid-template-columns:repeat(2,1fr)}
+.pf-section{padding:18px}.pf-main{padding:20px 12px}
+}
