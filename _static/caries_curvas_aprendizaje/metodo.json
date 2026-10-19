@@ -1,0 +1,23 @@
+{
+  "modelo": "Regresión logística base; Pipeline original",
+  "particion": "Cinco folds StratifiedGroupKFold, shuffle=True, random_state=42",
+  "submuestras": "Perfiles completos, estratificados por clase y anidados dentro de cada fold",
+  "fracciones": [
+    0.1,
+    0.3,
+    0.6,
+    1.0
+  ],
+  "semillas_submuestras": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "punto_100_por_ciento": "Reutilizado de entregable_2/results/cv.csv",
+  "sha256_datos": "da697e1d194e6eeedbc643057a4e84f058496db61d0ee5574e212ce4aa102637",
+  "alcance": "Diagnóstico dentro de entrenamiento; sin evaluación del test",
+  "dispersion": "SD entre folds descriptiva, no intervalo de confianza",
+  "seleccion": "No se modifican hiperparámetros, umbral ni modelo final"
+}

@@ -289,3 +289,101 @@ el proyecto final.
 
 Evidencia reproducible en el repositorio:
 `entregable_2/results/incertidumbre_20261018_195728_740445/auc_ic95.json`.
+
+
+## Curvas de aprendizaje del modelo base
+
+![Curvas de aprendizaje de regresión logística](_static/caries_curvas_aprendizaje/curvas_aprendizaje.png)
+
+| Perfiles utilizados | Filas medias de ajuste | AUC ajuste | AUC validación | DE entre folds |
+|---|---:|---:|---:|---:|
+| 10% | 3566.8 | 0.6219 | 0.5943 | 0.0117 |
+| 30% | 10677.4 | 0.6155 | 0.6030 | 0.0114 |
+| 60% | 21398.0 | 0.6123 | 0.6047 | 0.0110 |
+| 100% | 35665.6 | 0.6087 | 0.6056 | 0.0108 |
+
+
+Se conservaron los cinco folds de validación agrupada. Dentro de cada
+conjunto de ajuste se seleccionaron subconjuntos anidados de perfiles,
+estratificados por clase, manteniendo juntas todas sus copias.
+Las transformaciones se aprendieron exclusivamente en cada subconjunto.
+El punto del 100 % reutiliza los resultados de la validación cruzada
+original. Los tamaños corresponden a la porción de ajuste de cada fold,
+no al conjunto de entrenamiento completo.
+
+El AUC medio de validación aumenta de 0,5943 a 0,6056, mientras la
+diferencia entre ajuste y validación disminuye aproximadamente de
+0,0276 a 0,0031. Entre el 60 % y el 100 %, el incremento de validación
+es aproximadamente 0,0008. El patrón sugiere rendimientos decrecientes
+al añadir datos para esta especificación de regresión logística.
+No constituye una prueba de equivalencia, un techo universal de
+predicción ni evidencia de superioridad de un modelo alternativo.
+
+La DE presentada es la desviación estándar muestral entre cinco folds
+(ddof=1); no representa un intervalo de confianza del 95 %.
+Puede diferir de resúmenes anteriores calculados con ddof=0.
+Las medias de validación mantienen ponderación igual por fold.
+Este diagnóstico no utiliza el test para evaluar las curvas ni
+modifica el modelo final, sus hiperparámetros o su umbral.
+
+[Descargar resultados por fold](_static/caries_curvas_aprendizaje/curvas.csv)
+· [Consultar método](_static/caries_curvas_aprendizaje/metodo.json)
+
+
+## Diccionario operativo de variables
+
+Este diccionario documenta el tratamiento efectivamente utilizado.
+Las unidades clínicas, escalas y categorías marcadas como pendientes
+no han sido confirmadas mediante el diccionario original del productor.
+Las denominaciones traducidas no sustituyen esa verificación.
+
+| Variable | Significado | Tipo | Unidad o codificación | Tratamiento |
+|---|---|---|---|---|
+| gender | Sexo registrado | Nominal binaria | F/M; etiquetas del archivo | Moda + one-hot dentro de cada ajuste |
+| age | Edad registrada | Cuantitativa discretizada | Unidad y regla de agrupación pendientes de confirmar | Mediana + estandarización dentro de cada ajuste |
+| height(cm) | Estatura | Continua registrada con resolución limitada | cm, según encabezado | Mediana + estandarización dentro de cada ajuste |
+| weight(kg) | Peso corporal | Continua registrada con resolución limitada | kg, según encabezado | Mediana + estandarización dentro de cada ajuste |
+| waist(cm) | Perímetro de cintura | Continua | cm, según encabezado | Mediana + estandarización dentro de cada ajuste |
+| eyesight(left) | Agudeza visual izquierda | Cuantitativa; escala por confirmar | Escala y códigos especiales pendientes | Mediana + estandarización dentro de cada ajuste |
+| eyesight(right) | Agudeza visual derecha | Cuantitativa; escala por confirmar | Escala y códigos especiales pendientes | Mediana + estandarización dentro de cada ajuste |
+| hearing(left) | Código de audición izquierda | Categórica binaria | Significado clínico de los códigos pendiente | Moda + one-hot dentro de cada ajuste |
+| hearing(right) | Código de audición derecha | Categórica binaria | Significado clínico de los códigos pendiente | Moda + one-hot dentro de cada ajuste |
+| systolic | Presión arterial sistólica | Continua | Unidad original pendiente de confirmar | Mediana + estandarización dentro de cada ajuste |
+| relaxation | Presión diastólica: interpretación del campo por confirmar | Continua | Definición y unidad pendientes de confirmar | Mediana + estandarización dentro de cada ajuste |
+| fasting blood sugar | Glucosa en ayunas | Continua | Unidad original pendiente de confirmar | Mediana + estandarización dentro de cada ajuste |
+| Cholesterol | Colesterol total | Continua | Unidad original pendiente de confirmar | Mediana + estandarización dentro de cada ajuste |
+| triglyceride | Triglicéridos | Continua | Unidad original pendiente de confirmar | Mediana + estandarización dentro de cada ajuste |
+| HDL | Colesterol HDL | Continua | Unidad original pendiente de confirmar | Mediana + estandarización dentro de cada ajuste |
+| LDL | Colesterol LDL | Continua | Unidad original pendiente de confirmar | Mediana + estandarización dentro de cada ajuste |
+| hemoglobin | Hemoglobina | Continua | Unidad original pendiente de confirmar | Mediana + estandarización dentro de cada ajuste |
+| Urine protein | Código de proteína urinaria | Categórica; ordinalidad por confirmar | No se presuponen distancias iguales entre códigos | Moda + one-hot dentro de cada ajuste |
+| serum creatinine | Creatinina sérica | Continua | Unidad original pendiente de confirmar | Mediana + estandarización dentro de cada ajuste |
+| AST | Aspartato aminotransferasa | Continua | Unidad original pendiente de confirmar | Mediana + estandarización dentro de cada ajuste |
+| ALT | Alanina aminotransferasa | Continua | Unidad original pendiente de confirmar | Mediana + estandarización dentro de cada ajuste |
+| Gtp | Gamma-glutamiltransferasa: denominación por confirmar | Continua | Unidad original pendiente de confirmar | Mediana + estandarización dentro de cada ajuste |
+| smoking | Estado de tabaquismo registrado | Binaria | N/Y; copia original 0/1 normalizada, sin detalle temporal | Moda + one-hot dentro de cada ajuste |
+| dental caries | Caries registrada | Binaria | 0: ausencia registrada; 1: presencia registrada | Objetivo; no entra como predictor |
+| ID | Identificador de fila | Nominal identificadora | No acredita identidad longitudinal de una persona | Excluido: identificador |
+| oral | Código de examen oral | Nominal constante en la base revisada | Significado detallado pendiente | Excluido: constante |
+| tartar | Registro de cálculo dental | Binaria | Requiere información de exploración oral | Excluido: disponibilidad previa al examen no justificada |
+
+
+[Descargar diccionario y valores observados en entrenamiento](_static/caries_diccionario/diccionario.csv)
+
+**Criterios de codificación.** Un código numérico no convierte una categoría
+en una magnitud. Audición y proteína urinaria se representan mediante
+one-hot, sin imponer distancias iguales. La edad se utiliza en su escala
+numérica registrada; no se crean nuevos intervalos arbitrarios. La
+interpretación de un coeficiente estandarizado corresponde a una
+desviación estándar del entrenamiento, no a una unidad clínica original.
+
+**Límites de interpretación.** Los rangos observados no son intervalos de
+referencia clínica ni intervalos de confianza. No se recodifican posibles
+valores centinela —por ejemplo, extremos de agudeza visual— sin documentación.
+Los análisis de laboratorio sólo serían utilizables en un escenario en que
+ya estuvieran disponibles antes de la decisión odontológica; esa secuencia
+no está acreditada por esta base transversal.
+
+**Pendientes de procedencia.** Confirmar unidades, códigos especiales,
+definición diagnóstica de caries, protocolo de recogida y licencia aplicable.
+No se presenta este diccionario operativo como un codebook clínico validado.
