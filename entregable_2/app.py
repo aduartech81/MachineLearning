@@ -126,7 +126,7 @@ def models():
                       xaxis_title='Probabilidad media', yaxis_title='Fracción positiva observada')
     comparison = pd.DataFrame([dict(Modelo='Logística', **summary['logistic']),
                                dict(Modelo='Dummy (prior)', **summary['dummy'])])
-    columns = ['Modelo', 'roc_auc', 'average_precision', 'accuracy', 'recall', 'f1', 'brier']
+    columns = ['Modelo', 'roc_auc', 'average_precision', 'accuracy', 'precision', 'recall', 'specificity', 'f1', 'brier']
     return html.Div([
         html.H2('Modelo base: regresión logística frente a Dummy'),
         html.P('Imputación, estandarización y codificación categórica dentro de un Pipeline. '
@@ -140,6 +140,7 @@ def models():
                                          for c in columns]) for _, row in comparison.iterrows()])]),
         note('La tabla usa umbral 0,5. ROC AUC describe discriminación; AP resume precision–recall '
              'y no equivale exactamente al área trapezoidal de esa curva. Brier evalúa el error de probabilidades.'),
+        note('IC del 95 % del AUC: [0.5862, 0.6167]. Bootstrap percentil: 2.000 réplicas, semilla 42, estratificado por clase y agrupado por los 8.911 perfiles del test; ponderación por fila. Condicionado al modelo ajustado. Supone independencia entre perfiles, no verificada por paciente. No incluye incertidumbre del entrenamiento ni validación externa. La desviación estándar entre folds no es este intervalo.'),
         html.Div([graph(roc), graph(pr)], className='grid'),
         note('ROC y PR muestran el comportamiento al variar el corte. El nivel de prevalencia es la '
              'referencia de PR. Una AUC superior a 0,5 no implica utilidad clínica suficiente.'),
