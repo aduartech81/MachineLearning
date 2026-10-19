@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "grillas": {
+    "Logistica": [
+      {
+        "C": 0.01
+      },
+      {
+        "C": 0.1
+      },
+      {
+        "C": 1.0
+      },
+      {
+        "C": 10.0
+      }
+    ],
+    "SVM_lineal": [
+      {
+        "C": 0.01
+      },
+      {
+        "C": 0.1
+      },
+      {
+        "C": 1.0
+      },
+      {
+        "C": 10.0
+      }
+    ],
+    "Boosting": [
+      {
+        "max_depth": 3,
+        "max_iter": 100
+      },
+      {
+        "max_depth": 3,
+        "max_iter": 200
+      },
+      {
+        "max_depth": 5,
+        "max_iter": 100
+      },
+      {
+        "max_depth": 5,
+        "max_iter": 200
+      }
+    ],
+    "Propio": [
+      {
+        "alpha": 0.25,
+        "l2": 0.001,
+        "max_interactions": 5
+      },
+      {
+        "alpha": 0.25,
+        "l2": 0.01,
+        "max_interactions": 5
+      },
+      {
+        "alpha": 0.5,
+        "l2": 0.001,
+        "max_interactions": 5
+      },
+      {
+        "alpha": 0.5,
+        "l2": 0.01,
+        "max_interactions": 5
+      }
+    ],
+    "Sin_interacciones": [
+      {
+        "alpha": 0.25,
+        "l2": 0.001,
+        "max_interactions": 0
+      },
+      {
+        "alpha": 0.25,
+        "l2": 0.01,
+        "max_interactions": 0
+      },
+      {
+        "alpha": 0.5,
+        "l2": 0.001,
+        "max_interactions": 0
+      },
+      {
+        "alpha": 0.5,
+        "l2": 0.01,
+        "max_interactions": 0
+      }
+    ],
+    "Sin_ranking": [
+      {
+        "alpha": 0.0,
+        "l2": 0.0001,
+        "max_interactions": 5
+      },
+      {
+        "alpha": 0.0,
+        "l2": 0.001,
+        "max_interactions": 5
+      },
+      {
+        "alpha": 0.0,
+        "l2": 0.01,
+        "max_interactions": 5
+      },
+      {
+        "alpha": 0.0,
+        "l2": 0.1,
+        "max_interactions": 5
+      }
+    ],
+    "Aditivo": [
+      {
+        "alpha": 0.0,
+        "l2": 0.0001,
+        "max_interactions": 0
+      },
+      {
+        "alpha": 0.0,
+        "l2": 0.001,
+        "max_interactions": 0
+      },
+      {
+        "alpha": 0.0,
+        "l2": 0.01,
+        "max_interactions": 0
+      },
+      {
+        "alpha": 0.0,
+        "l2": 0.1,
+        "max_interactions": 0
+      }
+    ]
+  },
+  "seleccion": "Mayor AUC medio interno; empate: primer candidato",
+  "presupuesto": "4 candidatos y 3 folds internos por familia y fold externo",
+  "paralelismo": "Un ajuste simultáneo; máximo 2 hilos numéricos solicitados",
+  "umbrales": "Referencia descriptiva: probabilidad 0.5; SVM score 0",
+  "probabilidades": "Sin calibración adicional; evaluar Brier y calibración",
+  "test_historico": "No utilizado",
+  "regla": "No modificar grillas por resultados externos",
+  "comparaciones_primarias": [
+    "Propio vs Logistica",
+    "Propio vs SVM_lineal",
+    "Propio vs Boosting"
+  ],
+  "ablaciones": [
+    "Propio vs Sin_interacciones",
+    "Propio vs Sin_ranking",
+    "Propio vs Aditivo"
+  ],
+  "inferencia": "Análisis interno exploratorio. Intervalos por bootstrap pareado de perfiles sobre predicciones OOF, condicionado a modelos ajustados; no captura toda la variabilidad ni dependencia de reentrenamiento. No presentar como confirmación independiente de superioridad."
+}

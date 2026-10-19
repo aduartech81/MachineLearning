@@ -10,6 +10,8 @@ on:
       - 'entregable_1_clasificacion.ipynb'
       - '_config.yml'
       - '_toc.yml'
+      - 'proyecto_final_caries.ipynb'
+      - '_static/proyecto_final_caries/**'
       - '.github/workflows/publicar-informe.yml'
   workflow_dispatch:
 permissions:

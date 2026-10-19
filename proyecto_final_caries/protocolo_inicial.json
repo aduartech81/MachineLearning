@@ -1,0 +1,72 @@
+{
+  "estado": "Diseño inicial; no autoriza afirmar originalidad o superioridad",
+  "problema": "Clasificación binaria de caries registrada; no incidencia futura",
+  "datos_sha256": "da697e1d194e6eeedbc643057a4e84f058496db61d0ee5574e212ce4aa102637",
+  "predictores": [
+    "gender",
+    "age",
+    "height(cm)",
+    "weight(kg)",
+    "waist(cm)",
+    "eyesight(left)",
+    "eyesight(right)",
+    "hearing(left)",
+    "hearing(right)",
+    "systolic",
+    "relaxation",
+    "fasting blood sugar",
+    "Cholesterol",
+    "triglyceride",
+    "HDL",
+    "LDL",
+    "hemoglobin",
+    "Urine protein",
+    "serum creatinine",
+    "AST",
+    "ALT",
+    "Gtp",
+    "smoking"
+  ],
+  "exclusiones": [
+    "ID",
+    "oral",
+    "tartar"
+  ],
+  "desarrollo_filas": 44582,
+  "test_historico_filas": 11110,
+  "test_historico": "Ya consultado; no es una evaluación independiente nueva",
+  "evaluacion": "CV anidada agrupada: 5 folds externos y 3 internos",
+  "unidad_agrupacion": "Perfil de los 23 predictores; independencia por persona no verificada",
+  "preprocesamiento": "Aprendido dentro de cada ajuste; nunca sobre el fold de validación",
+  "seleccion": "Hiperparámetros, interacciones, calibración y umbral sólo en desarrollo interno",
+  "referencias_candidatas": [
+    "Dummy",
+    "Regresión logística",
+    "SVM",
+    "Gradient boosting"
+  ],
+  "modelo_propio_candidato": "Modelo aditivo no lineal con interacciones seleccionadas por estabilidad y pérdida combinada de clasificación, ordenación y regularización",
+  "ablaciones_previstas": [
+    "Sin interacciones",
+    "Sin componente de ordenación"
+  ],
+  "criterio_primario": "AUC-ROC y diferencia pareada frente a referencias",
+  "criterios_secundarios": [
+    "Average precision",
+    "Sensibilidad",
+    "Especificidad",
+    "Precisión",
+    "F1",
+    "Matriz de confusión",
+    "Brier",
+    "Calibración"
+  ],
+  "inferencia_pendiente": "Fijar contrastes e intervalos antes de comparar resultados. Respetar perfiles repetidos, dependencia de CV y multiplicidad; no aplicar un contraste ingenuo a folds como si fueran independientes.",
+  "limitaciones": "Los datos de desarrollo ya participaron en análisis anteriores. La CV anidada aporta evaluación interna, no validación externa ni elimina retrospectivamente las decisiones previas.",
+  "pendientes_antes_de_entrenar": [
+    "Matriz de antecedentes y delimitación del aporte propio",
+    "Especificación matemática y algoritmo de ajuste",
+    "Presupuesto comparable de búsqueda y parámetros",
+    "Plan inferencial y selección del umbral"
+  ]
+}

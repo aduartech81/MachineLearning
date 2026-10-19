@@ -1,0 +1,11 @@
+{
+  "replicas": 2000,
+  "semilla": 42,
+  "estadistico": "Media no ponderada de los cinco AUC externos",
+  "remuestreo": "Perfiles completos dentro de fold y clase; mismos pesos para todos los modelos",
+  "ponderacion": "Por fila dentro de cada fold",
+  "intervalos": "Percentiles 2.5 y 97.5; individuales, no simultáneos",
+  "contraste": "Bootstrap centrado bilateral aproximado, con corrección +1",
+  "multiplicidad": "Holm sobre las seis comparaciones preespecificadas",
+  "limites": "Exploratorio y condicionado a predicciones fijas. No incorpora reentrenamiento ni toda la dependencia entre modelos de CV. La independencia entre perfiles no está verificada por paciente. No constituye confirmación independiente de superioridad."
+}

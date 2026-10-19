@@ -1,0 +1,76 @@
+{
+  "tipo": "Diagnóstico técnico; no comparación definitiva",
+  "outer_fold_excluido": 0,
+  "inner_fold_validacion": 0,
+  "filas_ajuste": 5014,
+  "filas_validacion": 2511,
+  "segundos_ajuste": 0.21911683399230242,
+  "convergencia": true,
+  "optimizador_preliminar": {
+    "success": true,
+    "iterations": 48,
+    "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "loss": 0.4970550192240627,
+    "gradient_max": 1.3137212088937863e-06
+  },
+  "optimizador_final": {
+    "success": true,
+    "iterations": 57,
+    "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "loss": 0.5278391325098895,
+    "gradient_max": 1.873815761116969e-06
+  },
+  "auc_validacion_interna": 0.5761363849897589,
+  "ap_validacion_interna": 0.2753075757387916,
+  "brier_validacion_interna": 0.16824350380405537,
+  "interacciones": [
+    {
+      "variable_1": "age",
+      "variable_2": "relaxation",
+      "frequency": 1.0,
+      "residual_association": 0.040688083554724246,
+      "selected": true
+    },
+    {
+      "variable_1": "LDL",
+      "variable_2": "AST",
+      "frequency": 0.8,
+      "residual_association": 0.030352485142560608,
+      "selected": true
+    },
+    {
+      "variable_1": "age",
+      "variable_2": "systolic",
+      "frequency": 0.6,
+      "residual_association": 0.03646634532822949,
+      "selected": true
+    },
+    {
+      "variable_1": "age",
+      "variable_2": "HDL",
+      "frequency": 0.6,
+      "residual_association": 0.028673510940765,
+      "selected": true
+    },
+    {
+      "variable_1": "Cholesterol",
+      "variable_2": "AST",
+      "frequency": 0.6,
+      "residual_association": 0.027208663372381814,
+      "selected": true
+    }
+  ],
+  "advertencias": [],
+  "parametros": {
+    "alpha": 0.25,
+    "l2": 0.01,
+    "max_interactions": 5,
+    "max_iter": 300,
+    "n_knots": 5,
+    "n_pairs": 20000,
+    "random_state": 42,
+    "stability_repeats": 5,
+    "stability_threshold": 0.6,
+    "tol": 1e-06
+  }
+}

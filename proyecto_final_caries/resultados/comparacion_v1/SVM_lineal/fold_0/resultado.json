@@ -1,0 +1,12 @@
+{
+  "familia": "SVM_lineal",
+  "outer_fold": 0,
+  "parametros": {
+    "C": 0.1
+  },
+  "auc_interno": 0.6044980431009501,
+  "auc_externo": 0.6024896227531991,
+  "filas_externas": 8917,
+  "segundos_totales": 1.5822276249964489,
+  "advertencias": []
+}

@@ -1,0 +1,14 @@
+{
+  "familia": "Sin_ranking",
+  "outer_fold": 1,
+  "parametros": {
+    "alpha": 0.0,
+    "l2": 0.1,
+    "max_interactions": 5
+  },
+  "auc_interno": 0.6040085498734443,
+  "auc_externo": 0.6088783028975643,
+  "filas_externas": 8916,
+  "segundos_totales": 6.830523124997853,
+  "advertencias": []
+}

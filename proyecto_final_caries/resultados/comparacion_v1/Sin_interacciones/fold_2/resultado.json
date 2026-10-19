@@ -1,0 +1,14 @@
+{
+  "familia": "Sin_interacciones",
+  "outer_fold": 2,
+  "parametros": {
+    "alpha": 0.25,
+    "l2": 0.01,
+    "max_interactions": 0
+  },
+  "auc_interno": 0.6023374048362061,
+  "auc_externo": 0.6046341085243365,
+  "filas_externas": 8917,
+  "segundos_totales": 3.8855997920036316,
+  "advertencias": []
+}

@@ -1,0 +1,13 @@
+{
+  "familia": "Boosting",
+  "outer_fold": 3,
+  "parametros": {
+    "max_depth": 3,
+    "max_iter": 100
+  },
+  "auc_interno": 0.6002608284929,
+  "auc_externo": 0.6137144701095123,
+  "filas_externas": 8916,
+  "segundos_totales": 8.361954666004749,
+  "advertencias": []
+}

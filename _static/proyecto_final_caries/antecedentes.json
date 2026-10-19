@@ -1,0 +1,22 @@
+[
+  {
+    "trabajo": "Accurate Intelligible Models with Pairwise Interactions",
+    "url": "https://www.cs.cornell.edu/~yinlou/projects/gam/",
+    "implicacion": "Los modelos aditivos con interacciones no son invención propia."
+  },
+  {
+    "trabajo": "Stability Selection",
+    "url": "https://doi.org/10.1111/j.1467-9868.2010.00740.x",
+    "implicacion": "La selección mediante estabilidad tiene antecedentes; una adaptación no hereda automáticamente sus garantías."
+  },
+  {
+    "trabajo": "On the Consistency of AUC Pairwise Optimization",
+    "url": "https://arxiv.org/abs/1208.0645",
+    "implicacion": "La optimización mediante pérdidas de pares tiene antecedentes."
+  },
+  {
+    "trabajo": "Optimal Feature Selection-Based Dental Caries Prediction Model Using Machine Learning for Decision Support System",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9952690/",
+    "implicacion": "Selección de variables y boosting ya se han aplicado a caries; no bastan como argumento de originalidad."
+  }
+]

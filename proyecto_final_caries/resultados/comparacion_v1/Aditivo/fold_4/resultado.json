@@ -1,0 +1,14 @@
+{
+  "familia": "Aditivo",
+  "outer_fold": 4,
+  "parametros": {
+    "alpha": 0.0,
+    "l2": 0.1,
+    "max_interactions": 0
+  },
+  "auc_interno": 0.6064241877297285,
+  "auc_externo": 0.5979244325072277,
+  "filas_externas": 8916,
+  "segundos_totales": 3.496776374988258,
+  "advertencias": []
+}

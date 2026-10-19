@@ -1,0 +1,11 @@
+{
+  "evaluacion": "CV anidada agrupada; predicciones externas OOF",
+  "filas": 44582,
+  "perfiles": 35641,
+  "dummy_auc_medio_folds": 0.5,
+  "dummy_brier_oof": 0.16739952392416657,
+  "umbrales": "Probabilidad 0.5; SVM score 0. No optimizados.",
+  "auc_oof": "Descriptivo: reúne puntuaciones de cinco modelos diferentes. Puede verse afectado por diferencias de escala entre folds, especialmente SVM.",
+  "incertidumbre": "La SD entre folds no es un IC. Contrastes aún pendientes.",
+  "alcance": "Evaluación interna; no demuestra validación clínica ni originalidad."
+}

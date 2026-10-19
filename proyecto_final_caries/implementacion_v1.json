@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "bases": "Splines cúbicos, 5 nudos por cuantiles; extrapolación constante",
+  "pares_ranking": "20.000 pares fijos uniformes por fila, con reemplazo",
+  "interacciones": "Productos entre variables numéricas estandarizadas; máximo 5",
+  "seleccion": "Modelo aditivo preliminar BCE ajustado al conjunto recibido en fit. Asociación absoluta producto-residuo en 5 submuestras del 70% de perfiles completos. Top 10 por submuestra; frecuencia mínima 0.6. Desempate por asociación media.",
+  "limite_seleccion": "Estabilidad exploratoria de asociación residual, no mejora validada ni estabilidad con reajuste del modelo preliminar en cada submuestra. No hereda garantías de control de falsos descubrimientos.",
+  "optimizador": "L-BFGS-B, máximo 300 iteraciones; registrar convergencia",
+  "probabilidades": "Sigmoide de puntuación; calibración aún no demostrada",
+  "estado": "Código creado; pendiente prueba de ajuste e aislamiento"
+}

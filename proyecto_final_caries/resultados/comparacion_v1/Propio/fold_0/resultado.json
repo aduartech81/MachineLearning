@@ -1,0 +1,14 @@
+{
+  "familia": "Propio",
+  "outer_fold": 0,
+  "parametros": {
+    "alpha": 0.25,
+    "l2": 0.01,
+    "max_interactions": 5
+  },
+  "auc_interno": 0.6042799352184438,
+  "auc_externo": 0.6019184009153973,
+  "filas_externas": 8917,
+  "segundos_totales": 6.320430500010843,
+  "advertencias": []
+}

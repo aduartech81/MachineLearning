@@ -1,0 +1,12 @@
+{
+  "familia": "Logistica",
+  "outer_fold": 4,
+  "parametros": {
+    "C": 0.01
+  },
+  "auc_interno": 0.6057912541446306,
+  "auc_externo": 0.6009405631578689,
+  "filas_externas": 8916,
+  "segundos_totales": 1.334543124990887,
+  "advertencias": []
+}
