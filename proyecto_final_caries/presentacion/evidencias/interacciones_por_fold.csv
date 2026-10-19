@@ -1,0 +1,26 @@
+variable_1,variable_2,frequency,residual_association,selected,fold,interaccion
+weight(kg),Cholesterol,1.0,0.016660615239858144,True,fold_0,Cholesterol × weight(kg)
+systolic,triglyceride,0.8,0.01750446718912133,True,fold_0,systolic × triglyceride
+age,HDL,0.8,0.016081515283553727,True,fold_0,HDL × age
+waist(cm),Cholesterol,0.8,0.015134311585067572,True,fold_0,Cholesterol × waist(cm)
+triglyceride,Gtp,0.6,0.015231435599130701,True,fold_0,Gtp × triglyceride
+age,ALT,1.0,0.022964350859495625,True,fold_1,ALT × age
+age,AST,1.0,0.020133288803239387,True,fold_1,AST × age
+age,HDL,0.8,0.01702175953749654,True,fold_1,HDL × age
+relaxation,triglyceride,0.6,0.015268613449393975,True,fold_1,relaxation × triglyceride
+HDL,Gtp,0.6,0.013788205355484603,True,fold_1,Gtp × HDL
+age,ALT,1.0,0.022115588328032308,True,fold_2,ALT × age
+age,HDL,1.0,0.01833154255057281,True,fold_2,HDL × age
+systolic,HDL,0.8,0.01869324574701103,True,fold_2,HDL × systolic
+relaxation,HDL,0.8,0.016547948809522563,True,fold_2,HDL × relaxation
+triglyceride,Gtp,0.8,0.015833920728059236,True,fold_2,Gtp × triglyceride
+age,HDL,1.0,0.02127990710748428,True,fold_3,HDL × age
+age,ALT,1.0,0.020920330216305384,True,fold_3,ALT × age
+age,triglyceride,1.0,0.019159913465209656,True,fold_3,age × triglyceride
+relaxation,triglyceride,0.8,0.017524519443753876,True,fold_3,relaxation × triglyceride
+age,hemoglobin,0.8,0.01593881026874251,True,fold_3,age × hemoglobin
+height(cm),Cholesterol,1.0,0.01968741475440667,True,fold_4,Cholesterol × height(cm)
+HDL,Gtp,1.0,0.019039041618547425,True,fold_4,Gtp × HDL
+LDL,hemoglobin,0.8,0.019752227225771257,True,fold_4,LDL × hemoglobin
+age,ALT,0.8,0.019529114154744905,True,fold_4,ALT × age
+relaxation,HDL,0.8,0.019154297732079384,True,fold_4,HDL × relaxation

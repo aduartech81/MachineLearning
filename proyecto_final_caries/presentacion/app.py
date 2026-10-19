@@ -219,5 +219,66 @@ def evidencia(nombre):
                                as_attachment=not nombre.endswith(".png"))
 
 
+from proyecto_final_caries.presentacion.explorador_resultados import integrar as integrar_resultados
+_revision_callbacks = integrar_resultados(app, SECCIONES, DATA)
+
+
+from proyecto_final_caries.presentacion.explorador_datos import integrar as integrar_datos
+app.config.suppress_callback_exceptions = True
+_eda_callback = integrar_datos(app, SECCIONES, DATA)
+
+
+
+# Portada del proyecto independiente.
+app.layout.children[0] = html.Header([
+    html.Div([
+        html.Div([
+            html.P("ANDRÉS DUARTE CHAVES · MACHINE LEARNING",
+                   className="pf-kicker"),
+            html.H1("Caries dental: de los datos a la evidencia."),
+            html.P(
+                "¿Qué pueden aportar los datos de un chequeo general "
+                "a la clasificación de caries registrada?",
+                className="portada-pregunta"
+            ),
+            html.P(
+                "Exploración de datos, implementación de un modelo propio "
+                "y comparación reproducible con modelos de referencia."
+            ),
+            html.Div([
+                html.Span("Clasificación binaria"),
+                html.Span("Datos tabulares"),
+                html.Span("Evaluación agrupada"),
+            ], className="portada-etiquetas")
+        ]),
+        html.Figure([
+            html.Img(
+                src=app.get_asset_url("portada_caries.png"),
+                alt="Escena ilustrativa de una evaluación odontológica."
+            ),
+            html.Figcaption(
+                "Ilustración generada con IA. No corresponde a participantes "
+                "del estudio; el modelo no analiza imágenes."
+            )
+        ])
+    ], className="portada-columnas"),
+    html.Div([
+        html.Div([html.Strong("55.692"), html.Span("Registros del archivo original")]),
+        html.Div([html.Strong("44.582"), html.Span("Filas de desarrollo")]),
+        html.Div([html.Strong("23"), html.Span("Predictores utilizados")]),
+        html.Div([html.Strong("7"), html.Span("Variantes evaluadas, incluidas ablaciones")]),
+    ], className="pf-metrics"),
+    html.P(
+        "Estudio de caries registrada, no de aparición futura. "
+        "El desempeño observado no acredita utilidad clínica.",
+        className="portada-alcance"
+    )
+], className="pf-hero portada-final")
+
+
+from proyecto_final_caries.presentacion.interpretacion_modelo import integrar as integrar_interpretacion
+integrar_interpretacion(SECCIONES, DATA)
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8050)), debug=False)

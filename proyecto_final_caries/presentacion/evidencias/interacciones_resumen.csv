@@ -1,0 +1,16 @@
+interaccion,folds_seleccionada,frecuencia_interna_media_al_seleccionarse,total_folds
+ALT × age,4,0.95,5
+HDL × age,4,0.9,5
+Gtp × HDL,2,0.8,5
+Gtp × triglyceride,2,0.7,5
+HDL × relaxation,2,0.8,5
+relaxation × triglyceride,2,0.7,5
+AST × age,1,1.0,5
+Cholesterol × height(cm),1,1.0,5
+Cholesterol × waist(cm),1,0.8,5
+Cholesterol × weight(kg),1,1.0,5
+HDL × systolic,1,0.8,5
+LDL × hemoglobin,1,0.8,5
+age × hemoglobin,1,0.8,5
+age × triglyceride,1,1.0,5
+systolic × triglyceride,1,0.8,5
