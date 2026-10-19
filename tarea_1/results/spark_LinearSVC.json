@@ -1,0 +1,27 @@
+{
+  "framework": "spark",
+  "model": "LinearSVC",
+  "implementation": "LinearSVC",
+  "rows": 1345310,
+  "train": 1076248,
+  "test": 269062,
+  "cv_auc": 0.6406502636163663,
+  "cv_sd": 0.016872439877359015,
+  "read_seconds": 3.932912132000638,
+  "fit_cv_seconds": 224.25312453999868,
+  "predict_seconds": 1.8027523860000656,
+  "transfer_seconds": 1.0398699219986156,
+  "parameters": {
+    "regParam": 1e-06
+  },
+  "maxBins": null,
+  "roc_auc": 0.6799472253501186,
+  "accuracy": 0.8003731481963265,
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1": 0.0,
+  "tn": 215350,
+  "fp": 0,
+  "fn": 53712,
+  "tp": 0
+}

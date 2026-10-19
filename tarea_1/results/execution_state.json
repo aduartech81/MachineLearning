@@ -1,0 +1,10 @@
+{
+  "status": "partial",
+  "completed_models": 11,
+  "pending": [
+    "spark_RandomForest",
+    "paired_statistics",
+    "spark_LIME_selection"
+  ],
+  "interruption_utc": "2026-10-17T12:51:46.045735+00:00"
+}

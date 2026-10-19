@@ -11,20 +11,31 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve
 from tarea_1.common import ROOT,OUT,NAMES
 
-def table(df):return df.to_markdown(index=False,floatfmt='.5f')
+def table(df):
+    shown=df.copy()
+    for col in shown.columns:
+        if col in {'p','p_holm','mcnemar_p','mcnemar_p_holm','p_value','p_adjusted','p_bh','q_bh'}:
+            shown[col]=shown[col].map(lambda x: '<1e-300' if x==0 else f'{x:.3e}')
+        elif pd.api.types.is_float_dtype(shown[col]):
+            shown[col]=shown[col].map(lambda x: f'{x:.5f}')
+    return shown.to_markdown(index=False,disable_numparse=True)
+
 def main():
     protocol=json.loads((OUT/'protocol.json').read_text())
     rows=[];pending=[]
     for framework in ['sklearn','spark']:
         for name in NAMES:
             path=OUT/f'{framework}_{name}.json'
-            if path.exists():rows.append(json.loads(path.read_text()))
+            if path.exists():
+                item=json.loads(path.read_text())
+                item.setdefault('implementation',{'DecisionTree':'DecisionTreeClassifier','RandomForest':'RandomForestClassifier','HistGradientBoosting':'HistGradientBoostingClassifier'}.get(name,name))
+                rows.append(item)
             else:pending.append(f'{framework}: {name}')
     ranking=pd.DataFrame(rows);ranking.to_csv(OUT/'ranking.csv',index=False)
     stats_done=(OUT/'paired_tests.csv').exists() and (OUT/'statistics_validation.json').exists()
-    lime_done=(OUT/'lime_explanations.csv').exists()
+    lime_done=(OUT/'lime_explanations.csv').exists() and set(pd.read_csv(OUT/'lime_explanations.csv').framework)=={'sklearn','spark'}
     complete=not pending and stats_done and lime_done
-    status='Ejecución completa de modelos, contrastes y explicaciones.' if complete else 'EN PROCESO: no se afirma cumplimiento completo.'
+    status='Ejecución completa de modelos, contrastes y explicaciones.' if complete else f'Ejecución parcial: {len(rows)} de 12 modelos completados. No se afirma cumplimiento completo.'
     text=f'''# Tarea 1 — Evaluación de modelos y riesgo crediticio
 
 Andrés Duarte Chaves · Maestría en Ingeniería Biomédica · Dr. Lihki Rubio.
@@ -32,13 +43,17 @@ Revisión del 17 de octubre de 2026. **{status}**
 
 Esta versión sustituye la tabla manual y la ROC aproximada de Spark de la entrega anterior.
 Cada resultado mostrado procede de una ejecución guardada. El historial Git conserva la versión previa.
+La ejecución de Random Forest de Spark se interrumpió tras una limpieza del directorio temporal
+y la pérdida de conexión con Java. La causa exacta de la caída de Java no está confirmada.
+Se reconstruyen los modelos completados con sus parámetros guardados y se contrastan sus métricas,
+sin reemplazar las búsquedas de CV originales. No hay resultados inventados para el modelo pendiente.
 
 ## Datos y objetivo
 
 CSV real completo recuperado de ML_PROYECTOS en Archivo.zip, de {protocol['bytes']:,} bytes.
 SHA-256: `{protocol['sha256']}`. No se usa el CSV sintético de la otra carpeta.
 Se incluyen los {protocol['eligible_rows']:,} préstamos con estado terminal Fully Paid (0) o Charged Off (1).
-Los demás estados no se etiquetan como pagos exitosos: todavía no representan desenlaces terminales.
+Los demás estados se excluyen por la definición del objetivo; no se reclasifican como pagos exitosos.
 No se realiza muestreo del entrenamiento supervisado. Se leen las 13 variables preespecificadas,
 además del estado; la proyección de columnas no reduce el número de filas.
 
@@ -57,7 +72,9 @@ se aprenden de nuevo en cada fold y en el ajuste final sólo con entrenamiento.
 Mediana numérica, Missing para categorías ausentes y one-hot con categorías de entrenamiento.
 En los modelos lineales se estandarizan sólo las variables numéricas; las categorías mantienen
 codificación binaria. sklearn usa varianza poblacional y Spark muestral al escalar: diferencia pequeña,
-pero no se presentan transformaciones idénticas bit a bit.
+pero no se presentan transformaciones idénticas bit a bit. Spark reserva una categoría desconocida
+adicional por variable; sklearn ignora categorías desconocidas con ceros. Esas columnas constantes
+pueden afectar el muestreo de características de RF, por lo que tampoco se presume identidad algorítmica.
 
 ## Hardware y costos
 
@@ -68,7 +85,13 @@ Los tiempos concurrentes pueden verse afectados por memoria y carga compartida: 
 superioridad de velocidad entre bibliotecas**. Las métricas predictivas usan los mismos IDs y folds.
 GridSearchCV usa un estimador compuesto sin Pipeline que aprende transformaciones en cada fit.
 La búsqueda usa una tarea simultánea salvo SVM (dos hilos de búsqueda compartiendo memoria); RF usa 4 hilos.
-SVM usa hinge, max_iter=2000 y tol=1e-3. Se registra cada ajuste en svc_convergence.jsonl.
+SVM usa hinge, max_iter=2000 y tol=1e-3. Tras el escalado numérico se normaliza
+a norma L2 el vector completo de cada fila, igual en ambos motores, para limitar problemas
+numéricos de observaciones extremas. No se descartan filas. Esta transformación cambia la geometría
+y reduce información sobre magnitud absoluta; no se presenta como una operación neutra.
+La decisión se tomó tras detectar no convergencia en CV, por lo que esta CV exploratoria no es anidada. Se registra cada ajuste de scikit-learn en svc_convergence.jsonl.
+Spark usa maxIter=1000 y tol=1e-6; no se conservó su historial interno de optimización,
+por lo que no se afirma equivalencia de tolerancias ni convergencia interna verificada de Spark.
 La primera búsqueda con 10000 iteraciones se interrumpió por costo antes de obtener resultados;
 su tiempo no se atribuye a la ejecución completada. Un ajuste que llegue al límite no demuestra convergencia.
 Spark utiliza ParamGridBuilder y CrossValidator de tres folds, con vectores materializados y
@@ -78,7 +101,8 @@ No deben sumarse de nuevo los tiempos parciales de preprocesamiento que ya está
 
 HistGradientBoosting sustituye a GradientBoosting de sklearn por costo de cómputo, como permite
 la guía actual. Usa 50/100 iteraciones, profundidad 3/5, tasa 0,1, sin parada temprana ni límite de
-hojas adicional. Spark usa GBT. HistGradientBoosting usa 255 bins y Spark 64: los algoritmos no son
+hojas adicional. Spark usa GBT; la clave HistGradientBoosting en los nombres de archivo identifica
+la familia emparejada, no una implementación de HistGradientBoosting en Spark. HistGradientBoosting usa 255 bins y Spark 64: los algoritmos no son
 idénticos. RF y árboles también difieren en cortes y convenciones internas. GaussianNB usa
 estabilización propia de cada biblioteca. La correspondencia C–regParam no demuestra equivalencia
 numérica exacta; se calcula C con el número de filas del fit de cada fold.
@@ -87,8 +111,16 @@ numérica exacta; se calcula C con el número de filas del fit de cada fold.
 
 '''
     if len(ranking):
-        text+=table(ranking[['framework','model','cv_auc','cv_sd','roc_auc','accuracy','precision','recall','f1','fit_cv_seconds','predict_seconds']])+'\n'
+        text+=table(ranking[['framework','implementation','cv_auc','cv_sd','roc_auc','accuracy','precision','recall','f1','fit_cv_seconds','predict_seconds']])+'\n'
         text+='\n### Matrices de confusión a corte fijo\n\n'+table(ranking[['framework','model','tn','fp','fn','tp']])+'\n'
+    if len(ranking):
+        for engine,group in ranking.groupby('framework'):
+            winner=group.loc[group.cv_auc.idxmax()]
+            text+=f"\nMayor AUC CV entre modelos completados en {engine} (provisional si faltan familias): **{winner['implementation']}**, AUC CV {winner.cv_auc:.5f}, AUC test {winner.roc_auc:.5f}, sensibilidad {winner.recall:.2%}. La elección se hizo por CV, no por test.\n"
+    if len(ranking):
+        base=ranking.iloc[0]
+        majority=(base.tn+base.fp)/base.test
+        text+=f'\nPredecir siempre Fully Paid obtiene exactitud {majority:.2%} y sensibilidad nula para Charged Off. Esta referencia muestra por qué la exactitud aislada resulta insuficiente.\n'
     if pending:text+='\n**Pendientes:** '+', '.join(pending)+'.\n'
     text+='''
 Los clasificadores probabilísticos usan corte 0,5; SVM utiliza margen cero. La selección de modelos
@@ -108,7 +140,7 @@ no lo tiene. Una asociación entre faltantes y desenlace cuestiona MCAR, pero su
 MCAR ni justifica asumir MAR. Los extremos se conservan; Tukey no diagnostica errores.
 
 '''
-    for name in ['histograms','boxplots','correlation','categories']:
+    for name in ['histograms','boxplots','correlation','categories','missing_by_class']:
         if (ROOT/'figures'/f'{name}.png').exists():text+=f'![{name}](tarea_1/figures/{name}.png)\n\n'
     figdir=ROOT/'figures';figdir.mkdir(exist_ok=True)
     for framework in ['sklearn','spark']:
@@ -117,7 +149,7 @@ MCAR ni justifica asumir MAR. Los extremos se conservan; Tukey no diagnostica er
             path=prediction_path(framework,name)
             if not path.exists():continue
             pred=pd.read_csv(path);fpr,tpr,_=roc_curve(pred.actual,pred.score)
-            ax.plot(fpr,tpr,label=name);count+=1
+            ax.plot(fpr,tpr,label=('GBTClassifier' if framework=='spark' and name=='HistGradientBoosting' else name));count+=1
         if count:
             ax.plot([0,1],[0,1],'k--');ax.set(xlabel='FPR',ylabel='Sensibilidad',title=f'ROC reales — {framework}');ax.legend(fontsize=8)
             fig.tight_layout();fig.savefig(figdir/f'roc_{framework}.png',dpi=140)
@@ -126,6 +158,11 @@ MCAR ni justifica asumir MAR. Los extremos se conservan; Tukey no diagnostica er
     convergence=OUT/'svc_convergence.jsonl'
     if convergence.exists():
         text+='\n### Convergencia de SVM\n\n'+table(pd.read_json(convergence,lines=True))+'\n'
+    for engine in ['sklearn','spark']:
+        p=prediction_path(engine,'LinearSVC')
+        if p.exists():
+            v=pd.read_csv(p)
+            text+=f'\nSVM {engine}: rango del margen [{v.score.min():.8g}, {v.score.max():.8g}], desviación {v.score.std():.8g}, positivos predichos {int((v.prediction==1).sum())}. Un margen casi constante puede producir rankings numéricamente inestables aunque se alcance la tolerancia del optimizador. La diferencia entre SVM no se atribuye exclusivamente al motor: también intervienen tolerancias, regularización del intercepto de liblinear y detalles del optimizador. No se invierte el signo para mejorar AUC retrospectivamente.\n'
     text+='''## Comparación estadística
 
 DeLong se implementa con rangos, O(n log n), y se verifica frente al cálculo directo en una muestra
@@ -140,7 +177,16 @@ variación del test, no la del reentrenamiento, ni corrigen dependencia por pres
 '''
     if stats_done:
         comparisons=pd.read_csv(OUT/'paired_tests.csv')
-        text+=table(comparisons)+'\n'
+        intervals=[]
+        for row in comparisons.itertuples():
+            intervals.extend([dict(model=row.a,auc=row.auc_a,low=row.auc_a_low,high=row.auc_a_high),dict(model=row.b,auc=row.auc_b,low=row.auc_b_low,high=row.auc_b_high)])
+        text+='\n### AUC e intervalos del 95%\n\n'+table(pd.DataFrame(intervals).drop_duplicates('model'))+'\n'
+        text+='\n### DeLong pareado\n\n'+table(comparisons[['family','a','b','delta_auc','ci_low','ci_high','z','p','p_holm']])+'\n'
+        text+='\n### McNemar y bootstrap pareado\n\n'+table(comparisons[['family','a','b','a_correct_b_wrong','a_wrong_b_correct','mcnemar_p','mcnemar_p_holm','bootstrap_low','bootstrap_high']])+'\n' 
+        for family,group in comparisons.groupby('family'):
+            text+=f"\nFamilia {family}: {int((group.p_holm<.05).sum())}/{len(group)} diferencias significativas con Holm; {int(group.practical_margin_met.sum())}/{len(group)} superan el margen descriptivo de 0,005. Son criterios distintos y no demuestran utilidad financiera.\n"
+        largest=comparisons.loc[comparisons.delta_auc.abs().idxmax()]
+        text+=f"\nLa mayor diferencia absoluta se observa entre {largest.a} y {largest.b}: ΔAUC={largest.delta_auc:.5f}. Debe interpretarse junto con sensibilidad, estabilidad numérica y límites de cada procedimiento.\n"
         for framework in ['sklearn','spark']:
             sub=comparisons[comparisons.family==framework]
             for field in ['delta_auc','p_holm']:
@@ -154,8 +200,17 @@ variación del test, no la del reentrenamiento, ni corrigen dependencia por pres
                 text+=f'![{framework} {field}](tarea_1/figures/{filename})\n\n'
     else:text+='**Pendiente:** no se generan contrastes hasta completar las doce series de predicciones.\n'
     text+='\n## Interpretabilidad local\n\n'
-    if lime_done:text+=table(pd.read_csv(OUT/'lime_explanations.csv'))+'\n'
-    else:text+='LIME está pendiente de terminar los modelos y escoger el ganador probabilístico por CV en cada entorno.\n'
+    if lime_done:
+        explanations=pd.read_csv(OUT/'lime_explanations.csv')
+        text+=table(explanations)+'\n'
+        for (engine,row_id),group in explanations.groupby(['framework','row_id']):
+            first=group.iloc[0]
+            strongest=group.loc[group.weight.abs().idxmax()]
+            text+=f'\nCaso {int(row_id)} en {engine}: clase real {int(first.actual)}, predicción {int(first.prediction)}, probabilidad {first.score:.3f}. La condición con mayor peso absoluto es «{strongest.feature}» ({strongest.weight:+.3f}). R² local={first.local_r2:.3f}; estos pesos describen un sustituto aproximado, con fidelidad limitada, y no una causa del impago.\n'
+
+    else:
+        if (OUT/'lime_explanations.csv').exists():text+=table(pd.read_csv(OUT/'lime_explanations.csv'))+'\n'
+        text+='LIME de scikit-learn está guardado. LIME de Spark queda pendiente de completar todas las familias y seleccionar el ganador por CV.\n'
     text+='''
 LIME utiliza fondo de 5.000 registros de entrenamiento y 2.000 perturbaciones por caso; este
 muestreo sólo corresponde a la explicación, no al entrenamiento supervisado. Las categorías se
@@ -163,6 +218,17 @@ perturban como categorías y los faltantes numéricos del caso se representan po
 Se explican hasta dos errores por motor. R² local informa fidelidad del sustituto; pesos locales
 no son efectos causales ni una explicación global. Correlaciones y perturbaciones poco plausibles
 limitan la interpretación. Las explicaciones no justifican decisiones financieras reales.
+
+## Reflexión crítica
+
+La comparación corresponde a un solo tamaño y a un nodo compartido. No permite estimar un
+volumen a partir del cual Spark supera a scikit-learn ni sostener un umbral universal de millones
+de filas. Persistencia, serialización, entrenamiento, lectura y transferencia tienen costos distintos.
+La diferencia de algoritmos (especialmente HistGradientBoosting frente a GBT) y los intentos
+interrumpidos deben considerarse antes de atribuir tiempos a una biblioteca.
+La ventaja predictiva se interpreta con incertidumbre y magnitud, no sólo con el decimal mayor.
+Para usar decisiones crediticias se necesitaría evaluación temporal, costos, calibración,
+representatividad y revisión del escenario; este trabajo es una comparación académica.
 
 ## Reproducción
 
@@ -174,6 +240,7 @@ OPENBLAS_NUM_THREADS=4 OMP_NUM_THREADS=4 python -m tarea_1.run_spark
 python -m tarea_1.eda
 python -m tarea_1.statistics
 python -m tarea_1.explain
+python -m tarea_1.package_predictions
 python -m tarea_1.report
 ```
 

@@ -4,7 +4,7 @@ from tarea_1.common import OUT
 
 def main():
     env=dict(os.environ,OPENBLAS_NUM_THREADS='4',OMP_NUM_THREADS='4')
-    stages=['prepare','run_sklearn','run_spark','eda','statistics','explain','report']
+    stages=['prepare','run_sklearn','run_spark','eda','statistics','explain','package_predictions','report']
     if len(sys.argv)>1:stages=stages[stages.index(sys.argv[1]):]
     for stage in stages:
         state=dict(stage=stage,status='running',utc=datetime.datetime.now(datetime.timezone.utc).isoformat())

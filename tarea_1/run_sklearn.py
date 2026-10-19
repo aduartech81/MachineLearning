@@ -31,7 +31,7 @@ def main():
         if dest.exists():print('Ya calculado',name,flush=True);continue
         print('INICIO sklearn',name,flush=True);t=time.perf_counter()
         # Una búsqueda simultánea evita multiplicar matrices de >1 millón de filas en 8 GiB.
-        search=GridSearchCV(FoldClassifier(est,scale),grid,cv=cv,scoring='roc_auc',n_jobs=1,error_score='raise',return_train_score=False,verbose=3)
+        search=GridSearchCV(FoldClassifier(est,scale,normalize_rows=(name=='LinearSVC')),grid,cv=cv,scoring='roc_auc',n_jobs=1,error_score='raise',return_train_score=False,verbose=3)
         with joblib.parallel_backend('threading'):
             search.fit(X,y)
         fit_time=time.perf_counter()-t

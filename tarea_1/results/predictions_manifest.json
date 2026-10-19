@@ -1,0 +1,90 @@
+[
+  {
+    "file": "sklearn_GaussianNB_predictions.csv.gz",
+    "raw_sha256": "05af0ce9a22b1497612dbf435a418540adde21e8680074821d426e3b2c3430f4",
+    "gzip_sha256": "ade1d4da3737c2bb17b37f240ddfc05e5d946ecd4c4f3697fc03e1576d2055d6",
+    "raw_bytes": 6041683,
+    "gzip_bytes": 2061820,
+    "rows": 269062
+  },
+  {
+    "file": "sklearn_LogisticRegression_predictions.csv.gz",
+    "raw_sha256": "c8ab5ffd71e50e5e33f0845db12a516ea3cea5b8c787b8ad7cbce435af3bc3ec",
+    "gzip_sha256": "eec965b312de3bde462ade4dc1b33354cf2d1e39955f8702cf020df922357f61",
+    "raw_bytes": 8390980,
+    "gzip_bytes": 3264522,
+    "rows": 269062
+  },
+  {
+    "file": "sklearn_DecisionTree_predictions.csv.gz",
+    "raw_sha256": "ff456e8904b4f235ca893d276df5382a8d441125c23afe138dda4e0a8cbd2c6d",
+    "gzip_sha256": "d57f381d967d87e5bbe3bb57bea4b8e79a257f859be99a15b4a8949345151020",
+    "raw_bytes": 8370066,
+    "gzip_bytes": 1573783,
+    "rows": 269062
+  },
+  {
+    "file": "sklearn_HistGradientBoosting_predictions.csv.gz",
+    "raw_sha256": "ecbf53138ededd395f0605d2e35a99abc341d807d5e0e0bcf3cf83a782b0b409",
+    "gzip_sha256": "0e6514f4415ae6cf932d7ae467e323b9ace92253d922e2f96f889e5f04da0d32",
+    "raw_bytes": 8392773,
+    "gzip_bytes": 3267983,
+    "rows": 269062
+  },
+  {
+    "file": "sklearn_LinearSVC_predictions.csv.gz",
+    "raw_sha256": "ba860e5ceed52b871464d63edab01e69f9973a9cf45e793a5af81fe8a5db23ab",
+    "gzip_sha256": "025cb5f37ceb88a0d3fced91688260ebad89d67e81feb0a564fc1848eddb3560",
+    "raw_bytes": 8434194,
+    "gzip_bytes": 1566268,
+    "rows": 269062
+  },
+  {
+    "file": "sklearn_RandomForest_predictions.csv.gz",
+    "raw_sha256": "cea4d0fc603e421da5a0e9e97dfdf0f002befbf617e9ac3da974be052fa498a6",
+    "gzip_sha256": "098036564d3206c57e12b827293850bda580dafd6e12f4605455c327fad4edce",
+    "raw_bytes": 8391461,
+    "gzip_bytes": 3263459,
+    "rows": 269062
+  },
+  {
+    "file": "spark_GaussianNB_predictions.csv.gz",
+    "raw_sha256": "9fe2cdc62a903fb5924ae7d8c4621b35e098f5981a9e6a46d700946c6d392ad6",
+    "gzip_sha256": "820c393df4297a0d4360ea986f242daffb84f802f3211b82cb913c29e4e32578",
+    "raw_bytes": 9472858,
+    "gzip_bytes": 3353567,
+    "rows": 269062
+  },
+  {
+    "file": "spark_LogisticRegression_predictions.csv.gz",
+    "raw_sha256": "dbd41d5eb63c78ab42f20e205ce3e376dc576e07c4200bd814146dadf84ca2fd",
+    "gzip_sha256": "1d9d118f5773f937fe93101d6f176a14ca0eb5b43cbd62c1a16380a432c579b9",
+    "raw_bytes": 9467333,
+    "gzip_bytes": 3328283,
+    "rows": 269062
+  },
+  {
+    "file": "spark_DecisionTree_predictions.csv.gz",
+    "raw_sha256": "51a2fd99a260ac7ef673d883a3e27b077299f2bccf55fcac2108948515e280d0",
+    "gzip_sha256": "9e95dc72526bf10800bc101a232495f05457235fe113f77cd981ae108cbc50e0",
+    "raw_bytes": 9463428,
+    "gzip_bytes": 1412942,
+    "rows": 269062
+  },
+  {
+    "file": "spark_HistGradientBoosting_predictions.csv.gz",
+    "raw_sha256": "f8df52eb2c021020efc9acf565c7b8c7a75782354002a4d62e84720fe270f76a",
+    "gzip_sha256": "b845925c86408a43f48f36066b31f7003d1580f4534a3daa88662c06e4732ce7",
+    "raw_bytes": 9466606,
+    "gzip_bytes": 3330686,
+    "rows": 269062
+  },
+  {
+    "file": "spark_LinearSVC_predictions.csv.gz",
+    "raw_sha256": "dad2b2e5e010c822cec1bf0b85c2241c2cf4b2b3614c415c9414702f05555396",
+    "gzip_sha256": "dfd2eac9ab3afc8e059e23140ae8e51dfcbc8f28ee03fb32b393444dfc77aba5",
+    "raw_bytes": 9494996,
+    "gzip_bytes": 2494986,
+    "rows": 269062
+  }
+]

@@ -1,4 +1,4 @@
-# Ejecución completa de Tarea 1
+# Reproducción de Tarea 1 — ejecución parcial
 
 Desde la raíz, instalar `pip install -r tarea_1/requirements.txt` y Java 17.
 El CSV real `accepted_2007_to_2018Q4.csv` (1.675.133.810 bytes) debe estar en la raíz.
@@ -29,3 +29,6 @@ así como el ajuste de transformaciones limitado a los datos recibidos por fit.
 
 La guía actual se consulta en https://lihkir.github.io/MachineLearning/model_evaluation.html.
 El historial de Git conserva las versiones de la entrega previa.
+
+Estado guardado: once modelos completados. Spark RandomForest y los contrastes completos siguen pendientes.
+Si se pierden los binarios, `python -m tarea_1.restore_sklearn` y `python -m tarea_1.run_spark --restore` reconstruyen los modelos completados usando los parámetros de CV guardados y verifican sus métricas. No sustituyen la CV original.

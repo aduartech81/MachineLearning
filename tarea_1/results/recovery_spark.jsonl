@@ -1,0 +1,5 @@
+{"model": "GaussianNB", "seconds": 17.91452675000255, "metrics_match": true}
+{"model": "LogisticRegression", "seconds": 21.53976400800093, "metrics_match": true}
+{"model": "DecisionTree", "seconds": 17.480695685000683, "metrics_match": true}
+{"model": "HistGradientBoosting", "seconds": 137.51122944600138, "metrics_match": true}
+{"model": "LinearSVC", "seconds": 28.244265975998132, "metrics_match": true}

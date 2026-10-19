@@ -44,6 +44,14 @@ def main():
             tab=pd.crosstab(flag,y);chi,p,_,_=chi2_contingency(tab,correction=False)
             missing_assoc.append(dict(variable=c,p=p,rate_missing=float(y[flag].mean()),rate_observed=float(y[~flag].mean())))
     pd.DataFrame(missing_assoc).to_csv(OUT/'missing_associations.csv',index=False)
+    rates=train[NUM].isna().groupby(train['default']).mean().T*100
+    fig,ax=plt.subplots(figsize=(6,5))
+    im=ax.imshow(rates.values,aspect='auto',cmap='Blues')
+    ax.set_xticks([0,1],['Fully Paid','Charged Off']);ax.set_yticks(range(len(NUM)),NUM)
+    ax.set_title('Porcentaje de faltantes por clase · entrenamiento')
+    for i in range(len(NUM)):
+        for j in range(2):ax.text(j,i,f'{rates.iloc[i,j]:.3f}%',ha='center',va='center')
+    fig.colorbar(im,ax=ax);fig.tight_layout();fig.savefig(figdir/'missing_by_class.png',dpi=140);plt.close(fig)
     fig,axs=plt.subplots(4,2,figsize=(12,15))
     for c,ax in zip(NUM,axs.flat):
         for label,color in [(0,'#237d9b'),(1,'#ce763c')]:

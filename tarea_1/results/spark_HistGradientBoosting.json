@@ -1,0 +1,28 @@
+{
+  "framework": "spark",
+  "model": "HistGradientBoosting",
+  "implementation": "GBTClassifier",
+  "rows": 1345310,
+  "train": 1076248,
+  "test": 269062,
+  "cv_auc": 0.7141966593795016,
+  "cv_sd": 0.00031948784946946344,
+  "read_seconds": 3.932912132000638,
+  "fit_cv_seconds": 976.3685394330023,
+  "predict_seconds": 2.5392709170009766,
+  "transfer_seconds": 0.9957734650015482,
+  "parameters": {
+    "maxIter": 100,
+    "maxDepth": 5
+  },
+  "maxBins": 64,
+  "roc_auc": 0.714902973310208,
+  "accuracy": 0.8033204242888257,
+  "precision": 0.5515135767182019,
+  "recall": 0.07903261840929401,
+  "f1": 0.1382533504860851,
+  "tn": 211898,
+  "fp": 3452,
+  "fn": 49467,
+  "tp": 4245
+}

@@ -17,5 +17,13 @@ tarea_1/results/spark_predictions/
 tarea_1/results/*.joblib
 tarea_1/results/spark_*_model/
 tarea_1/results/*_predictions.csv
+
+# Archivos temporales de transferencia de los CSV excluidos
+.accepted_2007_to_2018Q4.csv.*
+tarea_1/results/.canonical.csv.*
+
+# Temporales de transferencia y compresión
+tarea_1/results/.*
+tarea_1/results/*.tmp
 /.venv_tarea1/
 /resultados_tarea1_mac/

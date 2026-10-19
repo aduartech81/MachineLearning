@@ -1,0 +1,75 @@
+{
+  "models": [
+    {
+      "framework": "sklearn",
+      "model": "GaussianNB",
+      "rows": 269062,
+      "metrics_match": true
+    },
+    {
+      "framework": "sklearn",
+      "model": "LogisticRegression",
+      "rows": 269062,
+      "metrics_match": true
+    },
+    {
+      "framework": "sklearn",
+      "model": "DecisionTree",
+      "rows": 269062,
+      "metrics_match": true
+    },
+    {
+      "framework": "sklearn",
+      "model": "HistGradientBoosting",
+      "rows": 269062,
+      "metrics_match": true
+    },
+    {
+      "framework": "sklearn",
+      "model": "LinearSVC",
+      "rows": 269062,
+      "metrics_match": true
+    },
+    {
+      "framework": "sklearn",
+      "model": "RandomForest",
+      "rows": 269062,
+      "metrics_match": true
+    },
+    {
+      "framework": "spark",
+      "model": "GaussianNB",
+      "rows": 269062,
+      "metrics_match": true
+    },
+    {
+      "framework": "spark",
+      "model": "LogisticRegression",
+      "rows": 269062,
+      "metrics_match": true
+    },
+    {
+      "framework": "spark",
+      "model": "DecisionTree",
+      "rows": 269062,
+      "metrics_match": true
+    },
+    {
+      "framework": "spark",
+      "model": "HistGradientBoosting",
+      "rows": 269062,
+      "metrics_match": true
+    },
+    {
+      "framework": "spark",
+      "model": "LinearSVC",
+      "rows": 269062,
+      "metrics_match": true
+    }
+  ],
+  "shared_ids_and_labels": true,
+  "complete": false,
+  "missing": [
+    "spark_RandomForest"
+  ]
+}

@@ -1,0 +1,85 @@
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/17 08:29:59 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/17 08:29:59 WARN MacAddressUtil: Failed to find a usable hardware address from the network interfaces; using random bytes: a3:6d:21:46:3e:1e:dc:77
+Ya calculado GaussianNB
+Ya calculado LogisticRegression
+Ya calculado DecisionTree
+INICIO Spark HistGradientBoosting
+{"framework": "spark", "model": "HistGradientBoosting", "implementation": "GBTClassifier", "rows": 1345310, "train": 1076248, "test": 269062, "cv_auc": 0.7141966593795016, "cv_sd": 0.00031948784946946344, "read_seconds": 3.932912132000638, "fit_cv_seconds": 976.3685394330023, "predict_seconds": 2.5392709170009766, "transfer_seconds": 0.9957734650015482, "parameters": {"maxIter": 100, "maxDepth": 5, "cv_auc": 0.7141966593795016}, "maxBins": 64, "roc_auc": 0.714902973310208, "accuracy": 0.8033204242888257, "precision": 0.5515135767182019, "recall": 0.07903261840929401, "f1": 0.1382533504860851, "tn": 211898, "fp": 3452, "fn": 49467, "tp": 4245}
+INICIO Spark LinearSVC
+{"framework": "spark", "model": "LinearSVC", "implementation": "LinearSVC", "rows": 1345310, "train": 1076248, "test": 269062, "cv_auc": 0.6406502636163663, "cv_sd": 0.016872439877359015, "read_seconds": 3.932912132000638, "fit_cv_seconds": 224.25312453999868, "predict_seconds": 1.8027523860000656, "transfer_seconds": 1.0398699219986156, "parameters": {"regParam": 1e-06, "cv_auc": 0.6406502636163663}, "maxBins": 64, "roc_auc": 0.6799472253501186, "accuracy": 0.8003731481963265, "precision": 0.0, "recall": 0.0, "f1": 0.0, "tn": 215350, "fp": 0, "fn": 53712, "tp": 0}
+INICIO Spark RandomForest
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 55060)
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 318, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 349, in process_request
+    self.finish_request(request, client_address)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socketserver.py", line 766, in __init__
+    self.handle()
+  File "/root/.local/lib/python3.12/site-packages/pyspark/accumulators.py", line 295, in handle
+    poll(accum_updates)
+  File "/root/.local/lib/python3.12/site-packages/pyspark/accumulators.py", line 267, in poll
+    if self.rfile in r and func():
+                           ^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/pyspark/accumulators.py", line 271, in accum_updates
+    num_updates = read_int(self.rfile)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/pyspark/serializers.py", line 596, in read_int
+    raise EOFError
+EOFError
+----------------------------------------
+ERROR:root:Exception while sending command.
+Traceback (most recent call last):
+  File "/root/.local/lib/python3.12/site-packages/py4j/clientserver.py", line 516, in send_command
+    raise Py4JNetworkError("Answer from Java side is empty")
+py4j.protocol.Py4JNetworkError: Answer from Java side is empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/.local/lib/python3.12/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/scratch/0e2023f08311/MachineLearning_revision_entregas/tarea_1/run_spark.py", line 100, in <module>
+  File "/workspace/scratch/0e2023f08311/MachineLearning_revision_entregas/tarea_1/run_spark.py", line 77, in main
+  File "/root/.local/lib/python3.12/site-packages/pyspark/ml/base.py", line 205, in fit
+    return self._fit(dataset)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/pyspark/ml/tuning.py", line 862, in _fit
+    bestModel = est.fit(dataset, epm[bestIndex])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/pyspark/ml/base.py", line 203, in fit
+    return self.copy(params)._fit(dataset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/pyspark/ml/pipeline.py", line 134, in _fit
+    model = stage.fit(dataset)
+            ^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/pyspark/ml/base.py", line 205, in fit
+    return self._fit(dataset)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/pyspark/ml/wrapper.py", line 381, in _fit
+    java_model = self._fit_java(dataset)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/pyspark/ml/wrapper.py", line 378, in _fit_java
+    return self._java_obj.fit(dataset._jdf)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o87865.fit
