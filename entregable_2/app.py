@@ -201,5 +201,9 @@ def update_threshold(threshold):
                  card(str(m['fn']), 'falsos negativos'), card(f"{m['f1']:.3f}", 'F1')]
 
 
+from proyecto_final_caries.portal import integrar
+mostrar_ruta_final = integrar(app)
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8050)), debug=False)
