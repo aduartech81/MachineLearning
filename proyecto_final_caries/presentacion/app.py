@@ -158,27 +158,69 @@ def resultados():
 
 
 def conclusiones():
-    return bloque("6. Conclusiones y defensa",
-        html.P("El modelo propio obtuvo AUC medio 0,6051. No se encontró evidencia "
-               "de mejora frente a las referencias ni de beneficio de sus componentes "
-               "añadidos. Todos los intervalos de diferencias incluyen cero; "
-               "esto no demuestra equivalencia."),
-        html.P("La versión aditiva tiene el mayor promedio observado, pero no se "
-               "declara ganadora confirmada mediante selección retrospectiva."),
-        html.H3("Preguntas para la sustentación"),
-        html.Ul([
-            html.Li("¿Por qué clasificación? El objetivo registra dos estados de caries."),
-            html.Li("¿Por qué esa codificación? Los códigos categóricos no implican distancias numéricas."),
-            html.Li("¿Qué significa el intervalo? Incertidumbre condicional de evaluación, no predicción individual."),
-            html.Li("¿Qué aportamos? Una implementación evaluada mediante ablaciones; su novedad científica sigue pendiente."),
-            html.Li("¿Es clínicamente utilizable? No está validado para ese uso.")
-        ]),
-        html.P("Pendientes: profundizar antecedentes, verificar metadatos originales, "
-               "completar interpretación específica del estimador y obtener evaluación "
-               "independiente. No se garantiza una calificación."),
-        html.A("Repositorio y trazabilidad",
-               href="https://github.com/aduartech81/MachineLearning/tree/main/proyecto_final_caries",
-               target="_blank", rel="noopener noreferrer"))
+    return bloque("6. Conclusiones, alcance y trabajo futuro",
+        html.H3("Respuesta a la pregunta de investigación"),
+        html.P(
+            "Los predictores de chequeo general aportaron capacidad discriminativa "
+            "limitada para clasificar caries registrada. El modelo propio obtuvo "
+            "un AUC medio de 0,6051 en la evaluación anidada agrupada, frente a "
+            "aproximadamente 0,6057 de regresión logística y gradient boosting."
+        ),
+        html.H3("Resultado de la contribución implementada"),
+        html.P(
+            "Se implementó y evaluó un modelo que combina funciones spline, "
+            "selección de interacciones y una pérdida mixta de clasificación "
+            "y ordenación. Las seis comparaciones pareadas exploratorias no "
+            "mostraron evidencia de mejora: todos los intervalos de diferencias "
+            "incluyeron cero. Este resultado no demuestra equivalencia."
+        ),
+        html.H3("Qué muestran las ablaciones y las interacciones"),
+        html.P(
+            "La variante aditiva obtuvo el mayor AUC medio observado (0,6062), "
+            "sin que esto establezca superioridad confirmada. Añadir interacciones "
+            "o la pérdida de ranking no produjo una ventaja demostrada en esta "
+            "evaluación. Los cinco ajustes del modelo propio convergieron; "
+            "edad–ALT y edad–HDL se seleccionaron en cuatro de cinco folds. "
+            "Esta repetición parcial no demuestra causalidad ni utilidad predictiva."
+        ),
+        html.H3("Implicaciones para el uso potencial"),
+        html.P(
+            "Con el umbral descriptivo de 0,5, la sensibilidad fue prácticamente "
+            "nula. Por tanto, estos resultados no respaldan utilizar el modelo "
+            "para priorizar atención odontológica. Un umbral operativo tendría "
+            "que definirse mediante criterios explícitos y validación interna, "
+            "seguida de una evaluación independiente."
+        ),
+        html.H3("Alcance y limitaciones"),
+        html.P(
+            "El objetivo es caries registrada, no aparición futura. Agrupar "
+            "perfiles idénticos reduce la fuga por duplicados, pero no acredita "
+            "independencia por paciente. Los intervalos bootstrap son "
+            "condicionales a predicciones guardadas y no incorporan toda la "
+            "variabilidad del entrenamiento."
+        ),
+        html.P(
+            "Los componentes del modelo tienen antecedentes. La implementación "
+            "propia constituye un desarrollo evaluado, pero la novedad científica "
+            "de su combinación no está establecida. La definición diagnóstica, "
+            "la procedencia clínica y los metadatos originales requieren "
+            "verificación adicional."
+        ),
+        html.H3("Trabajo futuro"),
+        html.P(
+            "Ampliar la revisión de antecedentes, verificar la disponibilidad "
+            "temporal de las variables y evaluar el enfoque en datos nuevos e "
+            "independientes. Las modificaciones motivadas por estos resultados "
+            "deberán identificarse como exploratorias; el test histórico ya "
+            "consultado no constituye una nueva validación independiente."
+        ),
+        html.A(
+            "Código y evidencias del proyecto independiente",
+            href="https://github.com/aduartech81/MachineLearning/tree/"
+                 "proyecto-final-independiente-20261018-213747/proyecto_final_caries",
+            target="_blank", rel="noopener noreferrer"
+        )
+    )
 
 
 SECCIONES = {

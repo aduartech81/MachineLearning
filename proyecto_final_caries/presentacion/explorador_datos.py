@@ -69,7 +69,7 @@ def integrar(app, secciones, data):
             parametros = {}
             if numerica:
                 x = entrada["centros"]
-                parametros["width"] = entrada["anchos"]
+                # Ancho automático para separar las barras de ambas clases.
                 custom = [
                     [n, entrada["bordes"][i], entrada["bordes"][i+1]]
                     for i, n in enumerate(g["conteos"])
@@ -88,7 +88,7 @@ def integrar(app, secciones, data):
                 )
             fig.add_trace(go.Bar(
                 x=x, y=porcentajes, name=etiqueta,
-                marker_color=color, opacity=.72 if numerica else 1,
+                marker_color=color, opacity=1,
                 customdata=custom, hovertemplate=hover, **parametros
             ))
             filas.append(html.Tr([
@@ -101,7 +101,7 @@ def integrar(app, secciones, data):
             ]))
         fig.update_layout(
             template="plotly_white", height=450,
-            barmode="overlay" if numerica else "group",
+            barmode="group", bargap=0.12, bargroupgap=0.04,
             xaxis_title=nombre, yaxis_title="% de valores observados de cada clase",
             legend_title_text="", margin=dict(t=30, b=75, l=55, r=20),
             font=dict(family="Arial", color="#243b46")
