@@ -1,0 +1,17 @@
+{
+  "modelo": "Regresión logística base conservada",
+  "auc_test": 0.6015011479515695,
+  "ic95_auc": [
+    0.5862144853339426,
+    0.6166836168352925
+  ],
+  "metodo": "Bootstrap percentil estratificado por clase y agrupado por perfil",
+  "replicas": 2000,
+  "semilla": 42,
+  "unidad_remuestreo": "Perfil de los 23 predictores finales",
+  "ponderacion": "Por fila; puntuaciones originales conservadas",
+  "perfiles_test": 8911,
+  "filas_test": 11110,
+  "max_diferencia_score_intraperfil": 2.7755575615628914e-17,
+  "limites": "Supone independencia entre perfiles, no verificada por paciente. Condicionado al modelo ajustado y test interno. No incluye variabilidad de entrenamiento ni validación externa."
+}

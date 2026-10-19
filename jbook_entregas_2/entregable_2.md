@@ -261,3 +261,31 @@ python -m pytest -q
 ```{raw} html
 <iframe src="_static/revision_edad_2.html" width="100%" height="550" style="border:0" title="revision_edad_2"></iframe>
 ```
+
+
+## Incertidumbre del AUC del modelo base
+
+La regresión logística conservada obtuvo un AUC-ROC de
+**0.601501**, con **intervalo de confianza del 95 %
+[0.586214, 0.616684]**.
+
+Se utilizaron 2.000 réplicas de bootstrap percentil, estratificadas por
+clase y agrupadas por los perfiles de los 23 predictores finales,
+con semilla 42. El test contiene 11.110 filas y 8.911 perfiles.
+Al remuestrear un perfil se mantienen juntas sus filas; el AUC conserva
+la ponderación por fila y las puntuaciones originales.
+
+Este intervalo cuantifica incertidumbre de evaluación condicionada al
+modelo ya ajustado. Supone independencia entre perfiles, que no equivale
+a independencia verificada por paciente. No incorpora variabilidad del
+entrenamiento ni constituye validación externa. No es un intervalo de
+predicción individual ni la desviación estándar entre folds.
+
+El resultado muestra capacidad discriminativa limitada. Debe interpretarse
+junto con sensibilidad, especificidad, precisión, matriz de confusión y
+calibración. No valida un uso clínico ni demuestra una contribución original.
+El conjunto de prueba ya consultado debe documentarse como tal al diseñar
+el proyecto final.
+
+Evidencia reproducible en el repositorio:
+`entregable_2/results/incertidumbre_20261018_195728_740445/auc_ic95.json`.
