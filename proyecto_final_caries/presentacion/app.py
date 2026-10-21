@@ -344,5 +344,25 @@ app.layout.children[0].children.append(html.Div([
     html.A("Informe completo", href="/informe-final/"),
 ], className="pf-links"))
 
+# Evidencias de comparación global; no se entrena al servirlas.
+@server.route("/estadistica-rangos/<nombre>")
+def estadistica_rangos(nombre):
+    permitidos = {"rangos_medios.csv", "rangos_por_fold.csv", "nemenyi.csv", "metodo.json", "diferencia_critica.png", "interpretacion.md"}
+    if nombre not in permitidos:
+        abort(404)
+    return send_from_directory(DATA / "rangos_clasificacion", nombre,
+                               as_attachment=not nombre.endswith(".png"))
+
+
+_resultados_antes_rangos = SECCIONES["resultados"]
+def resultados_con_rangos():
+    contenido = _resultados_antes_rangos()
+    contenido.children.append(html.Section([
+        html.H3("Comparación global de las siete referencias"),
+        dcc.Markdown((DATA / "rangos_clasificacion/interpretacion.md").read_text(encoding="utf-8")),
+    ], className="pf-section"))
+    return contenido
+SECCIONES["resultados"] = resultados_con_rangos
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8050)), debug=False)

@@ -893,7 +893,15 @@ la semilla 42 para las figuras, sin elegirla por su fidelidad.</p>
 <img src="/evidencias-v2/lime/lime_falso_negativo_29.png" alt="LIME: probabilidad calibrada." /></p>
 <p>LIME: probabilidad calibrada.</p>
 <p><a href="/evidencias-v2/lime/lime_falso_negativo_29.html">Descargar explicación LIME en HTML</a></p>
-<h2>6. Conclusiones y límites</h2>
+<h2>Comparación global de las siete referencias</h2>
+<p>Comparé los rangos del AUC externo de las siete referencias V2 en los cinco folds compartidos. Un rango menor indica mayor AUC dentro del fold. El modelo propio y sus ablaciones conservan sus contrastes específicos: no los incorporé como si tuvieran el mismo presupuesto de búsqueda V2.</p>
+<p>Friedman obtuvo χ²(6) = 21,4286 y p asintótico = 0,001536. La diferencia crítica de Nemenyi fue 4,0282 (α = 0,05). Solo logística–GaussianNB (p = 0,021791) y XGBoost–GaussianNB (p = 0,004720) superaron esa diferencia. No detecté diferencias por Nemenyi entre las referencias principales; esto no demuestra equivalencia.</p>
+<img src="/estadistica-rangos/diferencia_critica.png" alt="Rangos y diferencia crítica"/>
+<p><strong>Alcance exploratorio.</strong> Hay solo cinco bloques y los entrenamientos se solapan. La aproximación chi-cuadrado de Friedman es poco fiable con tan pocos bloques. Como sensibilidad, 100.000 permutaciones de etiquetas dentro de fold dieron p = 0,000070, pero tampoco corrigen el solapamiento del entrenamiento ni convierten el análisis en confirmatorio. No interpreto estos resultados como evidencia de utilidad clínica.</p>
+<p>Nemenyi controla conjuntamente sus 21 pares bajo sus supuestos; esos p-valores no son los p-valores Holm de los diez contrastes bootstrap del modelo propio. Los dos análisis responden a preguntas diferentes.</p>
+<p>Fuentes metodológicas: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.friedmanchisquare.html">SciPy, Friedman</a> y <a href="https://www.jmlr.org/papers/v7/demsar06a.html">Demšar, 2006</a>. La aplicación clásica compara datasets independientes; aquí su uso sobre folds es una aproximación exploratoria solicitada por la guía.</p>
+<p><a href="/estadistica-rangos/rangos_medios.csv">Descargar rangos medios</a> · <a href="/estadistica-rangos/nemenyi.csv">Descargar los 21 pares de Nemenyi</a> · <a href="/estadistica-rangos/metodo.json">Método y huella de la fuente</a>
+</p><h2>6. Conclusiones y límites</h2>
 <p>El modelo propio obtuvo AUC medio 0,6051. Las referencias seleccionadas
 internamente alcanzaron aproximadamente 0,6059 en logística y 0,6055 en XGBoost.
 La discriminación observada es limitada.</p>

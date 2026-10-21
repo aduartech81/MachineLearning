@@ -15,7 +15,7 @@ Fuente: guía compartida «Proyecto Final: Segundo Entregable — Modelos de Mac
 | Calibración y umbral | Sigmoide principal; isotónica secundaria; Youden interno | Completar comparación agregada antes/después con las predicciones existentes |
 | Balanceo mixto | SMOTE/ADASYN auditados; SMOTENC en piloto | Documentar categorías fraccionarias y evaluar alternativa mixta si se amplía el protocolo; no sustituir silenciosamente resultados |
 | Complejidad y recursos | Tiempos V1; registros de búsqueda V2 en el Mac | Recuperar tiempos V2; memoria no medida no puede reconstruirse como medición histórica |
-| Friedman, Nemenyi y CD | No integrados | Calcular y documentar alcance exploratorio con cinco folds y entrenamiento solapado; seguir condición de post-hoc de la guía |
+| Friedman, Nemenyi y CD | Integrados: siete referencias, cinco folds; script, rangos, 21 pares, figura y método | Alcance exploratorio documentado; aproximación asintótica y sensibilidad por permutación no resuelven entrenamiento solapado |
 | Comparaciones dirigidas y efectos | Bootstrap agrupado y Holm de diez contrastes | No sustituye los métodos pedidos; revisar DeLong y tamaño del efecto con sus supuestos y unidades correctas |
 | SHAP y LIME | XGBoost: global y cuatro casos; tres semillas LIME | Implementados; son explicaciones de una referencia, no del modelo propio |
 | Modelo propio y ablaciones | Código, gradiente comprobado, convergencia y resultados V1 | Implementado; no hay superioridad demostrada frente a las principales referencias |

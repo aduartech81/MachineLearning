@@ -1,0 +1,8 @@
+modelo,etiqueta,auc_medio,rango_medio
+XGBoost,XGBoost,0.6054713573706619,2.0
+Logistica_L1_L2,Logística L1/L2,0.6059153039873117,2.6
+RandomForest,Random Forest,0.6044682343642312,3.0
+SVM,SVM lineal,0.6055743800926964,3.2
+DecisionTree,Árbol de decisión,0.600625288878289,4.4
+KNN,KNN,0.5969241472813944,5.8
+GaussianNB,GaussianNB,0.5782396549809079,7.0

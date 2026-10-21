@@ -1,0 +1,37 @@
+{
+  "familias": [
+    "Logistica_L1_L2",
+    "SVM",
+    "XGBoost",
+    "RandomForest",
+    "DecisionTree",
+    "KNN",
+    "GaussianNB"
+  ],
+  "n_bloques": 5,
+  "k_modelos": 7,
+  "metrica": "AUC externo por fold; rango descendente",
+  "friedman_chi2": 21.428571428571416,
+  "gl": 6,
+  "p_asintotico": 0.001536030490694096,
+  "p_permutacion_sensibilidad": 6.999930000699993e-05,
+  "permutaciones": 100000,
+  "semilla": 42,
+  "nemenyi_cd": 4.028172008255962,
+  "alpha": 0.05,
+  "posthoc_habilitado": true,
+  "scipy": "1.17.0",
+  "fuente": "proyecto_final_caries/presentacion/evidencias/revision_v2_20261020_154421_004423/contrastes/auc_por_fold.csv",
+  "sha256_fuente": "c4768dd830978e7c8860b97e77772955ff8bc64484d265d8126c152ac5a7caa1",
+  "limites": [
+    "Solo cinco bloques: aproximación chi-cuadrado poco fiable.",
+    "Los folds comparten datos de entrenamiento: no son datasets independientes.",
+    "La permutación supone intercambiabilidad dentro de bloque y no corrige el entrenamiento solapado.",
+    "Selección del análisis posterior a resultados: alcance exploratorio.",
+    "Las siete referencias tienen selección interna V2; modelo propio y ablaciones mantienen sus contrastes separados."
+  ],
+  "referencias": [
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.friedmanchisquare.html",
+    "https://www.jmlr.org/papers/v7/demsar06a.html"
+  ]
+}
