@@ -1,0 +1,21 @@
+{
+  "archivos_sha256_verificados": 35585,
+  "busquedas": 540,
+  "propuestas_nominales": 8640,
+  "ajustes_internos_registrados": 21417,
+  "configuraciones_unicas_por_busqueda_sumadas": 7139,
+  "predicciones_externas": 35,
+  "predicciones_internas": 35,
+  "advertencias_busqueda": {
+    "'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.": 3372,
+    "Inconsistent values: penalty=l1 with l1_ratio=0.0. penalty is deprecated. Please use l1_ratio only.": 1998
+  },
+  "limitaciones": [
+    "Tiempos medidos por componentes; no equivalen a tiempo de pared ni benchmark aislado.",
+    "Grid/Random ejecutan por fold interno: la curva por propuesta se reconstruye con sus tres ajustes y no refleja la cronología real.",
+    "El tiempo de propuesta genética registrado no incluye toda la generación de descendencia; no permite comparar overhead total de optimizadores.",
+    "Memoria máxima histórica no medida; no se infiere a partir de duración ni tamaño del archivo.",
+    "Calibradores ajustados en OOF interno, métricas calculadas en folds externos; folds comparten entrenamiento.",
+    "Los 35 finalistas resultan de selección interna entre métodos; V2 sigue siendo exploratoria."
+  ]
+}

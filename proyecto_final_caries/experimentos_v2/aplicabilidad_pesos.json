@@ -1,0 +1,18 @@
+{
+  "formula": "n / (2 * n_clase)",
+  "calculo": "Exclusivamente dentro del entrenamiento de cada ajuste",
+  "class_weight_balanced": [
+    "Logistica_L1_L2",
+    "DecisionTree",
+    "RandomForest",
+    "SVM"
+  ],
+  "adaptacion_sample_weight": [
+    "GaussianNB",
+    "XGBoost"
+  ],
+  "no_aplicable": {
+    "KNN": "KNeighborsClassifier no admite class_weight ni sample_weight en fit. weights='distance' no es ponderación por clase. No se sustituye silenciosamente por otro algoritmo."
+  },
+  "alcance": "108 combinaciones ejecutables del diseño nominal de 112; cuatro combinaciones KNN-pesos no aplicables. La adaptación y la excepción deben explicarse en la entrega."
+}

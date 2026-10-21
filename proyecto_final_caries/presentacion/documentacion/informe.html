@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Informe · Proyecto final de caries</title><style>body{margin:0;background:#eef3f6;color:#17384a;font:17px/1.65 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:36px;background:white}nav{background:#17384a;padding:18px;text-align:center}nav a{color:white;margin:0 12px}h1,h2,h3{line-height:1.25}h2{margin-top:2.5em;border-bottom:2px solid #cddfe2;padding-bottom:12px}img{max-width:100%;height:auto}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{padding:9px;border-bottom:1px solid #ccdadd;text-align:left}a{color:#087889}pre{overflow:auto;background:#eef3f6;padding:15px}@media print{nav{display:none}body,main{background:white;padding:0}h2,h3{break-after:avoid}img{max-height:700px;object-fit:contain}}</style></head><body><nav><a href="/">Explorar el proyecto</a><a href="/informe-final/">Informe</a></nav><main><nav aria-label="Índice del informe"><strong>Contenido</strong><ul><li><a href="#seccion-1">1. Problema y alcance</a></li><li><a href="#seccion-2">2. Datos y diseño experimental</a></li><li><a href="#seccion-3">Datos, exploración y trazabilidad del desarrollo</a></li><li><a href="#seccion-4">3. Contribución implementada y ablaciones</a></li><li><a href="#seccion-5">4. Evaluación e incertidumbre</a></li><li><a href="#seccion-6">5. Resultados y explicaciones</a></li><li><a href="#seccion-7">Comparación global de las siete referencias</a></li><li><a href="#seccion-8">6. Conclusiones y límites</a></li></ul></nav><h1>Proyecto final de caries — informe de clasificación</h1>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Informe · Proyecto final de caries</title><style>body{margin:0;background:#eef3f6;color:#17384a;font:17px/1.65 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:36px;background:white}nav{background:#17384a;padding:18px;text-align:center}nav a{color:white;margin:0 12px}h1,h2,h3{line-height:1.25}h2{margin-top:2.5em;border-bottom:2px solid #cddfe2;padding-bottom:12px}img{max-width:100%;height:auto}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{padding:9px;border-bottom:1px solid #ccdadd;text-align:left}a{color:#087889}pre{overflow:auto;background:#eef3f6;padding:15px}@media print{nav{display:none}body,main{background:white;padding:0}h2,h3{break-after:avoid}img{max-height:700px;object-fit:contain}}</style></head><body><nav><a href="/">Explorar el proyecto</a><a href="/informe-final/">Informe</a><a href="/libro-final/">Jupyter Book</a><a href="/descargar-libro-final.zip">Descargar libro</a></nav><main><nav aria-label="Índice del informe"><strong>Contenido</strong><ul><li><a href="#seccion-1">1. Problema y alcance</a></li><li><a href="#seccion-2">2. Datos y diseño experimental</a></li><li><a href="#seccion-3">Datos, exploración y trazabilidad del desarrollo</a></li><li><a href="#seccion-4">3. Contribución implementada y ablaciones</a></li><li><a href="#seccion-5">4. Evaluación e incertidumbre</a></li><li><a href="#seccion-6">5. Resultados y explicaciones</a></li><li><a href="#seccion-7">Comparación global de las siete referencias</a></li><li><a href="#auditoria-v2">Búsquedas, cómputo, calibración y reproducibilidad</a></li><li><a href="#seccion-8">6. Conclusiones y límites</a></li></ul></nav><h1>Proyecto final de caries — informe de clasificación</h1>
 <p>Andrés Duarte Chaves · Maestría en Ingeniería Biomédica</p>
 <p>Este informe reúne la evaluación de clasificación del proyecto final de caries. La denominación V1/V2 identifica versiones experimentales y sus evidencias.</p>
 <p><a href="https://caries-proyecto-final-andres-duarte.onrender.com/">Aplicación independiente en Render</a></p>
@@ -970,7 +970,73 @@ la semilla 42 para las figuras, sin elegirla por su fidelidad.</p>
 <p>Nemenyi controla conjuntamente sus 21 pares bajo sus supuestos; esos p-valores no son los p-valores Holm de los diez contrastes bootstrap del modelo propio. Los dos análisis responden a preguntas diferentes.</p>
 <p>Fuentes metodológicas: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.friedmanchisquare.html">SciPy, Friedman</a> y <a href="https://www.jmlr.org/papers/v7/demsar06a.html">Demšar, 2006</a>. La aplicación clásica compara datasets independientes; aquí su uso sobre folds es una aproximación exploratoria solicitada por la guía.</p>
 <p><a href="/estadistica-rangos/rangos_medios.csv">Descargar rangos medios</a> · <a href="/estadistica-rangos/nemenyi.csv">Descargar los 21 pares de Nemenyi</a> · <a href="/estadistica-rangos/metodo.json">Método y huella de la fuente</a>
-</p><h2 id="seccion-8">6. Conclusiones y límites</h2>
+</p><h2 id="auditoria-v2">Búsquedas V2: presupuesto efectivo, cómputo y reproducción</h2>
+<p>Recuperé y comprobé por SHA-256 los 35.585 archivos del paquete de ejecución. Separé las 35 predicciones externas de las 35 internas: las internas se usaron para calibrar y fijar el umbral, no para estimar el desempeño externo. Las decisiones finales coinciden con las huellas publicadas y cada familia conserva las mismas 44.582 filas externas, una vez por fila, sin cruce de perfiles entre entrenamiento interno y validación externa.</p>
+<h3>Qué ejecuté y qué significa el presupuesto</h3>
+<p>Completé 540 búsquedas correspondientes a 108 combinaciones y cinco folds externos. Hubo 8.640 propuestas nominales, 7.139 configuraciones distintas al sumar las búsquedas y 21.417 ajustes internos registrados. Una configuración repetida en búsquedas diferentes se cuenta en cada búsqueda. Estos ajustes no incluyen los reajustes para calibración y evaluación final. TPE y genética reutilizaron resultados de propuestas repetidas; las repeticiones consumieron presupuesto, sin un nuevo ajuste. Por ello, igualdad de propuestas no significa igualdad de evaluaciones únicas.</p>
+<h3>TPE y búsqueda genética</h3>
+<p>En TPE utilicé Optuna 5.0.0, 16 propuestas, cuatro ensayos iniciales aleatorios, 24 candidatos de adquisición, <code>multivariate=False</code>, <code>constant_liar=False</code> y semilla 42 + fold externo. TPE estima una densidad l(x) para configuraciones con mejores resultados y otra g(x) para el resto. Selecciona candidatos con mayor razón l(x)/g(x); bajo su formulación, este criterio está relacionado con maximizar la mejora esperada. Es un estimador de densidades, no un proceso gaussiano. No cambié la regla al consultar el fold externo.</p>
+<p>En genética utilicé DEAP: población de cuatro, cuatro descendientes, inicialización y tres generaciones de descendencia hasta 16 propuestas. Conservé los cuatro mejores del conjunto de padres y descendientes; seleccioné progenitores por torneo de tamaño dos. El cruce uniforme tiene probabilidad 0,8 y probabilidad por gen 0,5. La mutación se aplica a cada hijo con probabilidad 0,5 y a cada gen con probabilidad 1/d. Los genes categóricos se remuestrean; los reales se perturban en escala logarítmica con desviación 0,2 del ancho del dominio y se acotan al intervalo permitido. La semilla es 42 + fold. No hice múltiples reinicios por búsqueda: estos resultados no prueban estabilidad general del optimizador.</p>
+<p>Grid y Random evaluaron 16 configuraciones distintas por búsqueda. Los dominios y parámetros fijos completos están en el paquete de código. Grid recorre los puntos publicados; Random y los métodos adaptativos pueden usar valores intermedios en dominios logarítmicos. Los dominios son comparables, pero las mallas no son idénticas.</p>
+<h3>Cómo interpretar los tiempos</h3>
+<p>Los tiempos provienen de los registros originales, no de estimaciones retrospectivas. La tabla suma preprocesamiento, ajuste, predicción y tiempos de propuesta registrados. Son componentes observados, no duración de pared de toda la ejecución ni benchmark aislado. En Grid/Random se procesaron candidatos dentro de cada fold interno; el historial por propuesta reorganiza sus tres ajustes y no representa la cronología real. El tiempo de propuesta genética no incluye toda la generación de descendencia. No atribuyo la menor suma temporal de genética a mayor eficiencia intrínseca: evaluó menos configuraciones únicas.</p>
+<p>Conservé los tiempos de las 540 evaluaciones externas en otra tabla. El piloto de logística tiene campos diferentes; las celdas no registradas permanecen vacías. No medí RAM máxima durante las ejecuciones originales. Tampoco dispongo todavía de un benchmark emparejado de parámetros por defecto frente a optimizados; estos tiempos no lo sustituyen.</p>
+<h3>SVM y coste teórico</h3>
+<p>Usé LinearSVC con pérdida squared_hinge, dual=False, máximo 3.000 iteraciones y tolerancia 0,0001. Esta elección controla el coste en 44.582 filas y 32 columnas codificadas; no constituye una búsqueda de kernels ni demuestra que RBF sea inferior. Los parámetros fijos y dominios de C quedan publicados.</p>
+<p>Como orientación algorítmica, para n filas, p columnas, I iteraciones, T árboles, profundidad h y B bins: GaussianNB recorre O(np); logística y SVM lineal suelen requerir trabajo del orden O(Inp), dependiente del optimizador y su convergencia. KNN por fuerza bruta cuesta O(np) por consulta y almacena O(np). Un árbol balanceado con búsqueda de cortes tiene un coste típico O(p n log n), dependiente de implementación; un bosque lo multiplica por T y las variables examinadas. Boosting por histogramas depende de T, n, p, h y B; no lo reduzco a una constante independiente del número de árboles. Son órdenes orientativos, no mediciones de memoria ni garantías universales del ejecutor. El balanceo aumenta n y puede aumentar tanto tiempo como almacenamiento.</p>
+<h3>Calibración antes y después</h3>
+<p>Comparé las probabilidades originales, la sigmoide principal y la isotónica secundaria sobre las mismas predicciones externas. Los modelos balanceados o ponderados pueden producir probabilidades originales alejadas de la prevalencia real. En logística, Brier pasó de 0,241400 a 0,163357 con sigmoide; en XGBoost, de 0,178529 a 0,163067. KNN cambió poco: 0,164020 a 0,163884. SVM no produce una probabilidad original, por lo que ese valor no aplica. La referencia constante se calculó con la prevalencia del entrenamiento de cada fold.</p>
+<p>Una sigmoide creciente conserva el orden dentro de cada fold. Sin embargo, cada fold tiene un calibrador diferente: al reunir sus predicciones, pueden cambiar los ordenamientos entre folds y el AUC OOF agrupado. No interpreto ese cambio como una mejora del AUC dentro de los folds. Un ECE bajo tampoco demuestra buena discriminación. La sigmoide se mantuvo como método principal; la isotónica es una comparación secundaria, no una selección posterior por desempeño externo.</p>
+<h3>DeLong y tamaños de efecto: análisis de sensibilidad</h3>
+<p>Añadí los diez contrastes dirigidos mediante DeLong clásico sobre AUC OOF agrupado, con Holm y BH, y tamaños de efecto descriptivos sobre los cinco AUC de folds. Este DeLong trata las filas como independientes: perfiles repetidos y entrenamiento solapado incumplen ese supuesto. Sus p e intervalos son una sensibilidad metodológica, no evidencia confirmatoria ni sustituto del bootstrap por perfiles. Además, el AUC agrupado y el promedio de AUC por fold son estimandos distintos.</p>
+<p>Cliff describe la dominancia marginal entre las dos series de cinco valores y no conserva el pareamiento; por ello también presenté la correlación biserial de rangos pareados y Cohen dz. Con sólo cinco folds dependientes no asigné categorías universales de magnitud ni intervalos inferenciales a estos efectos. La conclusión principal permanece: no hay mejora demostrada del modelo propio frente a logística, SVM o XGBoost en el bootstrap agrupado exploratorio.</p>
+<h3>Fuentes y archivos reproducibles</h3>
+<p>La documentación de TPE se contrastó con <a href="https://optuna.readthedocs.io/en/stable/reference/samplers/generated/optuna.samplers.TPESampler.html">Optuna</a>. DeLong se basa en <a href="https://pubmed.ncbi.nlm.nih.gov/3203132/">DeLong, DeLong y Clarke-Pearson, 1988</a>; la dominancia ordinal se refiere a <a href="https://doi.org/10.1037/0033-2909.114.3.494">Cliff, 1993</a>. Las advertencias de obsolescencia de penalty en scikit-learn 1.8 se conservaron en los registros; no se reetiquetaron como fallos de convergencia ni se modificaron los resultados históricos.</p><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>optimizador</th>
+      <th>busquedas</th>
+      <th>propuestas</th>
+      <th>configuraciones_unicas</th>
+      <th>ajustes</th>
+      <th>segundos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bayes</td>
+      <td>135</td>
+      <td>2160</td>
+      <td>1753</td>
+      <td>5259</td>
+      <td>2008.97</td>
+    </tr>
+    <tr>
+      <td>genetica</td>
+      <td>135</td>
+      <td>2160</td>
+      <td>1066</td>
+      <td>3198</td>
+      <td>1521.34</td>
+    </tr>
+    <tr>
+      <td>grid</td>
+      <td>135</td>
+      <td>2160</td>
+      <td>2160</td>
+      <td>6480</td>
+      <td>3150.78</td>
+    </tr>
+    <tr>
+      <td>random</td>
+      <td>135</td>
+      <td>2160</td>
+      <td>2160</td>
+      <td>6480</td>
+      <td>3095.89</td>
+    </tr>
+  </tbody>
+</table><img src="/auditoria-v2/calibracion_antes_despues.png" alt="Calibración antes y después"/><ul><li><a href="/auditoria-v2/ajustes_internos.csv.gz">ajustes_internos.csv.gz</a></li><li><a href="/auditoria-v2/calibracion_antes_despues.csv">calibracion_antes_despues.csv</a></li><li><a href="/auditoria-v2/calibracion_antes_despues.png">calibracion_antes_despues.png</a></li><li><a href="/auditoria-v2/calibracion_bins.csv">calibracion_bins.csv</a></li><li><a href="/auditoria-v2/codigo_ejecucion_v2.zip">codigo_ejecucion_v2.zip</a></li><li><a href="/auditoria-v2/costes_108_configuraciones.csv">costes_108_configuraciones.csv</a></li><li><a href="/auditoria-v2/delong_y_efectos_sensibilidad.csv">delong_y_efectos_sensibilidad.csv</a></li><li><a href="/auditoria-v2/historial_propuestas.csv.gz">historial_propuestas.csv.gz</a></li><li><a href="/auditoria-v2/interpretacion.md">interpretacion.md</a></li><li><a href="/auditoria-v2/metodo.json">metodo.json</a></li><li><a href="/auditoria-v2/metodo_contrastes.json">metodo_contrastes.json</a></li><li><a href="/auditoria-v2/presupuesto_efectivo.csv">presupuesto_efectivo.csv</a></li><li><a href="/auditoria-v2/tiempos_busquedas_540.csv">tiempos_busquedas_540.csv</a></li><li><a href="/auditoria-v2/tiempos_evaluaciones_540.csv">tiempos_evaluaciones_540.csv</a></li><li><a href="/auditoria-v2/tiempos_finalistas.csv">tiempos_finalistas.csv</a></li><li><a href="/auditoria-v2/trazabilidad_fuentes.json">trazabilidad_fuentes.json</a></li></ul><h2 id="seccion-8">6. Conclusiones y límites</h2>
 <p>El modelo propio obtuvo AUC medio 0,6051. Las referencias seleccionadas
 internamente alcanzaron aproximadamente 0,6059 en logística y 0,6055 en XGBoost.
 La discriminación observada es limitada.</p>

@@ -373,5 +373,23 @@ def cierre_auditoria(nombre):
                                as_attachment=not nombre.endswith(".png"))
 
 
+from proyecto_final_caries.presentacion.auditoria_v2 import integrar as integrar_auditoria_v2
+integrar_auditoria_v2(app, SECCIONES, DATA)
+
+@server.route("/auditoria-v2/<nombre>")
+def auditoria_v2_descarga(nombre):
+    permitidos = {p.name for p in (DATA / "recuperacion_v2").iterdir() if p.is_file()}
+    if nombre not in permitidos:
+        abort(404)
+    return send_from_directory(DATA / "recuperacion_v2", nombre,
+                               as_attachment=not nombre.endswith(".png"))
+
+from proyecto_final_caries.presentacion.libro_estatico import integrar as integrar_libro
+integrar_libro(server)
+app.layout.children[0].children.append(html.Div([
+    html.A("Jupyter Book", href="/libro-final/"),
+    html.A("Descargar Jupyter Book", href="/descargar-libro-final.zip"),
+], className="pf-links"))
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8050)), debug=False)

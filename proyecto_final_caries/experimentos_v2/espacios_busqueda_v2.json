@@ -1,0 +1,612 @@
+{
+  "version": 2,
+  "estado": "Espacios definidos; sin búsquedas ejecutadas",
+  "criterio": "AUC-ROC medio de validación interna",
+  "nota": "Los dominios se mantienen entre optimizadores. Grid usa los puntos listados; los demás pueden explorar valores intermedios en dominios reales logarítmicos. No se promete optimización exhaustiva.",
+  "familias": {
+    "KNN": {
+      "clase": "KNeighborsClassifier",
+      "fijos": {
+        "algorithm": "brute",
+        "p": 2,
+        "n_jobs": 2
+      },
+      "dominios": {
+        "n_neighbors": {
+          "tipo": "categorico",
+          "valores": [
+            5,
+            15,
+            31,
+            61,
+            101,
+            151,
+            251,
+            401
+          ]
+        },
+        "weights": {
+          "tipo": "categorico",
+          "valores": [
+            "uniform",
+            "distance"
+          ]
+        }
+      },
+      "grid": [
+        {
+          "n_neighbors": 5,
+          "weights": "uniform"
+        },
+        {
+          "n_neighbors": 5,
+          "weights": "distance"
+        },
+        {
+          "n_neighbors": 15,
+          "weights": "uniform"
+        },
+        {
+          "n_neighbors": 15,
+          "weights": "distance"
+        },
+        {
+          "n_neighbors": 31,
+          "weights": "uniform"
+        },
+        {
+          "n_neighbors": 31,
+          "weights": "distance"
+        },
+        {
+          "n_neighbors": 61,
+          "weights": "uniform"
+        },
+        {
+          "n_neighbors": 61,
+          "weights": "distance"
+        },
+        {
+          "n_neighbors": 101,
+          "weights": "uniform"
+        },
+        {
+          "n_neighbors": 101,
+          "weights": "distance"
+        },
+        {
+          "n_neighbors": 151,
+          "weights": "uniform"
+        },
+        {
+          "n_neighbors": 151,
+          "weights": "distance"
+        },
+        {
+          "n_neighbors": 251,
+          "weights": "uniform"
+        },
+        {
+          "n_neighbors": 251,
+          "weights": "distance"
+        },
+        {
+          "n_neighbors": 401,
+          "weights": "uniform"
+        },
+        {
+          "n_neighbors": 401,
+          "weights": "distance"
+        }
+      ],
+      "justificacion": "Explorar suavizado local y ponderación por distancia."
+    },
+    "GaussianNB": {
+      "clase": "GaussianNB",
+      "fijos": {},
+      "dominios": {
+        "var_smoothing": {
+          "tipo": "real_log",
+          "min": 1e-12,
+          "max": 0.001
+        }
+      },
+      "grid": [
+        {
+          "var_smoothing": 1e-12
+        },
+        {
+          "var_smoothing": 3.9810717055349695e-12
+        },
+        {
+          "var_smoothing": 1.5848931924611107e-11
+        },
+        {
+          "var_smoothing": 6.309573444801942e-11
+        },
+        {
+          "var_smoothing": 2.511886431509582e-10
+        },
+        {
+          "var_smoothing": 1e-09
+        },
+        {
+          "var_smoothing": 3.981071705534969e-09
+        },
+        {
+          "var_smoothing": 1.5848931924611143e-08
+        },
+        {
+          "var_smoothing": 6.30957344480193e-08
+        },
+        {
+          "var_smoothing": 2.5118864315095823e-07
+        },
+        {
+          "var_smoothing": 1e-06
+        },
+        {
+          "var_smoothing": 3.981071705534969e-06
+        },
+        {
+          "var_smoothing": 1.584893192461114e-05
+        },
+        {
+          "var_smoothing": 6.309573444801929e-05
+        },
+        {
+          "var_smoothing": 0.0002511886431509582
+        },
+        {
+          "var_smoothing": 0.001
+        }
+      ],
+      "justificacion": "Evaluar estabilización de varianzas. La distribución gaussiana de columnas categóricas codificadas es una aproximación."
+    },
+    "Logistica_L1_L2": {
+      "clase": "LogisticRegression",
+      "fijos": {
+        "solver": "liblinear",
+        "max_iter": 3000,
+        "tol": 0.0001,
+        "random_state": 42
+      },
+      "dominios": {
+        "C": {
+          "tipo": "real_log",
+          "min": 0.0001,
+          "max": 100.0
+        },
+        "penalty": {
+          "tipo": "categorico",
+          "valores": [
+            "l1",
+            "l2"
+          ]
+        }
+      },
+      "grid": [
+        {
+          "C": 0.0001,
+          "penalty": "l1"
+        },
+        {
+          "C": 0.0001,
+          "penalty": "l2"
+        },
+        {
+          "C": 0.0007196856730011522,
+          "penalty": "l1"
+        },
+        {
+          "C": 0.0007196856730011522,
+          "penalty": "l2"
+        },
+        {
+          "C": 0.005179474679231213,
+          "penalty": "l1"
+        },
+        {
+          "C": 0.005179474679231213,
+          "penalty": "l2"
+        },
+        {
+          "C": 0.037275937203149416,
+          "penalty": "l1"
+        },
+        {
+          "C": 0.037275937203149416,
+          "penalty": "l2"
+        },
+        {
+          "C": 0.2682695795279725,
+          "penalty": "l1"
+        },
+        {
+          "C": 0.2682695795279725,
+          "penalty": "l2"
+        },
+        {
+          "C": 1.9306977288832496,
+          "penalty": "l1"
+        },
+        {
+          "C": 1.9306977288832496,
+          "penalty": "l2"
+        },
+        {
+          "C": 13.894954943731388,
+          "penalty": "l1"
+        },
+        {
+          "C": 13.894954943731388,
+          "penalty": "l2"
+        },
+        {
+          "C": 100.0,
+          "penalty": "l1"
+        },
+        {
+          "C": 100.0,
+          "penalty": "l2"
+        }
+      ],
+      "justificacion": "Comparar intensidad y tipo de regularización."
+    },
+    "DecisionTree": {
+      "clase": "DecisionTreeClassifier",
+      "fijos": {
+        "random_state": 42
+      },
+      "dominios": {
+        "max_depth": {
+          "tipo": "categorico",
+          "valores": [
+            3,
+            5,
+            8,
+            12
+          ]
+        },
+        "min_samples_leaf": {
+          "tipo": "categorico",
+          "valores": [
+            10,
+            50,
+            150,
+            400
+          ]
+        }
+      },
+      "grid": [
+        {
+          "max_depth": 3,
+          "min_samples_leaf": 10
+        },
+        {
+          "max_depth": 3,
+          "min_samples_leaf": 50
+        },
+        {
+          "max_depth": 3,
+          "min_samples_leaf": 150
+        },
+        {
+          "max_depth": 3,
+          "min_samples_leaf": 400
+        },
+        {
+          "max_depth": 5,
+          "min_samples_leaf": 10
+        },
+        {
+          "max_depth": 5,
+          "min_samples_leaf": 50
+        },
+        {
+          "max_depth": 5,
+          "min_samples_leaf": 150
+        },
+        {
+          "max_depth": 5,
+          "min_samples_leaf": 400
+        },
+        {
+          "max_depth": 8,
+          "min_samples_leaf": 10
+        },
+        {
+          "max_depth": 8,
+          "min_samples_leaf": 50
+        },
+        {
+          "max_depth": 8,
+          "min_samples_leaf": 150
+        },
+        {
+          "max_depth": 8,
+          "min_samples_leaf": 400
+        },
+        {
+          "max_depth": 12,
+          "min_samples_leaf": 10
+        },
+        {
+          "max_depth": 12,
+          "min_samples_leaf": 50
+        },
+        {
+          "max_depth": 12,
+          "min_samples_leaf": 150
+        },
+        {
+          "max_depth": 12,
+          "min_samples_leaf": 400
+        }
+      ],
+      "justificacion": "Controlar profundidad y soporte mínimo de cada hoja."
+    },
+    "RandomForest": {
+      "clase": "RandomForestClassifier",
+      "fijos": {
+        "n_estimators": 100,
+        "max_features": "sqrt",
+        "n_jobs": 2,
+        "random_state": 42
+      },
+      "dominios": {
+        "max_depth": {
+          "tipo": "categorico",
+          "valores": [
+            4,
+            8,
+            12,
+            null
+          ]
+        },
+        "min_samples_leaf": {
+          "tipo": "categorico",
+          "valores": [
+            5,
+            20,
+            80,
+            200
+          ]
+        }
+      },
+      "grid": [
+        {
+          "max_depth": 4,
+          "min_samples_leaf": 5
+        },
+        {
+          "max_depth": 4,
+          "min_samples_leaf": 20
+        },
+        {
+          "max_depth": 4,
+          "min_samples_leaf": 80
+        },
+        {
+          "max_depth": 4,
+          "min_samples_leaf": 200
+        },
+        {
+          "max_depth": 8,
+          "min_samples_leaf": 5
+        },
+        {
+          "max_depth": 8,
+          "min_samples_leaf": 20
+        },
+        {
+          "max_depth": 8,
+          "min_samples_leaf": 80
+        },
+        {
+          "max_depth": 8,
+          "min_samples_leaf": 200
+        },
+        {
+          "max_depth": 12,
+          "min_samples_leaf": 5
+        },
+        {
+          "max_depth": 12,
+          "min_samples_leaf": 20
+        },
+        {
+          "max_depth": 12,
+          "min_samples_leaf": 80
+        },
+        {
+          "max_depth": 12,
+          "min_samples_leaf": 200
+        },
+        {
+          "max_depth": null,
+          "min_samples_leaf": 5
+        },
+        {
+          "max_depth": null,
+          "min_samples_leaf": 20
+        },
+        {
+          "max_depth": null,
+          "min_samples_leaf": 80
+        },
+        {
+          "max_depth": null,
+          "min_samples_leaf": 200
+        }
+      ],
+      "justificacion": "Explorar complejidad manteniendo 100 árboles por candidato para limitar el costo."
+    },
+    "XGBoost": {
+      "clase": "XGBClassifier",
+      "fijos": {
+        "n_estimators": 200,
+        "tree_method": "hist",
+        "device": "cpu",
+        "objective": "binary:logistic",
+        "eval_metric": "logloss",
+        "subsample": 1.0,
+        "colsample_bytree": 1.0,
+        "reg_lambda": 1.0,
+        "n_jobs": 2,
+        "random_state": 42
+      },
+      "dominios": {
+        "max_depth": {
+          "tipo": "categorico",
+          "valores": [
+            2,
+            3,
+            5,
+            7
+          ]
+        },
+        "learning_rate": {
+          "tipo": "real_log",
+          "min": 0.02,
+          "max": 0.2
+        }
+      },
+      "grid": [
+        {
+          "max_depth": 2,
+          "learning_rate": 0.02
+        },
+        {
+          "max_depth": 2,
+          "learning_rate": 0.05
+        },
+        {
+          "max_depth": 2,
+          "learning_rate": 0.1
+        },
+        {
+          "max_depth": 2,
+          "learning_rate": 0.2
+        },
+        {
+          "max_depth": 3,
+          "learning_rate": 0.02
+        },
+        {
+          "max_depth": 3,
+          "learning_rate": 0.05
+        },
+        {
+          "max_depth": 3,
+          "learning_rate": 0.1
+        },
+        {
+          "max_depth": 3,
+          "learning_rate": 0.2
+        },
+        {
+          "max_depth": 5,
+          "learning_rate": 0.02
+        },
+        {
+          "max_depth": 5,
+          "learning_rate": 0.05
+        },
+        {
+          "max_depth": 5,
+          "learning_rate": 0.1
+        },
+        {
+          "max_depth": 5,
+          "learning_rate": 0.2
+        },
+        {
+          "max_depth": 7,
+          "learning_rate": 0.02
+        },
+        {
+          "max_depth": 7,
+          "learning_rate": 0.05
+        },
+        {
+          "max_depth": 7,
+          "learning_rate": 0.1
+        },
+        {
+          "max_depth": 7,
+          "learning_rate": 0.2
+        }
+      ],
+      "justificacion": "Comparar profundidad y tasa de aprendizaje con 200 iteraciones fijas; no usar evaluación externa para parada temprana."
+    },
+    "SVM": {
+      "clase": "LinearSVC",
+      "fijos": {
+        "loss": "squared_hinge",
+        "dual": false,
+        "max_iter": 3000,
+        "tol": 0.0001,
+        "random_state": 42
+      },
+      "dominios": {
+        "C": {
+          "tipo": "real_log",
+          "min": 1e-05,
+          "max": 100.0
+        }
+      },
+      "grid": [
+        {
+          "C": 1e-05
+        },
+        {
+          "C": 2.9286445646252374e-05
+        },
+        {
+          "C": 8.576958985908945e-05
+        },
+        {
+          "C": 0.00025118864315095795
+        },
+        {
+          "C": 0.0007356422544596414
+        },
+        {
+          "C": 0.0021544346900318843
+        },
+        {
+          "C": 0.00630957344480193
+        },
+        {
+          "C": 0.018478497974222907
+        },
+        {
+          "C": 0.054116952654646375
+        },
+        {
+          "C": 0.15848931924611143
+        },
+        {
+          "C": 0.4641588833612782
+        },
+        {
+          "C": 1.3593563908785269
+        },
+        {
+          "C": 3.981071705534969
+        },
+        {
+          "C": 11.659144011798311
+        },
+        {
+          "C": 34.145488738336006
+        },
+        {
+          "C": 100.0
+        }
+      ],
+      "justificacion": "SVM lineal por costo computacional; no representa una búsqueda de kernels. Calibración de probabilidades pendiente."
+    }
+  }
+}
