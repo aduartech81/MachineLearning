@@ -4,7 +4,7 @@ import json
 import os
 import pandas as pd
 from dash import Dash, Input, Output, dcc, html
-from flask import send_from_directory
+from flask import send_from_directory, abort
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "evidencias"
@@ -333,18 +333,15 @@ def informe_final():
     return send_from_directory(ROOT / "documentacion", "informe.html")
 
 
+# La dirección antigua queda retirada explícitamente para evitar el fallback de Dash.
 @server.route("/exposicion/")
-def exposicion_final():
-    return send_from_directory(
-        ROOT / "documentacion", "exposicion.html",
-        as_attachment=True, download_name="Guion_exposicion_Andres_Duarte.html"
-    )
+@server.route("/exposicion")
+def exposicion_retirada():
+    abort(404)
 
 
 app.layout.children[0].children.append(html.Div([
     html.A("Informe completo", href="/informe-final/"),
-    html.Span(" · "),
-    html.A("Descargar guion · 8 minutos", href="/exposicion/", download="Guion_exposicion_Andres_Duarte.html"),
 ], className="pf-links"))
 
 if __name__ == "__main__":
