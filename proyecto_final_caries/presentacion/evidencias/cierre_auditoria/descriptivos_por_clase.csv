@@ -1,0 +1,109 @@
+variable,estadistico,sin_caries,con_caries
+age,count,35104.0,9478.0
+age,mean,44.95014813126709,41.448090314412326
+age,median,45.0,40.0
+age,std,12.030739999353735,11.941876578298789
+age,min,20.0,20.0
+age,max,85.0,85.0
+height(cm),count,35104.0,9478.0
+height(cm),mean,164.24538514129443,166.0698459590631
+height(cm),median,165.0,165.0
+height(cm),std,9.223645794977951,9.075973764604173
+height(cm),min,135.0,135.0
+height(cm),max,190.0,190.0
+weight(kg),count,35104.0,9478.0
+weight(kg),mean,65.3483933454877,67.67144967292678
+weight(kg),median,65.0,65.0
+weight(kg),std,12.663188996639636,13.173739767667854
+weight(kg),min,30.0,35.0
+weight(kg),max,135.0,125.0
+waist(cm),count,35104.0,9478.0
+waist(cm),mean,81.82374088422972,82.81011816838996
+waist(cm),median,82.0,82.5
+waist(cm),std,9.221669476973398,9.376949705700032
+waist(cm),min,51.0,57.0
+waist(cm),max,129.0,124.4
+eyesight(left),count,35104.0,9478.0
+eyesight(left),mean,1.0116567912488605,1.0131040303861576
+eyesight(left),median,1.0,1.0
+eyesight(left),std,0.4928792450243694,0.390570570879835
+eyesight(left),min,0.1,0.1
+eyesight(left),max,9.9,9.9
+eyesight(right),count,35104.0,9478.0
+eyesight(right),mean,1.0032759799453055,1.0213758176830556
+eyesight(right),median,1.0,1.0
+eyesight(right),std,0.47814210128660506,0.4769332914537738
+eyesight(right),min,0.1,0.1
+eyesight(right),max,9.9,9.9
+systolic,count,35104.0,9478.0
+systolic,mean,121.27840132178669,122.12207216712386
+systolic,median,120.0,120.0
+systolic,std,13.574006732437027,13.743131708116362
+systolic,min,71.0,81.0
+systolic,max,223.0,240.0
+relaxation,count,35104.0,9478.0
+relaxation,mean,75.86408956244303,76.519835408314
+relaxation,median,76.0,77.0
+relaxation,std,9.603332012188783,9.747881055577007
+relaxation,min,40.0,40.0
+relaxation,max,140.0,146.0
+fasting blood sugar,count,35104.0,9478.0
+fasting blood sugar,mean,99.20362351868732,99.31683899556869
+fasting blood sugar,median,95.0,96.0
+fasting blood sugar,std,20.76823301536867,20.640139446931137
+fasting blood sugar,min,46.0,57.0
+fasting blood sugar,max,505.0,475.0
+Cholesterol,count,35104.0,9478.0
+Cholesterol,mean,196.9904569279854,196.7533234859675
+Cholesterol,median,195.0,194.0
+Cholesterol,std,36.365992671530535,36.10324740196103
+Cholesterol,min,72.0,92.0
+Cholesterol,max,445.0,375.0
+triglyceride,count,35104.0,9478.0
+triglyceride,mean,125.32793983591614,130.1244988394176
+triglyceride,median,106.0,111.0
+triglyceride,std,71.30125989297402,72.6298592430382
+triglyceride,min,8.0,20.0
+triglyceride,max,999.0,466.0
+HDL,count,35104.0,9478.0
+HDL,mean,57.483734047402,56.59696138425828
+HDL,median,56.0,55.0
+HDL,std,14.874838627934016,14.401779316898722
+HDL,min,4.0,23.0
+HDL,max,618.0,136.0
+LDL,count,35104.0,9478.0
+LDL,mean,115.15092297174111,114.87444608567208
+LDL,median,113.0,112.0
+LDL,std,41.28846482471313,43.971688627377645
+LDL,min,1.0,10.0
+LDL,max,1810.0,1860.0
+hemoglobin,count,35104.0,9478.0
+hemoglobin,mean,14.566186189608022,14.817166068790884
+hemoglobin,median,14.7,15.0
+hemoglobin,std,1.563312204146413,1.5207938300942743
+hemoglobin,min,4.9,5.5
+hemoglobin,max,21.1,19.8
+serum creatinine,count,35104.0,9478.0
+serum creatinine,mean,0.8826088195077485,0.896433846803123
+serum creatinine,median,0.9,0.9
+serum creatinine,std,0.23632062953268598,0.19057663507869368
+serum creatinine,min,0.1,0.1
+serum creatinine,max,11.6,3.3
+AST,count,35104.0,9478.0
+AST,mean,25.977381494986325,26.59632833931209
+AST,median,23.0,23.0
+AST,std,17.42371021347783,20.641923613612445
+AST,min,7.0,7.0
+AST,max,1311.0,981.0
+ALT,count,35104.0,9478.0
+ALT,mean,26.552216271649954,28.654990504325806
+ALT,median,21.0,22.0
+ALT,std,30.665831049555557,32.72916835832489
+ALT,min,1.0,3.0
+ALT,max,2914.0,1612.0
+Gtp,count,35104.0,9478.0
+Gtp,mean,38.53136394712853,43.99588520784976
+Gtp,median,25.0,28.0
+Gtp,std,47.836937637958826,55.01106475895184
+Gtp,min,1.0,6.0
+Gtp,max,999.0,999.0

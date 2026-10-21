@@ -1,18 +1,17 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Informe · Proyecto final de caries</title><style>body{margin:0;background:#eef3f6;color:#17384a;font:17px/1.65 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:36px;background:white}nav{background:#17384a;padding:18px;text-align:center}nav a{color:white;margin:0 12px}h1,h2,h3{line-height:1.25}h2{margin-top:2.5em;border-bottom:2px solid #cddfe2;padding-bottom:12px}img{max-width:100%;height:auto}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{padding:9px;border-bottom:1px solid #ccdadd;text-align:left}a{color:#087889}pre{overflow:auto;background:#eef3f6;padding:15px}@media print{nav{display:none}body,main{background:white;padding:0}h2,h3{break-after:avoid}img{max-height:700px;object-fit:contain}}</style></head><body><nav><a href="/">Explorar el proyecto</a><a href="/informe-final/">Informe</a></nav><main><h1>Proyecto final de caries — actualización V2</h1>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Informe · Proyecto final de caries</title><style>body{margin:0;background:#eef3f6;color:#17384a;font:17px/1.65 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:36px;background:white}nav{background:#17384a;padding:18px;text-align:center}nav a{color:white;margin:0 12px}h1,h2,h3{line-height:1.25}h2{margin-top:2.5em;border-bottom:2px solid #cddfe2;padding-bottom:12px}img{max-width:100%;height:auto}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{padding:9px;border-bottom:1px solid #ccdadd;text-align:left}a{color:#087889}pre{overflow:auto;background:#eef3f6;padding:15px}@media print{nav{display:none}body,main{background:white;padding:0}h2,h3{break-after:avoid}img{max-height:700px;object-fit:contain}}</style></head><body><nav><a href="/">Explorar el proyecto</a><a href="/informe-final/">Informe</a></nav><main><nav aria-label="Índice del informe"><strong>Contenido</strong><ul><li><a href="#seccion-1">1. Problema y alcance</a></li><li><a href="#seccion-2">2. Datos y diseño experimental</a></li><li><a href="#seccion-3">Datos, exploración y trazabilidad del desarrollo</a></li><li><a href="#seccion-4">3. Contribución implementada y ablaciones</a></li><li><a href="#seccion-5">4. Evaluación e incertidumbre</a></li><li><a href="#seccion-6">5. Resultados y explicaciones</a></li><li><a href="#seccion-7">Comparación global de las siete referencias</a></li><li><a href="#seccion-8">6. Conclusiones y límites</a></li></ul></nav><h1>Proyecto final de caries — informe de clasificación</h1>
 <p>Andrés Duarte Chaves · Maestría en Ingeniería Biomédica</p>
-<p>Esta actualización complementa el capítulo V1 conservado. Corresponde
-exclusivamente al proyecto final de caries.</p>
+<p>Este informe reúne la evaluación de clasificación del proyecto final de caries. La denominación V1/V2 identifica versiones experimentales y sus evidencias.</p>
 <p><a href="https://caries-proyecto-final-andres-duarte.onrender.com/">Aplicación independiente en Render</a></p>
 <p>Este documento presenta evidencia experimental exploratoria; no una
 herramienta clínica validada.</p>
-<h2>1. Problema y alcance</h2>
+<h2 id="seccion-1">1. Problema y alcance</h2>
 <p>En este trabajo evalué la clasificación de presencia o ausencia de caries registrada mediante 23 predictores
 de chequeo general. No se predice aparición futura de caries.</p>
 <p>El desarrollo contiene 44.582 filas y 35.641 perfiles. El test histórico
 ya consultado no constituye una nueva evaluación independiente.
 El uso potencial de priorización odontológica requiere verificar la
 disponibilidad temporal de los predictores y validación adicional.</p>
-<h2>2. Datos y diseño experimental</h2>
+<h2 id="seccion-2">2. Datos y diseño experimental</h2>
 <p>Conservé las particiones agrupadas: cinco folds externos y tres internos.
 Las transformaciones y los balanceos se ajustaron dentro del entrenamiento.
 Agrupar perfiles idénticos no acredita independencia por paciente.</p>
@@ -30,7 +29,77 @@ Esta regla se documentó después de consultar resultados V2: el análisis
 permanece exploratorio.</p>
 <p><a href="/evidencias-v2/comparacion/decisiones_solo_validacion_interna.csv">Descargar decisiones internas</a></p>
 <p><a href="/evidencias-v2/cobertura/auditoria.json">Auditoría de cobertura</a></p>
-<h2>3. Contribución implementada y ablaciones</h2>
+<h2 id="seccion-3">Datos, exploración y trazabilidad del desarrollo</h2>
+<p>Describí las 44,582 filas de desarrollo y sus 35,641 perfiles de predictores. Hay 8,941 filas adicionales que repiten un perfil; este conteo no equivale a personas repetidas. Los perfiles se construyen con los 23 predictores, sin ID ni objetivo. Comprobé que sus hashes y etiquetas coinciden con las particiones conservadas y que ningún perfil cruza folds externos. Encontré <strong>0 perfiles con etiquetas discordantes</strong> en desarrollo. No se acredita identidad ni independencia por paciente.</p>
+<p>Excluí <strong>ID</strong> por ser identificador, <strong>oral</strong> por ser constante y <strong>tartar</strong> por su disponibilidad ligada al examen odontológico. Estas son razones diferentes. No interpreto los extremos ni los códigos como errores clínicos sin un diccionario de origen que lo respalde. Los predictores de desarrollo presentan 0 valores faltantes en esta copia.</p>
+<p>La exploración por filas y las tablas históricas por perfiles únicos tienen denominadores distintos. Las figuras siguientes usan todas las filas y densidad por clase para evitar que el tamaño de una clase domine la comparación.</p>
+<img src="/cierre-auditoria/eda_desarrollo.png" alt="Distribuciones por clase en desarrollo."/>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>fold_externo</th>
+      <th>filas</th>
+      <th>perfiles</th>
+      <th>positivos</th>
+      <th>prevalencia</th>
+      <th>filas_repetidas_adicionales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>8917</td>
+      <td>7128</td>
+      <td>1896</td>
+      <td>0.2126</td>
+      <td>1789</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>8916</td>
+      <td>7128</td>
+      <td>1895</td>
+      <td>0.2125</td>
+      <td>1788</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>8917</td>
+      <td>7129</td>
+      <td>1896</td>
+      <td>0.2126</td>
+      <td>1788</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>8916</td>
+      <td>7128</td>
+      <td>1896</td>
+      <td>0.2127</td>
+      <td>1788</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>8916</td>
+      <td>7128</td>
+      <td>1895</td>
+      <td>0.2125</td>
+      <td>1788</td>
+    </tr>
+  </tbody>
+</table>
+<p><a href="/cierre-auditoria/descriptivos_por_clase.csv">Descriptivos completos por clase</a> · <a href="/cierre-auditoria/auditoria_datos.json">Auditoría de agrupación</a> · <a href="/evidencias/diccionario.csv">Diccionario de variables</a></p>
+<h3>Procedimiento de preparación</h3>
+<p>Importación del archivo → exclusiones justificadas → construcción de perfiles → particiones agrupadas → ajuste de imputación, escalado y codificación dentro del entrenamiento → búsqueda interna → evaluación del fold externo. El balanceo, cuando se aplica, afecta únicamente al entrenamiento interno o al reajuste, nunca al fold de evaluación.</p>
+<h3>Referencia trivial para interpretar las métricas</h3>
+<p>En desarrollo hay 9.478 positivos y 35.104 negativos: predecir siempre ausencia alcanza 78,74 % de exactitud, pero sensibilidad y F1 iguales a cero. Por eso no seleccioné modelos solo por exactitud. Esta referencia describe las etiquetas de desarrollo; no sustituye al Dummy ajustado con prevalencia de entrenamiento en cada fold.</p>
+<h3>Qué conservé y qué amplié</h3>
+<p>Conservé el modelo logístico inicial y su test histórico como antecedentes. La ampliación incorporó el diccionario de 23 predictores, curvas de aprendizaje agrupadas, evaluación anidada, búsqueda de siete referencias, calibración y umbral internos, contrastes y explicaciones locales. Esta lista documenta cambios; no certifica que todas las observaciones originales del docente estén resueltas sin disponer de su lista completa.</p>
+<h3>Cómo leer V1 y V2</h3>
+<p>V1 es un antecedente experimental conservado. Su «Boosting» corresponde a HistGradientBoostingClassifier; XGBoost es una referencia distinta de V2. También difieren los espacios de búsqueda y las familias comparadas. Por ello cambian AUC, desviaciones y número de contrastes. Las tablas V1 usan umbral 0,5 o puntuación cero en SVM; un Brier vacío en SVM significa que no se proporcionaron probabilidades, no un valor cero. Una precisión alta basada en muy pocos positivos predichos no indica alta sensibilidad.</p>
+<h3>Excepción de KNN y presupuesto</h3>
+<p>Las 112 combinaciones nominales de clasificación se reducen a 108 aplicables porque KNN no implementa el mismo mecanismo de ponderación de clases utilizado en las otras familias. <code>weights=&quot;distance&quot;</code> pondera vecinos por distancia y no equivale a <code>class_weight</code>. Las 540 evaluaciones externas son 108 combinaciones por cinco folds; no son 540 entrenamientos totales ni observaciones independientes. El número efectivo de candidatos, reajustes, fallos y reutilizaciones debe recuperarse de los historiales V2.
+</p><h2 id="seccion-4">3. Contribución implementada y ablaciones</h2>
 <p>Desarrollé un modelo que combina funciones spline, interacciones numéricas limitadas,
 pérdida logística y ranking por pares, con regularización L2.
 La implementación y sus gradientes fueron verificados. La novedad científica
@@ -78,7 +147,7 @@ comparan procedimientos ajustados y no aíslan perfectamente cada componente.</p
 </tr>
 </tbody>
 </table></p>
-<h2>4. Evaluación e incertidumbre</h2>
+<h2 id="seccion-5">4. Evaluación e incertidumbre</h2>
 <p>La calibración sigmoide y el umbral Youden se ajustaron dentro del entrenamiento
 externo, utilizando predicciones internas. Youden no expresa por sí solo
 costos clínicos ni acredita un umbral de derivación.</p>
@@ -266,7 +335,7 @@ después de Holm. No se demostró mejora frente a logística, SVM, XGBoost
 ni Random Forest. El contraste frente al árbol no supera el ajuste múltiple,
 aunque su intervalo individual excluya cero. No se demuestra equivalencia.</p>
 <p><a href="/evidencias-v2/contrastes/metodo.json">Método inferencial V2</a></p>
-<h2>5. Resultados y explicaciones</h2>
+<h2 id="seccion-6">5. Resultados y explicaciones</h2>
 <h3>Modelo propio y referencias: comparación principal</h3>
 <p>Comparé mi propuesta con siete familias de referencia. El modelo propio alcanzó un AUC medio de 0,6051; no encontré una mejora frente a las referencias con mayor AUC. La tabla presenta medias de cinco folds externos e intervalos condicionales del análisis V2.</p>
 <p><table class="dataframe">
@@ -893,7 +962,7 @@ la semilla 42 para las figuras, sin elegirla por su fidelidad.</p>
 <img src="/evidencias-v2/lime/lime_falso_negativo_29.png" alt="LIME: probabilidad calibrada." /></p>
 <p>LIME: probabilidad calibrada.</p>
 <p><a href="/evidencias-v2/lime/lime_falso_negativo_29.html">Descargar explicación LIME en HTML</a></p>
-<h2>Comparación global de las siete referencias</h2>
+<h2 id="seccion-7">Comparación global de las siete referencias</h2>
 <p>Comparé los rangos del AUC externo de las siete referencias V2 en los cinco folds compartidos. Un rango menor indica mayor AUC dentro del fold. El modelo propio y sus ablaciones conservan sus contrastes específicos: no los incorporé como si tuvieran el mismo presupuesto de búsqueda V2.</p>
 <p>Friedman obtuvo χ²(6) = 21,4286 y p asintótico = 0,001536. La diferencia crítica de Nemenyi fue 4,0282 (α = 0,05). Solo logística–GaussianNB (p = 0,021791) y XGBoost–GaussianNB (p = 0,004720) superaron esa diferencia. No detecté diferencias por Nemenyi entre las referencias principales; esto no demuestra equivalencia.</p>
 <img src="/estadistica-rangos/diferencia_critica.png" alt="Rangos y diferencia crítica"/>
@@ -901,7 +970,7 @@ la semilla 42 para las figuras, sin elegirla por su fidelidad.</p>
 <p>Nemenyi controla conjuntamente sus 21 pares bajo sus supuestos; esos p-valores no son los p-valores Holm de los diez contrastes bootstrap del modelo propio. Los dos análisis responden a preguntas diferentes.</p>
 <p>Fuentes metodológicas: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.friedmanchisquare.html">SciPy, Friedman</a> y <a href="https://www.jmlr.org/papers/v7/demsar06a.html">Demšar, 2006</a>. La aplicación clásica compara datasets independientes; aquí su uso sobre folds es una aproximación exploratoria solicitada por la guía.</p>
 <p><a href="/estadistica-rangos/rangos_medios.csv">Descargar rangos medios</a> · <a href="/estadistica-rangos/nemenyi.csv">Descargar los 21 pares de Nemenyi</a> · <a href="/estadistica-rangos/metodo.json">Método y huella de la fuente</a>
-</p><h2>6. Conclusiones y límites</h2>
+</p><h2 id="seccion-8">6. Conclusiones y límites</h2>
 <p>El modelo propio obtuvo AUC medio 0,6051. Las referencias seleccionadas
 internamente alcanzaron aproximadamente 0,6059 en logística y 0,6055 en XGBoost.
 La discriminación observada es limitada.</p>

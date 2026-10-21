@@ -364,5 +364,14 @@ def resultados_con_rangos():
     return contenido
 SECCIONES["resultados"] = resultados_con_rangos
 
+@server.route("/cierre-auditoria/<nombre>")
+def cierre_auditoria(nombre):
+    permitidos = {"particiones_resumen.csv", "descriptivos_por_clase.csv", "auditoria_datos.json", "eda_desarrollo.png", "ampliacion_informe.md"}
+    if nombre not in permitidos:
+        abort(404)
+    return send_from_directory(DATA / "cierre_auditoria", nombre,
+                               as_attachment=not nombre.endswith(".png"))
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8050)), debug=False)

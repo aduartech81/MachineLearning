@@ -6,7 +6,7 @@ Fuente: guía compartida «Proyecto Final: Segundo Entregable — Modelos de Mac
 
 | Requisito | Evidencia disponible | Estado y acción |
 |---|---|---|
-| EDA y diccionario | Explorador de 23 variables y evidencia agregada de desarrollo | Implementado en el portal; incorporar al informe estático |
+| EDA y diccionario | Explorador de 23 variables y evidencia agregada de desarrollo | Integrado en portal e informe: descriptivos por clase, figura, diccionario y comprobación de perfiles |
 | Clasificación combinatoria | 108 configuraciones, 540 evaluaciones; KNN ponderado no aplicable | Explicar las cuatro excepciones frente a las 112 nominales |
 | Regresión: 7 familias × 4 optimizadores | No hay rama de regresión | Pendiente; definir objetivo continuo y pregunta justificada antes de entrenar |
 | Validación anidada | Cinco folds externos, tres internos, agrupación de perfiles | Implementada; conservar advertencia de que perfil no acredita identidad de paciente |
@@ -19,7 +19,7 @@ Fuente: guía compartida «Proyecto Final: Segundo Entregable — Modelos de Mac
 | Comparaciones dirigidas y efectos | Bootstrap agrupado y Holm de diez contrastes | No sustituye los métodos pedidos; revisar DeLong y tamaño del efecto con sus supuestos y unidades correctas |
 | SHAP y LIME | XGBoost: global y cuatro casos; tres semillas LIME | Implementados; son explicaciones de una referencia, no del modelo propio |
 | Modelo propio y ablaciones | Código, gradiente comprobado, convergencia y resultados V1 | Implementado; no hay superioridad demostrada frente a las principales referencias |
-| Reproducibilidad | Cuaderno, evidencias con hashes y código parcial publicado | Recuperar ejecutores V2 y entorno exacto; comprobar referencias a archivos locales |
+| Reproducibilidad | Cuaderno, evidencias con hashes y código parcial publicado | Recolector selectivo preparado; pendiente recibir ejecutores V2, entorno e historiales del Mac |
 | Jupyter Book | Cuaderno V2 y construcción verificada | No confundir HTML independiente con despliegue completo del libro; ofrecer respaldo estático autónomo |
 | Exposición | Guion de ocho minutos conservado en repositorio | Retirado del portal público; ajustar duración y comparación de optimizadores al tiempo asignado |
 

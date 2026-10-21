@@ -1,0 +1,12 @@
+{
+  "filas_desarrollo": 44582,
+  "perfiles": 35641,
+  "perfiles_con_etiquetas_discordantes": 0,
+  "filas_repetidas_adicionales": 8941,
+  "positivos": 9478,
+  "faltantes_predictores": 0,
+  "perfil": "Hash pandas de los 23 predictores finales en el orden de summary.json; excluye ID y objetivo",
+  "comprobacion": "Hashes y etiquetas coinciden con particiones conservadas; cada perfil aparece en un único fold externo",
+  "datos_sha256": "158f5ce03b4794a5b84a32088fe7d4b00c2ec114cade650c467b6925ef8fe47b",
+  "alcance": "Descriptivo sobre desarrollo; no implica independencia por paciente; no se consultaron nuevos resultados de test"
+}

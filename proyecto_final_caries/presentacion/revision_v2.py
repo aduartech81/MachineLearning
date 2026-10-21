@@ -90,7 +90,8 @@ def integrar(app, secciones, data):
 
     def historico(clave):
         return html.Details([
-            html.Summary("Antecedentes V1 · resultados y método conservados"),
+            html.Summary("Apéndice histórico V1 · procedimiento distinto de V2"),
+            html.P("V1 conserva sus parámetros y umbrales originales. Boosting es HistGradientBoostingClassifier, no XGBoost. El Brier vacío de SVM indica ausencia de probabilidades. Una precisión alta con pocos positivos predichos no significa alta sensibilidad."),
             anteriores[clave]()
         ])
 
