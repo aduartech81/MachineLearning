@@ -335,13 +335,16 @@ def informe_final():
 
 @server.route("/exposicion/")
 def exposicion_final():
-    return send_from_directory(ROOT / "documentacion", "exposicion.html")
+    return send_from_directory(
+        ROOT / "documentacion", "exposicion.html",
+        as_attachment=True, download_name="Guion_exposicion_Andres_Duarte.html"
+    )
 
 
 app.layout.children[0].children.append(html.Div([
     html.A("Informe completo", href="/informe-final/"),
     html.Span(" · "),
-    html.A("Guion de exposición · 8 minutos", href="/exposicion/"),
+    html.A("Descargar guion · 8 minutos", href="/exposicion/", download="Guion_exposicion_Andres_Duarte.html"),
 ], className="pf-links"))
 
 if __name__ == "__main__":
