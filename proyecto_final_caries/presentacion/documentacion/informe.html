@@ -1,0 +1,920 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Informe · Proyecto final de caries</title><style>body{margin:0;background:#eef3f6;color:#17384a;font:17px/1.65 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:36px;background:white}nav{background:#17384a;padding:18px;text-align:center}nav a{color:white;margin:0 12px}h1,h2,h3{line-height:1.25}h2{margin-top:2.5em;border-bottom:2px solid #cddfe2;padding-bottom:12px}img{max-width:100%;height:auto}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{padding:9px;border-bottom:1px solid #ccdadd;text-align:left}a{color:#087889}pre{overflow:auto;background:#eef3f6;padding:15px}@media print{nav{display:none}body,main{background:white;padding:0}h2,h3{break-after:avoid}img{max-height:700px;object-fit:contain}}</style></head><body><nav><a href="/">Explorar el proyecto</a><a href="/informe-final/">Informe</a><a href="/exposicion/">Guion de exposición</a></nav><main><h1>Proyecto final de caries — actualización V2</h1>
+<p>Andrés Duarte Chaves · Maestría en Ingeniería Biomédica</p>
+<p>Esta actualización complementa el capítulo V1 conservado. Corresponde
+exclusivamente al proyecto final de caries.</p>
+<p><a href="https://caries-proyecto-final-andres-duarte.onrender.com/">Aplicación independiente en Render</a></p>
+<p>Este documento presenta evidencia experimental exploratoria; no una
+herramienta clínica validada.</p>
+<h2>1. Problema y alcance</h2>
+<p>En este trabajo evalué la clasificación de presencia o ausencia de caries registrada mediante 23 predictores
+de chequeo general. No se predice aparición futura de caries.</p>
+<p>El desarrollo contiene 44.582 filas y 35.641 perfiles. El test histórico
+ya consultado no constituye una nueva evaluación independiente.
+El uso potencial de priorización odontológica requiere verificar la
+disponibilidad temporal de los predictores y validación adicional.</p>
+<h2>2. Datos y diseño experimental</h2>
+<p>Conservé las particiones agrupadas: cinco folds externos y tres internos.
+Las transformaciones y los balanceos se ajustaron dentro del entrenamiento.
+Agrupar perfiles idénticos no acredita independencia por paciente.</p>
+<p>V2 incluye siete familias, cuatro optimizadores y cuatro estrategias de
+balanceo: sin balanceo, SMOTE, ADASYN y ponderación.
+KNN ponderado no es aplicable. Se completaron 108 combinaciones y
+540 evaluaciones de folds.</p>
+<p>El presupuesto nominal fue de 16 propuestas por búsqueda; las configuraciones
+únicas pueden diferir entre optimizadores. Las 108 combinaciones no representan
+el número total de candidatos entrenados.</p>
+<p>SMOTE y ADASYN en el espacio codificado pueden generar categorías fraccionarias.
+La ponderación utiliza pesos de clase o de observación.</p>
+<p>Las configuraciones finales se eligieron por AUC interno por familia y fold.
+Esta regla se documentó después de consultar resultados V2: el análisis
+permanece exploratorio.</p>
+<p><a href="/evidencias-v2/comparacion/decisiones_solo_validacion_interna.csv">Descargar decisiones internas</a></p>
+<p><a href="/evidencias-v2/cobertura/auditoria.json">Auditoría de cobertura</a></p>
+<h2>3. Contribución implementada y ablaciones</h2>
+<p>Desarrollé un modelo que combina funciones spline, interacciones numéricas limitadas,
+pérdida logística y ranking por pares, con regularización L2.
+La implementación y sus gradientes fueron verificados. La novedad científica
+de la combinación no está establecida.</p>
+<p>La selección de interacciones utiliza residuos de ajuste. Las repeticiones
+submuestrean perfiles pero reutilizan el modelo preliminar y sus residuos:
+no equivalen a reentrenar todo el procedimiento de selección en cada repetición.</p>
+<p>Las ablaciones conservadas permiten evaluar variantes sin interacciones,
+sin ranking y aditiva. Sus espacios de regularización no son idénticos;
+comparan procedimientos ajustados y no aíslan perfectamente cada componente.</p>
+<h3>Resultados V1 conservados</h3>
+<p>&lt;table class=&quot;dataframe&quot;&gt;
+&lt;thead&gt;
+&lt;tr style=&quot;text-align: right;&quot;&gt;
+&lt;th&gt;Modelo&lt;/th&gt;
+&lt;th&gt;Folds&lt;/th&gt;
+&lt;th&gt;AUC medio&lt;/th&gt;
+&lt;th&gt;DE entre folds&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Aditivo&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;0.606151&lt;/td&gt;
+&lt;td&gt;0.009029&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Propio&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;0.605062&lt;/td&gt;
+&lt;td&gt;0.007275&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sin_interacciones&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;0.605092&lt;/td&gt;
+&lt;td&gt;0.006740&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sin_ranking&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;0.605964&lt;/td&gt;
+&lt;td&gt;0.009598&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<h2>4. Evaluación e incertidumbre</h2>
+<p>La calibración sigmoide y el umbral Youden se ajustaron dentro del entrenamiento
+externo, utilizando predicciones internas. Youden no expresa por sí solo
+costos clínicos ni acredita un umbral de derivación.</p>
+<p>Los intervalos siguientes corresponden a la media del AUC de los cinco folds.
+Se utilizaron 2.000 réplicas de perfiles completos dentro de cada fold,
+sin estratificación por clase y con los mismos pesos para todos los modelos.</p>
+<p>Los modelos y las predicciones permanecen fijos. Los intervalos no incorporan
+toda la variabilidad del reentrenamiento ni su dependencia por solapamiento.
+Son intervalos individuales, no simultáneos. Los diez contrastes bilaterales
+aproximados usan bootstrap centrado y corrección Holm.</p>
+<p>&lt;table class=&quot;dataframe&quot;&gt;
+&lt;thead&gt;
+&lt;tr style=&quot;text-align: right;&quot;&gt;
+&lt;th&gt;Modelo&lt;/th&gt;
+&lt;th&gt;AUC medio&lt;/th&gt;
+&lt;th&gt;IC 95 % inferior&lt;/th&gt;
+&lt;th&gt;IC 95 % superior&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Propio&lt;/td&gt;
+&lt;td&gt;0.605062&lt;/td&gt;
+&lt;td&gt;0.597486&lt;/td&gt;
+&lt;td&gt;0.612564&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Logistica_L1_L2&lt;/td&gt;
+&lt;td&gt;0.605915&lt;/td&gt;
+&lt;td&gt;0.598506&lt;/td&gt;
+&lt;td&gt;0.613544&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SVM&lt;/td&gt;
+&lt;td&gt;0.605574&lt;/td&gt;
+&lt;td&gt;0.598035&lt;/td&gt;
+&lt;td&gt;0.613239&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;XGBoost&lt;/td&gt;
+&lt;td&gt;0.605471&lt;/td&gt;
+&lt;td&gt;0.597911&lt;/td&gt;
+&lt;td&gt;0.613168&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RandomForest&lt;/td&gt;
+&lt;td&gt;0.604468&lt;/td&gt;
+&lt;td&gt;0.596939&lt;/td&gt;
+&lt;td&gt;0.612080&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DecisionTree&lt;/td&gt;
+&lt;td&gt;0.600625&lt;/td&gt;
+&lt;td&gt;0.593257&lt;/td&gt;
+&lt;td&gt;0.608126&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;KNN&lt;/td&gt;
+&lt;td&gt;0.596924&lt;/td&gt;
+&lt;td&gt;0.589104&lt;/td&gt;
+&lt;td&gt;0.604684&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GaussianNB&lt;/td&gt;
+&lt;td&gt;0.578240&lt;/td&gt;
+&lt;td&gt;0.570314&lt;/td&gt;
+&lt;td&gt;0.585717&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sin_interacciones&lt;/td&gt;
+&lt;td&gt;0.605092&lt;/td&gt;
+&lt;td&gt;0.597535&lt;/td&gt;
+&lt;td&gt;0.612578&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sin_ranking&lt;/td&gt;
+&lt;td&gt;0.605964&lt;/td&gt;
+&lt;td&gt;0.598467&lt;/td&gt;
+&lt;td&gt;0.613701&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Aditivo&lt;/td&gt;
+&lt;td&gt;0.606151&lt;/td&gt;
+&lt;td&gt;0.598616&lt;/td&gt;
+&lt;td&gt;0.613660&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p>&lt;table class=&quot;dataframe&quot;&gt;
+&lt;thead&gt;
+&lt;tr style=&quot;text-align: right;&quot;&gt;
+&lt;th&gt;Comparación&lt;/th&gt;
+&lt;th&gt;Diferencia de AUC&lt;/th&gt;
+&lt;th&gt;IC 95 % inferior&lt;/th&gt;
+&lt;th&gt;IC 95 % superior&lt;/th&gt;
+&lt;th&gt;p exploratorio&lt;/th&gt;
+&lt;th&gt;p ajustado (Holm)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Propio - Logistica_L1_L2&lt;/td&gt;
+&lt;td&gt;-0.000853&lt;/td&gt;
+&lt;td&gt;-0.004359&lt;/td&gt;
+&lt;td&gt;0.002629&lt;/td&gt;
+&lt;td&gt;0.634183&lt;/td&gt;
+&lt;td&gt;1.000000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Propio - SVM&lt;/td&gt;
+&lt;td&gt;-0.000512&lt;/td&gt;
+&lt;td&gt;-0.003841&lt;/td&gt;
+&lt;td&gt;0.002812&lt;/td&gt;
+&lt;td&gt;0.774113&lt;/td&gt;
+&lt;td&gt;1.000000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Propio - XGBoost&lt;/td&gt;
+&lt;td&gt;-0.000409&lt;/td&gt;
+&lt;td&gt;-0.003299&lt;/td&gt;
+&lt;td&gt;0.002508&lt;/td&gt;
+&lt;td&gt;0.798601&lt;/td&gt;
+&lt;td&gt;1.000000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Propio - RandomForest&lt;/td&gt;
+&lt;td&gt;0.000594&lt;/td&gt;
+&lt;td&gt;-0.003139&lt;/td&gt;
+&lt;td&gt;0.004410&lt;/td&gt;
+&lt;td&gt;0.757121&lt;/td&gt;
+&lt;td&gt;1.000000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Propio - DecisionTree&lt;/td&gt;
+&lt;td&gt;0.004437&lt;/td&gt;
+&lt;td&gt;0.000342&lt;/td&gt;
+&lt;td&gt;0.008369&lt;/td&gt;
+&lt;td&gt;0.033483&lt;/td&gt;
+&lt;td&gt;0.267866&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Propio - KNN&lt;/td&gt;
+&lt;td&gt;0.008138&lt;/td&gt;
+&lt;td&gt;0.003057&lt;/td&gt;
+&lt;td&gt;0.013256&lt;/td&gt;
+&lt;td&gt;0.003498&lt;/td&gt;
+&lt;td&gt;0.031484&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Propio - GaussianNB&lt;/td&gt;
+&lt;td&gt;0.026823&lt;/td&gt;
+&lt;td&gt;0.020647&lt;/td&gt;
+&lt;td&gt;0.033490&lt;/td&gt;
+&lt;td&gt;0.000500&lt;/td&gt;
+&lt;td&gt;0.004998&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Propio - Sin_interacciones&lt;/td&gt;
+&lt;td&gt;-0.000030&lt;/td&gt;
+&lt;td&gt;-0.001431&lt;/td&gt;
+&lt;td&gt;0.001416&lt;/td&gt;
+&lt;td&gt;0.964518&lt;/td&gt;
+&lt;td&gt;1.000000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Propio - Sin_ranking&lt;/td&gt;
+&lt;td&gt;-0.000902&lt;/td&gt;
+&lt;td&gt;-0.002708&lt;/td&gt;
+&lt;td&gt;0.000854&lt;/td&gt;
+&lt;td&gt;0.312344&lt;/td&gt;
+&lt;td&gt;1.000000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Propio - Aditivo&lt;/td&gt;
+&lt;td&gt;-0.001089&lt;/td&gt;
+&lt;td&gt;-0.003208&lt;/td&gt;
+&lt;td&gt;0.001033&lt;/td&gt;
+&lt;td&gt;0.296352&lt;/td&gt;
+&lt;td&gt;1.000000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p>El modelo propio mostró ventajas exploratorias frente a KNN y GaussianNB
+después de Holm. No se demostró mejora frente a logística, SVM, XGBoost
+ni Random Forest. El contraste frente al árbol no supera el ajuste múltiple,
+aunque su intervalo individual excluya cero. No se demuestra equivalencia.</p>
+<p><a href="/evidencias-v2/contrastes/metodo.json">Método inferencial V2</a></p>
+<h2>5. Resultados y explicaciones</h2>
+<h3>Modelo propio y referencias: comparación principal</h3>
+<p>Comparé mi propuesta con siete familias de referencia. El modelo propio alcanzó un AUC medio de 0,6051; no encontré una mejora frente a las referencias con mayor AUC. La tabla presenta medias de cinco folds externos e intervalos condicionales del análisis V2.</p>
+<p>&lt;table class=&quot;dataframe&quot;&gt;
+&lt;thead&gt;
+&lt;tr style=&quot;text-align: right;&quot;&gt;
+&lt;th&gt;Modelo&lt;/th&gt;
+&lt;th&gt;AUC medio&lt;/th&gt;
+&lt;th&gt;DE entre folds&lt;/th&gt;
+&lt;th&gt;IC 95 % inferior&lt;/th&gt;
+&lt;th&gt;IC 95 % superior&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Modelo propio&lt;/td&gt;
+&lt;td&gt;0.6051&lt;/td&gt;
+&lt;td&gt;0.0073&lt;/td&gt;
+&lt;td&gt;0.5975&lt;/td&gt;
+&lt;td&gt;0.6126&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Regresión logística&lt;/td&gt;
+&lt;td&gt;0.6059&lt;/td&gt;
+&lt;td&gt;0.0106&lt;/td&gt;
+&lt;td&gt;0.5985&lt;/td&gt;
+&lt;td&gt;0.6135&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SVM&lt;/td&gt;
+&lt;td&gt;0.6056&lt;/td&gt;
+&lt;td&gt;0.0110&lt;/td&gt;
+&lt;td&gt;0.5980&lt;/td&gt;
+&lt;td&gt;0.6132&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;XGBoost&lt;/td&gt;
+&lt;td&gt;0.6055&lt;/td&gt;
+&lt;td&gt;0.0075&lt;/td&gt;
+&lt;td&gt;0.5979&lt;/td&gt;
+&lt;td&gt;0.6132&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bosque aleatorio&lt;/td&gt;
+&lt;td&gt;0.6045&lt;/td&gt;
+&lt;td&gt;0.0119&lt;/td&gt;
+&lt;td&gt;0.5969&lt;/td&gt;
+&lt;td&gt;0.6121&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Árbol de decisión&lt;/td&gt;
+&lt;td&gt;0.6006&lt;/td&gt;
+&lt;td&gt;0.0107&lt;/td&gt;
+&lt;td&gt;0.5933&lt;/td&gt;
+&lt;td&gt;0.6081&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;KNN&lt;/td&gt;
+&lt;td&gt;0.5969&lt;/td&gt;
+&lt;td&gt;0.0110&lt;/td&gt;
+&lt;td&gt;0.5891&lt;/td&gt;
+&lt;td&gt;0.6047&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Naive Bayes gaussiano&lt;/td&gt;
+&lt;td&gt;0.5782&lt;/td&gt;
+&lt;td&gt;0.0123&lt;/td&gt;
+&lt;td&gt;0.5703&lt;/td&gt;
+&lt;td&gt;0.5857&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<h3>Métricas adicionales de las referencias: medias por fold</h3>
+<p>Estas métricas usan umbrales Youden internos. El modelo propio conserva su umbral descriptivo de 0,5 de V1; no comparo ambas reglas como si fueran iguales.</p>
+<p>&lt;table class=&quot;dataframe&quot;&gt;
+&lt;thead&gt;
+&lt;tr style=&quot;text-align: right;&quot;&gt;
+&lt;th&gt;Modelo&lt;/th&gt;
+&lt;th&gt;Folds&lt;/th&gt;
+&lt;th&gt;AUC medio&lt;/th&gt;
+&lt;th&gt;DE entre folds&lt;/th&gt;
+&lt;th&gt;Sensibilidad&lt;/th&gt;
+&lt;th&gt;Especificidad&lt;/th&gt;
+&lt;th&gt;VPP&lt;/th&gt;
+&lt;th&gt;F1&lt;/th&gt;
+&lt;th&gt;Brier&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DecisionTree&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;0.600625&lt;/td&gt;
+&lt;td&gt;0.010736&lt;/td&gt;
+&lt;td&gt;0.470360&lt;/td&gt;
+&lt;td&gt;0.685508&lt;/td&gt;
+&lt;td&gt;0.289138&lt;/td&gt;
+&lt;td&gt;0.356834&lt;/td&gt;
+&lt;td&gt;0.163750&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GaussianNB&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;0.578240&lt;/td&gt;
+&lt;td&gt;0.012258&lt;/td&gt;
+&lt;td&gt;0.546211&lt;/td&gt;
+&lt;td&gt;0.578084&lt;/td&gt;
+&lt;td&gt;0.259648&lt;/td&gt;
+&lt;td&gt;0.351410&lt;/td&gt;
+&lt;td&gt;0.165451&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;KNN&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;0.596924&lt;/td&gt;
+&lt;td&gt;0.011012&lt;/td&gt;
+&lt;td&gt;0.518671&lt;/td&gt;
+&lt;td&gt;0.630470&lt;/td&gt;
+&lt;td&gt;0.274908&lt;/td&gt;
+&lt;td&gt;0.359070&lt;/td&gt;
+&lt;td&gt;0.163884&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Logistica_L1_L2&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;0.605915&lt;/td&gt;
+&lt;td&gt;0.010574&lt;/td&gt;
+&lt;td&gt;0.492299&lt;/td&gt;
+&lt;td&gt;0.666335&lt;/td&gt;
+&lt;td&gt;0.285429&lt;/td&gt;
+&lt;td&gt;0.361061&lt;/td&gt;
+&lt;td&gt;0.163357&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RandomForest&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;0.604468&lt;/td&gt;
+&lt;td&gt;0.011944&lt;/td&gt;
+&lt;td&gt;0.514765&lt;/td&gt;
+&lt;td&gt;0.634630&lt;/td&gt;
+&lt;td&gt;0.277360&lt;/td&gt;
+&lt;td&gt;0.358932&lt;/td&gt;
+&lt;td&gt;0.163271&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SVM&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;0.605574&lt;/td&gt;
+&lt;td&gt;0.011047&lt;/td&gt;
+&lt;td&gt;0.530280&lt;/td&gt;
+&lt;td&gt;0.629302&lt;/td&gt;
+&lt;td&gt;0.278851&lt;/td&gt;
+&lt;td&gt;0.365387&lt;/td&gt;
+&lt;td&gt;0.163359&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;XGBoost&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;0.605471&lt;/td&gt;
+&lt;td&gt;0.007450&lt;/td&gt;
+&lt;td&gt;0.499365&lt;/td&gt;
+&lt;td&gt;0.657560&lt;/td&gt;
+&lt;td&gt;0.282630&lt;/td&gt;
+&lt;td&gt;0.360606&lt;/td&gt;
+&lt;td&gt;0.163067&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<h3>Curvas y métricas OOF agrupadas</h3>
+<p>Las curvas concatenan predicciones externas de cinco modelos distintos.
+Su AUC puede diferir de la media por fold. No se seleccionaron umbrales
+utilizando estas predicciones externas.</p>
+<p><img src="/evidencias/roc_propio_referencias.png" alt="ROC del modelo propio y las referencias V2." /></p>
+<p>ROC del modelo propio y las referencias V2.
+<img src="/evidencias/pr_propio_referencias.png" alt="Precisión–recall de referencias V2." /></p>
+<p>Precisión–recall de referencias V2.
+<img src="/evidencias-v2/evaluacion/calibracion_referencias.png" alt="Calibración descriptiva: diez intervalos fijos." /></p>
+<p>Calibración descriptiva: diez intervalos fijos.
+<img src="/evidencias-v2/evaluacion/matrices_umbrales_internos.png" alt="Matrices con umbrales internos por fold; porcentajes por clase observada." /></p>
+<p>Matrices con umbrales internos por fold; porcentajes por clase observada.</p>
+<p>Un ECE bajo no garantiza buena discriminación. Depende de los intervalos
+elegidos y debe leerse conjuntamente con AUC, AP y Brier.</p>
+<p>&lt;table class=&quot;dataframe&quot;&gt;
+&lt;thead&gt;
+&lt;tr style=&quot;text-align: right;&quot;&gt;
+&lt;th&gt;Modelo&lt;/th&gt;
+&lt;th&gt;Umbral&lt;/th&gt;
+&lt;th&gt;Filas&lt;/th&gt;
+&lt;th&gt;AUC OOF&lt;/th&gt;
+&lt;th&gt;Precisión promedio (AP)&lt;/th&gt;
+&lt;th&gt;Brier&lt;/th&gt;
+&lt;th&gt;Pérdida logarítmica&lt;/th&gt;
+&lt;th&gt;Exactitud&lt;/th&gt;
+&lt;th&gt;Sensibilidad&lt;/th&gt;
+&lt;th&gt;Especificidad&lt;/th&gt;
+&lt;th&gt;VPP&lt;/th&gt;
+&lt;th&gt;F1&lt;/th&gt;
+&lt;th&gt;VN&lt;/th&gt;
+&lt;th&gt;FP&lt;/th&gt;
+&lt;th&gt;FN&lt;/th&gt;
+&lt;th&gt;VP&lt;/th&gt;
+&lt;th&gt;ECE (10 intervalos)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Logistica_L1_L2&lt;/td&gt;
+&lt;td&gt;Sigmoide_0.5&lt;/td&gt;
+&lt;td&gt;44582&lt;/td&gt;
+&lt;td&gt;0.605850&lt;/td&gt;
+&lt;td&gt;0.288359&lt;/td&gt;
+&lt;td&gt;0.163357&lt;/td&gt;
+&lt;td&gt;0.505908&lt;/td&gt;
+&lt;td&gt;0.787381&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;0.999972&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;35103&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;9478&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.006282&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Logistica_L1_L2&lt;/td&gt;
+&lt;td&gt;Sigmoide_Youden_interno&lt;/td&gt;
+&lt;td&gt;44582&lt;/td&gt;
+&lt;td&gt;0.605850&lt;/td&gt;
+&lt;td&gt;0.288359&lt;/td&gt;
+&lt;td&gt;0.163357&lt;/td&gt;
+&lt;td&gt;0.505908&lt;/td&gt;
+&lt;td&gt;0.629335&lt;/td&gt;
+&lt;td&gt;0.492298&lt;/td&gt;
+&lt;td&gt;0.666334&lt;/td&gt;
+&lt;td&gt;0.284877&lt;/td&gt;
+&lt;td&gt;0.360908&lt;/td&gt;
+&lt;td&gt;23391&lt;/td&gt;
+&lt;td&gt;11713&lt;/td&gt;
+&lt;td&gt;4812&lt;/td&gt;
+&lt;td&gt;4666&lt;/td&gt;
+&lt;td&gt;0.006282&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SVM&lt;/td&gt;
+&lt;td&gt;Sigmoide_0.5&lt;/td&gt;
+&lt;td&gt;44582&lt;/td&gt;
+&lt;td&gt;0.605596&lt;/td&gt;
+&lt;td&gt;0.288515&lt;/td&gt;
+&lt;td&gt;0.163359&lt;/td&gt;
+&lt;td&gt;0.505834&lt;/td&gt;
+&lt;td&gt;0.787425&lt;/td&gt;
+&lt;td&gt;0.000211&lt;/td&gt;
+&lt;td&gt;0.999972&lt;/td&gt;
+&lt;td&gt;0.666667&lt;/td&gt;
+&lt;td&gt;0.000422&lt;/td&gt;
+&lt;td&gt;35103&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;9476&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;0.005599&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SVM&lt;/td&gt;
+&lt;td&gt;Sigmoide_Youden_interno&lt;/td&gt;
+&lt;td&gt;44582&lt;/td&gt;
+&lt;td&gt;0.605596&lt;/td&gt;
+&lt;td&gt;0.288515&lt;/td&gt;
+&lt;td&gt;0.163359&lt;/td&gt;
+&lt;td&gt;0.505834&lt;/td&gt;
+&lt;td&gt;0.608250&lt;/td&gt;
+&lt;td&gt;0.530281&lt;/td&gt;
+&lt;td&gt;0.629302&lt;/td&gt;
+&lt;td&gt;0.278619&lt;/td&gt;
+&lt;td&gt;0.365301&lt;/td&gt;
+&lt;td&gt;22091&lt;/td&gt;
+&lt;td&gt;13013&lt;/td&gt;
+&lt;td&gt;4452&lt;/td&gt;
+&lt;td&gt;5026&lt;/td&gt;
+&lt;td&gt;0.005599&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;XGBoost&lt;/td&gt;
+&lt;td&gt;Sigmoide_0.5&lt;/td&gt;
+&lt;td&gt;44582&lt;/td&gt;
+&lt;td&gt;0.605223&lt;/td&gt;
+&lt;td&gt;0.292521&lt;/td&gt;
+&lt;td&gt;0.163067&lt;/td&gt;
+&lt;td&gt;0.505102&lt;/td&gt;
+&lt;td&gt;0.787291&lt;/td&gt;
+&lt;td&gt;0.000106&lt;/td&gt;
+&lt;td&gt;0.999829&lt;/td&gt;
+&lt;td&gt;0.142857&lt;/td&gt;
+&lt;td&gt;0.000211&lt;/td&gt;
+&lt;td&gt;35098&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;9477&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0.004099&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;XGBoost&lt;/td&gt;
+&lt;td&gt;Sigmoide_Youden_interno&lt;/td&gt;
+&lt;td&gt;44582&lt;/td&gt;
+&lt;td&gt;0.605223&lt;/td&gt;
+&lt;td&gt;0.292521&lt;/td&gt;
+&lt;td&gt;0.163067&lt;/td&gt;
+&lt;td&gt;0.505102&lt;/td&gt;
+&lt;td&gt;0.623929&lt;/td&gt;
+&lt;td&gt;0.499367&lt;/td&gt;
+&lt;td&gt;0.657560&lt;/td&gt;
+&lt;td&gt;0.282500&lt;/td&gt;
+&lt;td&gt;0.360857&lt;/td&gt;
+&lt;td&gt;23083&lt;/td&gt;
+&lt;td&gt;12021&lt;/td&gt;
+&lt;td&gt;4745&lt;/td&gt;
+&lt;td&gt;4733&lt;/td&gt;
+&lt;td&gt;0.004099&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RandomForest&lt;/td&gt;
+&lt;td&gt;Sigmoide_0.5&lt;/td&gt;
+&lt;td&gt;44582&lt;/td&gt;
+&lt;td&gt;0.603737&lt;/td&gt;
+&lt;td&gt;0.289896&lt;/td&gt;
+&lt;td&gt;0.163271&lt;/td&gt;
+&lt;td&gt;0.505662&lt;/td&gt;
+&lt;td&gt;0.787381&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;0.999972&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;35103&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;9478&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.003045&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RandomForest&lt;/td&gt;
+&lt;td&gt;Sigmoide_Youden_interno&lt;/td&gt;
+&lt;td&gt;44582&lt;/td&gt;
+&lt;td&gt;0.603737&lt;/td&gt;
+&lt;td&gt;0.289896&lt;/td&gt;
+&lt;td&gt;0.163271&lt;/td&gt;
+&lt;td&gt;0.505662&lt;/td&gt;
+&lt;td&gt;0.609147&lt;/td&gt;
+&lt;td&gt;0.514771&lt;/td&gt;
+&lt;td&gt;0.634629&lt;/td&gt;
+&lt;td&gt;0.275572&lt;/td&gt;
+&lt;td&gt;0.358974&lt;/td&gt;
+&lt;td&gt;22278&lt;/td&gt;
+&lt;td&gt;12826&lt;/td&gt;
+&lt;td&gt;4599&lt;/td&gt;
+&lt;td&gt;4879&lt;/td&gt;
+&lt;td&gt;0.003045&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DecisionTree&lt;/td&gt;
+&lt;td&gt;Sigmoide_0.5&lt;/td&gt;
+&lt;td&gt;44582&lt;/td&gt;
+&lt;td&gt;0.601496&lt;/td&gt;
+&lt;td&gt;0.280914&lt;/td&gt;
+&lt;td&gt;0.163750&lt;/td&gt;
+&lt;td&gt;0.506713&lt;/td&gt;
+&lt;td&gt;0.787044&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;0.999544&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;35088&lt;/td&gt;
+&lt;td&gt;16&lt;/td&gt;
+&lt;td&gt;9478&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.008779&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DecisionTree&lt;/td&gt;
+&lt;td&gt;Sigmoide_Youden_interno&lt;/td&gt;
+&lt;td&gt;44582&lt;/td&gt;
+&lt;td&gt;0.601496&lt;/td&gt;
+&lt;td&gt;0.280914&lt;/td&gt;
+&lt;td&gt;0.163750&lt;/td&gt;
+&lt;td&gt;0.506713&lt;/td&gt;
+&lt;td&gt;0.639765&lt;/td&gt;
+&lt;td&gt;0.470352&lt;/td&gt;
+&lt;td&gt;0.685506&lt;/td&gt;
+&lt;td&gt;0.287650&lt;/td&gt;
+&lt;td&gt;0.356983&lt;/td&gt;
+&lt;td&gt;24064&lt;/td&gt;
+&lt;td&gt;11040&lt;/td&gt;
+&lt;td&gt;5020&lt;/td&gt;
+&lt;td&gt;4458&lt;/td&gt;
+&lt;td&gt;0.008779&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;KNN&lt;/td&gt;
+&lt;td&gt;Sigmoide_0.5&lt;/td&gt;
+&lt;td&gt;44582&lt;/td&gt;
+&lt;td&gt;0.596805&lt;/td&gt;
+&lt;td&gt;0.282501&lt;/td&gt;
+&lt;td&gt;0.163884&lt;/td&gt;
+&lt;td&gt;0.507278&lt;/td&gt;
+&lt;td&gt;0.787403&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;1.000000&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;35104&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;9478&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.001122&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;KNN&lt;/td&gt;
+&lt;td&gt;Sigmoide_Youden_interno&lt;/td&gt;
+&lt;td&gt;44582&lt;/td&gt;
+&lt;td&gt;0.596805&lt;/td&gt;
+&lt;td&gt;0.282501&lt;/td&gt;
+&lt;td&gt;0.163884&lt;/td&gt;
+&lt;td&gt;0.507278&lt;/td&gt;
+&lt;td&gt;0.606702&lt;/td&gt;
+&lt;td&gt;0.518675&lt;/td&gt;
+&lt;td&gt;0.630469&lt;/td&gt;
+&lt;td&gt;0.274821&lt;/td&gt;
+&lt;td&gt;0.359278&lt;/td&gt;
+&lt;td&gt;22132&lt;/td&gt;
+&lt;td&gt;12972&lt;/td&gt;
+&lt;td&gt;4562&lt;/td&gt;
+&lt;td&gt;4916&lt;/td&gt;
+&lt;td&gt;0.001122&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GaussianNB&lt;/td&gt;
+&lt;td&gt;Sigmoide_0.5&lt;/td&gt;
+&lt;td&gt;44582&lt;/td&gt;
+&lt;td&gt;0.577152&lt;/td&gt;
+&lt;td&gt;0.256651&lt;/td&gt;
+&lt;td&gt;0.165451&lt;/td&gt;
+&lt;td&gt;0.511574&lt;/td&gt;
+&lt;td&gt;0.787403&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;1.000000&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;0.000000&lt;/td&gt;
+&lt;td&gt;35104&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;9478&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.004725&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GaussianNB&lt;/td&gt;
+&lt;td&gt;Sigmoide_Youden_interno&lt;/td&gt;
+&lt;td&gt;44582&lt;/td&gt;
+&lt;td&gt;0.577152&lt;/td&gt;
+&lt;td&gt;0.256651&lt;/td&gt;
+&lt;td&gt;0.165451&lt;/td&gt;
+&lt;td&gt;0.511574&lt;/td&gt;
+&lt;td&gt;0.571307&lt;/td&gt;
+&lt;td&gt;0.546212&lt;/td&gt;
+&lt;td&gt;0.578082&lt;/td&gt;
+&lt;td&gt;0.259005&lt;/td&gt;
+&lt;td&gt;0.351388&lt;/td&gt;
+&lt;td&gt;20293&lt;/td&gt;
+&lt;td&gt;14811&lt;/td&gt;
+&lt;td&gt;4301&lt;/td&gt;
+&lt;td&gt;5177&lt;/td&gt;
+&lt;td&gt;0.004725&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<h3>SHAP y LIME de XGBoost</h3>
+<p>Se explica una referencia XGBoost del fold externo 0 seleccionada por
+validación interna, no el modelo propio.</p>
+<p>SHAP explica el margen original en escala log-odds. La muestra global
+contiene 500 filas reproduciblemente seleccionadas. Las contribuciones
+corresponden a columnas transformadas, no a 23 variables agrupadas.
+La magnitud absoluta no indica dirección ni causalidad.</p>
+<p><img src="/evidencias-v2/shap/shap_global.png" alt="Importancia SHAP global en la muestra externa." /></p>
+<p>Importancia SHAP global en la muestra externa.
+&lt;table class=&quot;dataframe&quot;&gt;
+&lt;thead&gt;
+&lt;tr style=&quot;text-align: right;&quot;&gt;
+&lt;th&gt;Caso&lt;/th&gt;
+&lt;th&gt;ID&lt;/th&gt;
+&lt;th&gt;actual&lt;/th&gt;
+&lt;th&gt;prediction&lt;/th&gt;
+&lt;th&gt;probability_original&lt;/th&gt;
+&lt;th&gt;probability_sigmoide&lt;/th&gt;
+&lt;th&gt;umbral_interno&lt;/th&gt;
+&lt;th&gt;base_margin&lt;/th&gt;
+&lt;th&gt;suma_shap&lt;/th&gt;
+&lt;th&gt;margin&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;verdadero_positivo&lt;/td&gt;
+&lt;td&gt;73&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0.547662&lt;/td&gt;
+&lt;td&gt;0.252905&lt;/td&gt;
+&lt;td&gt;0.225392&lt;/td&gt;
+&lt;td&gt;0.000047&lt;/td&gt;
+&lt;td&gt;0.191184&lt;/td&gt;
+&lt;td&gt;0.191230&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;verdadero_negativo&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.425801&lt;/td&gt;
+&lt;td&gt;0.165724&lt;/td&gt;
+&lt;td&gt;0.225392&lt;/td&gt;
+&lt;td&gt;0.000047&lt;/td&gt;
+&lt;td&gt;-0.299051&lt;/td&gt;
+&lt;td&gt;-0.299004&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;falso_positivo&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0.674840&lt;/td&gt;
+&lt;td&gt;0.371250&lt;/td&gt;
+&lt;td&gt;0.225392&lt;/td&gt;
+&lt;td&gt;0.000047&lt;/td&gt;
+&lt;td&gt;0.730111&lt;/td&gt;
+&lt;td&gt;0.730158&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;falso_negativo&lt;/td&gt;
+&lt;td&gt;29&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.397590&lt;/td&gt;
+&lt;td&gt;0.149358&lt;/td&gt;
+&lt;td&gt;0.225392&lt;/td&gt;
+&lt;td&gt;0.000047&lt;/td&gt;
+&lt;td&gt;-0.415563&lt;/td&gt;
+&lt;td&gt;-0.415517&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p>LIME explica la probabilidad calibrada. Sus pesos no son directamente
+comparables con SHAP en log-odds. Se examinaron tres semillas y se fijó
+la semilla 42 para las figuras, sin elegirla por su fidelidad.</p>
+<p>&lt;table class=&quot;dataframe&quot;&gt;
+&lt;thead&gt;
+&lt;tr style=&quot;text-align: right;&quot;&gt;
+&lt;th&gt;Caso&lt;/th&gt;
+&lt;th&gt;ID&lt;/th&gt;
+&lt;th&gt;Probabilidad calibrada&lt;/th&gt;
+&lt;th&gt;R² local mínimo&lt;/th&gt;
+&lt;th&gt;R² local máximo&lt;/th&gt;
+&lt;th&gt;Error absoluto medio&lt;/th&gt;
+&lt;th&gt;Error absoluto máximo&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;falso_negativo&lt;/td&gt;
+&lt;td&gt;29&lt;/td&gt;
+&lt;td&gt;0.149358&lt;/td&gt;
+&lt;td&gt;0.360642&lt;/td&gt;
+&lt;td&gt;0.380298&lt;/td&gt;
+&lt;td&gt;0.010341&lt;/td&gt;
+&lt;td&gt;0.017259&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;falso_positivo&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;0.371250&lt;/td&gt;
+&lt;td&gt;0.833457&lt;/td&gt;
+&lt;td&gt;0.838840&lt;/td&gt;
+&lt;td&gt;0.010947&lt;/td&gt;
+&lt;td&gt;0.011933&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;verdadero_negativo&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;0.165724&lt;/td&gt;
+&lt;td&gt;0.361890&lt;/td&gt;
+&lt;td&gt;0.386298&lt;/td&gt;
+&lt;td&gt;0.060328&lt;/td&gt;
+&lt;td&gt;0.067027&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;verdadero_positivo&lt;/td&gt;
+&lt;td&gt;73&lt;/td&gt;
+&lt;td&gt;0.252905&lt;/td&gt;
+&lt;td&gt;0.789072&lt;/td&gt;
+&lt;td&gt;0.790205&lt;/td&gt;
+&lt;td&gt;0.009325&lt;/td&gt;
+&lt;td&gt;0.010664&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p>Las nuevas curvas incorporan las predicciones guardadas del modelo propio de V1. No realicé nuevos entrenamientos. El AUC OOF concatenado es descriptivo y puede diferir de la media de los folds utilizada en los contrastes.</p>
+<h3>Verdadero positivo — ID 73</h3>
+<p><img src="/evidencias-v2/shap/shap_verdadero_positivo_73.png" alt="SHAP: margen original." /></p>
+<p>SHAP: margen original.
+<img src="/evidencias-v2/lime/lime_verdadero_positivo_73.png" alt="LIME: probabilidad calibrada." /></p>
+<p>LIME: probabilidad calibrada.</p>
+<p><a href="/evidencias-v2/lime/lime_verdadero_positivo_73.html">Descargar explicación LIME en HTML</a></p>
+<h3>Verdadero negativo — ID 2</h3>
+<p><img src="/evidencias-v2/shap/shap_verdadero_negativo_2.png" alt="SHAP: margen original." /></p>
+<p>SHAP: margen original.
+<img src="/evidencias-v2/lime/lime_verdadero_negativo_2.png" alt="LIME: probabilidad calibrada." /></p>
+<p>LIME: probabilidad calibrada.</p>
+<p><a href="/evidencias-v2/lime/lime_verdadero_negativo_2.html">Descargar explicación LIME en HTML</a></p>
+<h3>Falso positivo — ID 12</h3>
+<p><img src="/evidencias-v2/shap/shap_falso_positivo_12.png" alt="SHAP: margen original." /></p>
+<p>SHAP: margen original.
+<img src="/evidencias-v2/lime/lime_falso_positivo_12.png" alt="LIME: probabilidad calibrada." /></p>
+<p>LIME: probabilidad calibrada.</p>
+<p><a href="/evidencias-v2/lime/lime_falso_positivo_12.html">Descargar explicación LIME en HTML</a></p>
+<h3>Falso negativo — ID 29</h3>
+<p><img src="/evidencias-v2/shap/shap_falso_negativo_29.png" alt="SHAP: margen original." /></p>
+<p>SHAP: margen original.
+<img src="/evidencias-v2/lime/lime_falso_negativo_29.png" alt="LIME: probabilidad calibrada." /></p>
+<p>LIME: probabilidad calibrada.</p>
+<p><a href="/evidencias-v2/lime/lime_falso_negativo_29.html">Descargar explicación LIME en HTML</a></p>
+<h2>6. Conclusiones y límites</h2>
+<p>El modelo propio obtuvo AUC medio 0,6051. Las referencias seleccionadas
+internamente alcanzaron aproximadamente 0,6059 en logística y 0,6055 en XGBoost.
+La discriminación observada es limitada.</p>
+<p>El modelo propio mostró una ventaja condicional exploratoria frente a KNN
+y GaussianNB, pero no frente a las referencias con mayor AUC. Las ablaciones
+no demostraron una ventaja de añadir interacciones o ranking.</p>
+<p>Los umbrales internos V2 modificaron el compromiso entre falsos positivos
+y negativos. No demuestran una mejora del AUC ni utilidad clínica.
+El modelo propio V1 conserva su evaluación con umbral descriptivo 0,5.</p>
+<p>LIME presentó menor fidelidad en los casos negativos. En el verdadero negativo
+ID 2, su error absoluto medio fue de 6,03 puntos porcentuales. Las explicaciones
+no establecen relaciones causales ni estabilidad general.</p>
+<p>La procedencia clínica, la definición diagnóstica, la licencia y la disponibilidad
+temporal de variables requieren verificación adicional. El test histórico ya
+consultado no puede presentarse como una nueva validación independiente.</p>
+<p>Una futura selección de interacciones con residuos fuera de muestra sería
+una modificación exploratoria que debe documentarse y evaluarse por separado.
+No reemplazaría retrospectivamente estos resultados.</p>
+<h3>Evidencias y trazabilidad</h3>
+<p><a href="/evidencias-v2/cobertura/resumen_108_configuraciones.csv">Resultados de las 108 configuraciones</a></p>
+<p><a href="/evidencias-v2/manifest.json">Manifiesto de evidencias</a></p>
+<p><a href="/evidencias-v2/shap/metodo.json">Método SHAP</a></p>
+<p><a href="/evidencias-v2/lime/metodo.json">Método LIME</a></p>
+</main></body></html>

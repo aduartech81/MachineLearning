@@ -327,5 +327,22 @@ integrar_interpretacion(SECCIONES, DATA)
 from proyecto_final_caries.presentacion.revision_v2 import integrar as integrar_v2
 _v2_callbacks = integrar_v2(app, SECCIONES, DATA)
 
+# Documentación independiente del proyecto final.
+@server.route("/informe-final/")
+def informe_final():
+    return send_from_directory(ROOT / "documentacion", "informe.html")
+
+
+@server.route("/exposicion/")
+def exposicion_final():
+    return send_from_directory(ROOT / "documentacion", "exposicion.html")
+
+
+app.layout.children[0].children.append(html.Div([
+    html.A("Informe completo", href="/informe-final/"),
+    html.Span(" · "),
+    html.A("Guion de exposición · 8 minutos", href="/exposicion/"),
+], className="pf-links"))
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8050)), debug=False)

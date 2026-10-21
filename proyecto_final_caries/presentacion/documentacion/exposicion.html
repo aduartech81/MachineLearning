@@ -1,0 +1,34 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Exposición · Proyecto final de caries</title><style>body{margin:0;background:#eef3f6;color:#17384a;font:17px/1.65 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:36px;background:white}nav{background:#17384a;padding:18px;text-align:center}nav a{color:white;margin:0 12px}h1,h2,h3{line-height:1.25}h2{margin-top:2.5em;border-bottom:2px solid #cddfe2;padding-bottom:12px}img{max-width:100%;height:auto}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{padding:9px;border-bottom:1px solid #ccdadd;text-align:left}a{color:#087889}pre{overflow:auto;background:#eef3f6;padding:15px}@media print{nav{display:none}body,main{background:white;padding:0}h2,h3{break-after:avoid}img{max-height:700px;object-fit:contain}}</style></head><body><nav><a href="/">Explorar el proyecto</a><a href="/informe-final/">Informe</a><a href="/exposicion/">Guion de exposición</a></nav><main><h1>Guion de exposición · ocho minutos</h1>
+<p>Andrés Duarte Chaves</p>
+<p>Este recorrido resume el proyecto. Las tablas completas y las evidencias quedan disponibles en el informe y en los selectores del sitio.</p>
+<h2>0:00–0:45 · La pregunta</h2>
+<p>¿Hasta dónde puedo clasificar la caries registrada con variables de un chequeo general? Evalué esa pregunta y desarrollé una propuesta propia. Mi objetivo fue medir su aporte frente a modelos de referencia, no asumir que una mayor complejidad garantizaría mejores resultados.</p>
+<p><strong>Mostrar:</strong> portada y pregunta de investigación.</p>
+<h2>0:45–1:45 · Datos y prevención de fugas</h2>
+<p>Trabajé con 23 predictores y 44.582 filas de desarrollo. Excluí el identificador, una variable constante y el indicador de sarro por su relación con el examen odontológico. Conservé juntos los perfiles idénticos en las particiones. Esto evita que esos duplicados crucen entre ajuste y validación, pero no demuestra independencia por paciente.</p>
+<p><strong>Mostrar:</strong> explorador de datos, una sola variable. El objetivo es caries registrada, no aparición futura.</p>
+<h2>1:45–3:00 · Mi propuesta</h2>
+<p>Implementé un modelo con funciones spline para relaciones no lineales, selección limitada de interacciones y una pérdida que combina clasificación y ordenación. Comprobé el gradiente numéricamente y la convergencia de los cinco ajustes. También evalué versiones sin interacciones, sin ranking y una variante aditiva para examinar el aporte de sus componentes.</p>
+<p><strong>Mostrar:</strong> esquema del modelo y las ablaciones. La implementación es propia; no afirmo que sus componentes ni su combinación sean una novedad científica establecida.</p>
+<h2>3:00–4:00 · Comparación experimental</h2>
+<p>Usé cinco folds externos y tres internos, conservando los grupos. La ampliación incluyó siete familias, cuatro optimizadores y alternativas de balanceo: 108 configuraciones aplicables y 540 evaluaciones de folds. Los hiperparámetros, la calibración y el umbral se eligieron dentro del entrenamiento externo. Como esta ampliación se planteó después de conocer resultados previos, la presento como exploratoria.</p>
+<p><strong>Mostrar:</strong> diseño anidado. Las 540 evaluaciones no son 540 muestras independientes.</p>
+<h2>4:00–5:30 · Qué encontré</h2>
+<p>Mi modelo obtuvo un AUC medio de 0,6051, frente a 0,6059 de logística y 0,6055 de XGBoost. No encontré evidencia de mejora frente a las principales referencias. Los contrastes exploratorios ajustados sí favorecieron mi modelo frente a KNN y GaussianNB. No confundí ausencia de significación con equivalencia.</p>
+<p>El umbral interno permitió a las referencias detectar aproximadamente la mitad de los positivos, con especificidad moderada. Cambiar el umbral modifica ese intercambio, pero no aumenta por sí mismo el AUC.</p>
+<p><strong>Mostrar:</strong> tabla principal y una curva ROC. Distinguir AUC medio entre folds del AUC calculado con todas las predicciones fuera de muestra reunidas.</p>
+<h2>5:30–6:30 · Interpretación</h2>
+<p>En mi modelo, edad–ALT y edad–HDL se seleccionaron en cuatro de cinco folds. Esa repetición no prueba causalidad. Para XGBoost, usé SHAP y LIME como análisis complementarios: SHAP explica el margen original y LIME aproxima la probabilidad calibrada. En algunos casos la fidelidad local fue limitada, especialmente en el verdadero negativo; por eso no presento todas las explicaciones como igualmente fiables.</p>
+<p><strong>Mostrar:</strong> un falso positivo y su explicación. XGBoost es una referencia, no mi modelo propio.</p>
+<h2>6:30–8:00 · Conclusión y límites</h2>
+<p>Desarrollé y evalué una propuesta reproducible, pero su mayor complejidad no produjo una ventaja demostrada sobre las referencias principales. La discriminación cercana a 0,61 es limitada y no respalda usar este sistema para tomar decisiones clínicas.</p>
+<p>El bootstrap cuantifica incertidumbre condicionada a las predicciones guardadas; no incorpora toda la variabilidad del entrenamiento. Además, los perfiles no equivalen necesariamente a pacientes y falta verificar metadatos clínicos. El siguiente paso sería obtener datos independientes y confirmar la disponibilidad de las variables en el momento de uso.</p>
+<h2>Preguntas que debo poder responder</h2>
+<ul>
+<li><strong>¿Por qué no ganó el modelo propio?</strong> La evaluación no mostró una mejora; añadir componentes puede incorporar complejidad sin aportar información útil en estos datos.</li>
+<li><strong>¿El balanceo solucionó el problema?</strong> Fue una alternativa evaluada, no una garantía. SMOTE y ADASYN generaron categorías fraccionarias en el espacio codificado; documenté esa limitación.</li>
+<li><strong>¿Por qué no reutilizar el test histórico como prueba nueva?</strong> Ya fue consultado y no constituye una nueva evaluación independiente.</li>
+<li><strong>¿Por qué los intervalos son condicionales?</strong> Remuestreé perfiles manteniendo fijas las predicciones; no repetí todo el ajuste en cada réplica.</li>
+<li><strong>¿Cuál es el aporte?</strong> La implementación y evaluación de una combinación explícita, sus ablaciones y una comparación trazable. No afirmo utilidad clínica ni originalidad científica no demostradas.</li>
+</ul>
+</main></body></html>
