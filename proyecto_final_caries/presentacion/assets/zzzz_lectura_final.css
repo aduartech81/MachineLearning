@@ -1,0 +1,8 @@
+/* Presentación compacta; los archivos de evidencia mantienen su precisión. */
+.pf-own-row {background:#fff4e9;font-weight:700;border-left:4px solid #b76524}
+.pf-eval-figure {max-width:940px;margin:18px auto!important}
+.pf-eval-figure img {max-height:620px;object-fit:contain}
+.pf-table th {white-space:normal;min-width:92px}
+.pf-table td {font-variant-numeric:tabular-nums}
+.pf-section label {display:block;margin:18px 0 8px;font-weight:600}
+@media(max-width:760px){.pf-table table{font-size:12px}.pf-table th,.pf-table td{padding:9px}}

@@ -1,0 +1,12 @@
+{
+  "fuentes_sha256": {
+    "proyecto_final_caries/resultados/analisis_20261018_204847_425225/oof_Propio.csv": "a778e058917e8cff852edf12482fc55e9faf8f4a6384e2943421c849b9931d95",
+    "proyecto_final_caries/presentacion/evidencias/revision_v2_20261020_154421_004423/evaluacion/curvas.csv": "043279ebf4090777aa2110d4e426a0be870a00893013581c2facb514c3801505",
+    "proyecto_final_caries/presentacion/evidencias/revision_v2_20261020_154421_004423/evaluacion/metricas_oof_agrupadas.csv": "b7b3391bd6b2de5dd2eac057f8cfdf8a048d58fbb1cfe9b2a8a53c0a4609fb57"
+  },
+  "auc_oof_propio": 0.6050759183864453,
+  "ap_oof_propio": 0.28952691319578894,
+  "filas": 44582,
+  "alcance": "Figuras descriptivas de predicciones OOF conservadas. Modelo propio V1 y referencias V2; no se recalibró el propio. Inferencia: AUC medio por fold en los contrastes existentes.",
+  "entrenamiento": false
+}

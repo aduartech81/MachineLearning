@@ -34,17 +34,52 @@ def integrar(app, secciones, data):
             html.Figcaption(texto)
         ])
 
+    etiquetas = {
+        "familia": "Modelo", "modelo": "Modelo", "folds": "Folds",
+        "auc_medio": "AUC medio", "auc_medio_folds": "AUC medio",
+        "sd_auc_folds": "DE entre folds", "sensibilidad_media": "Sensibilidad",
+        "especificidad_media": "Especificidad", "precision_media": "VPP",
+        "f1_medio": "F1", "brier_medio": "Brier", "comparacion": "Comparación",
+        "delta_auc_medio": "Diferencia de AUC",
+        "ic95_inferior_condicional": "IC 95 % inferior",
+        "ic95_superior_condicional": "IC 95 % superior",
+        "p_bootstrap_centrado_exploratorio": "p exploratorio",
+        "p_holm_10_exploratorio": "p ajustado (Holm)",
+        "optimizador": "Búsqueda", "balanceo": "Balanceo",
+        "tipo": "Caso", "row_id": "ID", "probabilidad_calibrada": "Probabilidad calibrada",
+        "r2_local_min": "R² local mínimo", "r2_local_max": "R² local máximo",
+        "error_absoluto_medio": "Error absoluto medio", "error_absoluto_max": "Error absoluto máximo",
+        "variante": "Umbral", "filas": "Filas", "auc_oof_agrupado": "AUC OOF",
+        "average_precision_oof": "Precisión promedio (AP)", "brier_oof": "Brier",
+        "log_loss_oof": "Pérdida logarítmica", "accuracy": "Exactitud",
+        "sensibilidad": "Sensibilidad", "especificidad": "Especificidad",
+        "precision": "VPP", "f1": "F1", "tn": "VN", "fp": "FP",
+        "fn": "FN", "tp": "VP", "ece_10_bins_fijos": "ECE (10 intervalos)"
+    }
+    nombres = {
+        "Propio": "Modelo propio", "Logistica_L1_L2": "Regresión logística",
+        "SVM": "SVM lineal", "RandomForest": "Bosque aleatorio",
+        "DecisionTree": "Árbol de decisión", "GaussianNB": "Naive Bayes gaussiano",
+        "Sin_interacciones": "Sin interacciones", "Sin_ranking": "Sin ranking",
+        "Aditivo": "Aditivo", "sin_balanceo": "Sin balanceo", "pesos": "Ponderación",
+        "grid": "Cuadrícula", "random": "Aleatoria", "bayes": "TPE",
+        "genetica": "Genética", "smote": "SMOTE", "adasyn": "ADASYN",
+        "Sigmoide_0.5": "0,5", "Sigmoide_Youden_interno": "Youden interno"
+    }
+
     def tabla(df):
-        def valor(v):
+        def valor(v, columna):
             if pd.isna(v):
                 return ""
             if isinstance(v, float):
-                return f"{v:.6f}"
-            return str(v)
+                decimales = 6 if columna.startswith(("delta_", "ic95_", "p_")) else 4
+                return f"{v:.{decimales}f}".replace(".", ",")
+            return nombres.get(str(v), str(v)).replace("Propio - ", "Modelo propio − ").replace("_", " ")
         return html.Div(html.Table([
-            html.Thead(html.Tr([html.Th(c) for c in df.columns])),
+            html.Thead(html.Tr([html.Th(etiquetas.get(c, c.replace("_", " "))) for c in df.columns])),
             html.Tbody([
-                html.Tr([html.Td(valor(v)) for v in fila])
+                html.Tr([html.Td(valor(v, c)) for c, v in zip(df.columns, fila)],
+                        className="pf-own-row" if "Propio" in fila else "")
                 for fila in df.itertuples(index=False, name=None)
             ])
         ]), className="pf-table", style={"overflowX": "auto"})
@@ -73,14 +108,22 @@ def integrar(app, secciones, data):
     referencias = leer("comparacion/resumen_referencias.csv")
     oof = leer("evaluacion/metricas_oof_agrupadas.csv")
     grilla = leer("cobertura/resumen_108_configuraciones.csv")
+    propios = leer("comparacion/resumen_modelo_propio_y_ablaciones.csv")
+    comparacion_principal = pd.concat([
+        propios.loc[propios.familia == "Propio", ["familia", "auc_medio", "sd_auc_folds"]],
+        referencias[["familia", "auc_medio", "sd_auc_folds"]].sort_values("auc_medio", ascending=False)
+    ], ignore_index=True).merge(intervalos.rename(columns={"modelo": "familia"})[
+        ["familia", "ic95_inferior_condicional", "ic95_superior_condicional"]],
+        on="familia", how="left", validate="one_to_one")
     casos = leer("shap/casos.csv")
     fidelidad = leer("lime/resumen_fidelidad.csv")
 
     def grafico_auc():
         d = intervalos.sort_values("auc_medio_folds")
         f = go.Figure(go.Scatter(
-            x=d.auc_medio_folds, y=d.modelo, mode="markers",
-            marker=dict(size=10, color="#147d92"),
+            x=d.auc_medio_folds, y=d.modelo.map(lambda x: nombres.get(x, x)), mode="markers",
+            marker=dict(size=[14 if x == "Propio" else 9 for x in d.modelo],
+                        color=["#b76524" if x == "Propio" else "#147d92" for x in d.modelo]),
             error_x=dict(
                 type="data", symmetric=False,
                 array=d.ic95_superior_condicional - d.auc_medio_folds,
@@ -98,7 +141,7 @@ def integrar(app, secciones, data):
     def grafico_diferencias():
         d = contrastes
         f = go.Figure(go.Scatter(
-            x=d.delta_auc_medio, y=d.comparacion, mode="markers",
+            x=d.delta_auc_medio, y=d.comparacion.map(lambda x: "Modelo propio − " + nombres.get(x.split(" - ")[1], x.split(" - ")[1])), mode="markers",
             marker=dict(size=9, color="#147d92"),
             error_x=dict(
                 type="data", symmetric=False,
@@ -214,38 +257,46 @@ def integrar(app, secciones, data):
 
     def resultados():
         return seccion("5. Resultados V2, calibración y errores",
-            html.H3("Referencias elegidas por validación interna"),
-            tabla(referencias),
-            html.P(
-                "La tabla anterior muestra medias por fold. Las curvas y las "
-                "métricas agrupadas siguientes concatenan predicciones externas "
-                "de cinco modelos: su AUC puede ser distinto."
-            ),
-            imagen("evaluacion/roc_referencias.png",
-                   "ROC de referencias V2 · predicciones OOF concatenadas."),
-            imagen("evaluacion/pr_referencias.png",
-                   "Precisión–recall. La referencia horizontal es la prevalencia."),
+            html.Div([
+                html.Strong("El modelo propio alcanzó un AUC medio de 0,6051"),
+                html.P("Comparé mi propuesta con siete familias de referencia. "
+                       "El desempeño fue cercano al de la regresión logística (0,6059). "
+                       "Los contrastes no mostraron una mejora frente a las referencias con mayor AUC.")
+            ], className="pf-finding"),
+            html.H3("Modelo propio y referencias: comparación principal"),
+            tabla(comparacion_principal),
+            html.P("Presento la media del AUC de los cinco folds externos. La desviación "
+                   "estándar (DE) describe su dispersión; los intervalos del 95 % proceden "
+                   "del bootstrap condicional. Las referencias se eligieron por validación interna."),
+            html.Details([
+                html.Summary("Sensibilidad, especificidad y otras métricas de las referencias"),
+                tabla(referencias),
+                html.P("VPP: valor predictivo positivo. Estas cifras usan umbrales Youden internos. "
+                       "El modelo propio conserva el umbral descriptivo de 0,5 de V1; "
+                       "no los comparo como si emplearan la misma regla de decisión.")
+            ]),
+            html.H3("Discriminación, calibración y errores"),
+            html.P("Las curvas reúnen las predicciones externas de los cinco folds (OOF). "
+                   "Su AUC puede diferir de la media anterior. Incorporé las predicciones "
+                   "guardadas del modelo propio a ROC y precisión–recall, sin volver a entrenarlo."),
+            html.Label("Figura de evaluación", htmlFor="v2-figura"),
+            dcc.Dropdown(id="v2-figura", clearable=False, value="roc", options=[
+                {"label": "ROC · modelo propio y referencias", "value": "roc"},
+                {"label": "Precisión–recall · modelo propio y referencias", "value": "pr"},
+                {"label": "Calibración · referencias V2", "value": "calibracion"},
+                {"label": "Matrices de confusión · referencias V2", "value": "matrices"}
+            ]),
+            html.Div(id="v2-figura-contenido"),
             html.Details([
                 html.Summary("Métricas OOF: umbral 0,5 frente a Youden interno"),
                 tabla(oof),
-                enlace("evaluacion/metricas_oof_agrupadas.csv",
-                       "Descargar métricas agrupadas")
+                enlace("evaluacion/metricas_oof_agrupadas.csv", "Descargar métricas agrupadas")
             ]),
-            imagen("evaluacion/calibracion_referencias.png",
-                   "Calibración descriptiva con diez intervalos fijos."),
-            html.P(
-                "Un ECE bajo no garantiza buena discriminación. Depende de los "
-                "intervalos elegidos. Brier, AUC, AP y calibración deben leerse "
-                "conjuntamente."
-            ),
-            imagen("evaluacion/matrices_umbrales_internos.png",
-                   "Matrices con umbrales internos por fold. Porcentajes por "
-                   "clase observada; el umbral no se ajustó sobre estas filas."),
             html.H3("Modelo propio frente a referencias y ablaciones"),
             dcc.Graph(figure=grafico_diferencias()),
-            tabla(contrastes),
+            html.Details([html.Summary("Ver los diez contrastes e intervalos"), tabla(contrastes)]),
             html.P(
-                "La ventaja frente a KNN y GaussianNB supera Holm en este "
+                "Encontré diferencias favorables frente a KNN y GaussianNB después del ajuste de Holm en este "
                 "análisis exploratorio condicional. No se demostró mejora frente "
                 "a logística, SVM, XGBoost ni Random Forest. El intervalo individual "
                 "frente al árbol excluye cero, pero su p ajustado no es significativo."
@@ -258,7 +309,7 @@ def integrar(app, secciones, data):
                 ),
                 dcc.Dropdown(
                     id="v2-familia",
-                    options=[{"label": x, "value": x}
+                    options=[{"label": nombres.get(x, x), "value": x}
                              for x in sorted(grilla.familia.unique())],
                     value="Logistica_L1_L2", clearable=False
                 ),
@@ -271,7 +322,7 @@ def integrar(app, secciones, data):
         )
 
     def conclusiones():
-        return seccion("6. Conclusiones, alcance y defensa",
+        return seccion("6. Conclusiones y alcance del estudio",
             html.H3("Respuesta a la pregunta de investigación"),
             html.P(
                 "Los datos de chequeo general aportaron discriminación limitada "
@@ -281,9 +332,9 @@ def integrar(app, secciones, data):
             ),
             html.H3("Qué aportó la implementación"),
             html.P(
-                "Se implementó y verificó un modelo con splines, selección de "
+                "Desarrollé y verifiqué un modelo con splines, selección de "
                 "interacciones y una pérdida mixta de clasificación y ranking. "
-                "Se evaluó mediante ablaciones. La implementación es propia, "
+                "Evalué el aporte de sus componentes mediante ablaciones. La implementación es propia, "
                 "pero la novedad científica de la combinación no está establecida."
             ),
             html.H3("Qué permite concluir la comparación"),
@@ -292,7 +343,7 @@ def integrar(app, secciones, data):
                 "frente a KNN y GaussianNB después de Holm. No demuestra mejora "
                 "frente a las referencias con mayor AUC. Las ablaciones no "
                 "demostraron una ventaja de incorporar interacciones o ranking. "
-                "No se afirma equivalencia ni superioridad confirmatoria."
+                "Estos resultados no me permiten afirmar equivalencia ni superioridad confirmatoria."
             ),
             html.H3("Umbrales y utilidad potencial"),
             html.P(
@@ -319,7 +370,7 @@ def integrar(app, secciones, data):
             ),
             html.H3("Trabajo futuro"),
             html.P(
-                "Verificar antecedentes y metadatos, evaluar la selección de "
+                "Como continuación de este trabajo, propongo verificar los metadatos y ampliar la revisión de antecedentes, evaluar la selección de "
                 "interacciones con residuos fuera de muestra y realizar una "
                 "validación independiente. Una nueva variante se documentaría "
                 "como exploratoria; no reemplazaría retrospectivamente V1."
@@ -327,6 +378,27 @@ def integrar(app, secciones, data):
             enlace("LEEME.md", "Resumen metodológico"),
             enlace("manifest.json", "Trazabilidad de evidencias")
         )
+
+    @app.callback(Output("v2-figura-contenido", "children"), Input("v2-figura", "value"))
+    def figura_evaluacion(clave):
+        if clave in ("roc", "pr"):
+            texto = ("ROC del modelo propio y las referencias; predicciones OOF conservadas." if clave == "roc"
+                     else "Precisión–recall del modelo propio y las referencias. La línea horizontal indica la prevalencia.")
+            return html.Figure([
+                html.Img(src=f"/evidencias/{clave}_propio_referencias.png", alt=texto),
+                html.Figcaption(texto + " La comparación inferencial utiliza el AUC medio por fold, no esta curva agrupada.")
+            ], className="pf-eval-figure")
+        if clave == "calibracion":
+            return html.Div([
+                imagen("evaluacion/calibracion_referencias.png", "Calibración de las referencias V2 en diez intervalos fijos."),
+                html.P("Un ECE bajo no garantiza buena discriminación. Interpreto esta medida junto con Brier, AUC y precisión promedio.")
+            ], className="pf-eval-figure")
+        if clave == "matrices":
+            return html.Div([
+                imagen("evaluacion/matrices_umbrales_internos.png", "Matrices de las referencias V2: porcentajes por clase observada."),
+                html.P("Cada fold conserva el umbral elegido internamente. Estas matrices no se utilizaron para ajustarlo.")
+            ], className="pf-eval-figure")
+        return html.P("Selecciona una figura disponible.")
 
     @app.callback(Output("v2-tabla-configuraciones", "children"),
                   Input("v2-familia", "value"))
@@ -383,4 +455,4 @@ def integrar(app, secciones, data):
             actualizar_tarjeta(hijos)
 
     actualizar_tarjeta(app.layout)
-    return {"configuraciones": configuraciones, "explicar": explicar}
+    return {"configuraciones": configuraciones, "explicar": explicar, "figura": figura_evaluacion}

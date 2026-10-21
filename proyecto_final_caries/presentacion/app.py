@@ -43,7 +43,7 @@ def bloque(titulo, *contenido):
 
 def problema():
     return bloque("1. Problema y utilidad potencial",
-        html.P("Clasificar presencia o ausencia de caries registrada a partir de "
+        html.P("En este trabajo evalué la clasificación de presencia o ausencia de caries registrada a partir de "
                "datos de chequeo general. El diseño transversal no permite afirmar "
                "que se predice la aparición futura de caries."),
         html.P("Se utiliza smoking.csv: 55.692 registros. El desarrollo comprende "
@@ -71,7 +71,7 @@ def datos():
         html.Details([
             html.Summary("Diccionario: significado, tipo y tratamiento"),
             tabla("diccionario.csv")
-        ], open=True),
+        ], open=False),
         html.Details([html.Summary("Descriptivos numéricos"), tabla("descriptive.csv")]),
         html.Details([
             html.Summary("Exploración categórica · perfiles únicos de entrenamiento"),
@@ -87,8 +87,8 @@ def datos():
 
 def modelo():
     antecedentes = json.loads((DATA / "antecedentes.json").read_text())
-    return bloque("3. Aporte candidato e implementación",
-        html.P("El modelo suma funciones univariadas spline y hasta cinco "
+    return bloque("3. Desarrollo y evaluación del modelo propio",
+        html.P("Desarrollé un modelo que suma funciones univariadas spline y hasta cinco "
                "interacciones numéricas. Combina pérdida logística de clasificación, "
                "pérdida de ordenación positivo–negativo y regularización L2."),
         dcc.Markdown(
@@ -101,7 +101,7 @@ def modelo():
                "asociaciones con residuos en submuestras de perfiles. El intercepto "
                "no se penaliza. Los gradientes se comprobaron numéricamente."),
         html.Div([
-            html.Strong("Estado del aporte"),
+            html.Strong("Aporte de este trabajo"),
             html.P("Los componentes tienen antecedentes. La implementación propia "
                    "no demuestra novedad científica de la combinación. Las ablaciones "
                    "no mostraron evidencia de ventaja de los componentes añadidos.")

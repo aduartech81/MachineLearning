@@ -32,6 +32,9 @@ def integrar(secciones, data):
         yaxis=dict(autorange="reversed"),
         font=dict(family="Arial", color="#243b46")
     )
+    contraste_v2 = pd.read_csv(data / "revision_v2_20261020_154421_004423" / "contrastes/comparaciones_pareadas.csv")
+    c = contraste_v2.loc[contraste_v2.comparacion == "Propio - Sin_interacciones"].iloc[0]
+    intervalo_v2 = (f"{c.ic95_inferior_condicional:.6f} a {c.ic95_superior_condicional:.6f}").replace(".", ",")
     anterior = secciones["modelo"]
 
     def modelo_ampliado():
@@ -86,7 +89,7 @@ def integrar(secciones, data):
             html.P(
                 "La comparación pareada del modelo propio con la variante sin "
                 "interacciones dio una diferencia de AUC medio aproximada de "
-                "−0,000030, con IC condicional del 95 % de −0,001491 a 0,001450. "
+                f"−0,000030, con IC condicional del 95 % de {intervalo_v2} (análisis V2). "
                 "No se encontró evidencia de mejora; tampoco se demostró "
                 "equivalencia. La repetición de una interacción no implica "
                 "que aporte una ganancia predictiva."
