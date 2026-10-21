@@ -322,5 +322,10 @@ from proyecto_final_caries.presentacion.interpretacion_modelo import integrar as
 integrar_interpretacion(SECCIONES, DATA)
 
 
+
+# Integración de evidencias V2.
+from proyecto_final_caries.presentacion.revision_v2 import integrar as integrar_v2
+_v2_callbacks = integrar_v2(app, SECCIONES, DATA)
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8050)), debug=False)

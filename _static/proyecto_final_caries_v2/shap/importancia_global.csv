@@ -1,0 +1,33 @@
+columna_codificada,media_abs_shap_log_odds
+num__age,0.2483655
+cat__smoking_N,0.13595124
+num__Gtp,0.052047797
+num__eyesight(left),0.024190877
+num__fasting blood sugar,0.016707366
+num__triglyceride,0.016174454
+num__relaxation,0.016147763
+num__systolic,0.013975349
+num__eyesight(right),0.011959412
+num__waist(cm),0.011519052
+num__ALT,0.0102420505
+num__HDL,0.007061487
+num__weight(kg),0.006255702
+num__hemoglobin,0.005879574
+num__height(cm),0.0047309645
+num__LDL,0.002138258
+num__Cholesterol,0.001967597
+num__serum creatinine,0.0019402395
+cat__hearing(left)_1,0.0011076974
+num__AST,0.0010803192
+cat__Urine protein_5,0.00028873433
+cat__Urine protein_2,0.0
+cat__Urine protein_6,0.0
+cat__Urine protein_4,0.0
+cat__Urine protein_3,0.0
+cat__hearing(left)_2,0.0
+cat__Urine protein_1,0.0
+cat__hearing(right)_2,0.0
+cat__hearing(right)_1,0.0
+cat__gender_M,0.0
+cat__gender_F,0.0
+cat__smoking_Y,0.0

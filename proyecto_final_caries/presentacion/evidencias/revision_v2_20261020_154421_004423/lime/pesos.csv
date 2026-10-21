@@ -1,0 +1,121 @@
+tipo,row_id,semilla,variable,condicion,peso_local_clase_1
+verdadero_positivo,73,42,age,age <= 40.00,0.12267125153893738
+verdadero_positivo,73,42,smoking,smoking=N,-0.05160857660289954
+verdadero_positivo,73,42,Gtp,17.00 < Gtp <= 25.00,-0.013193934454555717
+verdadero_positivo,73,42,eyesight(right),1.00 < eyesight(right) <= 1.20,-0.005954710352276375
+verdadero_positivo,73,42,HDL,HDL <= 47.00,0.0044467167331097655
+verdadero_positivo,73,42,fasting blood sugar,89.00 < fasting blood sugar <= 96.00,-0.004422362267637535
+verdadero_positivo,73,42,triglyceride,triglyceride > 159.00,-0.004156086896174585
+verdadero_positivo,73,42,relaxation,70.00 < relaxation <= 76.00,-0.004018146493679078
+verdadero_positivo,73,42,weight(kg),65.00 < weight(kg) <= 75.00,-0.002513618043074091
+verdadero_positivo,73,42,Urine protein,Urine protein=1,0.0023680731597515918
+verdadero_positivo,73,43,age,age <= 40.00,0.11985768032817944
+verdadero_positivo,73,43,smoking,smoking=N,-0.050140288983791324
+verdadero_positivo,73,43,Gtp,17.00 < Gtp <= 25.00,-0.012950874303828477
+verdadero_positivo,73,43,hearing(right),hearing(right)=1,-0.006662022053807544
+verdadero_positivo,73,43,fasting blood sugar,89.00 < fasting blood sugar <= 96.00,-0.0046406474606161185
+verdadero_positivo,73,43,eyesight(right),1.00 < eyesight(right) <= 1.20,-0.004476023145094389
+verdadero_positivo,73,43,HDL,HDL <= 47.00,0.003942176149488309
+verdadero_positivo,73,43,hearing(left),hearing(left)=1,0.0035703997164672
+verdadero_positivo,73,43,weight(kg),65.00 < weight(kg) <= 75.00,-0.0032111333365812136
+verdadero_positivo,73,43,relaxation,70.00 < relaxation <= 76.00,-0.002401139014727641
+verdadero_positivo,73,44,age,age <= 40.00,0.12097216382066958
+verdadero_positivo,73,44,smoking,smoking=N,-0.05097714162953356
+verdadero_positivo,73,44,Gtp,17.00 < Gtp <= 25.00,-0.01318639799499713
+verdadero_positivo,73,44,HDL,HDL <= 47.00,0.005726725971419276
+verdadero_positivo,73,44,eyesight(right),1.00 < eyesight(right) <= 1.20,-0.0055829226629898684
+verdadero_positivo,73,44,height(cm),160.00 < height(cm) <= 165.00,-0.005498893900201888
+verdadero_positivo,73,44,fasting blood sugar,89.00 < fasting blood sugar <= 96.00,-0.004951034471207721
+verdadero_positivo,73,44,weight(kg),65.00 < weight(kg) <= 75.00,-0.004206543275227131
+verdadero_positivo,73,44,triglyceride,triglyceride > 159.00,-0.0030397117053438385
+verdadero_positivo,73,44,AST,AST <= 19.00,0.002829557727457675
+verdadero_negativo,2,42,age,40.00 < age <= 55.00,-0.08070607997729097
+verdadero_negativo,2,42,smoking,smoking=Y,0.05133565122502167
+verdadero_negativo,2,42,Gtp,17.00 < Gtp <= 25.00,-0.011759733480259405
+verdadero_negativo,2,42,eyesight(left),eyesight(left) <= 0.80,0.00976823386888689
+verdadero_negativo,2,42,relaxation,relaxation > 82.00,0.007091149162907183
+verdadero_negativo,2,42,hemoglobin,hemoglobin > 15.70,-0.0070219190394811585
+verdadero_negativo,2,42,height(cm),165.00 < height(cm) <= 170.00,-0.006965927466859934
+verdadero_negativo,2,42,eyesight(right),eyesight(right) <= 0.80,0.006836898160003866
+verdadero_negativo,2,42,fasting blood sugar,fasting blood sugar <= 89.00,-0.006733403498841769
+verdadero_negativo,2,42,ALT,15.00 < ALT <= 21.00,0.00646799774535282
+verdadero_negativo,2,43,age,40.00 < age <= 55.00,-0.07562634535699013
+verdadero_negativo,2,43,smoking,smoking=Y,0.050678254622792844
+verdadero_negativo,2,43,Gtp,17.00 < Gtp <= 25.00,-0.015961708810721717
+verdadero_negativo,2,43,hearing(right),hearing(right)=1,-0.013432305903181533
+verdadero_negativo,2,43,hearing(left),hearing(left)=1,0.010586224994026555
+verdadero_negativo,2,43,eyesight(left),eyesight(left) <= 0.80,0.009426114109382955
+verdadero_negativo,2,43,relaxation,relaxation > 82.00,0.008994635013998546
+verdadero_negativo,2,43,systolic,systolic > 130.00,0.00678039746123281
+verdadero_negativo,2,43,height(cm),165.00 < height(cm) <= 170.00,-0.005349514893492505
+verdadero_negativo,2,43,eyesight(right),eyesight(right) <= 0.80,0.00522967071991213
+verdadero_negativo,2,44,age,40.00 < age <= 55.00,-0.07756646487767462
+verdadero_negativo,2,44,smoking,smoking=Y,0.05216854133199872
+verdadero_negativo,2,44,Gtp,17.00 < Gtp <= 25.00,-0.013747471975646602
+verdadero_negativo,2,44,eyesight(left),eyesight(left) <= 0.80,0.010215932616580563
+verdadero_negativo,2,44,hearing(left),hearing(left)=1,0.007783653943954371
+verdadero_negativo,2,44,relaxation,relaxation > 82.00,0.007017279780669712
+verdadero_negativo,2,44,eyesight(right),eyesight(right) <= 0.80,0.00507154820631533
+verdadero_negativo,2,44,systolic,systolic > 130.00,0.004957530921085328
+verdadero_negativo,2,44,triglyceride,triglyceride > 159.00,-0.0042311263950419445
+verdadero_negativo,2,44,ALT,15.00 < ALT <= 21.00,0.0036558301224454076
+falso_positivo,12,42,age,age <= 40.00,0.12373268942960884
+falso_positivo,12,42,smoking,smoking=Y,0.05031669803029481
+falso_positivo,12,42,Gtp,Gtp > 43.00,0.03794899028356338
+falso_positivo,12,42,relaxation,relaxation > 82.00,0.010079376306490756
+falso_positivo,12,42,fasting blood sugar,fasting blood sugar > 104.00,0.0077535295545017565
+falso_positivo,12,42,eyesight(right),0.80 < eyesight(right) <= 1.00,-0.006002346277241928
+falso_positivo,12,42,eyesight(left),eyesight(left) > 1.20,-0.00552297163958388
+falso_positivo,12,42,height(cm),165.00 < height(cm) <= 170.00,-0.004996737519493154
+falso_positivo,12,42,triglyceride,triglyceride > 159.00,-0.0035897079850259936
+falso_positivo,12,42,weight(kg),65.00 < weight(kg) <= 75.00,-0.0032984975450233455
+falso_positivo,12,43,age,age <= 40.00,0.12121789603180559
+falso_positivo,12,43,smoking,smoking=Y,0.050901547496151126
+falso_positivo,12,43,Gtp,Gtp > 43.00,0.03760062187810637
+falso_positivo,12,43,relaxation,relaxation > 82.00,0.010989557314859113
+falso_positivo,12,43,eyesight(left),eyesight(left) > 1.20,-0.009215808391762101
+falso_positivo,12,43,fasting blood sugar,fasting blood sugar > 104.00,0.005631550912652981
+falso_positivo,12,43,hearing(right),hearing(right)=1,-0.0051983696508438966
+falso_positivo,12,43,hearing(left),hearing(left)=1,0.00485435935220074
+falso_positivo,12,43,eyesight(right),0.80 < eyesight(right) <= 1.00,-0.0046096415763038695
+falso_positivo,12,43,height(cm),165.00 < height(cm) <= 170.00,-0.003914555212662953
+falso_positivo,12,44,age,age <= 40.00,0.12206848384418145
+falso_positivo,12,44,smoking,smoking=Y,0.0508034962975114
+falso_positivo,12,44,Gtp,Gtp > 43.00,0.03650781947238249
+falso_positivo,12,44,relaxation,relaxation > 82.00,0.010665874209921041
+falso_positivo,12,44,eyesight(left),eyesight(left) > 1.20,-0.00846030752269017
+falso_positivo,12,44,fasting blood sugar,fasting blood sugar > 104.00,0.006342559003208184
+falso_positivo,12,44,height(cm),165.00 < height(cm) <= 170.00,-0.004329504280341775
+falso_positivo,12,44,weight(kg),65.00 < weight(kg) <= 75.00,-0.0037556313298005815
+falso_positivo,12,44,hearing(right),hearing(right)=1,0.003104012775506431
+falso_positivo,12,44,triglyceride,triglyceride > 159.00,-0.002835163234147347
+falso_negativo,29,42,age,40.00 < age <= 55.00,-0.08026188311380839
+falso_negativo,29,42,smoking,smoking=N,-0.051968978156502595
+falso_negativo,29,42,Gtp,17.00 < Gtp <= 25.00,-0.011681680815091194
+falso_negativo,29,42,eyesight(left),1.00 < eyesight(left) <= 1.20,-0.008798460578715615
+falso_negativo,29,42,eyesight(right),1.00 < eyesight(right) <= 1.20,-0.007023433160833328
+falso_negativo,29,42,height(cm),165.00 < height(cm) <= 170.00,-0.006541484756314057
+falso_negativo,29,42,fasting blood sugar,89.00 < fasting blood sugar <= 96.00,-0.00595345495585664
+falso_negativo,29,42,relaxation,70.00 < relaxation <= 76.00,-0.0054402343028640745
+falso_negativo,29,42,hearing(left),hearing(left)=1,-0.0038879551369290456
+falso_negativo,29,42,weight(kg),55.00 < weight(kg) <= 65.00,-0.0035702151896751595
+falso_negativo,29,43,age,40.00 < age <= 55.00,-0.07519325593733509
+falso_negativo,29,43,smoking,smoking=N,-0.05085634413799126
+falso_negativo,29,43,Gtp,17.00 < Gtp <= 25.00,-0.016153740383206664
+falso_negativo,29,43,hearing(right),hearing(right)=1,-0.013380375941153842
+falso_negativo,29,43,hearing(left),hearing(left)=1,0.010188789788034074
+falso_negativo,29,43,eyesight(left),1.00 < eyesight(left) <= 1.20,-0.00866564754257137
+falso_negativo,29,43,triglyceride,74.00 < triglyceride <= 107.00,0.006390730449364237
+falso_negativo,29,43,fasting blood sugar,89.00 < fasting blood sugar <= 96.00,-0.0059495907984928025
+falso_negativo,29,43,height(cm),165.00 < height(cm) <= 170.00,-0.005298283793277637
+falso_negativo,29,43,serum creatinine,serum creatinine > 1.00,-0.004694182624940737
+falso_negativo,29,44,age,40.00 < age <= 55.00,-0.07703979245878367
+falso_negativo,29,44,smoking,smoking=N,-0.05276372521547627
+falso_negativo,29,44,Gtp,17.00 < Gtp <= 25.00,-0.013986903659738857
+falso_negativo,29,44,hearing(left),hearing(left)=1,0.009466473210607274
+falso_negativo,29,44,eyesight(left),1.00 < eyesight(left) <= 1.20,-0.008607333575878924
+falso_negativo,29,44,eyesight(right),1.00 < eyesight(right) <= 1.20,-0.0077389553821523745
+falso_negativo,29,44,fasting blood sugar,89.00 < fasting blood sugar <= 96.00,-0.006670603689774297
+falso_negativo,29,44,relaxation,70.00 < relaxation <= 76.00,-0.005586377421466384
+falso_negativo,29,44,HDL,HDL <= 47.00,0.0048877078635875485
+falso_negativo,29,44,height(cm),165.00 < height(cm) <= 170.00,-0.0030066540695249592

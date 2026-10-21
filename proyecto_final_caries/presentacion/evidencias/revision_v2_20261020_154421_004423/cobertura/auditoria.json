@@ -1,0 +1,8 @@
+{
+  "evaluaciones_esperadas": 540,
+  "evaluaciones_verificadas": 540,
+  "incidencias": 0,
+  "configuraciones_esperadas": 108,
+  "excepciones_knn_ponderado": 4,
+  "alcance": "Verificación de artefactos, IDs, perfiles, etiquetas y AUC. No sustituye la revisión metodológica del ejecutor."
+}

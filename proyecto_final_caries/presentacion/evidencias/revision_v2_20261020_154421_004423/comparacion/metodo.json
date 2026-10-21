@@ -1,0 +1,20 @@
+{
+  "regla": "Mayor AUC interno entre optimizadores y balanceos por familia y fold",
+  "desempate": {
+    "balanceos": [
+      "sin_balanceo",
+      "pesos",
+      "smote",
+      "adasyn"
+    ],
+    "optimizadores": [
+      "grid",
+      "random",
+      "bayes",
+      "genetica"
+    ]
+  },
+  "momento": "Regla documentada después de consultar resultados V2",
+  "alcance": "Comparación exploratoria. Las decisiones del script usan únicamente AUC internos; esto no borra la adaptación previa al conjunto de desarrollo.",
+  "presupuesto": "Selección entre búsquedas ya realizadas; no equivale a una única búsqueda de 16 candidatos. KNN tiene menos combinaciones aplicables."
+}

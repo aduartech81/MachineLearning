@@ -1,0 +1,33 @@
+{
+  "modelo_origen": "proyecto_final_caries/experimentos_v2/evaluacion_v2/grid_pesos/XGBoost/fold_0/modelo_completo.joblib",
+  "modelo_sha256": "f236c70241616fcc79896bd1d9c81150331b7198bc365294049496e2eea22a06",
+  "fold_externo": 0,
+  "filas_referencia_entrenamiento": 35665,
+  "casos_origen": "proyecto_final_caries/experimentos_v2/shap_xgboost_20261020_153445_908770/casos.csv",
+  "salida_explicada": "Probabilidad calibrada de clase 1",
+  "semillas": [
+    42,
+    43,
+    44
+  ],
+  "semilla_principal": 42,
+  "perturbaciones_por_explicacion": 5000,
+  "maximo_variables_locales": 10,
+  "tipos_categoricos": {
+    "gender": "object",
+    "hearing(left)": "object",
+    "hearing(right)": "object",
+    "Urine protein": "object",
+    "smoking": "object"
+  },
+  "representacion": "23 predictores imputados; numéricos en unidades originales. Se conservan valores y tipos categóricos del preprocesamiento.",
+  "discretizacion": "Cuartiles del entrenamiento para LIME; no modifica el clasificador.",
+  "limitaciones": [
+    "Las perturbaciones pueden producir combinaciones clínicamente implausibles.",
+    "Variables numéricas discretas pueden recibir valores fraccionarios.",
+    "R2 local describe la vecindad sintética, no validez clínica.",
+    "Tres semillas no demuestran estabilidad general.",
+    "Los pesos no son efectos causales ni SHAP en escala de margen.",
+    "La aproximación local no se recorta al intervalo [0,1]."
+  ]
+}

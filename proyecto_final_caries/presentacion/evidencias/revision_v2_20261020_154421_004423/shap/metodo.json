@@ -1,0 +1,20 @@
+{
+  "familia": "XGBoost",
+  "fold_externo": 0,
+  "modelo_origen": "proyecto_final_caries/experimentos_v2/evaluacion_v2/grid_pesos/XGBoost/fold_0/modelo_completo.joblib",
+  "modelo_sha256": "f236c70241616fcc79896bd1d9c81150331b7198bc365294049496e2eea22a06",
+  "predicciones_sha256": "d8714e0fd9d9dd9a1fbd45fe38643df239d654cef1d59a7e654694b48f7f4f5e",
+  "metodo": "SHAP nativo XGBoost, pred_contribs=True, approx_contribs=False",
+  "escala": "Margen original log-odds; no probabilidad calibrada",
+  "muestra_global": 500,
+  "semilla": 42,
+  "casos": "Menor row_id de cada tipo usando el umbral interno",
+  "error_maximo_aditividad": 4.76837158203125e-07,
+  "limitaciones": [
+    "Describe un modelo de un fold, no estabilidad de los cinco modelos.",
+    "Importancias sobre una muestra uniforme de filas, no de perfiles.",
+    "Explicaciones sobre 32 columnas transformadas; no 23 variables agrupadas.",
+    "Contribuciones dependientes del modelo y su representación, no causales.",
+    "No son contribuciones aditivas a la probabilidad calibrada."
+  ]
+}
