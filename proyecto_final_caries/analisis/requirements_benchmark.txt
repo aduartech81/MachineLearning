@@ -1,0 +1,3 @@
+-r ../experimentos_v2/requirements_ejecucion.txt
+psutil==7.2.2
+threadpoolctl==3.7.0

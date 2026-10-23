@@ -34,3 +34,11 @@ Fuente: guía compartida «Proyecto Final: Segundo Entregable — Modelos de Mac
 ## Límites de las auditorías
 
 Las estimaciones de nota no son decisiones del docente. Boosting V1 y XGBoost V2 son modelos diferentes. No corresponde afirmar que falta todo Jupyter Book: existe una construcción, aunque su acceso público debe mejorarse. Tampoco corresponde tratar las 540 evaluaciones como muestras independientes. El test histórico ya consultado no puede convertirse en una nueva validación independiente.
+
+## Continuación local — 23 de octubre de 2026
+
+Se ejecutó un benchmark nuevo de las siete familias finalistas: cinco folds, tres repeticiones y dos variantes (por defecto y optimizada), 210 ajustes convergentes. Se respetaron el balanceo seleccionado internamente y el orden original de filas de cada ajuste. Los 105 ajustes optimizados reprodujeron exactamente los AUC históricos de los 35 finalistas. El ejecutor y sus límites están en `analisis/BENCHMARK_RECURSOS.md`; el resumen, protocolo y validación están en `resultados/benchmark_recursos_20261023.json`.
+
+Se midieron entrenamiento, inferencia y RSS máximo de procesos nuevos. No se reconstruyó RAM histórica ni se atribuyó memoria exclusiva al modelo. Esta comparación de hiperparámetros no equivale por sí sola a la comparación de optimizaciones computacionales de la sección 4 de la guía. Sigue pendiente la reproducción integral de búsquedas, calibración y análisis. La rama de regresión requiere definir un objetivo continuo justificado o aportar una adaptación docente explícita; no se entrenó.
+
+Las mediciones nuevas permanecen locales y no están integradas en el informe público ni en el Jupyter Book publicado. Main, la carpeta original del Mac y los servicios anteriores no se modificaron; `/exposicion/` continúa retirado.
