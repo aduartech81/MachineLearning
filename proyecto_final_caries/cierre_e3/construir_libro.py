@@ -176,10 +176,10 @@ $$
 s_i=b+z_i^\top w,\qquad p_i=\sigma(s_i)=\frac{1}{1+\exp(-s_i)}. \tag{5.1}
 $$
 
-Con $\mathcal P$ fijo de $M$ pares $(p,q)$, positivos y negativos:
+Función objetivo **(5.2)**. Con $\mathcal P$ fijo de $M$ pares $(p,q)$, positivos y negativos:
 
 $$
-\begin{aligned} L(\theta)&=\frac{1-\alpha}{n}\sum_{i=1}^n[\log(1+e^{s_i})-y_i s_i]\\ &\quad+\frac{\alpha}{M}\sum_{(p,q)\in\mathcal P}\log(1+e^{-(s_p-s_q)})\\ &\quad+\frac{\lambda}{2}\Vert w\Vert_2^2.\end{aligned} \tag{5.2}
+\begin{aligned} L(\theta)&=\frac{1-\alpha}{n}\sum_{i=1}^n[\log(1+e^{s_i})-y_i s_i]\\ &\quad+\frac{\alpha}{M}\sum_{(p,q)\in\mathcal P}\log(1+e^{-(s_p-s_q)})\\ &\quad+\frac{\lambda}{2}\Vert w\Vert_2^2.\end{aligned}
 $$
 
 Si $r_{pq}=\sigma(-(s_p-s_q))/M$, el ranking aporta $-r_{pq}$ al score positivo y $+r_{pq}$ al negativo. Agrupar esos aportes por índice produce un vector $g_s$, sin construir diferencias de características para cada par. El gradiente es:
