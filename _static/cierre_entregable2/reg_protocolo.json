@@ -1,0 +1,439 @@
+{
+  "objetivo": "fasting blood sugar",
+  "unidades": "Unidades originales del archivo, no confirmadas clínicamente",
+  "alcance": "Estimación contemporánea auxiliar de glucemia. No severidad de caries ni pronóstico clínico.",
+  "predictores": [
+    "gender",
+    "age",
+    "height(cm)",
+    "weight(kg)",
+    "waist(cm)",
+    "eyesight(left)",
+    "eyesight(right)",
+    "hearing(left)",
+    "hearing(right)",
+    "systolic",
+    "relaxation",
+    "Cholesterol",
+    "triglyceride",
+    "HDL",
+    "LDL",
+    "hemoglobin",
+    "Urine protein",
+    "serum creatinine",
+    "AST",
+    "ALT",
+    "Gtp",
+    "smoking"
+  ],
+  "exclusiones": [
+    "ID",
+    "oral",
+    "tartar",
+    "dental caries",
+    "fasting blood sugar"
+  ],
+  "semilla": 42,
+  "folds_externos": 5,
+  "folds_internos": 3,
+  "presupuesto_propuestas": 8,
+  "dominios": {
+    "Ridge": {
+      "alpha": {
+        "tipo": "real_log",
+        "min": 0.001,
+        "max": 10000
+      }
+    },
+    "Lasso": {
+      "alpha": {
+        "tipo": "real_log",
+        "min": 0.0001,
+        "max": 1
+      }
+    },
+    "DecisionTree": {
+      "max_depth": {
+        "tipo": "categorico",
+        "valores": [
+          4,
+          10
+        ]
+      },
+      "min_samples_leaf": {
+        "tipo": "categorico",
+        "valores": [
+          10,
+          60
+        ]
+      },
+      "max_features": {
+        "tipo": "categorico",
+        "valores": [
+          0.7,
+          1.0
+        ]
+      }
+    },
+    "RandomForest": {
+      "max_depth": {
+        "tipo": "categorico",
+        "valores": [
+          5,
+          10
+        ]
+      },
+      "min_samples_leaf": {
+        "tipo": "categorico",
+        "valores": [
+          20,
+          100
+        ]
+      },
+      "max_features": {
+        "tipo": "categorico",
+        "valores": [
+          0.7,
+          1.0
+        ]
+      }
+    },
+    "XGBoost": {
+      "max_depth": {
+        "tipo": "categorico",
+        "valores": [
+          2,
+          4
+        ]
+      },
+      "learning_rate": {
+        "tipo": "categorico",
+        "valores": [
+          0.03,
+          0.1
+        ]
+      },
+      "subsample": {
+        "tipo": "categorico",
+        "valores": [
+          0.7,
+          1.0
+        ]
+      }
+    },
+    "SVR_lineal": {
+      "C": {
+        "tipo": "real_log",
+        "min": 0.001,
+        "max": 1
+      },
+      "epsilon": {
+        "tipo": "categorico",
+        "valores": [
+          0.05,
+          0.2
+        ]
+      }
+    },
+    "KNN": {
+      "n_neighbors": {
+        "tipo": "categorico",
+        "valores": [
+          25,
+          100
+        ]
+      },
+      "weights": {
+        "tipo": "categorico",
+        "valores": [
+          "uniform",
+          "distance"
+        ]
+      },
+      "p": {
+        "tipo": "categorico",
+        "valores": [
+          1,
+          2
+        ]
+      }
+    }
+  },
+  "grids": {
+    "Ridge": [
+      {
+        "alpha": 0.001
+      },
+      {
+        "alpha": 0.01
+      },
+      {
+        "alpha": 0.1
+      },
+      {
+        "alpha": 1.0
+      },
+      {
+        "alpha": 10.0
+      },
+      {
+        "alpha": 100.0
+      },
+      {
+        "alpha": 1000.0
+      },
+      {
+        "alpha": 10000.0
+      }
+    ],
+    "Lasso": [
+      {
+        "alpha": 0.0001
+      },
+      {
+        "alpha": 0.0003727593720314938
+      },
+      {
+        "alpha": 0.0013894954943731374
+      },
+      {
+        "alpha": 0.005179474679231213
+      },
+      {
+        "alpha": 0.019306977288832496
+      },
+      {
+        "alpha": 0.07196856730011514
+      },
+      {
+        "alpha": 0.2682695795279725
+      },
+      {
+        "alpha": 1.0
+      }
+    ],
+    "DecisionTree": [
+      {
+        "max_depth": 4,
+        "min_samples_leaf": 10,
+        "max_features": 0.7
+      },
+      {
+        "max_depth": 4,
+        "min_samples_leaf": 10,
+        "max_features": 1.0
+      },
+      {
+        "max_depth": 4,
+        "min_samples_leaf": 60,
+        "max_features": 0.7
+      },
+      {
+        "max_depth": 4,
+        "min_samples_leaf": 60,
+        "max_features": 1.0
+      },
+      {
+        "max_depth": 10,
+        "min_samples_leaf": 10,
+        "max_features": 0.7
+      },
+      {
+        "max_depth": 10,
+        "min_samples_leaf": 10,
+        "max_features": 1.0
+      },
+      {
+        "max_depth": 10,
+        "min_samples_leaf": 60,
+        "max_features": 0.7
+      },
+      {
+        "max_depth": 10,
+        "min_samples_leaf": 60,
+        "max_features": 1.0
+      }
+    ],
+    "XGBoost": [
+      {
+        "max_depth": 2,
+        "learning_rate": 0.03,
+        "subsample": 0.7
+      },
+      {
+        "max_depth": 2,
+        "learning_rate": 0.03,
+        "subsample": 1.0
+      },
+      {
+        "max_depth": 2,
+        "learning_rate": 0.1,
+        "subsample": 0.7
+      },
+      {
+        "max_depth": 2,
+        "learning_rate": 0.1,
+        "subsample": 1.0
+      },
+      {
+        "max_depth": 4,
+        "learning_rate": 0.03,
+        "subsample": 0.7
+      },
+      {
+        "max_depth": 4,
+        "learning_rate": 0.03,
+        "subsample": 1.0
+      },
+      {
+        "max_depth": 4,
+        "learning_rate": 0.1,
+        "subsample": 0.7
+      },
+      {
+        "max_depth": 4,
+        "learning_rate": 0.1,
+        "subsample": 1.0
+      }
+    ],
+    "SVR_lineal": [
+      {
+        "C": 0.001,
+        "epsilon": 0.05
+      },
+      {
+        "C": 0.001,
+        "epsilon": 0.2
+      },
+      {
+        "C": 0.01,
+        "epsilon": 0.05
+      },
+      {
+        "C": 0.01,
+        "epsilon": 0.2
+      },
+      {
+        "C": 0.1,
+        "epsilon": 0.05
+      },
+      {
+        "C": 0.1,
+        "epsilon": 0.2
+      },
+      {
+        "C": 1.0,
+        "epsilon": 0.05
+      },
+      {
+        "C": 1.0,
+        "epsilon": 0.2
+      }
+    ],
+    "RandomForest": [
+      {
+        "max_depth": 5,
+        "min_samples_leaf": 20,
+        "max_features": 0.7
+      },
+      {
+        "max_depth": 5,
+        "min_samples_leaf": 20,
+        "max_features": 1.0
+      },
+      {
+        "max_depth": 5,
+        "min_samples_leaf": 100,
+        "max_features": 0.7
+      },
+      {
+        "max_depth": 5,
+        "min_samples_leaf": 100,
+        "max_features": 1.0
+      },
+      {
+        "max_depth": 10,
+        "min_samples_leaf": 20,
+        "max_features": 0.7
+      },
+      {
+        "max_depth": 10,
+        "min_samples_leaf": 20,
+        "max_features": 1.0
+      },
+      {
+        "max_depth": 10,
+        "min_samples_leaf": 100,
+        "max_features": 0.7
+      },
+      {
+        "max_depth": 10,
+        "min_samples_leaf": 100,
+        "max_features": 1.0
+      }
+    ],
+    "KNN": [
+      {
+        "n_neighbors": 25,
+        "weights": "uniform",
+        "p": 1
+      },
+      {
+        "n_neighbors": 25,
+        "weights": "uniform",
+        "p": 2
+      },
+      {
+        "n_neighbors": 25,
+        "weights": "distance",
+        "p": 1
+      },
+      {
+        "n_neighbors": 25,
+        "weights": "distance",
+        "p": 2
+      },
+      {
+        "n_neighbors": 100,
+        "weights": "uniform",
+        "p": 1
+      },
+      {
+        "n_neighbors": 100,
+        "weights": "uniform",
+        "p": 2
+      },
+      {
+        "n_neighbors": 100,
+        "weights": "distance",
+        "p": 1
+      },
+      {
+        "n_neighbors": 100,
+        "weights": "distance",
+        "p": 2
+      }
+    ]
+  },
+  "datos_sha256": "158f5ce03b4794a5b84a32088fe7d4b00c2ec114cade650c467b6925ef8fe47b",
+  "script_sha256": "a79bb339c15f219b5166b7b95ee1c31c1b86ae81d88982073eaf150837a5470f",
+  "n": 44582,
+  "perfiles": 35641,
+  "familias": [
+    "Ridge",
+    "Lasso",
+    "DecisionTree",
+    "XGBoost",
+    "SVR_lineal",
+    "RandomForest",
+    "KNN"
+  ],
+  "advertencias": [
+    "CV nueva agrupada por los 22 predictores; perfil no acredita paciente.",
+    "Objetivo escalado con media/DE del ajuste, predicciones invertidas antes de evaluar.",
+    "SVR lineal con pérdida epsilon-insensible cuadrática via LinearSVR por coste; no SVR RBF.",
+    "Presupuesto acotado a 8 propuestas; no comparable sin matices a las 16 de clasificación.",
+    "Se reutilizan evaluaciones idénticas entre optimizadores con semilla de modelo fija; el registro separa propuestas de ajustes nuevos.",
+    "Sin test histórico, sin balanceo de clases; no existe orden temporal verificado."
+  ]
+}

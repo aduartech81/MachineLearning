@@ -7,7 +7,7 @@ def main():
     root=Path(__file__).resolve().parents[2];source=a.salida/'fuente';source.mkdir(parents=True,exist_ok=False)
     notebook=root/'proyecto_final_caries_v2.ipynb';shutil.copy2(notebook,source/notebook.name)
     nb=json.loads(notebook.read_text());text='\n'.join(''.join(c.get('source',[])) for c in nb['cells'])
-    folders=set(re.findall(r'_static/([^/\s)<>]+)',text))
+    folders=set(re.findall(r'_static/([A-Za-z0-9_-]+)',text))
     for folder in folders:
         shutil.copytree(root/'_static'/folder,source/'_static'/folder)
     (source/'_config.yml').write_text('title: "Proyecto final de caries"\nauthor: "Andrés Duarte Chaves"\nexecute:\n  execute_notebooks: "off"\nonly_build_toc_files: true\nexclude_patterns: ["_build"]\n')

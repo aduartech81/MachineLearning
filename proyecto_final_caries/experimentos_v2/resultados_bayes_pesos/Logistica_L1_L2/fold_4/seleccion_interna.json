@@ -1,0 +1,14 @@
+{
+  "familia": "Logistica_L1_L2",
+  "outer_fold": 4,
+  "optimizador": "TPE",
+  "trial": 12,
+  "parametros": {
+    "C": 0.0078174858281344,
+    "penalty": "l1"
+  },
+  "auc_interno": 0.6069525033870601,
+  "propuestas": 16,
+  "configuraciones_unicas": 16,
+  "evaluacion_externa": "NO REALIZADA"
+}

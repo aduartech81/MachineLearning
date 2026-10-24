@@ -384,12 +384,34 @@ def auditoria_v2_descarga(nombre):
     return send_from_directory(DATA / "recuperacion_v2", nombre,
                                as_attachment=not nombre.endswith(".png"))
 
+@server.route("/cierre-entregable2/<nombre>")
+def cierre_entregable2_descarga(nombre):
+    base = DATA / "cierre_entregable2"
+    permitidos = {p.name for p in base.iterdir() if p.is_file()}
+    if nombre not in permitidos:
+        abort(404)
+    return send_from_directory(base, nombre,
+                               as_attachment=not nombre.endswith(".png"))
+
+
 from proyecto_final_caries.presentacion.libro_estatico import integrar as integrar_libro
 integrar_libro(server)
 app.layout.children[0].children.append(html.Div([
     html.A("Jupyter Book", href="/libro-final/"),
     html.A("Descargar Jupyter Book", href="/descargar-libro-final.zip"),
 ], className="pf-links"))
+
+
+
+from proyecto_final_caries.presentacion.prediccion import integrar as integrar_prediccion
+integrar_prediccion(server)
+if os.environ.get('CARIES_HABILITAR_PREDICCION') == '1':
+    app.layout.children[0].children.append(html.Div([html.A('Explorar una predicción', href='/predecir/')], className='pf-links'))
+
+
+from proyecto_final_caries.presentacion.portafolio import integrar as integrar_portafolio
+integrar_portafolio(server)
+app.layout.children[0].children.append(html.Div([html.A('Portafolio de Machine Learning', href='/portafolio/'), html.A('Entregable 2 · versión del 23 de octubre', href='/entregas/entregable-2-20261023/')], className='pf-links'))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8050)), debug=False)

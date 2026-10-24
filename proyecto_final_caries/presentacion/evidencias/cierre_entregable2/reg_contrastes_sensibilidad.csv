@@ -1,0 +1,7 @@
+modelo_a,modelo_b,delta_rmse_media,p_wilcoxon,p_permutacion_signos,p_wilcoxon_holm,p_permutacion_signos_holm
+XGBoost,RandomForest,-0.012056143222345383,0.625,0.6875,0.625,0.6875
+XGBoost,Lasso,-0.22326056885724982,0.0625,0.0625,0.375,0.375
+XGBoost,Ridge,-0.2249133647636768,0.0625,0.0625,0.375,0.375
+XGBoost,SVR_lineal,-0.22926855364633525,0.0625,0.0625,0.375,0.375
+XGBoost,KNN,-0.3540613332861682,0.0625,0.0625,0.375,0.375
+XGBoost,DecisionTree,-0.6275066843940728,0.0625,0.0625,0.375,0.375

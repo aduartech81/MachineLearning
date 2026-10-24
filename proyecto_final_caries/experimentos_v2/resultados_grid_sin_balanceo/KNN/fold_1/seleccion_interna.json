@@ -1,0 +1,12 @@
+{
+  "familia": "KNN",
+  "outer_fold": 1,
+  "candidato": 15,
+  "parametros": {
+    "n_neighbors": 401,
+    "weights": "distance"
+  },
+  "auc_interno": 0.5912856764292859,
+  "evaluacion_externa": "NO REALIZADA",
+  "nota_sd": "Dispersión entre folds; no es un intervalo de confianza"
+}

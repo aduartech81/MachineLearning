@@ -1,0 +1,13 @@
+{
+  "familia": "SVM",
+  "outer_fold": 3,
+  "optimizador": "Genetica",
+  "trial": 11,
+  "parametros": {
+    "C": 0.00032050396168406276
+  },
+  "auc_interno": 0.6007952772977605,
+  "propuestas": 16,
+  "configuraciones_unicas": 11,
+  "evaluacion_externa": "NO REALIZADA"
+}

@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Informe · Proyecto final de caries</title><style>body{margin:0;background:#eef3f6;color:#17384a;font:17px/1.65 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:36px;background:white}nav{background:#17384a;padding:18px;text-align:center}nav a{color:white;margin:0 12px}h1,h2,h3{line-height:1.25}h2{margin-top:2.5em;border-bottom:2px solid #cddfe2;padding-bottom:12px}img{max-width:100%;height:auto}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{padding:9px;border-bottom:1px solid #ccdadd;text-align:left}a{color:#087889}pre{overflow:auto;background:#eef3f6;padding:15px}@media print{nav{display:none}body,main{background:white;padding:0}h2,h3{break-after:avoid}img{max-height:700px;object-fit:contain}}</style></head><body><nav><a href="/">Explorar el proyecto</a><a href="/informe-final/">Informe</a><a href="/libro-final/">Jupyter Book</a><a href="/descargar-libro-final.zip">Descargar libro</a></nav><main><nav aria-label="Índice del informe"><strong>Contenido</strong><ul><li><a href="#seccion-1">1. Problema y alcance</a></li><li><a href="#seccion-2">2. Datos y diseño experimental</a></li><li><a href="#seccion-3">Datos, exploración y trazabilidad del desarrollo</a></li><li><a href="#seccion-4">3. Contribución implementada y ablaciones</a></li><li><a href="#seccion-5">4. Evaluación e incertidumbre</a></li><li><a href="#seccion-6">5. Resultados y explicaciones</a></li><li><a href="#seccion-7">Comparación global de las siete referencias</a></li><li><a href="#auditoria-v2">Búsquedas, cómputo, calibración y reproducibilidad</a></li><li><a href="#seccion-8">6. Conclusiones y límites</a></li></ul></nav><h1>Proyecto final de caries — informe de clasificación</h1>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Informe · Proyecto final de caries</title><style>body{margin:0;background:#eef3f6;color:#17384a;font:17px/1.65 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:36px;background:white}nav{background:#17384a;padding:18px;text-align:center}nav a{color:white;margin:0 12px}h1,h2,h3{line-height:1.25}h2{margin-top:2.5em;border-bottom:2px solid #cddfe2;padding-bottom:12px}img{max-width:100%;height:auto}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{padding:9px;border-bottom:1px solid #ccdadd;text-align:left}a{color:#087889}pre{overflow:auto;background:#eef3f6;padding:15px}@media print{nav{display:none}body,main{background:white;padding:0}h2,h3{break-after:avoid}img{max-height:700px;object-fit:contain}}</style><script>window.MathJax={tex:{inlineMath:[["$","$"]],displayMath:[["$$","$$"]]}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head><body><nav><a href="/">Explorar el proyecto</a><a href="/informe-final/">Informe</a><a href="/libro-final/">Jupyter Book</a><a href="/descargar-libro-final.zip">Descargar libro</a></nav><main><nav aria-label="Índice del informe"><strong>Contenido</strong><ul><li><a href="#seccion-1">1. Problema y alcance</a></li><li><a href="#seccion-2">2. Datos y diseño experimental</a></li><li><a href="#seccion-3">Datos, exploración y trazabilidad del desarrollo</a></li><li><a href="#seccion-4">3. Contribución implementada y ablaciones</a></li><li><a href="#seccion-5">4. Evaluación e incertidumbre</a></li><li><a href="#seccion-6">5. Resultados y explicaciones</a></li><li><a href="#seccion-7">Comparación global de las siete referencias</a></li><li><a href="#auditoria-v2">Búsquedas, cómputo, calibración y reproducibilidad</a></li><li><a href="#cierre-20261023">Cierre E2: recursos, tabla maestra y auditoría</a></li><li><a href="#seccion-8">6. Conclusiones y límites</a></li></ul></nav><h1>Proyecto final de caries — clasificación y regresión auxiliar</h1>
 <p>Andrés Duarte Chaves · Maestría en Ingeniería Biomédica</p>
 <p>Este informe reúne la evaluación de clasificación del proyecto final de caries. La denominación V1/V2 identifica versiones experimentales y sus evidencias.</p>
 <p><a href="https://caries-proyecto-final-andres-duarte.onrender.com/">Aplicación independiente en Render</a></p>
@@ -1036,7 +1036,554 @@ la semilla 42 para las figuras, sin elegirla por su fidelidad.</p>
       <td>3095.89</td>
     </tr>
   </tbody>
-</table><img src="/auditoria-v2/calibracion_antes_despues.png" alt="Calibración antes y después"/><ul><li><a href="/auditoria-v2/ajustes_internos.csv.gz">ajustes_internos.csv.gz</a></li><li><a href="/auditoria-v2/calibracion_antes_despues.csv">calibracion_antes_despues.csv</a></li><li><a href="/auditoria-v2/calibracion_antes_despues.png">calibracion_antes_despues.png</a></li><li><a href="/auditoria-v2/calibracion_bins.csv">calibracion_bins.csv</a></li><li><a href="/auditoria-v2/codigo_ejecucion_v2.zip">codigo_ejecucion_v2.zip</a></li><li><a href="/auditoria-v2/costes_108_configuraciones.csv">costes_108_configuraciones.csv</a></li><li><a href="/auditoria-v2/delong_y_efectos_sensibilidad.csv">delong_y_efectos_sensibilidad.csv</a></li><li><a href="/auditoria-v2/historial_propuestas.csv.gz">historial_propuestas.csv.gz</a></li><li><a href="/auditoria-v2/interpretacion.md">interpretacion.md</a></li><li><a href="/auditoria-v2/metodo.json">metodo.json</a></li><li><a href="/auditoria-v2/metodo_contrastes.json">metodo_contrastes.json</a></li><li><a href="/auditoria-v2/presupuesto_efectivo.csv">presupuesto_efectivo.csv</a></li><li><a href="/auditoria-v2/tiempos_busquedas_540.csv">tiempos_busquedas_540.csv</a></li><li><a href="/auditoria-v2/tiempos_evaluaciones_540.csv">tiempos_evaluaciones_540.csv</a></li><li><a href="/auditoria-v2/tiempos_finalistas.csv">tiempos_finalistas.csv</a></li><li><a href="/auditoria-v2/trazabilidad_fuentes.json">trazabilidad_fuentes.json</a></li></ul><h2 id="seccion-8">6. Conclusiones y límites</h2>
+</table><img src="/auditoria-v2/calibracion_antes_despues.png" alt="Calibración antes y después"/><ul><li><a href="/auditoria-v2/ajustes_internos.csv.gz">ajustes_internos.csv.gz</a></li><li><a href="/auditoria-v2/calibracion_antes_despues.csv">calibracion_antes_despues.csv</a></li><li><a href="/auditoria-v2/calibracion_antes_despues.png">calibracion_antes_despues.png</a></li><li><a href="/auditoria-v2/calibracion_bins.csv">calibracion_bins.csv</a></li><li><a href="/auditoria-v2/codigo_ejecucion_v2.zip">codigo_ejecucion_v2.zip</a></li><li><a href="/auditoria-v2/costes_108_configuraciones.csv">costes_108_configuraciones.csv</a></li><li><a href="/auditoria-v2/delong_y_efectos_sensibilidad.csv">delong_y_efectos_sensibilidad.csv</a></li><li><a href="/auditoria-v2/historial_propuestas.csv.gz">historial_propuestas.csv.gz</a></li><li><a href="/auditoria-v2/interpretacion.md">interpretacion.md</a></li><li><a href="/auditoria-v2/metodo.json">metodo.json</a></li><li><a href="/auditoria-v2/metodo_contrastes.json">metodo_contrastes.json</a></li><li><a href="/auditoria-v2/presupuesto_efectivo.csv">presupuesto_efectivo.csv</a></li><li><a href="/auditoria-v2/tiempos_busquedas_540.csv">tiempos_busquedas_540.csv</a></li><li><a href="/auditoria-v2/tiempos_evaluaciones_540.csv">tiempos_evaluaciones_540.csv</a></li><li><a href="/auditoria-v2/tiempos_finalistas.csv">tiempos_finalistas.csv</a></li><li><a href="/auditoria-v2/trazabilidad_fuentes.json">trazabilidad_fuentes.json</a></li></ul><section id="cierre-20261023"><h2>Cierre del entregable 2 — 23 de octubre de 2026</h2>
+<p>Esta actualización añade evidencia recuperada y mediciones nuevas sin reescribir V1/V2. <strong>No certifica cumplimiento total:</strong> se añadió una rama auxiliar de regresión, pero persisten controles parciales de la auditoría y no se afirma reproducción integral de V1/V2. No hubo autorización para omitir regresión.</p>
+<h3>Tabla maestra y dispersión</h3>
+<p>Se verificaron 1.080 archivos fuente (resultado y métricas de 540 evaluaciones) contra el manifiesto del ZIP ya recibido. Se conservan 108 configuraciones aplicables por cinco folds. La tabla unifica parámetros, semillas declaradas, presupuesto, tiempos, nueve métricas y hashes. Se selecciona la variante sigmoide con Youden interno; no se eligen umbrales con el fold externo.</p>
+<p><a href="/cierre-entregable2/tabla_maestra_540_folds.csv">Tabla maestra: 540 folds</a> · <a href="/cierre-entregable2/resumen_108_media_de.csv">108 configuraciones: media y DE</a> · <a href="/cierre-entregable2/metodo.json">Método y límites</a></p>
+<p>Los AUC medios coinciden exactamente con el resumen anterior (diferencia máxima 0). Las nueve métricas tienen ahora media y DE entre folds; la DE no es un intervalo de confianza. El tiempo total no registrado en el piloto queda vacío.</p>
+<h3>Convergencia y presupuesto</h3>
+<p><img src="/cierre-entregable2/convergencia_busquedas.png" alt="Mejor AUC interno acumulado por propuesta lógica; media de ejecuciones aplicables por familia." /></p>
+<p>Los siete modelos se muestran con el mismo eje y las 16 propuestas lógicas. Las líneas resumen los folds y balanceos aplicables por familia; no son medidas externas. En Grid/Random los ejecutores recorren folds internos antes de completar todas las propuestas: el orden reconstruido no es la cronología real. No se usa esta figura por sí sola para afirmar superioridad de eficiencia de un optimizador.</p>
+<h3>Benchmark nuevo: valores por defecto frente a optimizados</h3>
+<p>Se completaron 210 ajustes convergentes: siete referencias, cinco folds, tres repeticiones y dos variantes. Ambas variantes usan el mismo balanceo seleccionado, filas y orden originales; un hilo por proceso. Los 105 ajustes optimizados reprodujeron exactamente sus AUC originales. No se repitieron búsquedas ni calibradores.</p>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Familia</th>
+      <th>Variante</th>
+      <th>AUC medio por fold</th>
+      <th>Entrenamiento (s)</th>
+      <th>Inferencia del fold (s)</th>
+      <th>RSS medio (MiB)</th>
+      <th>RSS máximo (MiB)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DecisionTree</td>
+      <td>defecto</td>
+      <td>0.513746</td>
+      <td>0.782431</td>
+      <td>0.028235</td>
+      <td>238.088542</td>
+      <td>262.640625</td>
+    </tr>
+    <tr>
+      <td>DecisionTree</td>
+      <td>optimizado</td>
+      <td>0.600625</td>
+      <td>0.291020</td>
+      <td>0.020140</td>
+      <td>240.315625</td>
+      <td>263.062500</td>
+    </tr>
+    <tr>
+      <td>GaussianNB</td>
+      <td>defecto</td>
+      <td>0.578092</td>
+      <td>0.164060</td>
+      <td>0.035113</td>
+      <td>256.526042</td>
+      <td>281.531250</td>
+    </tr>
+    <tr>
+      <td>GaussianNB</td>
+      <td>optimizado</td>
+      <td>0.578240</td>
+      <td>0.171147</td>
+      <td>0.016443</td>
+      <td>259.437500</td>
+      <td>279.828125</td>
+    </tr>
+    <tr>
+      <td>KNN</td>
+      <td>defecto</td>
+      <td>0.528200</td>
+      <td>0.202722</td>
+      <td>0.956805</td>
+      <td>232.972917</td>
+      <td>263.046875</td>
+    </tr>
+    <tr>
+      <td>KNN</td>
+      <td>optimizado</td>
+      <td>0.596924</td>
+      <td>0.165747</td>
+      <td>2.506795</td>
+      <td>286.905208</td>
+      <td>328.484375</td>
+    </tr>
+    <tr>
+      <td>Logistica_L1_L2</td>
+      <td>defecto</td>
+      <td>0.604699</td>
+      <td>0.354637</td>
+      <td>0.019509</td>
+      <td>228.470833</td>
+      <td>271.937500</td>
+    </tr>
+    <tr>
+      <td>Logistica_L1_L2</td>
+      <td>optimizado</td>
+      <td>0.605915</td>
+      <td>0.318255</td>
+      <td>0.016089</td>
+      <td>270.759375</td>
+      <td>302.890625</td>
+    </tr>
+    <tr>
+      <td>RandomForest</td>
+      <td>defecto</td>
+      <td>0.578930</td>
+      <td>6.867497</td>
+      <td>0.239578</td>
+      <td>240.825000</td>
+      <td>293.812500</td>
+    </tr>
+    <tr>
+      <td>RandomForest</td>
+      <td>optimizado</td>
+      <td>0.604468</td>
+      <td>3.092476</td>
+      <td>0.088054</td>
+      <td>242.911458</td>
+      <td>265.437500</td>
+    </tr>
+    <tr>
+      <td>SVM</td>
+      <td>defecto</td>
+      <td>0.605365</td>
+      <td>0.360054</td>
+      <td>0.017556</td>
+      <td>251.408333</td>
+      <td>278.265625</td>
+    </tr>
+    <tr>
+      <td>SVM</td>
+      <td>optimizado</td>
+      <td>0.605574</td>
+      <td>0.277573</td>
+      <td>0.016459</td>
+      <td>256.906250</td>
+      <td>281.515625</td>
+    </tr>
+    <tr>
+      <td>XGBoost</td>
+      <td>defecto</td>
+      <td>0.568066</td>
+      <td>0.467286</td>
+      <td>0.023906</td>
+      <td>240.554167</td>
+      <td>259.578125</td>
+    </tr>
+    <tr>
+      <td>XGBoost</td>
+      <td>optimizado</td>
+      <td>0.605471</td>
+      <td>0.527334</td>
+      <td>0.025112</td>
+      <td>242.322917</td>
+      <td>267.812500</td>
+    </tr>
+  </tbody>
+</table>
+<p>Entrenamiento incluye transformación/balanceo; inferencia, transformar y puntuar el fold. RSS incluye el proceso completo, importaciones y datos: <strong>no es memoria exclusiva del modelo ni RAM histórica</strong>. No se midió memoria del modelo propio. No se obtuvo el modelo exacto de CPU. Cambiar hiperparámetros no cierra por sí solo la comparación de optimizaciones computacionales de la sección 4.</p>
+<p><a href="/cierre-entregable2/benchmark_recursos.json">Protocolo y resumen del benchmark</a></p>
+<h3>Trazabilidad de la auditoría</h3>
+<p>La fuente de esta tabla es la auditoría de 42 controles; <strong>no se atribuyen sus observaciones al docente</strong>. La retroalimentación docente textual debe añadirse si existe. Los estados parciales y pendientes se conservan aunque haya mejorado su documentación.</p>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>observacion</th>
+      <th>estado</th>
+      <th>accion_y_evidencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>112 combinaciones de clasificación</td>
+      <td>Adaptación documentada</td>
+      <td>108 aplicables: KNN con pesos excluye cuatro combinaciones. No consta aceptación docente.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>28 combinaciones de regresión y siete familias</td>
+      <td>Ejecutado con presupuesto acotado</td>
+      <td>28 configuraciones de regresión auxiliar de glucemia, siete familias, cuatro búsquedas y 140 folds externos; ocho propuestas por búsqueda.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Siete familias de clasificación y logística L1/L2</td>
+      <td>Código y registros disponibles</td>
+      <td>L1/L2 en espacios y ejecutores V2 originales publicados; no se modificaron resultados.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Validación cruzada anidada</td>
+      <td>Implementación verificada parcialmente</td>
+      <td>Particiones originales conservadas; comprobaciones de perfiles y ajuste final; reproducción integral pendiente.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Preprocesamiento y balanceo dentro de validación</td>
+      <td>Código publicado</td>
+      <td>Transformaciones y balanceo ajustados dentro de cada entrenamiento; no equivale a certificar ausencia total de fuga.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Grid y Random Search</td>
+      <td>Evidencia recuperada</td>
+      <td>16 propuestas nominales por búsqueda; 21.417 ajustes internos y presupuestos efectivos publicados.</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Bayesiano: surrogate, adquisición y justificación</td>
+      <td>Documentado</td>
+      <td>TPE, inicio aleatorio y propuestas en código original; alcance exploratorio conservado.</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Genético: selección, cruce, mutación, elitismo, diversidad</td>
+      <td>Parcial</td>
+      <td>Motor genético publicado; registrar diversidad por generación y sensibilidad de entrenamiento sigue pendiente.</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Espacios realistas y justificación de hiperparámetros</td>
+      <td>Parcial</td>
+      <td>Dominios y parámetros publicados; justificar límites y sensibilidad por familia.</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Curvas anytime y convergencia de búsquedas</td>
+      <td>Añadido en cierre E2</td>
+      <td>Figura de convergencia por propuesta lógica; Grid/Random no representan cronología real.</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Tiempos, evaluaciones y eficiencia cuantitativa</td>
+      <td>Añadido / parcial</td>
+      <td>Tiempos y presupuesto histórico recuperados; tabla maestra 540; suma de componentes no es wall-clock global.</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Multifidelidad y recurso/factor de reducción</td>
+      <td>Recomendación</td>
+      <td>Multifidelidad no implementada; no se declara obligatoria ni ejecutada.</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Complejidad de entrenamiento e inferencia O(n,p)</td>
+      <td>Parcial</td>
+      <td>Órdenes teóricos orientativos y análisis del modelo propio; falta escalamiento empírico controlado completo.</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Tabla estándar vs optimizado: tiempo, memoria y desempeño</td>
+      <td>Medición nueva; cierre parcial</td>
+      <td>210 ajustes: defecto/optimizado, entrenamiento, inferencia y RSS. Falta comparación computacional con cambios de implementación y memoria del propio.</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Paralelización y justificación de recursos</td>
+      <td>Recursos documentados</td>
+      <td>Benchmark nuevo limitado a un hilo; no se infiere hardware exacto ni escalabilidad.</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Dask/Ray, GPU y profiling cuando proceda</td>
+      <td>Condicional</td>
+      <td>GPU y cómputo distribuido no ejecutados; no se presentan como requisitos incondicionales.</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>ROC, matrices y cinco métricas de clasificación</td>
+      <td>Mejorado; parcial</td>
+      <td>108 combinaciones con accuracy y DE de nueve métricas; curvas/matrices completas por cada combinación aún no publicadas.</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Justificación de métrica de validación</td>
+      <td>Justificación ampliada</td>
+      <td>AUC evalúa ordenamiento; AP, calibración y umbrales responden preguntas distintas; coste clínico no estimado.</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Comparación sin balanceo, SMOTE, ADASYN y pesos</td>
+      <td>Parcial</td>
+      <td>540 filas distinguen balanceos y umbrales internos; mantener equivalencia técnica de pesos por familia.</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Coherencia del balanceo con variables mixtas</td>
+      <td>Limitación conservada</td>
+      <td>SMOTE/ADASYN codificados pueden generar categorías fraccionarias; piloto mixto no sustituye protocolo.</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Reliability, Brier y ECE</td>
+      <td>Parcial</td>
+      <td>Brier, ECE y reliability de finalistas publicados; no extender esa evidencia a todas las combinaciones.</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Efecto de recalibración sobre Brier/ECE</td>
+      <td>Integrado previamente</td>
+      <td>Comparación original/sigmoide/isotónica y dummy disponible en recuperación V2.</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>RMSE, MAE y gráficos train/valid/test de regresión</td>
+      <td>Ejecutado con límites</td>
+      <td>RMSE, MAE, R2, ajuste/validación externa y dummy publicados. Sin nuevo test independiente; no se reutiliza el histórico.</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>White, BDS, ACF, Ljung-Box e histograma</td>
+      <td>Diagnóstico transversal</td>
+      <td>Residuos, histograma, Q-Q y asociación con magnitud de predicción; no se inventa orden temporal para BDS/ACF.</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>SHAP global y local; XGBoost y mejores modelos</td>
+      <td>Ampliado; parcial</td>
+      <td>SHAP de referencia y explicación aditiva local exacta del propio final, verificada por API local. Despliegue público y estabilidad pendientes.</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Summary SHAP y waterfall/force local</td>
+      <td>Añadido con límites</td>
+      <td>Beeswarm de 500 filas externas y waterfall ilustrativo de XGBoost fold 0, margen bruto; suma SHAP verificada. No explica al propio.</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>LIME y comparación metodológica con SHAP</td>
+      <td>Parcial</td>
+      <td>Fidelidad LIME y escalas distintas documentadas; explicación del propio pendiente.</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Media y DE del bucle externo por combinación</td>
+      <td>Añadido en cierre E2</td>
+      <td>Media y DE de nueve métricas en los cinco folds para 108 configuraciones; no son intervalos de confianza.</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Sensibilidad de modelos y búsquedas a semillas</td>
+      <td>Pendiente</td>
+      <td>Repeticiones del benchmark con la misma semilla no equivalen a sensibilidad a semillas del entrenamiento.</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Friedman, Nemenyi y diagrama CD</td>
+      <td>Integrado previamente</td>
+      <td>Friedman, Nemenyi y CD exploratorios; dependencia entre entrenamientos señalada.</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>DeLong dirigido y ajuste múltiple</td>
+      <td>Integrado previamente con límites</td>
+      <td>DeLong/Holm/BH de sensibilidad; no resuelve dependencia por perfiles ni entrenamiento compartido.</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Bootstrap e IC de métricas</td>
+      <td>Parcial</td>
+      <td>Bootstrap agrupado condicional preservado; no se atribuyen incertidumbre de reentrenamiento ni IC simultáneos.</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>MCS, GW/CW, DM-HLN y bootstrap estacionario</td>
+      <td>Adaptación justificada; parcial</td>
+      <td>Friedman y contrastes Wilcoxon/permutación con Holm como sensibilidad sobre cinco folds solapados. No se ejecutan DM/GW/MCS temporales sin orden válido.</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>Tamaños de efecto y relevancia práctica</td>
+      <td>Integrado previamente con límites</td>
+      <td>Deltas, Cliff/biserial/dz descriptivos; no acreditar superioridad frente a las mejores referencias.</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Jupyter Book con código comentado reproducible</td>
+      <td>Libro compilado; reproducción parcial</td>
+      <td>HTML y fuentes disponibles; ejecución costosa off, código original incluido. No se afirma reproducción integral.</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>EDA mejorado y correcciones primera entrega</td>
+      <td>Parcial</td>
+      <td>EDA ampliado y auditoría trazada; falta retroalimentación docente literal para certificar todas sus correcciones.</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>Entorno con versiones exactas y semilla global</td>
+      <td>Parcial</td>
+      <td>Versiones directas guardadas; entorno de ejecución y pruebas descritos; reproducción limpia integral pendiente.</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>Tabla maestra completa por experimento</td>
+      <td>Añadido en cierre E2</td>
+      <td>540 filas: run_id, fold, semilla declarada, parámetros, métricas, tiempos y hashes; V1 propio conservado aparte.</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>Modularidad y docstrings</td>
+      <td>Código disponible; mejora parcial</td>
+      <td>Módulos originales publicados y cinco pruebas nuevas del propio ejecutadas; docstrings no auditados exhaustivamente.</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Sustentación de diez minutos y comparación de optimizadores</td>
+      <td>Adaptado a instrucción del usuario</td>
+      <td>Sustentación preparada según rúbrica de 20 min; guion privado. /exposicion/ permanece retirado.</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Conclusiones coherentes y pensamiento crítico</td>
+      <td>Conservado</td>
+      <td>Discriminación limitada y ausencia de superioridad/validación clínica reconocidas.</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>Datos, procedencia y trazabilidad biomédica</td>
+      <td>Pendiente parcial</td>
+      <td>Distribución enlazada; licencia, protocolo, definición diagnóstica y códigos originales requieren confirmar.</td>
+    </tr>
+  </tbody>
+</table>
+<h3>Dos entregas y límites de reproducción</h3>
+<p>E2 se prepara para el envío de hoy. E3, para mañana, exige además modelos finales serializados, prueba de ida y vuelta, predicción en vivo con explicación local, revisión de novedad y validación del propio. Esos componentes no se dan por resueltos por aparecer aquí. La guía E3, p.19, permite resultados costosos precalculados y versionados si se incluye el código generador; eso no permite afirmar que la reproducción integral ya se ejecutó.</p>
+<p>La construcción del libro tiene ejecución off para evitar búsquedas al compilar. El código original descargable y los módulos nuevos se entregan; la guía de reproducción conserva rutas de entrada y particiones. El guion de sustentación es privado y no se incorpora al libro ni al portal.</p>
+<h3>Regresión auxiliar ejecutada: estimación contemporánea de glucemia</h3>
+<p>La pregunta auxiliar es estimar <strong>fasting blood sugar</strong> con otras mediciones disponibles del chequeo. Es una tarea distinta de clasificar caries, con objetivo continuo real. No predice glucemia futura ni severidad de caries. Las unidades clínicas no se confirmaron en la fuente; se reportan en las unidades originales del archivo.</p>
+<p>Se conservaron 44.582 filas de desarrollo y 22 predictores: se excluyeron objetivo, ID, caries, oral y tartar. No se construyeron derivados del objetivo. La CV externa agrupa perfiles de los 22 predictores (no identifica pacientes), cinco folds externos y tres internos; transformaciones y escalado del objetivo se aprenden solo con el ajuste correspondiente. El test histórico no se consultó.</p>
+<p><strong>Ejecución comprobada:</strong> 28 configuraciones (siete familias × cuatro búsquedas), 140 evaluaciones externas y 1.120 propuestas internas. Cada búsqueda usó ocho propuestas, presupuesto menor al de clasificación por el plazo de entrega. Grid, Random, TPE y genético registran parámetros y reutilizaciones de evaluaciones idénticas. No se presentan sus tiempos como comparación independiente de eficiencia.</p>
+<p><strong>Fundamentos.</strong> Se minimiza RMSE interno, equivalente a minimizar MSE sobre la misma partición. RMSE es la raíz del promedio de errores cuadrados; MAE resume magnitudes absolutas y es menos sensible a extremos; R2 compara suma de errores cuadrados con la variación alrededor de la media del fold. Ridge penaliza la norma L2; Lasso, la norma L1. Árboles particionan por reducción de error cuadrático, Random Forest promedia árboles y XGBoost suma árboles mediante gradientes regularizados. KNN promedia vecinos en espacio transformado. Se usó SVR <strong>lineal</strong> con pérdida epsilon-insensible cuadrática y L2 vía LinearSVR, por coste computacional; no se ejecutó SVR RBF. Las ocho propuestas y dominios están en el protocolo descargable.</p>
+<p>La tabla siguiente resume los finalistas elegidos <strong>por RMSE interno en cada fold</strong>, sin elegir hiperparámetros con su validación externa. El orden entre familias es descriptivo; no aporta un nuevo test independiente.</p>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>familia</th>
+      <th>rmse_mean</th>
+      <th>rmse_std</th>
+      <th>mae_mean</th>
+      <th>mae_std</th>
+      <th>r2_mean</th>
+      <th>rmse_ajuste_mean</th>
+      <th>dummy_rmse_mean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>XGBoost</td>
+      <td>19.12503</td>
+      <td>0.91515</td>
+      <td>10.98012</td>
+      <td>0.17607</td>
+      <td>0.14795</td>
+      <td>18.04978</td>
+      <td>20.72222</td>
+    </tr>
+    <tr>
+      <td>RandomForest</td>
+      <td>19.13709</td>
+      <td>0.91764</td>
+      <td>10.96750</td>
+      <td>0.20083</td>
+      <td>0.14688</td>
+      <td>17.70111</td>
+      <td>20.72222</td>
+    </tr>
+    <tr>
+      <td>Lasso</td>
+      <td>19.34829</td>
+      <td>0.95837</td>
+      <td>11.15417</td>
+      <td>0.23460</td>
+      <td>0.12807</td>
+      <td>19.33550</td>
+      <td>20.72222</td>
+    </tr>
+    <tr>
+      <td>Ridge</td>
+      <td>19.34995</td>
+      <td>0.95685</td>
+      <td>11.15651</td>
+      <td>0.23373</td>
+      <td>0.12792</td>
+      <td>19.33523</td>
+      <td>20.72222</td>
+    </tr>
+    <tr>
+      <td>SVR_lineal</td>
+      <td>19.35430</td>
+      <td>0.95314</td>
+      <td>11.21460</td>
+      <td>0.23080</td>
+      <td>0.12751</td>
+      <td>19.33774</td>
+      <td>20.72222</td>
+    </tr>
+    <tr>
+      <td>KNN</td>
+      <td>19.47909</td>
+      <td>0.93813</td>
+      <td>10.90679</td>
+      <td>0.23613</td>
+      <td>0.11615</td>
+      <td>0.00003</td>
+      <td>20.72222</td>
+    </tr>
+    <tr>
+      <td>DecisionTree</td>
+      <td>19.75254</td>
+      <td>0.91430</td>
+      <td>11.38854</td>
+      <td>0.20052</td>
+      <td>0.09101</td>
+      <td>19.57672</td>
+      <td>20.72222</td>
+    </tr>
+  </tbody>
+</table>
+<p><img src="/cierre-entregable2/reg_ajuste_validacion_dummy.png" alt="RMSE de ajuste y validación externa, comparado con dummy." /></p>
+<p><img src="/cierre-entregable2/reg_residuos.png" alt="Predicciones externas, residuos, histograma y Q-Q sin atribuir orden temporal." /></p>
+<p>Los errores extremos pueden dominar RMSE; por ello se acompaña de MAE y se muestran residuos sin eliminar atípicos para mejorar artificialmente el resultado. La brecha ajuste/validación informa sobre sobreajuste, pero no sustituye validación en otra población. La correlación entre magnitud de residuos y predicción es un diagnóstico exploratorio de heterocedasticidad, con dependencia por perfiles y entrenamiento compartido no corregida en su p nominal.</p>
+<p><img src="/cierre-entregable2/reg_convergencia.png" alt="Convergencia de ocho propuestas internas por búsqueda." /></p>
+<p><strong>Comparación estadística y supuestos.</strong> Friedman, Wilcoxon pareado y permutación de signos con Holm se entregan como sensibilidades exploratorias. Solo hay cinco folds con entrenamientos solapados; no equivalen a tres pruebas independientes ni acreditan superioridad clínica. El mejor observado fue seleccionado en esta misma evaluación. No hay orden temporal validado: BDS, Ljung-Box, Diebold–Mariano, Giacomini–White y MCS estacionario sobre row_id no tendrían interpretación justificada. La guía E3 admite alternativas apropiadas para datos transversales; esta adaptación queda explícita y no se declara cumplimiento literal de una secuencia temporal.</p>
+<p><a href="/cierre-entregable2/reg_resumen_28.csv">28 configuraciones: media y DE</a> · <a href="/cierre-entregable2/reg_metricas_por_fold.csv">140 evaluaciones externas</a> · <a href="/cierre-entregable2/reg_protocolo.json">Protocolo, dominios y semillas</a> · <a href="/cierre-entregable2/reg_contrastes_sensibilidad.csv">Contrastes y Holm</a> · <a href="/cierre-entregable2/reg_diagnostico_residuos.csv">Diagnóstico de residuos</a> · <a href="/cierre-entregable2/reg_analisis.json">Verificación y límites</a> · <a href="/cierre-entregable2/reg_evidencias_completas.zip">Evidencias completas con predicciones y particiones</a></p>
+<p>La cobertura actual es de <strong>108 configuraciones aplicables de clasificación + 28 de regresión = 136</strong>, frente a 140 nominales; cuatro combinaciones KNN con ponderación de clases siguen siendo inaplicables. Las 680 evaluaciones externas no son 680 muestras independientes ni el total de ajustes internos.</p>
+<h3>Explicación adicional de XGBoost: formatos y escala</h3>
+<p><img src="/cierre-entregable2/shap_beeswarm_xgb.png" alt="Beeswarm SHAP de 500 filas de validación externa del fold 0." /></p>
+<p><img src="/cierre-entregable2/shap_waterfall_xgb.png" alt="Waterfall de un caso externo ilustrativo." /></p>
+<p>Estas explicaciones corresponden a la referencia XGBoost grid con pesos del fold 0, <strong>no al modelo propio</strong>. Se verifica que valor base más contribuciones SHAP reproduce el margen bruto; no es la probabilidad calibrada. Las columnas están transformadas. El caso waterfall es el mayor margen de una muestra aleatoria de 500 filas externas, selección ilustrativa explícita. No implica causalidad ni estabilidad en otra población.</p>
+<p><a href="/cierre-entregable2/shap_metodo.json">Método, huella del modelo y error de aditividad</a></p>
+<h3>Código, entorno y uso de IA</h3>
+<p><a href="/cierre-entregable2/codigo_cierre_20261023.zip">Código generador, pruebas y requisitos</a> · <a href="/cierre-entregable2/entorno_observado.json">Entorno observado</a> · <a href="/cierre-entregable2/uso_ia_revision_autor.txt">Declaración de IA para revisión y firma del autor</a></p>
+<p>El código de las búsquedas históricas y sus fuentes sigue disponible en las secciones originales. La declaración indica el apoyo real recibido; no se firma en nombre del autor ni acredita comprensión individual sin sustentación.</p>
+<h3>Avance E3 separado de la evaluación E2</h3>
+<p>Se reajustaron siete referencias y el modelo propio sobre las 44.582 filas de desarrollo. Para cada referencia se eligió la configuración con mejor AUC externo medio, como indica la guía E3, y los parámetros modales de sus cinco selecciones internas, con desempate lexicográfico. Es una regla de consolidación explícita; no se hizo una búsqueda adicional sobre el test. El propio usa parámetros modales V1. La selección externa puede producir optimismo y no genera una nueva medida independiente de desempeño.</p>
+<p>Los ocho artefactos pasaron guardar/cargar con predicciones exactamente iguales en cinco casos de control, usando un hilo para la inferencia determinista. La demostración local usa estos modelos finales y aporta una explicación aditiva del margen del propio cuya suma se comprobó. No se ha verificado todavía su despliegue público. No se declara calibración nueva ni umbral clínico. Siguen pendientes requisitos E3, entre ellos la evidencia de novedad, las tres bases adicionales y la superioridad del propio, que no se observó en los resultados actuales.</p>
+<h2>Fundamento del modelo propio: alcance verificable</h2>
+<p>La tarea es clasificar caries registrada: $y_i\in\{0,1\}$ y $x_i$ contiene los 23 predictores conservados. No se pronostica incidencia futura. Para una representación aprendida solo con el ajuste, $z_i=\phi(x_i)$, el score es $s_i=b+z_i^\top w$ y la salida inicial es $\sigma(s_i)=1/(1+e^{-s_i})$.</p>
+<p>Las numéricas usan splines cúbicos; las categóricas, one-hot. Se consideran hasta cinco productos entre numéricas estandarizadas. La selección por asociación con residuos es una heurística interna: no acredita control de falsos descubrimientos ni estabilidad inferencial.</p>
+<p>Para $M$ pares positivos-negativos fijos, la función implementada es:</p>
+<p>$$
+L(b,w)=(1-\alpha)\frac1n\sum_i\left[\log(1+e^{s_i})-y_i s_i\right]+\frac{\alpha}{M}\sum_{(p,q)}\log(1+e^{-(s_p-s_q)})+\frac{\lambda}{2}\lVert w\rVert_2^2.
+$$</p>
+<p>La BCE favorece el ajuste binario; el ranking favorece scores mayores en positivos; L2 penaliza los coeficientes, no el intercepto. Las pérdidas se normalizan por separado. La mezcla no garantiza probabilidades calibradas.</p>
+<p>Para un par, $d=s_p-s_q$ y $r=\sigma(-d)$: la derivada respecto a $s_p$ es $-r$ y respecto a $s_q$, $+r$. La parte BCE aporta $(\sigma(s_i)-y_i)/n$. El gradiente de $w$ combina $Z^\top$ por las derivadas del score y $\lambda w$. Se entrega a L-BFGS-B; el máximo de iteraciones y el indicador de convergencia se registran.</p>
+<p><strong>Propiedad condicional.</strong> Con representación y pares fijos, $0\leq\alpha&lt;1$, $\lambda&gt;0$ y ambas clases presentes, la pérdida es estrictamente convexa en $(b,w)$. Cada término logístico tiene segunda derivada no negativa; L2 es positiva en cualquier dirección con componente de coeficientes no nula. En la dirección exclusiva del intercepto, la BCE aporta curvatura estrictamente positiva para scores finitos. Ambas clases y L2 impiden escapar al infinito sin aumentar el objetivo, por lo que existe un mínimo único. Esto no convierte en convexa la selección previa de interacciones ni garantiza que el criterio numérico haya alcanzado el óptimo.</p>
+<p><strong>Complejidad.</strong> Con $d$ columnas transformadas, $p$ numéricas, $B$ submuestras, $I_0$ iteraciones preliminares e $I$ finales, el trabajo principal es del orden de $I_0nd+Bn p^2+I(nd+M)$. La matriz de todos los productos introduce memoria del orden de $np^2$; las bases, $nd$. La inferencia de $m$ filas escala con su transformación y $md$. Son órdenes del algoritmo implementado, no una medición de memoria del propio ni un estudio empírico de escalamiento.</p>
+<p><strong>Pseudocódigo.</strong> (1) Validar esquema y dos clases. (2) Aprender imputación, splines, codificación y escalas solo en ajuste. (3) Fijar pares con semilla. (4) Ajustar aditivo preliminar y seleccionar interacciones dentro de ajuste. (5) Minimizar la pérdida con gradiente y registrar convergencia. (6) Transformar nuevas filas con los objetos guardados y calcular score/sigmoide; si se calibra, usar calibrador aprendido con OOF interno.</p>
+<p><strong>Resultado y originalidad.</strong> AUC medio V1 propio: 0,605062; aditivo sin ambos componentes: 0,606151. Las ablaciones no prueban ventaja de añadir ranking/interacciones. Implementación propia y una propiedad matemática verificable no demuestran novedad científica (R1) ni superioridad (R3). La revisión sistemática de novedad sigue pendiente.</p>
+<p><strong>Pruebas nuevas.</strong> Cinco pruebas pasaron: aprendizaje de regla sintética en filas no usadas al ajustar, repetibilidad con igual semilla, clone sin estado, rechazo de entradas excluidas/clase única y gradiente por diferencias finitas. No sustituyen validación clínica ni reproducen todos los entrenamientos históricos.</p>
+</section><h2 id="seccion-8">6. Conclusiones y límites</h2>
 <p>El modelo propio obtuvo AUC medio 0,6051. Las referencias seleccionadas
 internamente alcanzaron aproximadamente 0,6059 en logística y 0,6055 en XGBoost.
 La discriminación observada es limitada.</p>

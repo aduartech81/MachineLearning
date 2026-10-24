@@ -1,0 +1,11 @@
+{
+  "familia": "SVM",
+  "outer_fold": 4,
+  "candidato": 4,
+  "parametros": {
+    "C": 0.00039790044381218256
+  },
+  "auc_interno": 0.6059766888304918,
+  "evaluacion_externa": "NO REALIZADA",
+  "nota_sd": "Dispersión entre folds; no es un intervalo de confianza"
+}

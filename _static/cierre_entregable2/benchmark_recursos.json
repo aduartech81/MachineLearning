@@ -1,0 +1,230 @@
+{
+  "benchmark": {
+    "completo": true,
+    "ajustes_realizados": 210,
+    "ajustes_previstos": 210,
+    "resumen": [
+      {
+        "familia": "DecisionTree",
+        "variante": "defecto",
+        "ajustes": 15,
+        "convergentes": 15,
+        "auc_media_folds": 0.5137463577468359,
+        "entrenamiento_s_media": 0.7824310807996274,
+        "entrenamiento_s_de": 0.19376671748635393,
+        "inferencia_s_media": 0.028235247201519088,
+        "rss_proceso_MiB_media": 238.08854166666666,
+        "rss_proceso_MiB_max": 262.640625
+      },
+      {
+        "familia": "DecisionTree",
+        "variante": "optimizado",
+        "ajustes": 15,
+        "convergentes": 15,
+        "auc_media_folds": 0.6006252888782889,
+        "entrenamiento_s_media": 0.2910195941939795,
+        "entrenamiento_s_de": 0.157542965483549,
+        "inferencia_s_media": 0.020139627800866342,
+        "rss_proceso_MiB_media": 240.315625,
+        "rss_proceso_MiB_max": 263.0625
+      },
+      {
+        "familia": "GaussianNB",
+        "variante": "defecto",
+        "ajustes": 15,
+        "convergentes": 15,
+        "auc_media_folds": 0.5780915601564768,
+        "entrenamiento_s_media": 0.1640595581343708,
+        "entrenamiento_s_de": 0.05332046653323912,
+        "inferencia_s_media": 0.03511283339660925,
+        "rss_proceso_MiB_media": 256.5260416666667,
+        "rss_proceso_MiB_max": 281.53125
+      },
+      {
+        "familia": "GaussianNB",
+        "variante": "optimizado",
+        "ajustes": 15,
+        "convergentes": 15,
+        "auc_media_folds": 0.5782395648343129,
+        "entrenamiento_s_media": 0.17114749433239923,
+        "entrenamiento_s_de": 0.03887225733466072,
+        "inferencia_s_media": 0.01644262499952068,
+        "rss_proceso_MiB_media": 259.4375,
+        "rss_proceso_MiB_max": 279.828125
+      },
+      {
+        "familia": "KNN",
+        "variante": "defecto",
+        "ajustes": 15,
+        "convergentes": 15,
+        "auc_media_folds": 0.5281997404049272,
+        "entrenamiento_s_media": 0.20272229167167097,
+        "entrenamiento_s_de": 0.14470403583125038,
+        "inferencia_s_media": 0.9568049612008811,
+        "rss_proceso_MiB_media": 232.97291666666666,
+        "rss_proceso_MiB_max": 263.046875
+      },
+      {
+        "familia": "KNN",
+        "variante": "optimizado",
+        "ajustes": 15,
+        "convergentes": 15,
+        "auc_media_folds": 0.5969241472813945,
+        "entrenamiento_s_media": 0.1657471168708677,
+        "entrenamiento_s_de": 0.08979547457667084,
+        "inferencia_s_media": 2.5067951528685324,
+        "rss_proceso_MiB_media": 286.90520833333335,
+        "rss_proceso_MiB_max": 328.484375
+      },
+      {
+        "familia": "Logistica_L1_L2",
+        "variante": "defecto",
+        "ajustes": 15,
+        "convergentes": 15,
+        "auc_media_folds": 0.6046994694240144,
+        "entrenamiento_s_media": 0.35463665546655343,
+        "entrenamiento_s_de": 0.24332544858600894,
+        "inferencia_s_media": 0.019509147334611045,
+        "rss_proceso_MiB_media": 228.47083333333333,
+        "rss_proceso_MiB_max": 271.9375
+      },
+      {
+        "familia": "Logistica_L1_L2",
+        "variante": "optimizado",
+        "ajustes": 15,
+        "convergentes": 15,
+        "auc_media_folds": 0.6059153039873117,
+        "entrenamiento_s_media": 0.31825459706791054,
+        "entrenamiento_s_de": 0.1722169708670866,
+        "inferencia_s_media": 0.01608865840632158,
+        "rss_proceso_MiB_media": 270.759375,
+        "rss_proceso_MiB_max": 302.890625
+      },
+      {
+        "familia": "RandomForest",
+        "variante": "defecto",
+        "ajustes": 15,
+        "convergentes": 15,
+        "auc_media_folds": 0.5789302350417518,
+        "entrenamiento_s_media": 6.867497011138282,
+        "entrenamiento_s_de": 1.4591488649591668,
+        "inferencia_s_media": 0.23957849993409278,
+        "rss_proceso_MiB_media": 240.825,
+        "rss_proceso_MiB_max": 293.8125
+      },
+      {
+        "familia": "RandomForest",
+        "variante": "optimizado",
+        "ajustes": 15,
+        "convergentes": 15,
+        "auc_media_folds": 0.6044682343642312,
+        "entrenamiento_s_media": 3.0924758887985564,
+        "entrenamiento_s_de": 0.998716020199236,
+        "inferencia_s_media": 0.08805423879918332,
+        "rss_proceso_MiB_media": 242.91145833333334,
+        "rss_proceso_MiB_max": 265.4375
+      },
+      {
+        "familia": "SVM",
+        "variante": "defecto",
+        "ajustes": 15,
+        "convergentes": 15,
+        "auc_media_folds": 0.6053645720870583,
+        "entrenamiento_s_media": 0.36005392246491585,
+        "entrenamiento_s_de": 0.13680743556246167,
+        "inferencia_s_media": 0.01755559746719276,
+        "rss_proceso_MiB_media": 251.40833333333333,
+        "rss_proceso_MiB_max": 278.265625
+      },
+      {
+        "familia": "SVM",
+        "variante": "optimizado",
+        "ajustes": 15,
+        "convergentes": 15,
+        "auc_media_folds": 0.6055743800926964,
+        "entrenamiento_s_media": 0.27757290012862845,
+        "entrenamiento_s_de": 0.1992335857595431,
+        "inferencia_s_media": 0.01645856966303351,
+        "rss_proceso_MiB_media": 256.90625,
+        "rss_proceso_MiB_max": 281.515625
+      },
+      {
+        "familia": "XGBoost",
+        "variante": "defecto",
+        "ajustes": 15,
+        "convergentes": 15,
+        "auc_media_folds": 0.5680660067972627,
+        "entrenamiento_s_media": 0.4672860696640176,
+        "entrenamiento_s_de": 0.03800323427449119,
+        "inferencia_s_media": 0.0239062860646906,
+        "rss_proceso_MiB_media": 240.55416666666667,
+        "rss_proceso_MiB_max": 259.578125
+      },
+      {
+        "familia": "XGBoost",
+        "variante": "optimizado",
+        "ajustes": 15,
+        "convergentes": 15,
+        "auc_media_folds": 0.6054713573706619,
+        "entrenamiento_s_media": 0.5273343388010593,
+        "entrenamiento_s_de": 0.0775885136235361,
+        "inferencia_s_media": 0.02511155846489904,
+        "rss_proceso_MiB_media": 242.32291666666666,
+        "rss_proceso_MiB_max": 267.8125
+      }
+    ],
+    "validacion": {
+      "ajustes": 210,
+      "familias": 7,
+      "folds": 5,
+      "repeticiones_por_variante": 3,
+      "ajustes_convergentes": 210,
+      "auc_optimizado_contrastado_con_original": 105,
+      "diferencia_maxima_auc_original": 0.0,
+      "limite": "Reproducción parcial de AUC de los ajustes finales; no reproducción completa de búsquedas, calibración e interpretabilidad."
+    }
+  },
+  "protocolo": {
+    "alcance": "Benchmark nuevo: parámetros por defecto vs seleccionados por validación interna; mismo balanceo por pareja. Sin búsqueda ni calibración.",
+    "limitaciones": [
+      "RSS máximo del proceso completo incluye importaciones y datos; no es RAM histórica ni memoria exclusiva del modelo.",
+      "El benchmark no demuestra por sí solo optimización algorítmica/computacional de la sección 4.",
+      "No usa ni reevalúa el test histórico. Los folds se solapan en entrenamiento.",
+      "Accuracy/F1 usan corte fijo 0 o 0.5; no son las métricas del calibrador/Youden publicado."
+    ],
+    "familias": [
+      "Logistica_L1_L2",
+      "GaussianNB",
+      "DecisionTree",
+      "SVM",
+      "XGBoost",
+      "KNN",
+      "RandomForest"
+    ],
+    "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "repeticiones": 3,
+    "cpu_limite": 1,
+    "plataforma": "macOS-26.4-arm64-arm-64bit",
+    "python": "3.11.16 (main, Aug 12 2026, 23:03:19) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "versiones": {
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.8.0",
+      "imbalanced-learn": "0.14.2",
+      "xgboost": "3.2.0",
+      "psutil": "7.2.2",
+      "threadpoolctl": "3.7.0"
+    },
+    "script_sha256": "915f6ff7ac1722149bd04f94a7f03d09471c7598fd8d66655309c9a156f773eb",
+    "decisiones_sha256": "fa15230977b41c3a6d13b3ef5e4474fa185c0fb6551483f99a809d0618d0c2dd"
+  },
+  "limites": "Sin cambios en main, servicios ni carpeta original del Mac. Nuevos ajustes y código únicamente en copia de trabajo; no publicados.",
+  "publicacion": "Mediciones locales nuevas; no integradas aún en informe/portal públicos."
+}

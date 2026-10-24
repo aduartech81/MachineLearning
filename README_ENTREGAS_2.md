@@ -58,3 +58,9 @@ tártaro para el escenario previo al examen oral. No deben sustituirse sin expli
 La sección `ejecucion` del JBook incluye los comandos de Docker/Minikube y configuración de Render.
 El archivo de ejemplo README del docente menciona otro proyecto de forecasting; aquí la documentación
 se ajusta al proyecto cardíaco real solicitado.
+
+## Portafolio y continuidad del proyecto final
+
+El proyecto final continúa esta trayectoria en la rama `proyecto-final-independiente-20261018-213747`. Su aplicación incorpora `/portafolio/` como índice de trabajos y `/entregas/entregable-2-20261023/` como versión fechada del segundo entregable, con clasificación y regresión auxiliar. Las evidencias de esa versión se verifican mediante sus hashes; los cambios posteriores deben conservar la versión entregada. El estado de publicación debe comprobarse en la URL pública.
+
+El portafolio presenta problema, decisiones, implementación, resultados y limitaciones. No atribuye superioridad al modelo propio ni utilidad clínica no demostradas. Los guiones privados de sustentación no forman parte del portafolio.

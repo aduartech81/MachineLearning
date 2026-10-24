@@ -1,0 +1,40 @@
+{
+  "configuraciones": 28,
+  "evaluaciones_externas": 140,
+  "propuestas": 1120,
+  "ajustes_internos_nuevos": 1821,
+  "alcance": "Regresión auxiliar; clasificación original conservada.",
+  "verificacion": "140 resultados, 1120 propuestas, 28 configuraciones, no solapamiento de perfiles y coincidencia de RMSE con predicciones verificados",
+  "mejor_familia_descriptiva": "XGBoost",
+  "mejor_configuracion_externa": {
+    "familia": "XGBoost",
+    "optimizador": "random",
+    "rmse_mean": 19.125032698607356,
+    "rmse_std": 0.9151487727048048,
+    "mae_mean": 10.980119310738475,
+    "mae_std": 0.1760710571474776,
+    "r2_mean": 0.1479494597722587,
+    "r2_std": 0.0073700888338265,
+    "rmse_ajuste_mean": 18.049775053857132,
+    "rmse_ajuste_std": 0.1848181155308078,
+    "dummy_rmse_mean": 20.722222850745588,
+    "dummy_rmse_std": 0.9998897023427148,
+    "dummy_mae_mean": 11.434314252018956,
+    "dummy_mae_std": 0.239196790554589,
+    "ajuste_s_mean": 0.2515035082004033,
+    "ajuste_s_std": 0.0767775196698906,
+    "inferencia_s_mean": 0.0051522832014597,
+    "inferencia_s_std": 0.0014867467019028
+  },
+  "friedman_sensibilidad": {
+    "estadistico": 28.114285714285728,
+    "p": 8.941840826082172e-05
+  },
+  "limites": [
+    "Selección interna por fold para comparar familias; ranking externo de 28 configuraciones descriptivo y sujeto a selección.",
+    "Cinco folds con entrenamiento solapado; Friedman, Wilcoxon y permutación son sensibilidades exploratorias, no tres confirmaciones independientes.",
+    "Sin orden temporal ni identificador de paciente validado: no se ejecutan BDS, Ljung-Box, DM, GW ni MCS estacionario sobre row_id.",
+    "Correlación de |residuo| con predicción solo orienta heterocedasticidad; p nominal no incorpora dependencia por perfiles/entrenamientos.",
+    "Una semilla, presupuesto reducido y una sola base; no valida generalización externa ni uso clínico."
+  ]
+}

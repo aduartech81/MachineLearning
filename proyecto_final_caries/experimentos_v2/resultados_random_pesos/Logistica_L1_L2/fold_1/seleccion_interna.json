@@ -1,0 +1,12 @@
+{
+  "familia": "Logistica_L1_L2",
+  "outer_fold": 1,
+  "candidato": 8,
+  "parametros": {
+    "C": 0.01799491145647342,
+    "penalty": "l1"
+  },
+  "auc_interno": 0.6065419217373501,
+  "evaluacion_externa": "NO REALIZADA",
+  "nota_sd": "Dispersión entre folds; no es un intervalo de confianza"
+}

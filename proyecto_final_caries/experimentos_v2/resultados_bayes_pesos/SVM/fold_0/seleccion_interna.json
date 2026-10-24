@@ -1,0 +1,13 @@
+{
+  "familia": "SVM",
+  "outer_fold": 0,
+  "optimizador": "TPE",
+  "trial": 12,
+  "parametros": {
+    "C": 0.00026282783713613194
+  },
+  "auc_interno": 0.6051730611696927,
+  "propuestas": 16,
+  "configuraciones_unicas": 16,
+  "evaluacion_externa": "NO REALIZADA"
+}

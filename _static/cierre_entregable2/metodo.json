@@ -1,0 +1,17 @@
+{
+  "evaluaciones": 540,
+  "configuraciones": 108,
+  "folds_por_configuracion": 5,
+  "variante": "Sigmoide_Youden_interno; calibrador y umbral ajustados con OOF interno",
+  "archivo_origen": "evidencias_v2_para_revision_20261021_055250.zip",
+  "archivos_fuente_verificados": 1080,
+  "diferencia_maxima_auc_resumen_previo": 0.0,
+  "limites": [
+    "Media y DE por cinco folds; no intervalos de confianza ni observaciones independientes.",
+    "Piloto logística Grid fold 0 conserva tiempos originales; evaluación total ausente permanece vacía.",
+    "Suma de componentes no equivale a tiempo de pared.",
+    "Grid/Random: orden lógico de propuestas, no cronología real.",
+    "108 combinaciones de clasificación; no se añadieron regresiones.",
+    "RAM de siete referencias finalistas en procesos nuevos; no del modelo propio ni de búsquedas históricas."
+  ]
+}

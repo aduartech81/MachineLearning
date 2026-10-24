@@ -1,0 +1,12 @@
+{
+  "familia": "DecisionTree",
+  "outer_fold": 3,
+  "candidato": 0,
+  "parametros": {
+    "max_depth": 3,
+    "min_samples_leaf": 10
+  },
+  "auc_interno": 0.5945204543451154,
+  "evaluacion_externa": "NO REALIZADA",
+  "nota_sd": "Dispersión entre folds; no es un intervalo de confianza"
+}

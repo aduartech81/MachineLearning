@@ -1,0 +1,12 @@
+{
+  "familia": "RandomForest",
+  "outer_fold": 2,
+  "candidato": 11,
+  "parametros": {
+    "max_depth": 12,
+    "min_samples_leaf": 200
+  },
+  "auc_interno": 0.6031307594998639,
+  "evaluacion_externa": "NO REALIZADA",
+  "nota_sd": "Dispersión entre folds; no es un intervalo de confianza"
+}

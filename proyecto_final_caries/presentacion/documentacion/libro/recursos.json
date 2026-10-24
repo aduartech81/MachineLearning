@@ -1,4 +1,8 @@
 {
+  "_downloads/016f05cbfd0d8082faaa95e8728a255a/reg_contrastes_sensibilidad.csv": {
+    "archivo": "_static/cierre_entregable2/reg_contrastes_sensibilidad.csv",
+    "sha256": "59abdda5c652c00415bb3e87c97d205d53e114b1613e216e6cb7ae3a2ab567b0"
+  },
   "_downloads/0473944dd7d73d490ae1e6b4f7af2e6a/metodo_contrastes.json": {
     "archivo": "_static/recuperacion_v2/metodo_contrastes.json",
     "sha256": "5c85ec438b020ac65ca12c6f0d55a50ffe3eae7c359723bc3b75e7c7db8ddb5c"
@@ -7,13 +11,25 @@
     "archivo": "_static/recuperacion_v2/interpretacion.md",
     "sha256": "0cff2c16f1d61685793562248111f8a40b48f98d36fad0da9d705eb72f312a97"
   },
+  "_downloads/07d9adeeb2e9c82db165dac208b90a40/resumen_108_media_de.csv": {
+    "archivo": "_static/cierre_entregable2/resumen_108_media_de.csv",
+    "sha256": "9a1a2dec45e832ffc9ad18c3ca3ef479aafe8a6f05f49e79953b38a3b98169d4"
+  },
   "_downloads/0bcd364391121d91549a1f65d898cd50/ajustes_internos.csv.gz": {
     "archivo": "_static/recuperacion_v2/ajustes_internos.csv.gz",
     "sha256": "6d87aab60448d486d3c7ef57fbb532642b8c1c9c76fd9f1d66f4174447f45d51"
   },
+  "_downloads/0bf8419f750494d025751ac8e8478544/reg_evidencias_completas.zip": {
+    "archivo": "_static/cierre_entregable2/reg_evidencias_completas.zip",
+    "sha256": "42f9249cf2066194503fd51d1d04e9354f3f2bc07f6cc72758df88cc003358a9"
+  },
   "_downloads/0df531db229b65fdfca2832e9b2bad97/metodo.json": {
     "archivo": "_static/proyecto_final_caries_v2/lime/metodo.json",
     "sha256": "596792fef5108faeacab47a0c6e5dd873417194e91c92292f2680a8d6c91fc3c"
+  },
+  "_downloads/114e78b8132dfcfe383ab978c528f40c/shap_metodo.json": {
+    "archivo": "_static/cierre_entregable2/shap_metodo.json",
+    "sha256": "3427a27c057af10c6a9c2b433cfca615d5e9efb824e2db3b4bdf85d8623fcf82"
   },
   "_downloads/14618a3b38a5c56bdf11d44a4dd79d59/calibracion_antes_despues.png": {
     "archivo": "_static/recuperacion_v2/calibracion_antes_despues.png",
@@ -23,6 +39,10 @@
     "archivo": "_static/recuperacion_v2/presupuesto_efectivo.csv",
     "sha256": "1b20846883873db79436da955ee90d3f24ccab18c9bf9eb705728e2ff78bf9f2"
   },
+  "_downloads/2e358f3a3c2ac63ab45ad5356f92726a/uso_ia_revision_autor.txt": {
+    "archivo": "_static/cierre_entregable2/uso_ia_revision_autor.txt",
+    "sha256": "24030eaecf925ea34ba74cdab4489a50e558892cc4abe8c5d8a6d1f262c7b409"
+  },
   "_downloads/2edf914ca930a33f4376283270eb50cb/delong_y_efectos_sensibilidad.csv": {
     "archivo": "_static/recuperacion_v2/delong_y_efectos_sensibilidad.csv",
     "sha256": "f8cfc39807ca2906683337a5d45c298b7a6632eafc14dd50a125c6926aadd511"
@@ -31,9 +51,21 @@
     "archivo": "_static/recuperacion_v2/calibracion_bins.csv",
     "sha256": "ff00a5db0c29f355577eab3b5ae430198006a604f26125c586ff1413ab54f068"
   },
+  "_downloads/3199908caab24a641e5ac745a2d051fe/reg_diagnostico_residuos.csv": {
+    "archivo": "_static/cierre_entregable2/reg_diagnostico_residuos.csv",
+    "sha256": "e3fb0d31e8b80ff38b16f1bec4379707a028c4dd19afb46dbe18be665163df46"
+  },
   "_downloads/3f2fd512b13c679b5365547e42235e79/nemenyi.csv": {
     "archivo": "_static/proyecto_final_caries_rangos/nemenyi.csv",
     "sha256": "c431654302f19ac835271512ce926941f246411ce7b8c7988c178097bded8a01"
+  },
+  "_downloads/4dc1d1b1b8749ad93583470e684014ff/benchmark_recursos.json": {
+    "archivo": "_static/cierre_entregable2/benchmark_recursos.json",
+    "sha256": "174889e2e4a8d7c3a86d40c09fd076a8a6ea80d4be3e6b71edc206bde4a44532"
+  },
+  "_downloads/613e8e9a34a3bb43d1cc6811160eac23/reg_resumen_28.csv": {
+    "archivo": "_static/cierre_entregable2/reg_resumen_28.csv",
+    "sha256": "a5dd695ed36c894975ee0302a2e5853c6c22830883ea4aecf83a7a5b6c8b1278"
   },
   "_downloads/61efe7469099274fbe867db7f7fa7f37/lime_verdadero_negativo_2.html": {
     "archivo": "_static/proyecto_final_caries_v2/lime/lime_verdadero_negativo_2.html",
@@ -59,6 +91,10 @@
     "archivo": "_static/proyecto_final_caries_v2/lime/lime_verdadero_positivo_73.html",
     "sha256": "ae6271e40565ccbcefeaaa4790c914999d4f07f47cd94c4a49a7f156b78fcfd3"
   },
+  "_downloads/7803db4a53dade061acc54b29ca479e3/entorno_observado.json": {
+    "archivo": "_static/cierre_entregable2/entorno_observado.json",
+    "sha256": "49a9a48c05f5b1472cbd3c6e0f7b3333d8db9d9240463d9f7d5e0784f1c60f1d"
+  },
   "_downloads/791fd9f5a45af1c46fc49794efafaba7/lime_falso_positivo_12.html": {
     "archivo": "_static/proyecto_final_caries_v2/lime/lime_falso_positivo_12.html",
     "sha256": "91ab270856ce653cb81b4d9a48809575e583f0e5403ace87044ebc304bcb75a1"
@@ -70,6 +106,14 @@
   "_downloads/7b122e07074bc3a8724a2ef955c06e2c/codigo_ejecucion_v2.zip": {
     "archivo": "_static/recuperacion_v2/codigo_ejecucion_v2.zip",
     "sha256": "9771b077fad041f8c131096c1cd1f8ac473c395ce0ddd2eac61d73a5d40c7019"
+  },
+  "_downloads/8f4b939be342bd1ea698d437a71a5913/reg_metricas_por_fold.csv": {
+    "archivo": "_static/cierre_entregable2/reg_metricas_por_fold.csv",
+    "sha256": "5c530557f70f7f00e40228b5fdf19b5f5accc777d726b7fb2952f6b3d0760cae"
+  },
+  "_downloads/9389ad8dacce71dcfca3e31c701fffc5/reg_analisis.json": {
+    "archivo": "_static/cierre_entregable2/reg_analisis.json",
+    "sha256": "c38b88b905f912741987485c231484390f7056a400424e83efde70f44dc79395"
   },
   "_downloads/955ad4deb33bc24b479b7aef137fc15b/tiempos_evaluaciones_540.csv": {
     "archivo": "_static/recuperacion_v2/tiempos_evaluaciones_540.csv",
@@ -103,9 +147,25 @@
     "archivo": "_static/recuperacion_v2/tiempos_busquedas_540.csv",
     "sha256": "3e0781d923ee8956f4ab7426c413a1f8a7c99b573c2d5541fc9428a1227490a7"
   },
+  "_downloads/c491a2307a96266099fd355cc9380ef4/tabla_maestra_540_folds.csv": {
+    "archivo": "_static/cierre_entregable2/tabla_maestra_540_folds.csv",
+    "sha256": "afd9d471b7eebcc8be4f2e48eea02818c2fb5ebc58081c975a5a9d4c20e51fc1"
+  },
+  "_downloads/c551633191990536aced0de6c199f989/codigo_cierre_20261023.zip": {
+    "archivo": "_static/cierre_entregable2/codigo_cierre_20261023.zip",
+    "sha256": "a8cb672f384d18de46c072bd26e0974add69d6abd092cf42e7069a65a3cbeb1d"
+  },
+  "_downloads/d3d5fea3fcfbfde0de02f47c3cb18c55/metodo.json": {
+    "archivo": "_static/cierre_entregable2/metodo.json",
+    "sha256": "48a2f1d9c3b44cda246995bf9d60c0fb5935773f44864652840a273bc643fe96"
+  },
   "_downloads/db90039908603b8794bf744184954952/manifest.json": {
     "archivo": "_static/proyecto_final_caries_v2/manifest.json",
     "sha256": "c155e82d5e935c0da2ae620e11afa43f7d93504353acc9321ed654d7a17230fb"
+  },
+  "_downloads/de676d6b8a856f3f5c546b6299e0f70b/reg_protocolo.json": {
+    "archivo": "_static/cierre_entregable2/reg_protocolo.json",
+    "sha256": "0c5730d25f343ad2726bfdd8edece7dd8e27c4874e687f31e65594f9f217c231"
   },
   "_downloads/dea3e71b78712622b4f7fa39caf26cca/resumen_108_configuraciones.csv": {
     "archivo": "_static/proyecto_final_caries_v2/cobertura/resumen_108_configuraciones.csv",
@@ -139,6 +199,10 @@
     "archivo": "_static/proyecto_final_caries_v2/evaluacion/calibracion_referencias.png",
     "sha256": "48cec766cc1d052cd099f96170c61adab402e4b81cb77332dfeb5dae17438968"
   },
+  "_images/convergencia_busquedas.png": {
+    "archivo": "_static/cierre_entregable2/convergencia_busquedas.png",
+    "sha256": "1361dd54bdda8c465fd0419baae35e178764651ea14d85c85250e35839ce43e3"
+  },
   "_images/diferencia_critica.png": {
     "archivo": "_static/proyecto_final_caries_rangos/diferencia_critica.png",
     "sha256": "f1320f2add780cbb9c28c81ece57683f5a926d3162c5076aef4263e4ff91873c"
@@ -171,9 +235,25 @@
     "archivo": "_static/proyecto_final_caries_revision/pr_propio_referencias.png",
     "sha256": "f38c34c372f6d5bfc2091034a4a4ec0f894854ac810e7fd4101ca56d81da1bcc"
   },
+  "_images/reg_ajuste_validacion_dummy.png": {
+    "archivo": "_static/cierre_entregable2/reg_ajuste_validacion_dummy.png",
+    "sha256": "a38a648830cd7ef2634c27f0a45c31ee47aa41b379b37737e33fa6a9809034e1"
+  },
+  "_images/reg_convergencia.png": {
+    "archivo": "_static/cierre_entregable2/reg_convergencia.png",
+    "sha256": "2fdd97aded6a092f94f293a4e2e5ef205d66ccebf22b1f85c772b416a001f332"
+  },
+  "_images/reg_residuos.png": {
+    "archivo": "_static/cierre_entregable2/reg_residuos.png",
+    "sha256": "5f3c3cff848d3485d5da8b62e3ec700994e2239776db3a1b4df89ff24afd315c"
+  },
   "_images/roc_propio_referencias.png": {
     "archivo": "_static/proyecto_final_caries_revision/roc_propio_referencias.png",
     "sha256": "6358d337c4ff4c20ef2220b8e5600d1d302e96af318f4fb50989eb7be4778b2b"
+  },
+  "_images/shap_beeswarm_xgb.png": {
+    "archivo": "_static/cierre_entregable2/shap_beeswarm_xgb.png",
+    "sha256": "b1583e64cde597f8baf0a3e4116888317fbeff8e3e7ba84b9f515f52ee4e564a"
   },
   "_images/shap_falso_negativo_29.png": {
     "archivo": "_static/proyecto_final_caries_v2/shap/shap_falso_negativo_29.png",
@@ -194,6 +274,10 @@
   "_images/shap_verdadero_positivo_73.png": {
     "archivo": "_static/proyecto_final_caries_v2/shap/shap_verdadero_positivo_73.png",
     "sha256": "dcdfba0120c96741823af83a1326904029b6d581ec77593f10fde21a7050d834"
+  },
+  "_images/shap_waterfall_xgb.png": {
+    "archivo": "_static/cierre_entregable2/shap_waterfall_xgb.png",
+    "sha256": "fca21d9632c38773e173f6c833fd1e78d353bdd78a6863de5654f78c783c505f"
   },
   "_static/caries_diccionario/diccionario.csv": {
     "archivo": "_static/caries_diccionario/diccionario.csv",
@@ -218,6 +302,122 @@
   "_static/cierre_auditoria/particiones_resumen.csv": {
     "archivo": "_static/cierre_auditoria/particiones_resumen.csv",
     "sha256": "d9eb7ef5f6770cc9cfbef087d42409bfeb9dec68a69c31b6a35a25cf62dc5820"
+  },
+  "_static/cierre_entregable2/benchmark_recursos.json": {
+    "archivo": "_static/cierre_entregable2/benchmark_recursos.json",
+    "sha256": "174889e2e4a8d7c3a86d40c09fd076a8a6ea80d4be3e6b71edc206bde4a44532"
+  },
+  "_static/cierre_entregable2/codigo_cierre_20261023.zip": {
+    "archivo": "_static/cierre_entregable2/codigo_cierre_20261023.zip",
+    "sha256": "a8cb672f384d18de46c072bd26e0974add69d6abd092cf42e7069a65a3cbeb1d"
+  },
+  "_static/cierre_entregable2/convergencia_busquedas.png": {
+    "archivo": "_static/cierre_entregable2/convergencia_busquedas.png",
+    "sha256": "1361dd54bdda8c465fd0419baae35e178764651ea14d85c85250e35839ce43e3"
+  },
+  "_static/cierre_entregable2/entorno_observado.json": {
+    "archivo": "_static/cierre_entregable2/entorno_observado.json",
+    "sha256": "49a9a48c05f5b1472cbd3c6e0f7b3333d8db9d9240463d9f7d5e0784f1c60f1d"
+  },
+  "_static/cierre_entregable2/metodo.json": {
+    "archivo": "_static/cierre_entregable2/metodo.json",
+    "sha256": "48a2f1d9c3b44cda246995bf9d60c0fb5935773f44864652840a273bc643fe96"
+  },
+  "_static/cierre_entregable2/reg_COMPLETADO.json": {
+    "archivo": "_static/cierre_entregable2/reg_COMPLETADO.json",
+    "sha256": "df6f767e1a74733d67346e7b4ed4c2fa69a2630c61ddb673873771c443c655ca"
+  },
+  "_static/cierre_entregable2/reg_ajuste_validacion_dummy.png": {
+    "archivo": "_static/cierre_entregable2/reg_ajuste_validacion_dummy.png",
+    "sha256": "a38a648830cd7ef2634c27f0a45c31ee47aa41b379b37737e33fa6a9809034e1"
+  },
+  "_static/cierre_entregable2/reg_analisis.json": {
+    "archivo": "_static/cierre_entregable2/reg_analisis.json",
+    "sha256": "c38b88b905f912741987485c231484390f7056a400424e83efde70f44dc79395"
+  },
+  "_static/cierre_entregable2/reg_contrastes_sensibilidad.csv": {
+    "archivo": "_static/cierre_entregable2/reg_contrastes_sensibilidad.csv",
+    "sha256": "59abdda5c652c00415bb3e87c97d205d53e114b1613e216e6cb7ae3a2ab567b0"
+  },
+  "_static/cierre_entregable2/reg_convergencia.png": {
+    "archivo": "_static/cierre_entregable2/reg_convergencia.png",
+    "sha256": "2fdd97aded6a092f94f293a4e2e5ef205d66ccebf22b1f85c772b416a001f332"
+  },
+  "_static/cierre_entregable2/reg_diagnostico_residuos.csv": {
+    "archivo": "_static/cierre_entregable2/reg_diagnostico_residuos.csv",
+    "sha256": "e3fb0d31e8b80ff38b16f1bec4379707a028c4dd19afb46dbe18be665163df46"
+  },
+  "_static/cierre_entregable2/reg_evidencias_completas.zip": {
+    "archivo": "_static/cierre_entregable2/reg_evidencias_completas.zip",
+    "sha256": "42f9249cf2066194503fd51d1d04e9354f3f2bc07f6cc72758df88cc003358a9"
+  },
+  "_static/cierre_entregable2/reg_finalistas_35_seleccion_interna.csv": {
+    "archivo": "_static/cierre_entregable2/reg_finalistas_35_seleccion_interna.csv",
+    "sha256": "9ab97a7dcd0ce2f33d83890ad2acc4c8cd978d7ea53981e6fe9f82a4a8a54ab6"
+  },
+  "_static/cierre_entregable2/reg_historial_propuestas.csv.gz": {
+    "archivo": "_static/cierre_entregable2/reg_historial_propuestas.csv.gz",
+    "sha256": "b632020977873d89f9760dcf26de035b49ed1b7d49c08caaf3cd1b26037b61c8"
+  },
+  "_static/cierre_entregable2/reg_metricas_por_fold.csv": {
+    "archivo": "_static/cierre_entregable2/reg_metricas_por_fold.csv",
+    "sha256": "5c530557f70f7f00e40228b5fdf19b5f5accc777d726b7fb2952f6b3d0760cae"
+  },
+  "_static/cierre_entregable2/reg_particiones_externas.csv": {
+    "archivo": "_static/cierre_entregable2/reg_particiones_externas.csv",
+    "sha256": "83d0779cb50425f25b91002147b6da63f9283c777015414050505d4062a2fd71"
+  },
+  "_static/cierre_entregable2/reg_particiones_internas.csv": {
+    "archivo": "_static/cierre_entregable2/reg_particiones_internas.csv",
+    "sha256": "b95643ce4bf3f01988de3cd57b7de4cd984637db4bd2d6d9fc58e8584bbc6a8e"
+  },
+  "_static/cierre_entregable2/reg_predicciones_finalista_descriptivo.csv.gz": {
+    "archivo": "_static/cierre_entregable2/reg_predicciones_finalista_descriptivo.csv.gz",
+    "sha256": "07d1a1318ab8b251fdc6710aec0c9631bead84c1ce0c54261668eabcd2ffe817"
+  },
+  "_static/cierre_entregable2/reg_protocolo.json": {
+    "archivo": "_static/cierre_entregable2/reg_protocolo.json",
+    "sha256": "0c5730d25f343ad2726bfdd8edece7dd8e27c4874e687f31e65594f9f217c231"
+  },
+  "_static/cierre_entregable2/reg_residuos.png": {
+    "archivo": "_static/cierre_entregable2/reg_residuos.png",
+    "sha256": "5f3c3cff848d3485d5da8b62e3ec700994e2239776db3a1b4df89ff24afd315c"
+  },
+  "_static/cierre_entregable2/reg_resumen_28.csv": {
+    "archivo": "_static/cierre_entregable2/reg_resumen_28.csv",
+    "sha256": "a5dd695ed36c894975ee0302a2e5853c6c22830883ea4aecf83a7a5b6c8b1278"
+  },
+  "_static/cierre_entregable2/reg_resumen_finalistas_7.csv": {
+    "archivo": "_static/cierre_entregable2/reg_resumen_finalistas_7.csv",
+    "sha256": "d53cb824a68121cd7ad78fcea1a60af8b8c17885410b3a2b86bcd13aaeded151"
+  },
+  "_static/cierre_entregable2/resumen_108_media_de.csv": {
+    "archivo": "_static/cierre_entregable2/resumen_108_media_de.csv",
+    "sha256": "9a1a2dec45e832ffc9ad18c3ca3ef479aafe8a6f05f49e79953b38a3b98169d4"
+  },
+  "_static/cierre_entregable2/shap_beeswarm_xgb.png": {
+    "archivo": "_static/cierre_entregable2/shap_beeswarm_xgb.png",
+    "sha256": "b1583e64cde597f8baf0a3e4116888317fbeff8e3e7ba84b9f515f52ee4e564a"
+  },
+  "_static/cierre_entregable2/shap_metodo.json": {
+    "archivo": "_static/cierre_entregable2/shap_metodo.json",
+    "sha256": "3427a27c057af10c6a9c2b433cfca615d5e9efb824e2db3b4bdf85d8623fcf82"
+  },
+  "_static/cierre_entregable2/shap_waterfall_xgb.png": {
+    "archivo": "_static/cierre_entregable2/shap_waterfall_xgb.png",
+    "sha256": "fca21d9632c38773e173f6c833fd1e78d353bdd78a6863de5654f78c783c505f"
+  },
+  "_static/cierre_entregable2/tabla_maestra_540_folds.csv": {
+    "archivo": "_static/cierre_entregable2/tabla_maestra_540_folds.csv",
+    "sha256": "afd9d471b7eebcc8be4f2e48eea02818c2fb5ebc58081c975a5a9d4c20e51fc1"
+  },
+  "_static/cierre_entregable2/trazabilidad_auditoria.json": {
+    "archivo": "_static/cierre_entregable2/trazabilidad_auditoria.json",
+    "sha256": "a01f72a261b007cf9a4dbcf198836c65d6937915854f641507d9916bd404dfcc"
+  },
+  "_static/cierre_entregable2/uso_ia_revision_autor.txt": {
+    "archivo": "_static/cierre_entregable2/uso_ia_revision_autor.txt",
+    "sha256": "24030eaecf925ea34ba74cdab4489a50e558892cc4abe8c5d8a6d1f262c7b409"
   },
   "_static/proyecto_final_caries_rangos/diferencia_critica.png": {
     "archivo": "_static/proyecto_final_caries_rangos/diferencia_critica.png",

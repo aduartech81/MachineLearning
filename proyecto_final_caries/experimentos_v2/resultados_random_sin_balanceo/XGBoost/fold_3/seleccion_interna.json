@@ -1,0 +1,12 @@
+{
+  "familia": "XGBoost",
+  "outer_fold": 3,
+  "candidato": 8,
+  "parametros": {
+    "max_depth": 3,
+    "learning_rate": 0.03251174614244659
+  },
+  "auc_interno": 0.6031225019747217,
+  "evaluacion_externa": "NO REALIZADA",
+  "nota_sd": "Dispersión entre folds; no es un intervalo de confianza"
+}

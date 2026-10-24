@@ -1,0 +1,380 @@
+[
+  {
+    "id": 1,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "112 combinaciones de clasificación",
+    "estado": "Adaptación documentada",
+    "accion_y_evidencia": "108 aplicables: KNN con pesos excluye cuatro combinaciones. No consta aceptación docente.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "2, pp. 2-3"
+  },
+  {
+    "id": 2,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "28 combinaciones de regresión y siete familias",
+    "estado": "Ejecutado con presupuesto acotado",
+    "accion_y_evidencia": "28 configuraciones de regresión auxiliar de glucemia, siete familias, cuatro búsquedas y 140 folds externos; ocho propuestas por búsqueda.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "2 y 7.2, pp. 2-3,18"
+  },
+  {
+    "id": 3,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Siete familias de clasificación y logística L1/L2",
+    "estado": "Código y registros disponibles",
+    "accion_y_evidencia": "L1/L2 en espacios y ejecutores V2 originales publicados; no se modificaron resultados.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "7.2, p.18"
+  },
+  {
+    "id": 4,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Validación cruzada anidada",
+    "estado": "Implementación verificada parcialmente",
+    "accion_y_evidencia": "Particiones originales conservadas; comprobaciones de perfiles y ajuste final; reproducción integral pendiente.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "3.2, pp.4,6"
+  },
+  {
+    "id": 5,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Preprocesamiento y balanceo dentro de validación",
+    "estado": "Código publicado",
+    "accion_y_evidencia": "Transformaciones y balanceo ajustados dentro de cada entrenamiento; no equivale a certificar ausencia total de fuga.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "3.3, pp.4-5"
+  },
+  {
+    "id": 6,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Grid y Random Search",
+    "estado": "Evidencia recuperada",
+    "accion_y_evidencia": "16 propuestas nominales por búsqueda; 21.417 ajustes internos y presupuestos efectivos publicados.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "3.3, pp.4-6"
+  },
+  {
+    "id": 7,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Bayesiano: surrogate, adquisición y justificación",
+    "estado": "Documentado",
+    "accion_y_evidencia": "TPE, inicio aleatorio y propuestas en código original; alcance exploratorio conservado.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "3.3, pp.4-5"
+  },
+  {
+    "id": 8,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Genético: selección, cruce, mutación, elitismo, diversidad",
+    "estado": "Parcial",
+    "accion_y_evidencia": "Motor genético publicado; registrar diversidad por generación y sensibilidad de entrenamiento sigue pendiente.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "3.3, p.5"
+  },
+  {
+    "id": 9,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Espacios realistas y justificación de hiperparámetros",
+    "estado": "Parcial",
+    "accion_y_evidencia": "Dominios y parámetros publicados; justificar límites y sensibilidad por familia.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "3.4, pp.5-6"
+  },
+  {
+    "id": 10,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Curvas anytime y convergencia de búsquedas",
+    "estado": "Añadido en cierre E2",
+    "accion_y_evidencia": "Figura de convergencia por propuesta lógica; Grid/Random no representan cronología real.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "3.4, p.6"
+  },
+  {
+    "id": 11,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Tiempos, evaluaciones y eficiencia cuantitativa",
+    "estado": "Añadido / parcial",
+    "accion_y_evidencia": "Tiempos y presupuesto histórico recuperados; tabla maestra 540; suma de componentes no es wall-clock global.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "3.4, p.6"
+  },
+  {
+    "id": 12,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Multifidelidad y recurso/factor de reducción",
+    "estado": "Recomendación",
+    "accion_y_evidencia": "Multifidelidad no implementada; no se declara obligatoria ni ejecutada.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "3.3, p.5"
+  },
+  {
+    "id": 13,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Complejidad de entrenamiento e inferencia O(n,p)",
+    "estado": "Parcial",
+    "accion_y_evidencia": "Órdenes teóricos orientativos y análisis del modelo propio; falta escalamiento empírico controlado completo.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "4.2, p.7"
+  },
+  {
+    "id": 14,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Tabla estándar vs optimizado: tiempo, memoria y desempeño",
+    "estado": "Medición nueva; cierre parcial",
+    "accion_y_evidencia": "210 ajustes: defecto/optimizado, entrenamiento, inferencia y RSS. Falta comparación computacional con cambios de implementación y memoria del propio.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "4.2-4.4, pp.7-8"
+  },
+  {
+    "id": 15,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Paralelización y justificación de recursos",
+    "estado": "Recursos documentados",
+    "accion_y_evidencia": "Benchmark nuevo limitado a un hilo; no se infiere hardware exacto ni escalabilidad.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "4.3, p.7"
+  },
+  {
+    "id": 16,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Dask/Ray, GPU y profiling cuando proceda",
+    "estado": "Condicional",
+    "accion_y_evidencia": "GPU y cómputo distribuido no ejecutados; no se presentan como requisitos incondicionales.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "4.3-4.4, pp.7-8"
+  },
+  {
+    "id": 17,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "ROC, matrices y cinco métricas de clasificación",
+    "estado": "Mejorado; parcial",
+    "accion_y_evidencia": "108 combinaciones con accuracy y DE de nueve métricas; curvas/matrices completas por cada combinación aún no publicadas.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "5.1.1, pp.8-9"
+  },
+  {
+    "id": 18,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Justificación de métrica de validación",
+    "estado": "Justificación ampliada",
+    "accion_y_evidencia": "AUC evalúa ordenamiento; AP, calibración y umbrales responden preguntas distintas; coste clínico no estimado.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "5.1.1, p.8"
+  },
+  {
+    "id": 19,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Comparación sin balanceo, SMOTE, ADASYN y pesos",
+    "estado": "Parcial",
+    "accion_y_evidencia": "540 filas distinguen balanceos y umbrales internos; mantener equivalencia técnica de pesos por familia.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "5.1.2, p.9"
+  },
+  {
+    "id": 20,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Coherencia del balanceo con variables mixtas",
+    "estado": "Limitación conservada",
+    "accion_y_evidencia": "SMOTE/ADASYN codificados pueden generar categorías fraccionarias; piloto mixto no sustituye protocolo.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "5.1.2 y 3.3, pp.5,9"
+  },
+  {
+    "id": 21,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Reliability, Brier y ECE",
+    "estado": "Parcial",
+    "accion_y_evidencia": "Brier, ECE y reliability de finalistas publicados; no extender esa evidencia a todas las combinaciones.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "5.1.3, pp.9-10"
+  },
+  {
+    "id": 22,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Efecto de recalibración sobre Brier/ECE",
+    "estado": "Integrado previamente",
+    "accion_y_evidencia": "Comparación original/sigmoide/isotónica y dummy disponible en recuperación V2.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "5.1.3, p.10"
+  },
+  {
+    "id": 23,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "RMSE, MAE y gráficos train/valid/test de regresión",
+    "estado": "Ejecutado con límites",
+    "accion_y_evidencia": "RMSE, MAE, R2, ajuste/validación externa y dummy publicados. Sin nuevo test independiente; no se reutiliza el histórico.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "5.2.1, p.10"
+  },
+  {
+    "id": 24,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "White, BDS, ACF, Ljung-Box e histograma",
+    "estado": "Diagnóstico transversal",
+    "accion_y_evidencia": "Residuos, histograma, Q-Q y asociación con magnitud de predicción; no se inventa orden temporal para BDS/ACF.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "5.2.2, pp.10-11"
+  },
+  {
+    "id": 25,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "SHAP global y local; XGBoost y mejores modelos",
+    "estado": "Ampliado; parcial",
+    "accion_y_evidencia": "SHAP de referencia y explicación aditiva local exacta del propio final, verificada por API local. Despliegue público y estabilidad pendientes.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "5.3 y 7.2, pp.11,18"
+  },
+  {
+    "id": 26,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Summary SHAP y waterfall/force local",
+    "estado": "Añadido con límites",
+    "accion_y_evidencia": "Beeswarm de 500 filas externas y waterfall ilustrativo de XGBoost fold 0, margen bruto; suma SHAP verificada. No explica al propio.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "5.3, p.11"
+  },
+  {
+    "id": 27,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "LIME y comparación metodológica con SHAP",
+    "estado": "Parcial",
+    "accion_y_evidencia": "Fidelidad LIME y escalas distintas documentadas; explicación del propio pendiente.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "5.3 y 7.2, pp.11,18"
+  },
+  {
+    "id": 28,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Media y DE del bucle externo por combinación",
+    "estado": "Añadido en cierre E2",
+    "accion_y_evidencia": "Media y DE de nueve métricas en los cinco folds para 108 configuraciones; no son intervalos de confianza.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "5.4, pp.11-12"
+  },
+  {
+    "id": 29,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Sensibilidad de modelos y búsquedas a semillas",
+    "estado": "Pendiente",
+    "accion_y_evidencia": "Repeticiones del benchmark con la misma semilla no equivalen a sensibilidad a semillas del entrenamiento.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "5.4, p.12"
+  },
+  {
+    "id": 30,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Friedman, Nemenyi y diagrama CD",
+    "estado": "Integrado previamente",
+    "accion_y_evidencia": "Friedman, Nemenyi y CD exploratorios; dependencia entre entrenamientos señalada.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "6.1-6.2, pp.12-13"
+  },
+  {
+    "id": 31,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "DeLong dirigido y ajuste múltiple",
+    "estado": "Integrado previamente con límites",
+    "accion_y_evidencia": "DeLong/Holm/BH de sensibilidad; no resuelve dependencia por perfiles ni entrenamiento compartido.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "6.2, p.13"
+  },
+  {
+    "id": 32,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Bootstrap e IC de métricas",
+    "estado": "Parcial",
+    "accion_y_evidencia": "Bootstrap agrupado condicional preservado; no se atribuyen incertidumbre de reentrenamiento ni IC simultáneos.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "6.2, p.13"
+  },
+  {
+    "id": 33,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "MCS, GW/CW, DM-HLN y bootstrap estacionario",
+    "estado": "Adaptación justificada; parcial",
+    "accion_y_evidencia": "Friedman y contrastes Wilcoxon/permutación con Holm como sensibilidad sobre cinco folds solapados. No se ejecutan DM/GW/MCS temporales sin orden válido.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "6.3, pp.14-17"
+  },
+  {
+    "id": 34,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Tamaños de efecto y relevancia práctica",
+    "estado": "Integrado previamente con límites",
+    "accion_y_evidencia": "Deltas, Cliff/biserial/dz descriptivos; no acreditar superioridad frente a las mejores referencias.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "6.4, pp.15-16"
+  },
+  {
+    "id": 35,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Jupyter Book con código comentado reproducible",
+    "estado": "Libro compilado; reproducción parcial",
+    "accion_y_evidencia": "HTML y fuentes disponibles; ejecución costosa off, código original incluido. No se afirma reproducción integral.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "7, p.17"
+  },
+  {
+    "id": 36,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "EDA mejorado y correcciones primera entrega",
+    "estado": "Parcial",
+    "accion_y_evidencia": "EDA ampliado y auditoría trazada; falta retroalimentación docente literal para certificar todas sus correcciones.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "7.1, p.17"
+  },
+  {
+    "id": 37,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Entorno con versiones exactas y semilla global",
+    "estado": "Parcial",
+    "accion_y_evidencia": "Versiones directas guardadas; entorno de ejecución y pruebas descritos; reproducción limpia integral pendiente.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "7.3, p.18"
+  },
+  {
+    "id": 38,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Tabla maestra completa por experimento",
+    "estado": "Añadido en cierre E2",
+    "accion_y_evidencia": "540 filas: run_id, fold, semilla declarada, parámetros, métricas, tiempos y hashes; V1 propio conservado aparte.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "7.3, p.18"
+  },
+  {
+    "id": 39,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Modularidad y docstrings",
+    "estado": "Código disponible; mejora parcial",
+    "accion_y_evidencia": "Módulos originales publicados y cinco pruebas nuevas del propio ejecutadas; docstrings no auditados exhaustivamente.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "7.3, p.18"
+  },
+  {
+    "id": 40,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Sustentación de diez minutos y comparación de optimizadores",
+    "estado": "Adaptado a instrucción del usuario",
+    "accion_y_evidencia": "Sustentación preparada según rúbrica de 20 min; guion privado. /exposicion/ permanece retirado.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "8, p.19"
+  },
+  {
+    "id": 41,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Conclusiones coherentes y pensamiento crítico",
+    "estado": "Conservado",
+    "accion_y_evidencia": "Discriminación limitada y ausencia de superioridad/validación clínica reconocidas.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "9, p.19"
+  },
+  {
+    "id": 42,
+    "fuente_observacion": "Auditoría integral; no sustituye observaciones textuales del docente",
+    "observacion": "Datos, procedencia y trazabilidad biomédica",
+    "estado": "Pendiente parcial",
+    "accion_y_evidencia": "Distribución enlazada; licencia, protocolo, definición diagnóstica y códigos originales requieren confirmar.",
+    "ubicacion": "Informe/JBook: Cierre del entregable 2; fuentes V1/V2 enlazadas",
+    "guia": "1 y 7.1, pp.1,17"
+  }
+]
