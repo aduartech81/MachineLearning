@@ -1,0 +1,8 @@
+{
+  "ajustes": 27,
+  "limites": [
+    "RSS total del proceso observado cada 10 ms, no memoria exclusiva del modelo ni máximo continuo exacto.",
+    "Las bases y productos previos son dependientes de n y p; tres repeticiones con igual semilla miden variación de ejecución, no robustez estadística.",
+    "Mediciones en la Mac durante otros trabajos; no comparación de hardware ni medición aislada sin carga concurrente."
+  ]
+}

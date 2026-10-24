@@ -1,0 +1,13 @@
+{
+  "n": 8000,
+  "p": 11,
+  "repeticion": 0,
+  "semilla": 42,
+  "ajuste_s": 0.12678616601624526,
+  "inferencia_20_filas_s": 0.004105540981981903,
+  "rss_max_MiB": 176.03125,
+  "rss_inicial_MiB": 164.375,
+  "convergio": true,
+  "iteraciones": 46,
+  "columnas_transformadas": 55
+}

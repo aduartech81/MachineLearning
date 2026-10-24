@@ -1,0 +1,37 @@
+{
+  "verificacion": "45 evaluaciones, nueve familias y alineación de 44.582 filas OOF verificadas",
+  "familias": [
+    "DecisionTree",
+    "EBM",
+    "GaussianNB",
+    "KNN",
+    "Logistica_L1_L2",
+    "Propio",
+    "RandomForest",
+    "SVM",
+    "XGBoost"
+  ],
+  "friedman": {
+    "chi2": 21.28,
+    "p": 0.006439677078788101,
+    "N": 5,
+    "k": 9
+  },
+  "nemenyi_cd": 5.372354542515412,
+  "comparaciones_pareadas": 24,
+  "multiplicidad": "Holm conjunto de los 24 contrastes pareados mostrados; no corrige todos los análisis históricos del proyecto.",
+  "bootstrap": {
+    "B": 2000,
+    "semilla": 42,
+    "perfiles": 35641,
+    "intervalo": "BCa, delete-one-profile exacto si el score es constante dentro del perfil"
+  },
+  "limites": [
+    "Alcance exploratorio y condicional; no nuevos pacientes ni test independiente.",
+    "Se muestran tres procedimientos pareados además de un procedimiento global; no son confirmaciones independientes.",
+    "Nemenyi es un diagnóstico de rangos de muestra pequeña; una conexión/no rechazo no implica equivalencia.",
+    "Las representaciones difieren en el núcleo spline del propio; el preprocesamiento previo y las particiones son comunes.",
+    "No sustituye la comparación con los mejores de las 108 configuraciones E2 ni demuestra R3 por contar pruebas."
+  ],
+  "R3": "No acreditado por este análisis; interpretar junto a resultados V1/V2 y referencias seleccionadas E2."
+}
