@@ -223,9 +223,22 @@ def conclusiones():
     )
 
 
+def regresion_auxiliar():
+    return bloque("Regresión auxiliar: glucemia registrada",
+        html.P("Estimación contemporánea con 22 predictores. Es una pregunta continua separada de la clasificación de caries; no pronostica glucemia futura."),
+        html.P("28 configuraciones, 140 evaluaciones externas, cinco folds agrupados y tres internos. Ocho propuestas por búsqueda; sin consultar el test histórico."),
+        html.P("Finalistas seleccionados por RMSE interno en cada fold. Media y desviación entre folds; unidades originales del archivo, sin confirmación clínica."),
+        tabla("cierre_entregable2/reg_resumen_finalistas_7.csv"),
+        html.Img(src="/cierre-entregable2/reg_ajuste_validacion_dummy.png", alt="Comparación de RMSE de ajuste, validación externa y referencia de media", style={"width":"100%"}),
+        html.Img(src="/cierre-entregable2/reg_residuos.png", alt="Predicciones externas y diagnóstico de residuos de la regresión", style={"width":"100%"}),
+        html.P("El rendimiento es limitado en valores extremos. Los folds comparten entrenamiento; las comparaciones estadísticas son exploratorias y no acreditan utilidad clínica."),
+        html.A("Leer método, resultados y limitaciones en el libro de la entrega",href="/entregas/entregable-2-20261023/"),
+        html.Br(),html.A("Descargar resultados de las 28 configuraciones",href="/cierre-entregable2/reg_resumen_28.csv"))
+
+
 SECCIONES = {
     "problema": problema, "datos": datos, "modelo": modelo,
-    "evaluacion": evaluacion, "resultados": resultados, "conclusiones": conclusiones
+    "evaluacion": evaluacion, "resultados": resultados, "conclusiones": conclusiones, "regresion": regresion_auxiliar
 }
 app.layout = html.Div([
     html.Header([
@@ -238,7 +251,7 @@ app.layout = html.Div([
         dcc.Tab(label=titulo, value=clave) for clave, titulo in [
             ("problema", "1 · Problema"), ("datos", "2 · Datos"),
             ("modelo", "3 · Aporte"), ("evaluacion", "4 · Evaluación"),
-            ("resultados", "5 · Resultados"), ("conclusiones", "6 · Conclusiones")
+            ("resultados", "5 · Resultados"), ("conclusiones", "6 · Conclusiones"), ("regresion", "7 · Regresión auxiliar")
         ]
     ]),
     html.Main(id="final-content", className="pf-main"),
