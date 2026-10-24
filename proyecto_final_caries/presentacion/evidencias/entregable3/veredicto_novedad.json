@@ -1,0 +1,19 @@
+{
+  "bases_consultadas": [
+    "PubMed",
+    "Crossref (registro bibliográfico; no equivalente a Scopus)",
+    "arXiv"
+  ],
+  "cadenas_distintas": 5,
+  "intentos": 15,
+  "respuestas_satisfactorias": 14,
+  "lecturas_cercanas": 8,
+  "veredicto": "R1 no acreditado. No se afirma que nadie haya usado el mecanismo exacto ni que la propuesta sea científicamente original.",
+  "alcance": "Búsqueda estructurada preliminar, metadatos y lectura focalizada. No revisión sistemática exhaustiva.",
+  "limites": [
+    "Un intento de Crossref falló y queda registrado.",
+    "Consultas arXiv con frases estrictas no recuperaron entradas; cero resultados no prueba novedad.",
+    "Las consultas de PubMed y Crossref pueden devolver resultados poco pertinentes; sus conteos no se convierten en número de artículos relevantes.",
+    "Se encontró antecedente de GAM aplicado a caries, además de arquitecturas aditivas con interacciones y ranking logístico en otras tareas."
+  ]
+}

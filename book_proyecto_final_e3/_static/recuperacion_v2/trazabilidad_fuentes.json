@@ -1,0 +1,146 @@
+{
+  "zip_sha256": "ea478c487efd4f1ba2cbc01dcbe07428c3f6e4f8b136fa7a995c8f493b6844f6",
+  "archivos_validados": 35585,
+  "codigo": [
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_genetica_adasyn.py",
+      "sha256": "784c18261bb30aa44d65bd9b6437a493b27f6b6934473c5ebf0e842a0838d7e0"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/preprocesamiento.py",
+      "sha256": "58942d98fca62671392bf8f2f8cb6021510b2ae9c862eccc5b8cd8dd44358e01"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/README_REPRODUCIBILIDAD.md",
+      "sha256": "102244d2340a4b33303f252bc94c74c31d4a3bfc178dd9acaa541ac85fb8d465"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/motor_genetico.py",
+      "sha256": "f33f495e07420886a8245957f2090ccad39eb3615e582d499feb0da452dfd235"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_random_pesos.py",
+      "sha256": "09d879ed9ec54f16083c03264b5f6884926f35296b845889da642782efb99dc4"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_random_smote.py",
+      "sha256": "5a0dcb676955d64f49ec68f2e532525dce7ec750bdce51dc48978ea1c4474b65"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_bayes_pesos.py",
+      "sha256": "2b3d11601afef3aabcfdad8701d5137f5ef7e7f8b6edcd98a5cbd29a58d7f001"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_bayes.py",
+      "sha256": "19e6cbeae02a00c3df1d3a6920a50c72716b2538d62e629afc2f630c6811de97"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_random.py",
+      "sha256": "ec3a4464670c35c98927edcd8b887dc1d5f9675c117265eff561881d20b11a43"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/evaluar_seleccion.py",
+      "sha256": "124096b154bbc2860b6a6d4325b6c3f41534ebe183180e875207b4856e21bb2b"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_genetica.py",
+      "sha256": "cdd4662a5ef635d1a5d462d638988c89e547755409799ae58895a71c66d66cb9"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_bayes_smote.py",
+      "sha256": "c822e05d4c3f7f2241aa31b6af673e037fa07c4351a61931e826f0a486b11de9"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/espacios_busqueda_v2.json",
+      "sha256": "290bc965a72a21faa217536f8270a331a10aee283d5788dca76d79a1a300adae"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_genetica_pesos.py",
+      "sha256": "c76e2168d428f9ed224aeb07032119fe21bccdb2b170e15edf2a9b4054b6e176"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_bayes_adasyn.py",
+      "sha256": "957bd1cbb86c7e407a9cde0af965c1f9069cae3f3a833b6f1c596e286bc127d2"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_random_adasyn.py",
+      "sha256": "cba97d498b5309aef52ce3fbb1d4c07f226c7650cf7d77c63046a3adaf12b0f8"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_grid_smote.py",
+      "sha256": "abc40f17e4b8c16e113399d33b62b46464a4be3036e129d4d69fb84ad56aa2f2"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/requirements_ejecucion.txt",
+      "sha256": "3105f004570aea29fe8e1d6510456e359077ec9d00a009bff6fc99997e290e81"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_grid.py",
+      "sha256": "cecf83a96fd471ade62fc7175b6540ecb107196093f3e301f404882242e60174"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ponderacion.py",
+      "sha256": "9c5f9b8bc7e7e1c0bc6b0ad887aac558e3a452200e0614d863b2ba3c4011a924"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_genetica_smote.py",
+      "sha256": "3643b2ebfffd8bd09efb991aad29b841d5513938e42b8f0256a6fa31e07cb620"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/aplicabilidad_pesos.json",
+      "sha256": "86b6a7a60ed56d73b45ed13755d43ceadf284773064aa41f81ca855881d0f84c"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_grid_adasyn.py",
+      "sha256": "0630c4d199df3952dc28c3c720e686f0aa999036b9a8dedbbe75c28d7ef1ccaa"
+    },
+    {
+      "ruta": "proyecto_final_caries/experimentos_v2/ejecutar_grid_pesos.py",
+      "sha256": "9f706fe55c410873f81a7f13ec629b3864ca49b0109829da17af78b3f894cfe5"
+    }
+  ],
+  "versiones_manifiestos": {
+    "imbalanced-learn": [
+      "0.14.2"
+    ],
+    "numpy": [
+      "2.4.6"
+    ],
+    "pandas": [
+      "2.3.3"
+    ],
+    "scipy": [
+      "1.17.1"
+    ],
+    "scikit-learn": [
+      "1.8.0"
+    ],
+    "xgboost": [
+      "3.2.0"
+    ],
+    "deap": [
+      "1.4.4"
+    ],
+    "optuna": [
+      "5.0.0"
+    ]
+  },
+  "entorno_observado_recopilacion": {
+    "python": "3.11.16 (main, Aug 12 2026, 23:03:19) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "executable": "/Users/andresduarte/Desktop/ML_TAREA1_MAC_20261017_072109/.venv_caries_v2/bin/python",
+    "plataforma": "macOS-26.4-arm64-arm-64bit",
+    "paquetes": {
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.8.0",
+      "imbalanced-learn": "0.14.2",
+      "xgboost": "3.2.0",
+      "optuna": "5.0.0",
+      "deap": "1.4.4",
+      "shap": "0.51.0",
+      "lime": "0.2.0.1",
+      "psutil": "7.2.2"
+    }
+  }
+}

@@ -1,0 +1,402 @@
+[
+  {
+    "base": "PubMed",
+    "id_consulta": 1,
+    "cadena": "dental caries generalized additive model",
+    "fecha_utc": "2026-10-24T01:26:14.615104+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=dental+caries+generalized+additive+model&retmode=json&retmax=10",
+    "sha256": "4ebdc87e18adca911923f4c3580b22e01ee1786e7146c12a936a9da0fec27456",
+    "estado": "Consulta respondida",
+    "total_indice_no_pertinencia": 223,
+    "identificadores": [
+      "42908670",
+      "42830443",
+      "42782962",
+      "42773344",
+      "42705247",
+      "42689034",
+      "42666437",
+      "42645451",
+      "42643395",
+      "42612648"
+    ]
+  },
+  {
+    "base": "PubMed",
+    "id_consulta": 2,
+    "cadena": "dental caries pairwise ranking loss",
+    "fecha_utc": "2026-10-24T01:26:15.644456+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=dental+caries+pairwise+ranking+loss&retmode=json&retmax=10",
+    "sha256": "366f72fa55303e295d80ed7d7f9aeda4e9c67a10a2f114a9cdbd229a7edaa34b",
+    "estado": "Consulta respondida",
+    "total_indice_no_pertinencia": 2,
+    "identificadores": [
+      "33057826",
+      "27697582"
+    ]
+  },
+  {
+    "base": "PubMed",
+    "id_consulta": 3,
+    "cadena": "dental caries spline logistic model",
+    "fecha_utc": "2026-10-24T01:26:16.432460+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=dental+caries+spline+logistic+model&retmode=json&retmax=10",
+    "sha256": "4edad38a7dacd4b990b9b1751cb3ee850fd17669423927c0c8e6bf8be2c6b705",
+    "estado": "Consulta respondida",
+    "total_indice_no_pertinencia": 4,
+    "identificadores": [
+      "40892551",
+      "40824332",
+      "34937625",
+      "28049967"
+    ]
+  },
+  {
+    "base": "PubMed",
+    "id_consulta": 4,
+    "cadena": "caries dental modelo aditivo ranking",
+    "fecha_utc": "2026-10-24T01:26:17.541021+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=caries+dental+modelo+aditivo+ranking&retmode=json&retmax=10",
+    "sha256": "3f86ff8db9c16062958b9e3075d9581941f00e50da9e41d3f45e02441b9d9840",
+    "estado": "Consulta respondida",
+    "total_indice_no_pertinencia": 0,
+    "identificadores": []
+  },
+  {
+    "base": "PubMed",
+    "id_consulta": 5,
+    "cadena": "generalized additive model pairwise logistic AUC optimization",
+    "fecha_utc": "2026-10-24T01:26:18.565280+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=generalized+additive+model+pairwise+logistic+AUC+optimization&retmode=json&retmax=10",
+    "sha256": "f0cdd8e868e79e90077b263fe36f9f2880f138f19a1e51c4cedfa12b3ebcd6a7",
+    "estado": "Consulta respondida",
+    "total_indice_no_pertinencia": 3,
+    "identificadores": [
+      "42755484",
+      "42544269",
+      "42222284"
+    ]
+  },
+  {
+    "base": "Crossref",
+    "id_consulta": 1,
+    "cadena": "dental caries generalized additive model",
+    "fecha_utc": "2026-10-24T01:26:19.402515+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://api.crossref.org/works?query=dental+caries+generalized+additive+model&rows=10",
+    "sha256": "be4cc633ddde9559aa45e54c25eb747a1d6e48d96b10aae4fa67613829a0aace",
+    "estado": "Consulta respondida",
+    "total_indice_no_pertinencia": 3999017,
+    "resultados": [
+      {
+        "titulo": "Partly parametric generalized additive model",
+        "DOI": "10.17077/etd.jniptp97",
+        "url": "https://doi.org/10.17077/etd.jniptp97"
+      },
+      {
+        "titulo": "Quantile Generalized Additive Model a Robust Alternative to Generalized Additive Model",
+        "DOI": "10.18488/journal.24.2021.101.12.18",
+        "url": "https://doi.org/10.18488/journal.24.2021.101.12.18"
+      },
+      {
+        "titulo": "Generalized estimating equation based zero-inflated models with application to examining the relationship between dental caries and fluoride exposures.",
+        "DOI": "10.18297/etd/1606",
+        "url": "https://doi.org/10.18297/etd/1606"
+      },
+      {
+        "titulo": "Table 2: Global generalized additive model of acoustic detection.",
+        "DOI": "10.7717/peerj.13246/table-2",
+        "url": "https://doi.org/10.7717/peerj.13246/table-2"
+      },
+      {
+        "titulo": "The caries balance model",
+        "DOI": "10.1016/s0011-8486(07)80023-9",
+        "url": "https://doi.org/10.1016/s0011-8486(07)80023-9"
+      },
+      {
+        "titulo": "Table 3: Grouped generalized additive model of acoustic detection.",
+        "DOI": "10.7717/peerj.13246/table-3",
+        "url": "https://doi.org/10.7717/peerj.13246/table-3"
+      },
+      {
+        "titulo": "Generalized Additive Model",
+        "DOI": "10.4135/9781412952644.n184",
+        "url": "https://doi.org/10.4135/9781412952644.n184"
+      },
+      {
+        "titulo": "Demonstration of a Fluoride Dose Response with an In situ Single-Section Dental Caries Model",
+        "DOI": "10.1159/000261986",
+        "url": "https://doi.org/10.1159/000261986"
+      },
+      {
+        "titulo": "",
+        "DOI": "10.1117/12.3008459.27518465-f83d-ee11-a999-00505691c5e1",
+        "url": "https://doi.org/10.1117/12.3008459.27518465-f83d-ee11-a999-00505691c5e1"
+      },
+      {
+        "titulo": "Caries control in populations",
+        "DOI": "10.1093/oso/9780198738268.003.0010",
+        "url": "https://doi.org/10.1093/oso/9780198738268.003.0010"
+      }
+    ]
+  },
+  {
+    "base": "Crossref",
+    "id_consulta": 2,
+    "cadena": "dental caries pairwise ranking loss",
+    "fecha_utc": "2026-10-24T01:26:20.432327+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://api.crossref.org/works?query=dental+caries+pairwise+ranking+loss&rows=10",
+    "estado": "Acceso fallido; no contabilizar como búsqueda completada",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "base": "Crossref",
+    "id_consulta": 3,
+    "cadena": "dental caries spline logistic model",
+    "fecha_utc": "2026-10-24T01:26:21.134539+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://api.crossref.org/works?query=dental+caries+spline+logistic+model&rows=10",
+    "sha256": "6717035933a59d0419a6e89b1d848012337134b67bdf585fdf075709f08ee25d",
+    "estado": "Consulta respondida",
+    "total_indice_no_pertinencia": 3712080,
+    "resultados": [
+      {
+        "titulo": "Table 6: Binary Logistic regression analysis for the dental caries status of 6-year-old children.",
+        "DOI": "10.7717/peerj.6997/table-6",
+        "url": "https://doi.org/10.7717/peerj.6997/table-6"
+      },
+      {
+        "titulo": "Logistic Spline Model",
+        "DOI": "10.4135/9781446251119.n53",
+        "url": "https://doi.org/10.4135/9781446251119.n53"
+      },
+      {
+        "titulo": "Confidence Interval Construction for Multivariable Truncated Spline Logistic Model (MTSLM)",
+        "DOI": "10.2139/ssrn.6170230",
+        "url": "https://doi.org/10.2139/ssrn.6170230"
+      },
+      {
+        "titulo": "The caries balance model",
+        "DOI": "10.1016/s0011-8486(07)80023-9",
+        "url": "https://doi.org/10.1016/s0011-8486(07)80023-9"
+      },
+      {
+        "titulo": "Demonstration of a Fluoride Dose Response with an In situ Single-Section Dental Caries Model",
+        "DOI": "10.1159/000261986",
+        "url": "https://doi.org/10.1159/000261986"
+      },
+      {
+        "titulo": "Estimation of Additive Logistic Model Based on B-Spline",
+        "DOI": "10.12677/pm.2024.142060",
+        "url": "https://doi.org/10.12677/pm.2024.142060"
+      },
+      {
+        "titulo": "Ability of ordinal spline logistic regression model in the classification of nutritional status data",
+        "DOI": "10.28919/cmbn/8072",
+        "url": "https://doi.org/10.28919/cmbn/8072"
+      },
+      {
+        "titulo": "Caries control in populations",
+        "DOI": "10.1093/oso/9780198738268.003.0010",
+        "url": "https://doi.org/10.1093/oso/9780198738268.003.0010"
+      },
+      {
+        "titulo": "Statistical Models for Dental Caries Data",
+        "DOI": "10.5772/38634",
+        "url": "https://doi.org/10.5772/38634"
+      },
+      {
+        "titulo": "Dental drive through model of care to reduce caries incidence",
+        "DOI": "10.1016/j.identj.2021.08.056",
+        "url": "https://doi.org/10.1016/j.identj.2021.08.056"
+      }
+    ]
+  },
+  {
+    "base": "Crossref",
+    "id_consulta": 4,
+    "cadena": "caries dental modelo aditivo ranking",
+    "fecha_utc": "2026-10-24T01:26:21.916223+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://api.crossref.org/works?query=caries+dental+modelo+aditivo+ranking&rows=10",
+    "sha256": "6898f127579db93bab1fb3e40a0473da89be73dd9b4670a767bc8f8a958c54f4",
+    "estado": "Consulta respondida",
+    "total_indice_no_pertinencia": 589334,
+    "resultados": [
+      {
+        "titulo": "A função de \"Cobb-Douglas\", a partir do modelo matemático com erro aditivo",
+        "DOI": "10.11606/d.11.1981.tde-20220208-002231",
+        "url": "https://doi.org/10.11606/d.11.1981.tde-20220208-002231"
+      },
+      {
+        "titulo": "",
+        "DOI": "10.54499/2020.08492.bd",
+        "url": "https://doi.org/10.54499/2020.08492.bd"
+      },
+      {
+        "titulo": "Métodos para escolha de componentes em modelo de efeito principal aditivo e interação multiplicativa (AMMI).",
+        "DOI": "10.11606/t.11.2006.tde-27042006-064514",
+        "url": "https://doi.org/10.11606/t.11.2006.tde-27042006-064514"
+      },
+      {
+        "titulo": "Caries control in populations",
+        "DOI": "10.1093/oso/9780198738268.003.0010",
+        "url": "https://doi.org/10.1093/oso/9780198738268.003.0010"
+      },
+      {
+        "titulo": "Odontología de Mínima Intervención para la atención de Caries Dental en un Modelo de Servicio Estomatológico",
+        "DOI": "10.22201/fesz.26831422e.2022.4.2.9",
+        "url": "https://doi.org/10.22201/fesz.26831422e.2022.4.2.9"
+      },
+      {
+        "titulo": "Statistical Models for Dental Caries Data",
+        "DOI": "10.5772/38634",
+        "url": "https://doi.org/10.5772/38634"
+      },
+      {
+        "titulo": "Dietary Factors, Salivary Parameters, and Dental Caries",
+        "DOI": "10.5772/intechopen.92392",
+        "url": "https://doi.org/10.5772/intechopen.92392"
+      },
+      {
+        "titulo": "How does a caries lesion develop?",
+        "DOI": "10.1093/oso/9780198738268.003.0004",
+        "url": "https://doi.org/10.1093/oso/9780198738268.003.0004"
+      },
+      {
+        "titulo": "Can Dental Caries Be Treated?",
+        "DOI": "10.5772/intechopen.75773",
+        "url": "https://doi.org/10.5772/intechopen.75773"
+      },
+      {
+        "titulo": "Essentials of Dental Caries",
+        "DOI": "10.1093/oso/9780198738268.001.0001",
+        "url": "https://doi.org/10.1093/oso/9780198738268.001.0001"
+      }
+    ]
+  },
+  {
+    "base": "Crossref",
+    "id_consulta": 5,
+    "cadena": "generalized additive model pairwise logistic AUC optimization",
+    "fecha_utc": "2026-10-24T01:26:24.116950+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://api.crossref.org/works?query=generalized+additive+model+pairwise+logistic+AUC+optimization&rows=10",
+    "sha256": "da69d7c442cfe97036fe31a178072333301562648a45e8669b7deb2816bb828a",
+    "estado": "Consulta respondida",
+    "total_indice_no_pertinencia": 4535249,
+    "resultados": [
+      {
+        "titulo": "",
+        "DOI": "10.1117/12.3008459.27518465-f83d-ee11-a999-00505691c5e1",
+        "url": "https://doi.org/10.1117/12.3008459.27518465-f83d-ee11-a999-00505691c5e1"
+      },
+      {
+        "titulo": "Additive Logistic Models for AUC Classification: Likelihood-Ratio Scoring and Component-wise Interpretability",
+        "DOI": "10.21203/rs.3.rs-9647685/v1",
+        "url": "https://doi.org/10.21203/rs.3.rs-9647685/v1"
+      },
+      {
+        "titulo": "Figure 3  Comparison of ROC curves for the logistic regression model and individual predictors on the pooled multiply imputed dataset (m = 20)  Green curve – logistic decision rule (AUC = 0.842); orange curve – C18 lipoform GD2 (AUC = 0.837); red curve – NSE (AUC = 0.658); blue curve – LDH (AUC = 0.566); grey dashed line – diagonal reference line of no discrimination",
+        "DOI": "10.24287/j.1144-1023",
+        "url": "https://doi.org/10.24287/j.1144-1023"
+      },
+      {
+        "titulo": "",
+        "DOI": "10.7717/peerj.266/table-5",
+        "url": "https://doi.org/10.7717/peerj.266/table-5"
+      },
+      {
+        "titulo": "relgam: Reluctant Generalized Additive Models",
+        "DOI": "10.32614/cran.package.relgam",
+        "url": "https://doi.org/10.32614/cran.package.relgam"
+      },
+      {
+        "titulo": "More on the generalized linear model: logistic and loglinear models",
+        "DOI": "10.1093/hesc/9780198807483.003.0014",
+        "url": "https://doi.org/10.1093/hesc/9780198807483.003.0014"
+      },
+      {
+        "titulo": "Table S1: Adjusted\n                      <i>R</i>\n                      <sup>2</sup>\n                      of generalized additive models (GAMs) modeling prediction performance (AUC) of species distribution models for simulated species",
+        "DOI": "10.7717/peerj.10411/supp-6",
+        "url": "https://doi.org/10.7717/peerj.10411/supp-6"
+      },
+      {
+        "titulo": "A Decision Support Model for the Necessity of Cardio-Angiography, A Result of Generalized Additive and logistic Regression Model",
+        "DOI": "10.18502/jbe.v7i2.6712",
+        "url": "https://doi.org/10.18502/jbe.v7i2.6712"
+      },
+      {
+        "titulo": "Numerical methods for a stochastic generalized logistic model",
+        "DOI": "10.58837/chula.sp.2018.52",
+        "url": "https://doi.org/10.58837/chula.sp.2018.52"
+      },
+      {
+        "titulo": "Supplemental Information 3: Pairwise site contrasts from the generalized linear mixed model on coral abundance",
+        "DOI": "10.7717/peerj.20319/supp-3",
+        "url": "https://doi.org/10.7717/peerj.20319/supp-3"
+      }
+    ]
+  },
+  {
+    "base": "arXiv",
+    "id_consulta": 1,
+    "cadena": "dental caries generalized additive model",
+    "fecha_utc": "2026-10-24T01:26:24.863555+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://export.arxiv.org/api/query?search_query=all%3A%22dental+caries%22+AND+all%3A%22generalized+additive+model%22&start=0&max_results=10",
+    "sha256": "a5dbbbe3e83cb7b443e8f2fc23b0baec8a2f4e11fbc4e2720b6a3b95b7ef49f2",
+    "estado": "Consulta respondida",
+    "resultados": []
+  },
+  {
+    "base": "arXiv",
+    "id_consulta": 2,
+    "cadena": "dental caries pairwise ranking loss",
+    "fecha_utc": "2026-10-24T01:26:25.878334+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://export.arxiv.org/api/query?search_query=all%3A%22dental+caries%22+AND+all%3A%22pairwise+ranking+loss%22&start=0&max_results=10",
+    "sha256": "d76eee5151eb23593b85433969cde273dcd543928513e5655d7c5b0f8dad7df5",
+    "estado": "Consulta respondida",
+    "resultados": []
+  },
+  {
+    "base": "arXiv",
+    "id_consulta": 3,
+    "cadena": "dental caries spline logistic model",
+    "fecha_utc": "2026-10-24T01:26:29.319706+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://export.arxiv.org/api/query?search_query=all%3A%22dental+caries%22+AND+all%3A%22spline+logistic+model%22&start=0&max_results=10",
+    "sha256": "0407778523826c1683e187b2a17b2841f33961642f3d9c6cce469804d8689bf4",
+    "estado": "Consulta respondida",
+    "resultados": []
+  },
+  {
+    "base": "arXiv",
+    "id_consulta": 4,
+    "cadena": "caries dental modelo aditivo ranking",
+    "fecha_utc": "2026-10-24T01:26:37.700856+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://export.arxiv.org/api/query?search_query=all%3A%22caries+dental%22+AND+all%3A%22modelo+aditivo+ranking%22&start=0&max_results=10",
+    "sha256": "b022ceda4e32669d381891f429a03888b0529d0f7904e65b1b4fba57efd284ae",
+    "estado": "Consulta respondida",
+    "resultados": []
+  },
+  {
+    "base": "arXiv",
+    "id_consulta": 5,
+    "cadena": "generalized additive model pairwise logistic AUC optimization",
+    "fecha_utc": "2026-10-24T01:26:43.996912+00:00",
+    "alcance": "Metadatos de hasta 10 resultados; sin revisión sistemática completa de texto integral",
+    "url": "https://export.arxiv.org/api/query?search_query=all%3A%22generalized+additive+model%22+AND+all%3A%22pairwise+logistic+AUC+optimization%22&start=0&max_results=10",
+    "sha256": "ddac97d9db789b51b3c45bf5181ae347d9b9c6045070c1f57e2a8de2c6e90421",
+    "estado": "Consulta respondida",
+    "resultados": []
+  }
+]

@@ -1,0 +1,8 @@
+/* Mantener la portada ilustrada y ordenar el recorrido del cierre. */
+.pf-main{max-width:1160px}.pf-section{border-radius:15px;box-shadow:0 7px 24px rgba(19,55,70,.035)}
+.pf-section h2{font-family:Georgia,serif;font-weight:500;font-size:30px;line-height:1.2;margin-bottom:18px}.pf-section p{line-height:1.7}
+.pf-section h3{color:#147b84}.pf-table th{background:#edf5f5;color:#17434e}.pf-table tr:nth-child(even){background:#f7fafb}
+#final-tabs{background:#fff;border-bottom:1px solid #d4e2e6}#final-tabs .tab{font-weight:600!important;padding:17px 10px!important}
+#final-tabs .tab--selected{border-top-color:#147c86!important;color:#126f78!important;background:#f1f7f7!important}
+.e3-release{padding-bottom:5px}.pf-links a{line-height:1.4}.pf-section img[src$='.svg']{background:#f3f8f8;border-radius:12px;padding:8px;box-sizing:border-box}
+@media(max-width:760px){.pf-section h2{font-size:25px}.pf-section{border-radius:10px}#final-tabs .tab{font-size:12px!important}.pf-main{padding:18px 12px}}

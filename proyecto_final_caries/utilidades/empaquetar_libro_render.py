@@ -1,8 +1,8 @@
 from pathlib import Path
 import hashlib,json,zipfile
 import argparse
-parser=argparse.ArgumentParser();parser.add_argument('--html',type=Path,required=True);args=parser.parse_args()
-repo=Path(__file__).resolve().parents[2];build=args.html;out=repo/'proyecto_final_caries/presentacion/documentacion/libro';out.mkdir(exist_ok=True)
+parser=argparse.ArgumentParser();parser.add_argument('--html',type=Path,required=True);parser.add_argument('--destino',type=Path);args=parser.parse_args()
+repo=Path(__file__).resolve().parents[2];build=args.html;out=args.destino if args.destino else repo/'proyecto_final_caries/presentacion/documentacion/libro';out.mkdir(parents=True,exist_ok=True)
 known={}
 for f in (repo/'_static').rglob('*'):
  if f.is_file():known[hashlib.sha256(f.read_bytes()).hexdigest()]=str(f.relative_to(repo))

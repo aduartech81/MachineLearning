@@ -249,8 +249,8 @@ app.layout = html.Div([
     ], className="pf-hero"),
     dcc.Tabs(id="final-tabs", value="problema", children=[
         dcc.Tab(label=titulo, value=clave) for clave, titulo in [
-            ("problema", "1 · Problema"), ("datos", "2 · Datos"),
-            ("modelo", "3 · Aporte"), ("evaluacion", "4 · Evaluación"),
+            ("problema", "1 · Contexto"), ("datos", "2 · EDA"),
+            ("modelo", "3 · Modelos y aporte"), ("evaluacion", "4 · Evaluación"),
             ("resultados", "5 · Resultados"), ("conclusiones", "6 · Conclusiones"), ("regresion", "7 · Regresión auxiliar")
         ]
     ]),
@@ -425,6 +425,9 @@ if os.environ.get('CARIES_HABILITAR_PREDICCION') == '1':
 from proyecto_final_caries.presentacion.portafolio import integrar as integrar_portafolio
 integrar_portafolio(server)
 app.layout.children[0].children.append(html.Div([html.A('Portafolio de Machine Learning', href='/portafolio/'), html.A('Entregable 2 · versión del 23 de octubre', href='/entregas/entregable-2-20261023/')], className='pf-links'))
+
+from proyecto_final_caries.presentacion.cierre_e3 import integrar as integrar_cierre_e3
+integrar_cierre_e3(app, SECCIONES)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8050)), debug=False)

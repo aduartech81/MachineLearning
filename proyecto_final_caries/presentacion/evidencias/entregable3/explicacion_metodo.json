@@ -1,0 +1,15 @@
+{
+  "muestra": 500,
+  "unidad": "Perfiles distintos de predictores del desarrollo, no pacientes acreditados",
+  "semilla": 42,
+  "caso": "Perfil sintético de medianas/modas; no participante real",
+  "escala": "Margen bruto antes de sigmoide; bases centradas y estandarizadas",
+  "error_aditividad_caso": 2.220446049250313e-16,
+  "probabilidad_original_caso": 0.2050523114527463,
+  "limites": [
+    "Modelos finales ajustados con todo el desarrollo; estas figuras no son validación externa.",
+    "Las magnitudes de márgenes de dos modelos no tienen una escala común para comparar importancia absoluta.",
+    "Las bases se suman por variable y las interacciones se mantienen aparte.",
+    "Alternativa exacta justificada a SHAP para una función aditiva; no atribución causal ni estabilidad inferencial."
+  ]
+}

@@ -1,0 +1,10 @@
+familia,rango_medio
+DecisionTree,6.0
+EBM,5.0
+GaussianNB,9.0
+KNN,7.0
+Logistica_L1_L2,3.8
+Propio,3.8
+RandomForest,3.4
+SVM,4.2
+XGBoost,2.8

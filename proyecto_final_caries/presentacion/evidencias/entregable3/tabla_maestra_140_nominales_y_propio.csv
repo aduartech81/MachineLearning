@@ -1,0 +1,142 @@
+tarea,familia,optimizador,balanceo,estado,metrica,media,desviacion,folds,semilla,version
+Clasificación,DecisionTree,bayes,adasyn,Evaluada,AUC,0.5787768356514195,0.0101448123579201,5,42,V2
+Clasificación,DecisionTree,bayes,pesos,Evaluada,AUC,0.6009182776970483,0.0102570206311135,5,42,V2
+Clasificación,DecisionTree,bayes,sin_balanceo,Evaluada,AUC,0.599701187934913,0.009201650512826,5,42,V2
+Clasificación,DecisionTree,bayes,smote,Evaluada,AUC,0.5779985388089337,0.0089132659666561,5,42,V2
+Clasificación,DecisionTree,genetica,adasyn,Evaluada,AUC,0.5783441373629216,0.0105854573189284,5,42,V2
+Clasificación,DecisionTree,genetica,pesos,Evaluada,AUC,0.6009182776970483,0.0102570206311135,5,42,V2
+Clasificación,DecisionTree,genetica,sin_balanceo,Evaluada,AUC,0.599701187934913,0.009201650512826,5,42,V2
+Clasificación,DecisionTree,genetica,smote,Evaluada,AUC,0.5790215661966533,0.0077862740016723,5,42,V2
+Clasificación,DecisionTree,grid,adasyn,Evaluada,AUC,0.5783441373629216,0.0105854573189284,5,42,V2
+Clasificación,DecisionTree,grid,pesos,Evaluada,AUC,0.6024574441037955,0.0089208126459293,5,42,V2
+Clasificación,DecisionTree,grid,sin_balanceo,Evaluada,AUC,0.599701187934913,0.009201650512826,5,42,V2
+Clasificación,DecisionTree,grid,smote,Evaluada,AUC,0.5780870616671223,0.0088988299858863,5,42,V2
+Clasificación,DecisionTree,random,adasyn,Evaluada,AUC,0.5783441373629216,0.0105854573189284,5,42,V2
+Clasificación,DecisionTree,random,pesos,Evaluada,AUC,0.6024574441037955,0.0089208126459293,5,42,V2
+Clasificación,DecisionTree,random,sin_balanceo,Evaluada,AUC,0.599701187934913,0.009201650512826,5,42,V2
+Clasificación,DecisionTree,random,smote,Evaluada,AUC,0.5780870616671223,0.0088988299858863,5,42,V2
+Clasificación,GaussianNB,bayes,adasyn,Evaluada,AUC,0.5688421512797575,0.0126337327158165,5,42,V2
+Clasificación,GaussianNB,bayes,pesos,Evaluada,AUC,0.5782248388913761,0.0122457766116488,5,42,V2
+Clasificación,GaussianNB,bayes,sin_balanceo,Evaluada,AUC,0.5782249515851146,0.0122456614916489,5,42,V2
+Clasificación,GaussianNB,bayes,smote,Evaluada,AUC,0.5689172297857071,0.0123093650030195,5,42,V2
+Clasificación,GaussianNB,genetica,adasyn,Evaluada,AUC,0.568834555482008,0.0126201781222489,5,42,V2
+Clasificación,GaussianNB,genetica,pesos,Evaluada,AUC,0.5781143383701643,0.0121679341105981,5,42,V2
+Clasificación,GaussianNB,genetica,sin_balanceo,Evaluada,AUC,0.5781145111688157,0.0121678113888434,5,42,V2
+Clasificación,GaussianNB,genetica,smote,Evaluada,AUC,0.5689040208326058,0.0122901109753994,5,42,V2
+Clasificación,GaussianNB,grid,adasyn,Evaluada,AUC,0.5688419632760917,0.0126369964596185,5,42,V2
+Clasificación,GaussianNB,grid,pesos,Evaluada,AUC,0.5782395723475542,0.0122584474449674,5,42,V2
+Clasificación,GaussianNB,grid,sin_balanceo,Evaluada,AUC,0.5782396775291696,0.0122583420015263,5,42,V2
+Clasificación,GaussianNB,grid,smote,Evaluada,AUC,0.5689292208283588,0.0123057013749028,5,42,V2
+Clasificación,GaussianNB,random,adasyn,Evaluada,AUC,0.568833856480106,0.0126204930421924,5,42,V2
+Clasificación,GaussianNB,random,pesos,Evaluada,AUC,0.5781174927978397,0.0121772555984557,5,42,V2
+Clasificación,GaussianNB,random,sin_balanceo,Evaluada,AUC,0.5781176054915782,0.0121771399255694,5,42,V2
+Clasificación,GaussianNB,random,smote,Evaluada,AUC,0.5689069067197204,0.0122817790801489,5,42,V2
+Clasificación,KNN,bayes,adasyn,Evaluada,AUC,0.583995839056744,0.0106392700864169,5,42,V2
+Clasificación,KNN,bayes,sin_balanceo,Evaluada,AUC,0.597011747262381,0.0110809872519219,5,42,V2
+Clasificación,KNN,bayes,smote,Evaluada,AUC,0.5874979706750788,0.0105454091446696,5,42,V2
+Clasificación,KNN,genetica,adasyn,Evaluada,AUC,0.5789380952457713,0.0132896563300894,5,42,V2
+Clasificación,KNN,genetica,sin_balanceo,Evaluada,AUC,0.5931629165087567,0.0139453015981334,5,42,V2
+Clasificación,KNN,genetica,smote,Evaluada,AUC,0.5826342874123698,0.012450837427513,5,42,V2
+Clasificación,KNN,grid,adasyn,Evaluada,AUC,0.583989951922842,0.0105488614779048,5,42,V2
+Clasificación,KNN,grid,sin_balanceo,Evaluada,AUC,0.5969241472813944,0.0110120783633307,5,42,V2
+Clasificación,KNN,grid,smote,Evaluada,AUC,0.5874855135493419,0.0104910847540289,5,42,V2
+Clasificación,KNN,random,adasyn,Evaluada,AUC,0.583989951922842,0.0105488614779048,5,42,V2
+Clasificación,KNN,random,sin_balanceo,Evaluada,AUC,0.5969241472813944,0.0110120783633307,5,42,V2
+Clasificación,KNN,random,smote,Evaluada,AUC,0.5874855135493419,0.0104910847540289,5,42,V2
+Clasificación,Logistica_L1_L2,bayes,adasyn,Evaluada,AUC,0.604798757588468,0.0101200708879518,5,42,V2
+Clasificación,Logistica_L1_L2,bayes,pesos,Evaluada,AUC,0.6062342343235263,0.0104432638599745,5,42,V2
+Clasificación,Logistica_L1_L2,bayes,sin_balanceo,Evaluada,AUC,0.606075356023221,0.0107905564118354,5,42,V2
+Clasificación,Logistica_L1_L2,bayes,smote,Evaluada,AUC,0.6055250971955025,0.0102927738139437,5,42,V2
+Clasificación,Logistica_L1_L2,genetica,adasyn,Evaluada,AUC,0.6034555440492403,0.011180839636748,5,42,V2
+Clasificación,Logistica_L1_L2,genetica,pesos,Evaluada,AUC,0.6060974896930764,0.0104217248111542,5,42,V2
+Clasificación,Logistica_L1_L2,genetica,sin_balanceo,Evaluada,AUC,0.605781515856993,0.0107559013840931,5,42,V2
+Clasificación,Logistica_L1_L2,genetica,smote,Evaluada,AUC,0.6044187302263987,0.0106926995065247,5,42,V2
+Clasificación,Logistica_L1_L2,grid,adasyn,Evaluada,AUC,0.6051885153892556,0.0099622792976831,5,42,V2
+Clasificación,Logistica_L1_L2,grid,pesos,Evaluada,AUC,0.6063078977051619,0.0106709866695177,5,42,V2
+Clasificación,Logistica_L1_L2,grid,sin_balanceo,Evaluada,AUC,0.6061728325439755,0.0107327740367966,5,42,V2
+Clasificación,Logistica_L1_L2,grid,smote,Evaluada,AUC,0.6057964229756554,0.0098469008741496,5,42,V2
+Clasificación,Logistica_L1_L2,random,adasyn,Evaluada,AUC,0.6047080258860592,0.0101383507780251,5,42,V2
+Clasificación,Logistica_L1_L2,random,pesos,Evaluada,AUC,0.6062012973630129,0.0103644226798852,5,42,V2
+Clasificación,Logistica_L1_L2,random,sin_balanceo,Evaluada,AUC,0.605893227975679,0.0108382633445302,5,42,V2
+Clasificación,Logistica_L1_L2,random,smote,Evaluada,AUC,0.6053742976543457,0.0100427386664869,5,42,V2
+Clasificación,RandomForest,bayes,adasyn,Evaluada,AUC,0.5969695528682142,0.0119918333297326,5,42,V2
+Clasificación,RandomForest,bayes,pesos,Evaluada,AUC,0.6033439579937022,0.0107424508355997,5,42,V2
+Clasificación,RandomForest,bayes,sin_balanceo,Evaluada,AUC,0.6045857626434378,0.0100812602903269,5,42,V2
+Clasificación,RandomForest,bayes,smote,Evaluada,AUC,0.5993479592432682,0.0118704990869944,5,42,V2
+Clasificación,RandomForest,genetica,adasyn,Evaluada,AUC,0.5970205356482697,0.0104041610648167,5,42,V2
+Clasificación,RandomForest,genetica,pesos,Evaluada,AUC,0.6038781154285802,0.010202068468495,5,42,V2
+Clasificación,RandomForest,genetica,sin_balanceo,Evaluada,AUC,0.6041899196179893,0.0114090995411365,5,42,V2
+Clasificación,RandomForest,genetica,smote,Evaluada,AUC,0.5990781884623799,0.0119950907096288,5,42,V2
+Clasificación,RandomForest,grid,adasyn,Evaluada,AUC,0.5965562376755471,0.0107008560151287,5,42,V2
+Clasificación,RandomForest,grid,pesos,Evaluada,AUC,0.6034072701668873,0.0107277584130648,5,42,V2
+Clasificación,RandomForest,grid,sin_balanceo,Evaluada,AUC,0.6051003863226184,0.0111874905329625,5,42,V2
+Clasificación,RandomForest,grid,smote,Evaluada,AUC,0.5993554413178401,0.0118655296269929,5,42,V2
+Clasificación,RandomForest,random,adasyn,Evaluada,AUC,0.5965562376755471,0.0107008560151287,5,42,V2
+Clasificación,RandomForest,random,pesos,Evaluada,AUC,0.6034072701668873,0.0107277584130648,5,42,V2
+Clasificación,RandomForest,random,sin_balanceo,Evaluada,AUC,0.6051003863226184,0.0111874905329625,5,42,V2
+Clasificación,RandomForest,random,smote,Evaluada,AUC,0.5993554413178401,0.0118655296269929,5,42,V2
+Clasificación,SVM,bayes,adasyn,Evaluada,AUC,0.6046508151905304,0.0109379957199289,5,42,V2
+Clasificación,SVM,bayes,pesos,Evaluada,AUC,0.605537083218445,0.010973943685907,5,42,V2
+Clasificación,SVM,bayes,sin_balanceo,Evaluada,AUC,0.6048929388059262,0.0111682669491888,5,42,V2
+Clasificación,SVM,bayes,smote,Evaluada,AUC,0.6051208255207898,0.0103725548499086,5,42,V2
+Clasificación,SVM,genetica,adasyn,Evaluada,AUC,0.604806206319376,0.0106669796474363,5,42,V2
+Clasificación,SVM,genetica,pesos,Evaluada,AUC,0.6056170810298539,0.0110352940591415,5,42,V2
+Clasificación,SVM,genetica,sin_balanceo,Evaluada,AUC,0.6052142066622489,0.0108760089046882,5,42,V2
+Clasificación,SVM,genetica,smote,Evaluada,AUC,0.6049265115583851,0.0105085165686187,5,42,V2
+Clasificación,SVM,grid,adasyn,Evaluada,AUC,0.6043108542068505,0.0108646810242369,5,42,V2
+Clasificación,SVM,grid,pesos,Evaluada,AUC,0.6054976804740765,0.0110008681219672,5,42,V2
+Clasificación,SVM,grid,sin_balanceo,Evaluada,AUC,0.6050872339917671,0.0110004861377253,5,42,V2
+Clasificación,SVM,grid,smote,Evaluada,AUC,0.6051153070379869,0.0103386274140804,5,42,V2
+Clasificación,SVM,random,adasyn,Evaluada,AUC,0.6048019640343473,0.0108915448245404,5,42,V2
+Clasificación,SVM,random,pesos,Evaluada,AUC,0.6055403089131562,0.0110701392867468,5,42,V2
+Clasificación,SVM,random,sin_balanceo,Evaluada,AUC,0.6050828957687348,0.0110482419248079,5,42,V2
+Clasificación,SVM,random,smote,Evaluada,AUC,0.6049719479162395,0.0103286212631557,5,42,V2
+Clasificación,XGBoost,bayes,adasyn,Evaluada,AUC,0.5956208838913779,0.0096524587159642,5,42,V2
+Clasificación,XGBoost,bayes,pesos,Evaluada,AUC,0.6061861287676893,0.0083691061487121,5,42,V2
+Clasificación,XGBoost,bayes,sin_balanceo,Evaluada,AUC,0.6056721304597911,0.0076727166514437,5,42,V2
+Clasificación,XGBoost,bayes,smote,Evaluada,AUC,0.598119557407174,0.0094921433727393,5,42,V2
+Clasificación,XGBoost,genetica,adasyn,Evaluada,AUC,0.593472573676594,0.0079408610079948,5,42,V2
+Clasificación,XGBoost,genetica,pesos,Evaluada,AUC,0.6061848239494712,0.00874289454773,5,42,V2
+Clasificación,XGBoost,genetica,sin_balanceo,Evaluada,AUC,0.6058100764854155,0.0080827047603804,5,42,V2
+Clasificación,XGBoost,genetica,smote,Evaluada,AUC,0.5985164033827493,0.0092623257054295,5,42,V2
+Clasificación,XGBoost,grid,adasyn,Evaluada,AUC,0.596388499130262,0.0077506530573063,5,42,V2
+Clasificación,XGBoost,grid,pesos,Evaluada,AUC,0.6061163979766163,0.0084209746215213,5,42,V2
+Clasificación,XGBoost,grid,sin_balanceo,Evaluada,AUC,0.605568334601149,0.0081661937687758,5,42,V2
+Clasificación,XGBoost,grid,smote,Evaluada,AUC,0.5975742837241454,0.0086792851441183,5,42,V2
+Clasificación,XGBoost,random,adasyn,Evaluada,AUC,0.5965513907237948,0.0077580217464173,5,42,V2
+Clasificación,XGBoost,random,pesos,Evaluada,AUC,0.6063045967650345,0.0088151669632824,5,42,V2
+Clasificación,XGBoost,random,sin_balanceo,Evaluada,AUC,0.6055022264483932,0.0075217685435585,5,42,V2
+Clasificación,XGBoost,random,smote,Evaluada,AUC,0.5994278524009669,0.0088988591991199,5,42,V2
+Clasificación,KNN,grid,pesos,Inaplicable: class_weight no disponible; distance no lo sustituye,AUC,,,0,42,V2
+Clasificación,KNN,random,pesos,Inaplicable: class_weight no disponible; distance no lo sustituye,AUC,,,0,42,V2
+Clasificación,KNN,bayes,pesos,Inaplicable: class_weight no disponible; distance no lo sustituye,AUC,,,0,42,V2
+Clasificación,KNN,genetica,pesos,Inaplicable: class_weight no disponible; distance no lo sustituye,AUC,,,0,42,V2
+Regresión auxiliar,XGBoost,random,No aplica,Evaluada,RMSE,19.125032698607356,0.9151487727048048,5,42,Regresión 23/10
+Regresión auxiliar,XGBoost,bayes,No aplica,Evaluada,RMSE,19.125032698607356,0.9151487727048048,5,42,Regresión 23/10
+Regresión auxiliar,XGBoost,grid,No aplica,Evaluada,RMSE,19.125032698607356,0.9151487727048048,5,42,Regresión 23/10
+Regresión auxiliar,RandomForest,grid,No aplica,Evaluada,RMSE,19.1370888418297,0.9176415061928354,5,42,Regresión 23/10
+Regresión auxiliar,RandomForest,bayes,No aplica,Evaluada,RMSE,19.1370888418297,0.9176415061928354,5,42,Regresión 23/10
+Regresión auxiliar,RandomForest,random,No aplica,Evaluada,RMSE,19.15014667166732,0.9222319277581796,5,42,Regresión 23/10
+Regresión auxiliar,RandomForest,genetica,No aplica,Evaluada,RMSE,19.16208182596304,0.9270485516669712,5,42,Regresión 23/10
+Regresión auxiliar,XGBoost,genetica,No aplica,Evaluada,RMSE,19.21005697838523,0.915970856476112,5,42,Regresión 23/10
+Regresión auxiliar,Lasso,bayes,No aplica,Evaluada,RMSE,19.34793752732374,0.9586120854925188,5,42,Regresión 23/10
+Regresión auxiliar,Lasso,grid,No aplica,Evaluada,RMSE,19.34870576707018,0.9570310214694502,5,42,Regresión 23/10
+Regresión auxiliar,Ridge,grid,No aplica,Evaluada,RMSE,19.34996812572409,0.9576600171849916,5,42,Regresión 23/10
+Regresión auxiliar,Ridge,genetica,No aplica,Evaluada,RMSE,19.35026774335079,0.9599731969431468,5,42,Regresión 23/10
+Regresión auxiliar,Ridge,bayes,No aplica,Evaluada,RMSE,19.35067810315515,0.956730748148952,5,42,Regresión 23/10
+Regresión auxiliar,Ridge,random,No aplica,Evaluada,RMSE,19.350809118980415,0.9590782062842916,5,42,Regresión 23/10
+Regresión auxiliar,SVR_lineal,genetica,No aplica,Evaluada,RMSE,19.352154637970973,0.952694587968016,5,42,Regresión 23/10
+Regresión auxiliar,SVR_lineal,grid,No aplica,Evaluada,RMSE,19.35276492644946,0.9545444308807718,5,42,Regresión 23/10
+Regresión auxiliar,SVR_lineal,bayes,No aplica,Evaluada,RMSE,19.35327603205307,0.9525518084800724,5,42,Regresión 23/10
+Regresión auxiliar,SVR_lineal,random,No aplica,Evaluada,RMSE,19.357299831025536,0.9572711268805676,5,42,Regresión 23/10
+Regresión auxiliar,Lasso,random,No aplica,Evaluada,RMSE,19.3580982293317,0.963586453036548,5,42,Regresión 23/10
+Regresión auxiliar,Lasso,genetica,No aplica,Evaluada,RMSE,19.36573487764787,0.9366308277755654,5,42,Regresión 23/10
+Regresión auxiliar,KNN,genetica,No aplica,Evaluada,RMSE,19.475782342976167,0.9444476127015368,5,42,Regresión 23/10
+Regresión auxiliar,KNN,bayes,No aplica,Evaluada,RMSE,19.479094031893528,0.9381343761841592,5,42,Regresión 23/10
+Regresión auxiliar,KNN,grid,No aplica,Evaluada,RMSE,19.479094031893528,0.9381343761841592,5,42,Regresión 23/10
+Regresión auxiliar,KNN,random,No aplica,Evaluada,RMSE,19.48164858513885,0.9365843363388604,5,42,Regresión 23/10
+Regresión auxiliar,DecisionTree,grid,No aplica,Evaluada,RMSE,19.75253938300143,0.91429717779292,5,42,Regresión 23/10
+Regresión auxiliar,DecisionTree,genetica,No aplica,Evaluada,RMSE,19.763099397081437,0.9192519228520066,5,42,Regresión 23/10
+Regresión auxiliar,DecisionTree,bayes,No aplica,Evaluada,RMSE,19.76843911295064,0.9272977108120628,5,42,Regresión 23/10
+Regresión auxiliar,DecisionTree,random,No aplica,Evaluada,RMSE,19.76963747217963,0.9247352827779066,5,42,Regresión 23/10
+Clasificación,Propio,grid,sin_balanceo,Evaluada,AUC,0.605062470558916,0.00727479727491907,5,42,V1

@@ -1,0 +1,18 @@
+{
+  "grids": [
+    {
+      "learning_rate": 0.02,
+      "interactions": 0
+    },
+    {
+      "learning_rate": 0.02,
+      "interactions": 5
+    }
+  ],
+  "version_interpret": "0.7.8",
+  "max_rounds": 500,
+  "outer_bags": 1,
+  "validation_size": 0,
+  "presupuesto": "Dos candidatos, dos folds internos; mismos tres folds externos y tres semillas que las otras ocho familias",
+  "limite": "Referencia moderna acotada, no búsqueda exhaustiva ni prueba de mejor estado del arte."
+}

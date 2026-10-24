@@ -1,0 +1,18 @@
+{
+  "verificacion": "243 evaluaciones y sus AUC/AP/balanced accuracy, filas, objetivos y grupos comprobados; particiones reconstruidas desde los datos fuente originales.",
+  "datasets": 3,
+  "semillas": [
+    42,
+    43,
+    44
+  ],
+  "modelos": 9,
+  "presupuesto": "Dos candidatos, dos folds internos y tres externos por semilla. EBM: 500 rondas fijas, una bolsa.",
+  "limites": [
+    "Desviación de tres medias por semilla; no intervalo de confianza ni réplicas independientes.",
+    "Filtro común de cuantiles limita la representación, especialmente en Spambase; se reporta el número de variables conservadas.",
+    "El adaptador añade cinco columnas categóricas constantes al propio por su esquema específico; no aportan señal de etiqueta.",
+    "Comparación de EBM restringida; no acredita dominio de todo el estado del arte.",
+    "Cada base se entrena por separado; no demuestra que un modelo de caries generalice a otras poblaciones clínicas."
+  ]
+}

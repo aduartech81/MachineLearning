@@ -1,0 +1,12 @@
+{
+  "alcance": "Sensibilidad exploratoria. DeLong clásico trata filas como independientes: supuesto no satisfecho por perfiles repetidos y entrenamiento solapado. No usar sus p como confirmación.",
+  "estimando_delong": "AUC OOF agrupado, no promedio de AUC de folds del análisis principal.",
+  "comparaciones": "Los mismos diez contrastes del bootstrap previo; selección ya exploratoria.",
+  "multiplicidad": "Holm de diez como referencia; BH de diez secundario. No intercambiar selectivamente.",
+  "efectos": "Cliff describe dominancia marginal 5x5 y no respeta pareamiento; se acompaña de biserial de rangos pareados y dz. Sólo cinco folds dependientes: no se calculan IC ni etiquetas de magnitud universales.",
+  "conclusion": "El bootstrap agrupado de perfiles continúa siendo el análisis principal condicional. Ningún análisis incorpora toda la variabilidad de entrenamiento.",
+  "referencias": [
+    "https://pubmed.ncbi.nlm.nih.gov/3203132/",
+    "https://doi.org/10.1037/0033-2909.114.3.494"
+  ]
+}

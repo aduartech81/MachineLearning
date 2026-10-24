@@ -1,0 +1,23 @@
+[
+  {
+    "nombre": "WDBC",
+    "url": "https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic",
+    "n": 569,
+    "predictores": 30,
+    "sha256": "e1bd6f6ac049d3ede11b8d0fa35733a036771adde35066ce8a29cb453a7dbf06"
+  },
+  {
+    "nombre": "Banknote",
+    "url": "https://archive.ics.uci.edu/static/public/267/banknote+authentication.zip",
+    "n": 1372,
+    "predictores": 4,
+    "sha256": "dad35a467027605796513bd17d68d1e6af0a9d735accacce51502ecdbe7b00b5"
+  },
+  {
+    "nombre": "Spambase",
+    "url": "https://archive.ics.uci.edu/static/public/94/spambase.zip",
+    "n": 4601,
+    "predictores": 57,
+    "sha256": "d5dd089dd8699c12b23853150c6aa69a99fc8391a8e22422df1bbf2c0a4090eb"
+  }
+]

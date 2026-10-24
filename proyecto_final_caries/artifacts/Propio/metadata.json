@@ -1,0 +1,382 @@
+{
+  "familia": "Propio",
+  "semilla": 42,
+  "hiperparametros_finales": {
+    "alpha": 0.25,
+    "l2": 0.01,
+    "max_interactions": 5,
+    "max_iter": 300,
+    "n_knots": 5,
+    "n_pairs": 20000,
+    "random_state": 42,
+    "stability_repeats": 5,
+    "stability_threshold": 0.6,
+    "tol": 1e-06
+  },
+  "esquema": {
+    "gender": {
+      "tipo": "categoria",
+      "ejemplo": "M",
+      "min": null,
+      "max": null,
+      "valores": [
+        "F",
+        "M"
+      ]
+    },
+    "age": {
+      "tipo": "numero",
+      "ejemplo": 40.0,
+      "min": 20.0,
+      "max": 85.0,
+      "valores": null
+    },
+    "height(cm)": {
+      "tipo": "numero",
+      "ejemplo": 165.0,
+      "min": 135.0,
+      "max": 190.0,
+      "valores": null
+    },
+    "weight(kg)": {
+      "tipo": "numero",
+      "ejemplo": 65.0,
+      "min": 30.0,
+      "max": 135.0,
+      "valores": null
+    },
+    "waist(cm)": {
+      "tipo": "numero",
+      "ejemplo": 82.0,
+      "min": 51.0,
+      "max": 129.0,
+      "valores": null
+    },
+    "eyesight(left)": {
+      "tipo": "numero",
+      "ejemplo": 1.0,
+      "min": 0.1,
+      "max": 9.9,
+      "valores": null
+    },
+    "eyesight(right)": {
+      "tipo": "numero",
+      "ejemplo": 1.0,
+      "min": 0.1,
+      "max": 9.9,
+      "valores": null
+    },
+    "hearing(left)": {
+      "tipo": "numero",
+      "ejemplo": 1.0,
+      "min": 1.0,
+      "max": 2.0,
+      "valores": [
+        1,
+        2
+      ]
+    },
+    "hearing(right)": {
+      "tipo": "numero",
+      "ejemplo": 1.0,
+      "min": 1.0,
+      "max": 2.0,
+      "valores": [
+        1,
+        2
+      ]
+    },
+    "systolic": {
+      "tipo": "numero",
+      "ejemplo": 120.0,
+      "min": 71.0,
+      "max": 240.0,
+      "valores": null
+    },
+    "relaxation": {
+      "tipo": "numero",
+      "ejemplo": 76.0,
+      "min": 40.0,
+      "max": 146.0,
+      "valores": null
+    },
+    "fasting blood sugar": {
+      "tipo": "numero",
+      "ejemplo": 96.0,
+      "min": 46.0,
+      "max": 505.0,
+      "valores": null
+    },
+    "Cholesterol": {
+      "tipo": "numero",
+      "ejemplo": 195.0,
+      "min": 72.0,
+      "max": 445.0,
+      "valores": null
+    },
+    "triglyceride": {
+      "tipo": "numero",
+      "ejemplo": 107.0,
+      "min": 8.0,
+      "max": 999.0,
+      "valores": null
+    },
+    "HDL": {
+      "tipo": "numero",
+      "ejemplo": 55.0,
+      "min": 4.0,
+      "max": 618.0,
+      "valores": null
+    },
+    "LDL": {
+      "tipo": "numero",
+      "ejemplo": 113.0,
+      "min": 1.0,
+      "max": 1860.0,
+      "valores": null
+    },
+    "hemoglobin": {
+      "tipo": "numero",
+      "ejemplo": 14.8,
+      "min": 4.9,
+      "max": 21.1,
+      "valores": null
+    },
+    "Urine protein": {
+      "tipo": "numero",
+      "ejemplo": 1.0,
+      "min": 1.0,
+      "max": 6.0,
+      "valores": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "serum creatinine": {
+      "tipo": "numero",
+      "ejemplo": 0.9,
+      "min": 0.1,
+      "max": 11.6,
+      "valores": null
+    },
+    "AST": {
+      "tipo": "numero",
+      "ejemplo": 23.0,
+      "min": 7.0,
+      "max": 1311.0,
+      "valores": null
+    },
+    "ALT": {
+      "tipo": "numero",
+      "ejemplo": 21.0,
+      "min": 1.0,
+      "max": 2914.0,
+      "valores": null
+    },
+    "Gtp": {
+      "tipo": "numero",
+      "ejemplo": 25.0,
+      "min": 1.0,
+      "max": 999.0,
+      "valores": null
+    },
+    "smoking": {
+      "tipo": "categoria",
+      "ejemplo": "N",
+      "min": null,
+      "max": null,
+      "valores": [
+        "N",
+        "Y"
+      ]
+    }
+  },
+  "columnas": [
+    "gender",
+    "age",
+    "height(cm)",
+    "weight(kg)",
+    "waist(cm)",
+    "eyesight(left)",
+    "eyesight(right)",
+    "hearing(left)",
+    "hearing(right)",
+    "systolic",
+    "relaxation",
+    "fasting blood sugar",
+    "Cholesterol",
+    "triglyceride",
+    "HDL",
+    "LDL",
+    "hemoglobin",
+    "Urine protein",
+    "serum creatinine",
+    "AST",
+    "ALT",
+    "Gtp",
+    "smoking"
+  ],
+  "versiones": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "xgboost": "3.2.0",
+    "joblib": "1.6.0",
+    "imbalanced-learn": "0.14.2"
+  },
+  "metricas_externas_historicas": {
+    "auc_mean": 0.605062470558916,
+    "auc_std": 0.00727479727491907,
+    "version": "V1"
+  },
+  "artefacto_sha256": "25779d16d235827fa84dc27c07a0464edd1713d555f9c87489ae3f04a5a6c288",
+  "n_ajuste": 44582,
+  "regla_consolidacion": "Mejor configuración por media externa; parámetros modales de los cinco folds internos, empate lexicográfico. Propio: parámetros modales V1.",
+  "roundtrip": {
+    "casos": 128,
+    "ids_desarrollo": [
+      328,
+      1660,
+      1949,
+      2839,
+      3022,
+      3399,
+      3530,
+      3821,
+      3967,
+      4098,
+      4187,
+      4330,
+      5105,
+      5697,
+      5785,
+      6226,
+      6231,
+      6867,
+      7156,
+      7351,
+      8119,
+      8436,
+      8662,
+      8907,
+      8957,
+      10104,
+      10108,
+      10672,
+      10941,
+      12313,
+      12349,
+      12845,
+      13913,
+      14505,
+      14703,
+      15775,
+      16196,
+      16321,
+      16491,
+      16493,
+      17261,
+      17899,
+      18290,
+      19251,
+      19386,
+      19468,
+      19511,
+      19595,
+      19724,
+      19833,
+      20030,
+      20038,
+      20452,
+      20613,
+      20772,
+      20906,
+      21000,
+      21014,
+      21183,
+      22156,
+      22253,
+      22534,
+      22823,
+      23409,
+      24262,
+      24328,
+      24672,
+      24763,
+      25138,
+      25198,
+      25348,
+      28049,
+      28105,
+      28369,
+      28639,
+      29100,
+      29172,
+      29627,
+      29794,
+      29829,
+      30169,
+      30405,
+      30406,
+      30568,
+      31006,
+      31171,
+      31189,
+      31424,
+      31905,
+      32716,
+      33089,
+      33153,
+      33731,
+      33819,
+      33846,
+      34105,
+      34202,
+      34406,
+      34641,
+      34763,
+      34773,
+      34793,
+      34956,
+      35065,
+      35427,
+      35506,
+      35849,
+      35863,
+      36598,
+      36822,
+      37072,
+      37085,
+      37102,
+      37346,
+      37494,
+      38118,
+      38173,
+      38186,
+      39501,
+      39745,
+      40008,
+      40315,
+      41066,
+      41220,
+      41876,
+      43071,
+      43196,
+      43382
+    ],
+    "exactamente_iguales": true,
+    "alcance": "Verificación técnica de serialización sobre un conjunto fijo de desarrollo; no estimación de generalización."
+  },
+  "calibracion": "No se ajustó calibrador final nuevo; salida original de cada algoritmo.",
+  "limites": [
+    "La selección por CV externa está expuesta a sesgo de selección; no es una nueva prueba independiente.",
+    "Reajuste sobre todo desarrollo; test histórico no consultado.",
+    "Resultados de evaluación son históricos; artefactos finales no tienen evaluación externa nueva.",
+    "Score/sigmoide originales; calibración y umbral de despliegue clínico no establecidos."
+  ]
+}

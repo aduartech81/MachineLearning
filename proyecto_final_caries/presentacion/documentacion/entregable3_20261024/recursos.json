@@ -1,0 +1,502 @@
+{
+  "_downloads/0282fb6280ff3d3dd8bb6af4e4e3eb84/explicacion_metodo.json": {
+    "archivo": "_static/entregable3/explicacion_metodo.json",
+    "sha256": "afadbc1c16a046d10deb13ef9f859d906c03d17388c760442f780d0269bd4e27"
+  },
+  "_downloads/0473944dd7d73d490ae1e6b4f7af2e6a/metodo_contrastes.json": {
+    "archivo": "_static/recuperacion_v2/metodo_contrastes.json",
+    "sha256": "5c85ec438b020ac65ca12c6f0d55a50ffe3eae7c359723bc3b75e7c7db8ddb5c"
+  },
+  "_downloads/0579748711c9d8329f22006c1c5bc4b1/interpretacion.md": {
+    "archivo": "_static/recuperacion_v2/interpretacion.md",
+    "sha256": "0cff2c16f1d61685793562248111f8a40b48f98d36fad0da9d705eb72f312a97"
+  },
+  "_downloads/0bcd364391121d91549a1f65d898cd50/ajustes_internos.csv.gz": {
+    "archivo": "_static/recuperacion_v2/ajustes_internos.csv.gz",
+    "sha256": "6d87aab60448d486d3c7ef57fbb532642b8c1c9c76fd9f1d66f4174447f45d51"
+  },
+  "_downloads/126acb061b7c4adeb06bc320ff02e370/pareado_metodo.json": {
+    "archivo": "_static/entregable3/pareado_metodo.json",
+    "sha256": "04f384723ac03d24ff767054bc3ee133f59c8b35f5002c52834021ca7f7a2711"
+  },
+  "_downloads/14618a3b38a5c56bdf11d44a4dd79d59/calibracion_antes_despues.png": {
+    "archivo": "_static/recuperacion_v2/calibracion_antes_despues.png",
+    "sha256": "ef8ec822e5b960affe4bafbe1e64c2544433f90daa196e857f1ec5de93f2fac5"
+  },
+  "_downloads/220dadf1453d789931e2ee86d65b4f15/explicacion_local_propio.csv": {
+    "archivo": "_static/entregable3/explicacion_local_propio.csv",
+    "sha256": "03f5c01e40116572ab4050b996b1c54528a58575ea3d4911e48b3f667f8cda70"
+  },
+  "_downloads/2b03aae020ae147847970e391b36a2a5/complejidad_27_ajustes.csv": {
+    "archivo": "_static/entregable3/complejidad_27_ajustes.csv",
+    "sha256": "9f3fc1ab629bcc8888108fe5495c827e7e8912a94c2c23f49127eda439c2e365"
+  },
+  "_downloads/2ddb6d91563a0c7cb9c588348390716a/presupuesto_efectivo.csv": {
+    "archivo": "_static/recuperacion_v2/presupuesto_efectivo.csv",
+    "sha256": "1b20846883873db79436da955ee90d3f24ccab18c9bf9eb705728e2ff78bf9f2"
+  },
+  "_downloads/2edf914ca930a33f4376283270eb50cb/delong_y_efectos_sensibilidad.csv": {
+    "archivo": "_static/recuperacion_v2/delong_y_efectos_sensibilidad.csv",
+    "sha256": "f8cfc39807ca2906683337a5d45c298b7a6632eafc14dd50a125c6926aadd511"
+  },
+  "_downloads/305a7a9cd21464c9bf4f83f19381d750/calibracion_bins.csv": {
+    "archivo": "_static/recuperacion_v2/calibracion_bins.csv",
+    "sha256": "ff00a5db0c29f355577eab3b5ae430198006a604f26125c586ff1413ab54f068"
+  },
+  "_downloads/423cae7c66b1b208a8ed55c03bc022ec/robustez_81.csv": {
+    "archivo": "_static/entregable3/robustez_81.csv",
+    "sha256": "baa181e68a92d0bcc6080b2888991e0c5b57d7fd5b7418c90abc13e842d86270"
+  },
+  "_downloads/43726adcec6dfe60c243615404128c3e/seleccion_estadistica.json": {
+    "archivo": "_static/entregable3/seleccion_estadistica.json",
+    "sha256": "f9c9b999de56f1867436a4632989c4a82c6f46b5a298c9a315ccdefa36e226b2"
+  },
+  "_downloads/44cb8899c5e2ee3f977a8ae5ee315491/trazabilidad_42_e3.csv": {
+    "archivo": "_static/entregable3/trazabilidad_42_e3.csv",
+    "sha256": "7a1a7c1bf0b3b79c79dc68656bc31a3ca565497efa32811a461fb628324658c1"
+  },
+  "_downloads/63d911335c73236e5c9bdb194541b667/decisiones_solo_validacion_interna.csv": {
+    "archivo": "_static/proyecto_final_caries_v2/comparacion/decisiones_solo_validacion_interna.csv",
+    "sha256": "fa15230977b41c3a6d13b3ef5e4474fa185c0fb6551483f99a809d0618d0c2dd"
+  },
+  "_downloads/661856866af07800482bfc8194b0b8ac/vectorizacion_metodo.json": {
+    "archivo": "_static/entregable3/vectorizacion_metodo.json",
+    "sha256": "539c41c9ec192eb6ee25315a1b1437b22110e79eae58e08149f5e9f001d405d3"
+  },
+  "_downloads/71635b9c50aa15ae985b6ddf6b3b1d16/diccionario.csv": {
+    "archivo": "_static/caries_diccionario/diccionario.csv",
+    "sha256": "cc3a605d5da45384481776676212e1b5a88c2778c7175326da3ae0ff5416657a"
+  },
+  "_downloads/72354533da1e395570224650533f82e3/tiempos_finalistas.csv": {
+    "archivo": "_static/recuperacion_v2/tiempos_finalistas.csv",
+    "sha256": "8c9baca41306e60b484f4b4c2a90164e1c06e09c2d8e2a3fc204138404a63ae2"
+  },
+  "_downloads/795ef3aa591a51653a44b987d8105ad6/historial_propuestas.csv.gz": {
+    "archivo": "_static/recuperacion_v2/historial_propuestas.csv.gz",
+    "sha256": "6face439a867d0b8f13add5020e11ee2e6339e8a2cc724181efb84353ac5f7f3"
+  },
+  "_downloads/7b122e07074bc3a8724a2ef955c06e2c/codigo_ejecucion_v2.zip": {
+    "archivo": "_static/recuperacion_v2/codigo_ejecucion_v2.zip",
+    "sha256": "9771b077fad041f8c131096c1cd1f8ac473c395ce0ddd2eac61d73a5d40c7019"
+  },
+  "_downloads/8442ff050b960464f0fa3e0cdeb93ffb/veredicto_novedad.json": {
+    "archivo": "_static/entregable3/veredicto_novedad.json",
+    "sha256": "2c25dfb1c8a60631df36db0a06b6de138f5a16804e8d0758078d15a7cb24f634"
+  },
+  "_downloads/89730c74277c43c6439e51d8169024ad/pareado_pruebas_pareadas.csv": {
+    "archivo": "_static/entregable3/pareado_pruebas_pareadas.csv",
+    "sha256": "5464adf1bced78a3310b209ec4886566799a25446249bcada14aefe36cdeccbb"
+  },
+  "_downloads/8d2b62a7f9d2c4bf1316557babee5313/seleccion_7_referencias.csv": {
+    "archivo": "_static/entregable3/seleccion_7_referencias.csv",
+    "sha256": "907051b719ceffe63bd1fccc8b0a9d67c63435865354c4cf37e9b67faf089c37"
+  },
+  "_downloads/8e1e48112b5ebacf615e4370d826a2d6/adicionales_metodo.json": {
+    "archivo": "_static/entregable3/adicionales_metodo.json",
+    "sha256": "d4e397a0d29b5cb0a68b2c34047d624f9cb570cf554b18d9ef15a09e7f2c561d"
+  },
+  "_downloads/955ad4deb33bc24b479b7aef137fc15b/tiempos_evaluaciones_540.csv": {
+    "archivo": "_static/recuperacion_v2/tiempos_evaluaciones_540.csv",
+    "sha256": "e7336972b06f09c551d1fc65bf23590294ab46d5da77d1633df7f041c27d03b0"
+  },
+  "_downloads/96cafcadbf6d43fce3689a11184d553c/adicionales_243_folds.csv": {
+    "archivo": "_static/entregable3/adicionales_243_folds.csv",
+    "sha256": "3e9bd2395161a96b91dc4f45e17db2653b6da0104e997d56215d37cd2668a58b"
+  },
+  "_downloads/a05c5114a3d451d663746dfdd8034b4e/costes_108_configuraciones.csv": {
+    "archivo": "_static/recuperacion_v2/costes_108_configuraciones.csv",
+    "sha256": "62b941b199b2a825acb9f0ac6402732081866a3defc8663a37bbb2e22b78b6fc"
+  },
+  "_downloads/aa509e398410cdc8f4a9747fc94c3c48/matriz_busquedas.csv": {
+    "archivo": "_static/entregable3/matriz_busquedas.csv",
+    "sha256": "419e5530ad3766bd4190b64ad16fa73216c7623a4654bc5ad01b86a79ce71ce0"
+  },
+  "_downloads/ab5f4f1af22e4c2eadc53510b96ea284/metodo.json": {
+    "archivo": "_static/proyecto_final_caries_v2/contrastes/metodo.json",
+    "sha256": "1964078cb441a7b5b919be1ddb2066d90545d44726a34052b090f6e3f8dff850"
+  },
+  "_downloads/b62693cb9c073ceaac7bb4b1fafe3874/calibracion_antes_despues.csv": {
+    "archivo": "_static/recuperacion_v2/calibracion_antes_despues.csv",
+    "sha256": "bfc4b74a556d7bc8352feb58fca74ac3dc666b2925a257c68aa95112feb2af54"
+  },
+  "_downloads/bd78b9ea0557eb01efb69d5c676458e6/tabla_maestra_140_nominales_y_propio.csv": {
+    "archivo": "_static/entregable3/tabla_maestra_140_nominales_y_propio.csv",
+    "sha256": "585e2062e09f4c04f1a55e5c934b5606cdebced32ee6d644990ce198baff9ca8"
+  },
+  "_downloads/bef70770c606c78951bd216bc51db97b/auditoria.json": {
+    "archivo": "_static/proyecto_final_caries_v2/cobertura/auditoria.json",
+    "sha256": "6d070e489fcad129b78590ac2593a0722e612e1d317481ed30e1628f83a3911a"
+  },
+  "_downloads/bfc82c67fe3e86956689927d8febb6a5/tiempos_busquedas_540.csv": {
+    "archivo": "_static/recuperacion_v2/tiempos_busquedas_540.csv",
+    "sha256": "3e0781d923ee8956f4ab7426c413a1f8a7c99b573c2d5541fc9428a1227490a7"
+  },
+  "_downloads/e4cd6512c46b9933e17929bc45ab38ed/trazabilidad_fuentes.json": {
+    "archivo": "_static/recuperacion_v2/trazabilidad_fuentes.json",
+    "sha256": "963b9720448b7b9b00e475d70c02bd2ce0038e07a38ab31bf52e2e30cefc627c"
+  },
+  "_downloads/e93829d3a6520f0208c23074593be73c/vectorizacion_mediciones.csv": {
+    "archivo": "_static/entregable3/vectorizacion_mediciones.csv",
+    "sha256": "5dadeca36ae63a1f91d32495538945a5e27210346923590ad4562df8e4cd3fe6"
+  },
+  "_downloads/eb070e6967f706ec51ef1cc3946bf2f6/auditoria_datos.json": {
+    "archivo": "_static/cierre_auditoria/auditoria_datos.json",
+    "sha256": "1a048e5adb4e475fd769f4773e4772613d91de84c7b0af2fd7cf115d1dd9f037"
+  },
+  "_downloads/f1ee3ef67b099f44fbcaa9f565d1ab2e/descriptivos_por_clase.csv": {
+    "archivo": "_static/cierre_auditoria/descriptivos_por_clase.csv",
+    "sha256": "db6a99f853f877c8320a8b98eec08a51c6183917fbc2492b8986cb63279f2176"
+  },
+  "_downloads/f359c8edb50d5d6e8d93c4fe9b7d0608/metodo.json": {
+    "archivo": "_static/recuperacion_v2/metodo.json",
+    "sha256": "b8577a2af7b99faa5c10f107c978b114e8442e5a18d5e4631a1924a456512144"
+  },
+  "_downloads/f9f1392238bbe0eebd97673f43a03dfb/roundtrip_8_modelos_128_casos.csv": {
+    "archivo": "_static/entregable3/roundtrip_8_modelos_128_casos.csv",
+    "sha256": "1bb81f474290536675506eb275cb00150ec959e703d066bb1806d0706b8a3bf3"
+  },
+  "_images/adicionales_heatmap.png": {
+    "archivo": "_static/entregable3/adicionales_heatmap.png",
+    "sha256": "1ff9604464af89930cd421aeb9779ca4c5ae5e8dc043ada936fbf5a0861b67a3"
+  },
+  "_images/adicionales_semillas.png": {
+    "archivo": "_static/entregable3/adicionales_semillas.png",
+    "sha256": "1759be2adbd3a326c160564b07cefdd4c750d33342ca1660dfe0fac6514007fa"
+  },
+  "_images/arquitectura_web.svg": {
+    "archivo": "_static/entregable3/arquitectura_web.svg",
+    "sha256": "96d356c080a6d28f5112dcfe1cfad030bf56d5be028136f5bb055f34cb7dba86"
+  },
+  "_images/calibracion_antes_despues.png": {
+    "archivo": "_static/recuperacion_v2/calibracion_antes_despues.png",
+    "sha256": "ef8ec822e5b960affe4bafbe1e64c2544433f90daa196e857f1ec5de93f2fac5"
+  },
+  "_images/complejidad_np.png": {
+    "archivo": "_static/entregable3/complejidad_np.png",
+    "sha256": "21f19f826ce18f5c8fd7be0d1d3b33127a841732e295fec997df0ae57d6e1c9e"
+  },
+  "_images/dashboard_publicado.png": {
+    "archivo": "_static/entregable3/dashboard_publicado.png",
+    "sha256": "6409aded9ed5d777152c07d77e2224b0f864cf1e34e839dad297fc2125ca5dea"
+  },
+  "_images/eda_desarrollo.png": {
+    "archivo": "_static/cierre_auditoria/eda_desarrollo.png",
+    "sha256": "a75968c0d7e67e40cff8b389b3cc1b72e77efa052e7299474ef0b6a63484256a"
+  },
+  "_images/explicacion_global_finales.png": {
+    "archivo": "_static/entregable3/explicacion_global_finales.png",
+    "sha256": "25e3522bfa4bd2724c048d878b50c2b88090b45b6a6234f3e34fe582b781f888"
+  },
+  "_images/explicacion_local_propio.png": {
+    "archivo": "_static/entregable3/explicacion_local_propio.png",
+    "sha256": "01737084ddc544b53e0118befe146e8428f710bee804301a92a329c3940c6e65"
+  },
+  "_images/flujo_modelo.svg": {
+    "archivo": "_static/entregable3/flujo_modelo.svg",
+    "sha256": "41b418b4c448ba70c852cc79a2b2ba826d5a7b5de29c9560d1e85c80fcff7bd7"
+  },
+  "_images/flujo_validacion.svg": {
+    "archivo": "_static/entregable3/flujo_validacion.svg",
+    "sha256": "4a8896d9b419fd6057bf9b092311077aef2c2e98f70766bf366f14a29f57e236"
+  },
+  "_images/pareado_comparacion_pareada.png": {
+    "archivo": "_static/entregable3/pareado_comparacion_pareada.png",
+    "sha256": "b30f4589da4d2c084bbf07d3fdc4928d27a95ce163b9fe8d62fee79ef62b55aa"
+  },
+  "_images/pareado_rangos_cd.png": {
+    "archivo": "_static/entregable3/pareado_rangos_cd.png",
+    "sha256": "1953ef5cfd35a883afe578ad5b38904e3cf11bd747b6c378c0d11126901ca055"
+  },
+  "_images/reg_residuos.png": {
+    "archivo": "_static/cierre_entregable2/reg_residuos.png",
+    "sha256": "5f3c3cff848d3485d5da8b62e3ec700994e2239776db3a1b4df89ff24afd315c"
+  },
+  "_images/robustez_escenarios.png": {
+    "archivo": "_static/entregable3/robustez_escenarios.png",
+    "sha256": "9d06369e3e63e7838abe8faafa301d67c02b0809769426a053e41017beac6c4c"
+  },
+  "_static/caries_diccionario/diccionario.csv": {
+    "archivo": "_static/caries_diccionario/diccionario.csv",
+    "sha256": "cc3a605d5da45384481776676212e1b5a88c2778c7175326da3ae0ff5416657a"
+  },
+  "_static/cierre_auditoria/auditoria_datos.json": {
+    "archivo": "_static/cierre_auditoria/auditoria_datos.json",
+    "sha256": "1a048e5adb4e475fd769f4773e4772613d91de84c7b0af2fd7cf115d1dd9f037"
+  },
+  "_static/cierre_auditoria/descriptivos_por_clase.csv": {
+    "archivo": "_static/cierre_auditoria/descriptivos_por_clase.csv",
+    "sha256": "db6a99f853f877c8320a8b98eec08a51c6183917fbc2492b8986cb63279f2176"
+  },
+  "_static/cierre_auditoria/eda_desarrollo.png": {
+    "archivo": "_static/cierre_auditoria/eda_desarrollo.png",
+    "sha256": "a75968c0d7e67e40cff8b389b3cc1b72e77efa052e7299474ef0b6a63484256a"
+  },
+  "_static/cierre_entregable2/reg_residuos.png": {
+    "archivo": "_static/cierre_entregable2/reg_residuos.png",
+    "sha256": "5f3c3cff848d3485d5da8b62e3ec700994e2239776db3a1b4df89ff24afd315c"
+  },
+  "_static/cierre_entregable2/resumen_108_media_de.csv": {
+    "archivo": "_static/cierre_entregable2/resumen_108_media_de.csv",
+    "sha256": "9a1a2dec45e832ffc9ad18c3ca3ef479aafe8a6f05f49e79953b38a3b98169d4"
+  },
+  "_static/entregable3/adicionales_243_folds.csv": {
+    "archivo": "_static/entregable3/adicionales_243_folds.csv",
+    "sha256": "3e9bd2395161a96b91dc4f45e17db2653b6da0104e997d56215d37cd2668a58b"
+  },
+  "_static/entregable3/adicionales_heatmap.png": {
+    "archivo": "_static/entregable3/adicionales_heatmap.png",
+    "sha256": "1ff9604464af89930cd421aeb9779ca4c5ae5e8dc043ada936fbf5a0861b67a3"
+  },
+  "_static/entregable3/adicionales_medias_semillas.csv": {
+    "archivo": "_static/entregable3/adicionales_medias_semillas.csv",
+    "sha256": "c59961fb6d610f4f10552d80b43739f4e567379bcd6fc0c6bc62f90eb715d679"
+  },
+  "_static/entregable3/adicionales_metodo.json": {
+    "archivo": "_static/entregable3/adicionales_metodo.json",
+    "sha256": "d4e397a0d29b5cb0a68b2c34047d624f9cb570cf554b18d9ef15a09e7f2c561d"
+  },
+  "_static/entregable3/adicionales_resumen.csv": {
+    "archivo": "_static/entregable3/adicionales_resumen.csv",
+    "sha256": "b80c51f84a7071898419337d6dc13ba5a2688029adeae6630fb13295396092e1"
+  },
+  "_static/entregable3/adicionales_semillas.png": {
+    "archivo": "_static/entregable3/adicionales_semillas.png",
+    "sha256": "1759be2adbd3a326c160564b07cefdd4c750d33342ca1660dfe0fac6514007fa"
+  },
+  "_static/entregable3/arquitectura_web.svg": {
+    "archivo": "_static/entregable3/arquitectura_web.svg",
+    "sha256": "96d356c080a6d28f5112dcfe1cfad030bf56d5be028136f5bb055f34cb7dba86"
+  },
+  "_static/entregable3/complejidad_27_ajustes.csv": {
+    "archivo": "_static/entregable3/complejidad_27_ajustes.csv",
+    "sha256": "9f3fc1ab629bcc8888108fe5495c827e7e8912a94c2c23f49127eda439c2e365"
+  },
+  "_static/entregable3/complejidad_metodo.json": {
+    "archivo": "_static/entregable3/complejidad_metodo.json",
+    "sha256": "5088d9a37ec3f875eeadccb1ee44090d08e50c607717de79de671f09383c87de"
+  },
+  "_static/entregable3/complejidad_np.png": {
+    "archivo": "_static/entregable3/complejidad_np.png",
+    "sha256": "21f19f826ce18f5c8fd7be0d1d3b33127a841732e295fec997df0ae57d6e1c9e"
+  },
+  "_static/entregable3/complejidad_resumen.csv": {
+    "archivo": "_static/entregable3/complejidad_resumen.csv",
+    "sha256": "a6f7180c9f63092f12625b983a03da51fe7a1dc46162558e5638d2fbfef3aca4"
+  },
+  "_static/entregable3/dashboard_publicado.png": {
+    "archivo": "_static/entregable3/dashboard_publicado.png",
+    "sha256": "6409aded9ed5d777152c07d77e2224b0f864cf1e34e839dad297fc2125ca5dea"
+  },
+  "_static/entregable3/estado_libro.json": {
+    "archivo": "_static/entregable3/estado_libro.json",
+    "sha256": "56141edb95e530303339df3e7db2ca0df2362d007a65dc97c7a01215cf1fb084"
+  },
+  "_static/entregable3/explicacion_global_finales.png": {
+    "archivo": "_static/entregable3/explicacion_global_finales.png",
+    "sha256": "25e3522bfa4bd2724c048d878b50c2b88090b45b6a6234f3e34fe582b781f888"
+  },
+  "_static/entregable3/explicacion_global_propio.csv": {
+    "archivo": "_static/entregable3/explicacion_global_propio.csv",
+    "sha256": "6c624b7ad3ed3975cf97a97685cf5a09e6d28a1045cc81d2aa8dec568a267a51"
+  },
+  "_static/entregable3/explicacion_local_propio.csv": {
+    "archivo": "_static/entregable3/explicacion_local_propio.csv",
+    "sha256": "03f5c01e40116572ab4050b996b1c54528a58575ea3d4911e48b3f667f8cda70"
+  },
+  "_static/entregable3/explicacion_local_propio.png": {
+    "archivo": "_static/entregable3/explicacion_local_propio.png",
+    "sha256": "01737084ddc544b53e0118befe146e8428f710bee804301a92a329c3940c6e65"
+  },
+  "_static/entregable3/explicacion_metodo.json": {
+    "archivo": "_static/entregable3/explicacion_metodo.json",
+    "sha256": "afadbc1c16a046d10deb13ef9f859d906c03d17388c760442f780d0269bd4e27"
+  },
+  "_static/entregable3/finalistas_nemenyi_seleccion_externa.csv": {
+    "archivo": "_static/entregable3/finalistas_nemenyi_seleccion_externa.csv",
+    "sha256": "f770e4f9eabb519ba85574d6792f30070d70b89d6638309d4f8c2c08d2fe8088"
+  },
+  "_static/entregable3/flujo_modelo.svg": {
+    "archivo": "_static/entregable3/flujo_modelo.svg",
+    "sha256": "41b418b4c448ba70c852cc79a2b2ba826d5a7b5de29c9560d1e85c80fcff7bd7"
+  },
+  "_static/entregable3/flujo_validacion.svg": {
+    "archivo": "_static/entregable3/flujo_validacion.svg",
+    "sha256": "4a8896d9b419fd6057bf9b092311077aef2c2e98f70766bf366f14a29f57e236"
+  },
+  "_static/entregable3/matriz_busquedas.csv": {
+    "archivo": "_static/entregable3/matriz_busquedas.csv",
+    "sha256": "419e5530ad3766bd4190b64ad16fa73216c7623a4654bc5ad01b86a79ce71ce0"
+  },
+  "_static/entregable3/matriz_novedad.csv": {
+    "archivo": "_static/entregable3/matriz_novedad.csv",
+    "sha256": "827dc9272d32b17f1c92f80c4fc7286aadd8998575a3e813b3832231c8971166"
+  },
+  "_static/entregable3/pareado_auc_oof_bca_condicional.csv": {
+    "archivo": "_static/entregable3/pareado_auc_oof_bca_condicional.csv",
+    "sha256": "07faf6bfac12d43f14a8f58fb4bbe8e78310c6e77e0899a0f587685b9550a487"
+  },
+  "_static/entregable3/pareado_busqueda.csv": {
+    "archivo": "_static/entregable3/pareado_busqueda.csv",
+    "sha256": "1db60478b5915c34ac6bde5150a7e48064b14ad7b40060eb687a7afc344c85ef"
+  },
+  "_static/entregable3/pareado_comparacion_pareada.png": {
+    "archivo": "_static/entregable3/pareado_comparacion_pareada.png",
+    "sha256": "b30f4589da4d2c084bbf07d3fdc4928d27a95ce163b9fe8d62fee79ef62b55aa"
+  },
+  "_static/entregable3/pareado_metodo.json": {
+    "archivo": "_static/entregable3/pareado_metodo.json",
+    "sha256": "04f384723ac03d24ff767054bc3ee133f59c8b35f5002c52834021ca7f7a2711"
+  },
+  "_static/entregable3/pareado_metricas.csv": {
+    "archivo": "_static/entregable3/pareado_metricas.csv",
+    "sha256": "9f8be551b9095e712e1068f9040043be521852b8868e028e612c68b84a5fa023"
+  },
+  "_static/entregable3/pareado_protocolo.json": {
+    "archivo": "_static/entregable3/pareado_protocolo.json",
+    "sha256": "ad73e541fd1faaacdc88eefe75edfbf49e3db6b015d32540102023a8e1899bc9"
+  },
+  "_static/entregable3/pareado_pruebas_pareadas.csv": {
+    "archivo": "_static/entregable3/pareado_pruebas_pareadas.csv",
+    "sha256": "5464adf1bced78a3310b209ec4886566799a25446249bcada14aefe36cdeccbb"
+  },
+  "_static/entregable3/pareado_rangos.csv": {
+    "archivo": "_static/entregable3/pareado_rangos.csv",
+    "sha256": "1bab99b311cae82e339a176c8a60c94caf107b33e1be85f7fb9cca5fe2b24e2f"
+  },
+  "_static/entregable3/pareado_rangos_cd.png": {
+    "archivo": "_static/entregable3/pareado_rangos_cd.png",
+    "sha256": "1953ef5cfd35a883afe578ad5b38904e3cf11bd747b6c378c0d11126901ca055"
+  },
+  "_static/entregable3/pareado_resumen_9_modelos.csv": {
+    "archivo": "_static/entregable3/pareado_resumen_9_modelos.csv",
+    "sha256": "45704802f0dae621a72480fb9306307ec3a08ef9e8ee58df4caf35c4782551d7"
+  },
+  "_static/entregable3/portada_caries.png": {
+    "archivo": "_static/entregable3/portada_caries.png",
+    "sha256": "0e02886efc1e71b6e5d15cf5aec35b606e21df6c8722d2c177a057f478acd245"
+  },
+  "_static/entregable3/robustez_81.csv": {
+    "archivo": "_static/entregable3/robustez_81.csv",
+    "sha256": "baa181e68a92d0bcc6080b2888991e0c5b57d7fd5b7418c90abc13e842d86270"
+  },
+  "_static/entregable3/robustez_escenarios.png": {
+    "archivo": "_static/entregable3/robustez_escenarios.png",
+    "sha256": "9d06369e3e63e7838abe8faafa301d67c02b0809769426a053e41017beac6c4c"
+  },
+  "_static/entregable3/robustez_resumen.csv": {
+    "archivo": "_static/entregable3/robustez_resumen.csv",
+    "sha256": "c325ecadb571c924d5f79eab20889c65eff827bd5c54ea3e0e599f88076d0cc7"
+  },
+  "_static/entregable3/roundtrip_8_modelos_128_casos.csv": {
+    "archivo": "_static/entregable3/roundtrip_8_modelos_128_casos.csv",
+    "sha256": "1bb81f474290536675506eb275cb00150ec959e703d066bb1806d0706b8a3bf3"
+  },
+  "_static/entregable3/seleccion_7_referencias.csv": {
+    "archivo": "_static/entregable3/seleccion_7_referencias.csv",
+    "sha256": "907051b719ceffe63bd1fccc8b0a9d67c63435865354c4cf37e9b67faf089c37"
+  },
+  "_static/entregable3/seleccion_estadistica.json": {
+    "archivo": "_static/entregable3/seleccion_estadistica.json",
+    "sha256": "f9c9b999de56f1867436a4632989c4a82c6f46b5a298c9a315ccdefa36e226b2"
+  },
+  "_static/entregable3/tabla_maestra_140_nominales_y_propio.csv": {
+    "archivo": "_static/entregable3/tabla_maestra_140_nominales_y_propio.csv",
+    "sha256": "585e2062e09f4c04f1a55e5c934b5606cdebced32ee6d644990ce198baff9ca8"
+  },
+  "_static/entregable3/trazabilidad_42_e3.csv": {
+    "archivo": "_static/entregable3/trazabilidad_42_e3.csv",
+    "sha256": "7a1a7c1bf0b3b79c79dc68656bc31a3ca565497efa32811a461fb628324658c1"
+  },
+  "_static/entregable3/vectorizacion_mediciones.csv": {
+    "archivo": "_static/entregable3/vectorizacion_mediciones.csv",
+    "sha256": "5dadeca36ae63a1f91d32495538945a5e27210346923590ad4562df8e4cd3fe6"
+  },
+  "_static/entregable3/vectorizacion_metodo.json": {
+    "archivo": "_static/entregable3/vectorizacion_metodo.json",
+    "sha256": "539c41c9ec192eb6ee25315a1b1437b22110e79eae58e08149f5e9f001d405d3"
+  },
+  "_static/entregable3/vectorizacion_resumen.csv": {
+    "archivo": "_static/entregable3/vectorizacion_resumen.csv",
+    "sha256": "8c4c7b3052aab42f5ba6e3bd81929ac39e8b705ce4a43f6e7c8a85758f377bfa"
+  },
+  "_static/entregable3/veredicto_novedad.json": {
+    "archivo": "_static/entregable3/veredicto_novedad.json",
+    "sha256": "2c25dfb1c8a60631df36db0a06b6de138f5a16804e8d0758078d15a7cb24f634"
+  },
+  "_static/proyecto_final_caries_v2/cobertura/auditoria.json": {
+    "archivo": "_static/proyecto_final_caries_v2/cobertura/auditoria.json",
+    "sha256": "6d070e489fcad129b78590ac2593a0722e612e1d317481ed30e1628f83a3911a"
+  },
+  "_static/proyecto_final_caries_v2/comparacion/decisiones_solo_validacion_interna.csv": {
+    "archivo": "_static/proyecto_final_caries_v2/comparacion/decisiones_solo_validacion_interna.csv",
+    "sha256": "fa15230977b41c3a6d13b3ef5e4474fa185c0fb6551483f99a809d0618d0c2dd"
+  },
+  "_static/proyecto_final_caries_v2/contrastes/metodo.json": {
+    "archivo": "_static/proyecto_final_caries_v2/contrastes/metodo.json",
+    "sha256": "1964078cb441a7b5b919be1ddb2066d90545d44726a34052b090f6e3f8dff850"
+  },
+  "_static/recuperacion_v2/ajustes_internos.csv.gz": {
+    "archivo": "_static/recuperacion_v2/ajustes_internos.csv.gz",
+    "sha256": "6d87aab60448d486d3c7ef57fbb532642b8c1c9c76fd9f1d66f4174447f45d51"
+  },
+  "_static/recuperacion_v2/calibracion_antes_despues.csv": {
+    "archivo": "_static/recuperacion_v2/calibracion_antes_despues.csv",
+    "sha256": "bfc4b74a556d7bc8352feb58fca74ac3dc666b2925a257c68aa95112feb2af54"
+  },
+  "_static/recuperacion_v2/calibracion_antes_despues.png": {
+    "archivo": "_static/recuperacion_v2/calibracion_antes_despues.png",
+    "sha256": "ef8ec822e5b960affe4bafbe1e64c2544433f90daa196e857f1ec5de93f2fac5"
+  },
+  "_static/recuperacion_v2/calibracion_bins.csv": {
+    "archivo": "_static/recuperacion_v2/calibracion_bins.csv",
+    "sha256": "ff00a5db0c29f355577eab3b5ae430198006a604f26125c586ff1413ab54f068"
+  },
+  "_static/recuperacion_v2/codigo_ejecucion_v2.zip": {
+    "archivo": "_static/recuperacion_v2/codigo_ejecucion_v2.zip",
+    "sha256": "9771b077fad041f8c131096c1cd1f8ac473c395ce0ddd2eac61d73a5d40c7019"
+  },
+  "_static/recuperacion_v2/costes_108_configuraciones.csv": {
+    "archivo": "_static/recuperacion_v2/costes_108_configuraciones.csv",
+    "sha256": "62b941b199b2a825acb9f0ac6402732081866a3defc8663a37bbb2e22b78b6fc"
+  },
+  "_static/recuperacion_v2/delong_y_efectos_sensibilidad.csv": {
+    "archivo": "_static/recuperacion_v2/delong_y_efectos_sensibilidad.csv",
+    "sha256": "f8cfc39807ca2906683337a5d45c298b7a6632eafc14dd50a125c6926aadd511"
+  },
+  "_static/recuperacion_v2/historial_propuestas.csv.gz": {
+    "archivo": "_static/recuperacion_v2/historial_propuestas.csv.gz",
+    "sha256": "6face439a867d0b8f13add5020e11ee2e6339e8a2cc724181efb84353ac5f7f3"
+  },
+  "_static/recuperacion_v2/interpretacion.md": {
+    "archivo": "_static/recuperacion_v2/interpretacion.md",
+    "sha256": "0cff2c16f1d61685793562248111f8a40b48f98d36fad0da9d705eb72f312a97"
+  },
+  "_static/recuperacion_v2/metodo.json": {
+    "archivo": "_static/recuperacion_v2/metodo.json",
+    "sha256": "b8577a2af7b99faa5c10f107c978b114e8442e5a18d5e4631a1924a456512144"
+  },
+  "_static/recuperacion_v2/metodo_contrastes.json": {
+    "archivo": "_static/recuperacion_v2/metodo_contrastes.json",
+    "sha256": "5c85ec438b020ac65ca12c6f0d55a50ffe3eae7c359723bc3b75e7c7db8ddb5c"
+  },
+  "_static/recuperacion_v2/presupuesto_efectivo.csv": {
+    "archivo": "_static/recuperacion_v2/presupuesto_efectivo.csv",
+    "sha256": "1b20846883873db79436da955ee90d3f24ccab18c9bf9eb705728e2ff78bf9f2"
+  },
+  "_static/recuperacion_v2/tiempos_busquedas_540.csv": {
+    "archivo": "_static/recuperacion_v2/tiempos_busquedas_540.csv",
+    "sha256": "3e0781d923ee8956f4ab7426c413a1f8a7c99b573c2d5541fc9428a1227490a7"
+  },
+  "_static/recuperacion_v2/tiempos_evaluaciones_540.csv": {
+    "archivo": "_static/recuperacion_v2/tiempos_evaluaciones_540.csv",
+    "sha256": "e7336972b06f09c551d1fc65bf23590294ab46d5da77d1633df7f041c27d03b0"
+  },
+  "_static/recuperacion_v2/tiempos_finalistas.csv": {
+    "archivo": "_static/recuperacion_v2/tiempos_finalistas.csv",
+    "sha256": "8c9baca41306e60b484f4b4c2a90164e1c06e09c2d8e2a3fc204138404a63ae2"
+  },
+  "_static/recuperacion_v2/trazabilidad_fuentes.json": {
+    "archivo": "_static/recuperacion_v2/trazabilidad_fuentes.json",
+    "sha256": "963b9720448b7b9b00e475d70c02bd2ce0038e07a38ab31bf52e2e30cefc627c"
+  }
+}

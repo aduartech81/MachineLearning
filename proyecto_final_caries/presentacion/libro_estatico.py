@@ -7,6 +7,8 @@ from flask import abort,send_file
 def integrar(server):
     repo=Path(__file__).resolve().parents[2]
     base=Path(__file__).parent/'documentacion/libro'
+    nuevo=Path(__file__).parent/'documentacion/entregable3_20261024'
+    if (nuevo/'estructura.zip').exists():base=nuevo
     mapping=json.loads((base/'recursos.json').read_text())
     structure=base/'estructura.zip'
     with zipfile.ZipFile(structure) as z:embedded=set(z.namelist())

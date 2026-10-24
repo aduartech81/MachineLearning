@@ -1,0 +1,15 @@
+{
+  "n": 5000,
+  "d": 128,
+  "semilla": 42,
+  "ajustes_modelo": 0,
+  "procesos": 18,
+  "repeticiones_internas": 5,
+  "igualdad_numerica": "Pérdida y gradiente coinciden en las dos implementaciones para tres tamaños; atol gradiente 1e-10, rtol 1e-11.",
+  "limites": [
+    "Benchmark de evaluación de pérdida/gradiente, no entrenamiento completo ni cambio de AUC.",
+    "RSS del proceso muestreado cada 10 ms; no memoria exclusiva del modelo.",
+    "Carga concurrente de la Mac; tiempos descriptivos.",
+    "La variante bincount evita una matriz M×d y ya formaba parte del algoritmo."
+  ]
+}

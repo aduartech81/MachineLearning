@@ -1,0 +1,8 @@
+familia,rango_medio,referencia_global,p_nemenyi_frente_global,finalista_no_rechazado
+Logistica_L1_L2,2.2,Logistica_L1_L2,1.0,True
+XGBoost,2.2,Logistica_L1_L2,1.0,True
+SVM,3.6,Logistica_L1_L2,0.9484982702846112,True
+RandomForest,2.8,Logistica_L1_L2,0.9994588575460847,True
+DecisionTree,4.4,Logistica_L1_L2,0.6757402286636546,True
+KNN,5.8,Logistica_L1_L2,0.11556358408748824,True
+GaussianNB,7.0,Logistica_L1_L2,0.008059429321288447,False

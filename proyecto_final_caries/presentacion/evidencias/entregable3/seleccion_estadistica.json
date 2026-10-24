@@ -1,0 +1,15 @@
+{
+  "mejor_global": "Logistica_L1_L2",
+  "auc_medio": 0.6063078977051619,
+  "friedman_chi2": 21.94285714285715,
+  "p_friedman": 0.001240083411315798,
+  "N": 5,
+  "k": 7,
+  "cd_nemenyi": 4.028172008255962,
+  "limites": [
+    "Configuraciones elegidas por su media externa sobre estos mismos cinco folds: selección posterior a resultados.",
+    "Conjunto de finalistas significa no rechazo frente al mejor observado, no equivalencia ni probabilidad de ser el mejor.",
+    "Folds con entrenamiento solapado; inferencia exploratoria y aproximación asintótica débil con N=5.",
+    "Este análisis usa las configuraciones fijas elegidas para E3; no se confunde con la selección interna cambiante por fold del informe V2 anterior."
+  ]
+}

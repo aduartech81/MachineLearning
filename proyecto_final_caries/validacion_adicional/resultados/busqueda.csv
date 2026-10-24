@@ -1,0 +1,433 @@
+dataset,semilla,fold,familia,parametros,auc_interno
+WDBC,42,0,Logistica,"{""C"": 0.1}",0.9953992864751534
+WDBC,42,0,Logistica,"{""C"": 1.0}",0.9932587119354784
+WDBC,42,0,SVM,"{""C"": 0.1}",0.9938581066229308
+WDBC,42,0,SVM,"{""C"": 1.0}",0.9844639264156366
+WDBC,42,0,KNN,"{""n_neighbors"": 5}",0.9838835534213686
+WDBC,42,0,KNN,"{""n_neighbors"": 25}",0.9894438056912905
+WDBC,42,0,GaussianNB,"{""var_smoothing"": 1e-09}",0.9889336016096579
+WDBC,42,0,GaussianNB,"{""var_smoothing"": 1e-07}",0.9889336016096579
+WDBC,42,0,DecisionTree,"{""max_depth"": 5}",0.8779145461001303
+WDBC,42,0,DecisionTree,"{""max_depth"": 10}",0.8779145461001303
+WDBC,42,0,RandomForest,"{""max_depth"": 5}",0.9869900072705138
+WDBC,42,0,RandomForest,"{""max_depth"": null}",0.9860528718529665
+WDBC,42,0,XGBoost,"{""max_depth"": 2}",0.9906988147371625
+WDBC,42,0,XGBoost,"{""max_depth"": 4}",0.9897993000016908
+WDBC,42,0,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.9966580998596621
+WDBC,42,0,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.9967781478788699
+WDBC,42,1,Logistica,"{""C"": 0.1}",0.9951473547165346
+WDBC,42,1,Logistica,"{""C"": 1.0}",0.9937862468931236
+WDBC,42,1,SVM,"{""C"": 0.1}",0.9931352822819268
+WDBC,42,1,SVM,"{""C"": 1.0}",0.984672742336371
+WDBC,42,1,KNN,"{""n_neighbors"": 5}",0.9913303349508817
+WDBC,42,1,KNN,"{""n_neighbors"": 25}",0.9899396378269618
+WDBC,42,1,GaussianNB,"{""var_smoothing"": 1e-09}",0.9890223695111848
+WDBC,42,1,GaussianNB,"{""var_smoothing"": 1e-07}",0.9890223695111848
+WDBC,42,1,DecisionTree,"{""max_depth"": 5}",0.9206710853355426
+WDBC,42,1,DecisionTree,"{""max_depth"": 10}",0.9206710853355426
+WDBC,42,1,RandomForest,"{""max_depth"": 5}",0.992573085572257
+WDBC,42,1,RandomForest,"{""max_depth"": null}",0.9923955497692034
+WDBC,42,1,XGBoost,"{""max_depth"": 2}",0.9878092081903185
+WDBC,42,1,XGBoost,"{""max_depth"": 4}",0.9853828855485857
+WDBC,42,1,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.992188424665641
+WDBC,42,1,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.9922476032666587
+WDBC,42,2,Logistica,"{""C"": 0.1}",0.9914199482609946
+WDBC,42,2,Logistica,"{""C"": 1.0}",0.9890570312632094
+WDBC,42,2,SVM,"{""C"": 0.1}",0.9882775645469455
+WDBC,42,2,SVM,"{""C"": 1.0}",0.9833479870821569
+WDBC,42,2,KNN,"{""n_neighbors"": 5}",0.9663717599715942
+WDBC,42,2,KNN,"{""n_neighbors"": 25}",0.9811841638063676
+WDBC,42,2,GaussianNB,"{""var_smoothing"": 1e-09}",0.9761899125847522
+WDBC,42,2,GaussianNB,"{""var_smoothing"": 1e-07}",0.9761899125847522
+WDBC,42,2,DecisionTree,"{""max_depth"": 5}",0.9047638773819386
+WDBC,42,2,DecisionTree,"{""max_depth"": 10}",0.9047638773819386
+WDBC,42,2,RandomForest,"{""max_depth"": 5}",0.9883012359873528
+WDBC,42,2,RandomForest,"{""max_depth"": null}",0.9880928427709113
+WDBC,42,2,XGBoost,"{""max_depth"": 2}",0.986902930186159
+WDBC,42,2,XGBoost,"{""max_depth"": 4}",0.988515969768189
+WDBC,42,2,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.9879808261332702
+WDBC,42,2,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.9882183859459277
+WDBC,43,0,Logistica,"{""C"": 0.1}",0.9929577464788732
+WDBC,43,0,Logistica,"{""C"": 1.0}",0.9950881761155166
+WDBC,43,0,SVM,"{""C"": 0.1}",0.9955024263226417
+WDBC,43,0,SVM,"{""C"": 1.0}",0.9943188543022843
+WDBC,43,0,KNN,"{""n_neighbors"": 5}",0.9792874896437449
+WDBC,43,0,KNN,"{""n_neighbors"": 25}",0.9840513670256834
+WDBC,43,0,GaussianNB,"{""var_smoothing"": 1e-09}",0.9853237069475677
+WDBC,43,0,GaussianNB,"{""var_smoothing"": 1e-07}",0.9853237069475677
+WDBC,43,0,DecisionTree,"{""max_depth"": 5}",0.9163510474612381
+WDBC,43,0,DecisionTree,"{""max_depth"": 10}",0.9163510474612381
+WDBC,43,0,RandomForest,"{""max_depth"": 5}",0.9877796188898095
+WDBC,43,0,RandomForest,"{""max_depth"": null}",0.9885785300035508
+WDBC,43,0,XGBoost,"{""max_depth"": 2}",0.9908864954432477
+WDBC,43,0,XGBoost,"{""max_depth"": 4}",0.9891111374127116
+WDBC,43,0,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.9940229612971949
+WDBC,43,0,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.9937270682921056
+WDBC,43,1,Logistica,"{""C"": 0.1}",0.9950019444397478
+WDBC,43,1,Logistica,"{""C"": 1.0}",0.9957053243832743
+WDBC,43,1,SVM,"{""C"": 0.1}",0.9959361209272442
+WDBC,43,1,SVM,"{""C"": 1.0}",0.9932815379672997
+WDBC,43,1,KNN,"{""n_neighbors"": 5}",0.9762609269059737
+WDBC,43,1,KNN,"{""n_neighbors"": 25}",0.9876054647210997
+WDBC,43,1,GaussianNB,"{""var_smoothing"": 1e-09}",0.9821542701587678
+WDBC,43,1,GaussianNB,"{""var_smoothing"": 1e-07}",0.9821542701587678
+WDBC,43,1,DecisionTree,"{""max_depth"": 5}",0.921830985915493
+WDBC,43,1,DecisionTree,"{""max_depth"": 10}",0.921830985915493
+WDBC,43,1,RandomForest,"{""max_depth"": 5}",0.9870593307745634
+WDBC,43,1,RandomForest,"{""max_depth"": null}",0.9882708012782577
+WDBC,43,1,XGBoost,"{""max_depth"": 2}",0.9843481054393588
+WDBC,43,1,XGBoost,"{""max_depth"": 4}",0.9834130835432765
+WDBC,43,1,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.9944524288588674
+WDBC,43,1,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.9945132982770573
+WDBC,43,2,Logistica,"{""C"": 0.1}",0.9944270666012884
+WDBC,43,2,Logistica,"{""C"": 1.0}",0.9934895084794482
+WDBC,43,2,SVM,"{""C"": 0.1}",0.9939037586865732
+WDBC,43,2,SVM,"{""C"": 1.0}",0.987684933128181
+WDBC,43,2,KNN,"{""n_neighbors"": 5}",0.9888211622677241
+WDBC,43,2,KNN,"{""n_neighbors"": 25}",0.9922281588691815
+WDBC,43,2,GaussianNB,"{""var_smoothing"": 1e-09}",0.9822557191890842
+WDBC,43,2,GaussianNB,"{""var_smoothing"": 1e-07}",0.9822557191890842
+WDBC,43,2,DecisionTree,"{""max_depth"": 5}",0.9322848857853001
+WDBC,43,2,DecisionTree,"{""max_depth"": 10}",0.9322848857853001
+WDBC,43,2,RandomForest,"{""max_depth"": 5}",0.9935985661870381
+WDBC,43,2,RandomForest,"{""max_depth"": null}",0.993659858309521
+WDBC,43,2,XGBoost,"{""max_depth"": 2}",0.9943112456250106
+WDBC,43,2,XGBoost,"{""max_depth"": 4}",0.9938386622254536
+WDBC,43,2,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.9959335847014863
+WDBC,43,2,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.9961119659131259
+WDBC,44,0,Logistica,"{""C"": 0.1}",0.9947889014760835
+WDBC,44,0,Logistica,"{""C"": 1.0}",0.9934134217067109
+WDBC,44,0,SVM,"{""C"": 0.1}",0.9919897536479381
+WDBC,44,0,SVM,"{""C"": 1.0}",0.9837461745261484
+WDBC,44,0,KNN,"{""n_neighbors"": 5}",0.9902630066110952
+WDBC,44,0,KNN,"{""n_neighbors"": 25}",0.9887273219146814
+WDBC,44,0,GaussianNB,"{""var_smoothing"": 1e-09}",0.9817222663713373
+WDBC,44,0,GaussianNB,"{""var_smoothing"": 1e-07}",0.9817222663713373
+WDBC,44,0,DecisionTree,"{""max_depth"": 5}",0.9259823647768968
+WDBC,44,0,DecisionTree,"{""max_depth"": 10}",0.9259823647768968
+WDBC,44,0,RandomForest,"{""max_depth"": 5}",0.9911709754324265
+WDBC,44,0,RandomForest,"{""max_depth"": null}",0.9911701300238405
+WDBC,44,0,XGBoost,"{""max_depth"": 2}",0.9847154354699627
+WDBC,44,0,XGBoost,"{""max_depth"": 4}",0.9862866273269872
+WDBC,44,0,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.992879968888964
+WDBC,44,0,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.9929391474899818
+WDBC,44,1,Logistica,"{""C"": 0.1}",0.9928393892768375
+WDBC,44,1,Logistica,"{""C"": 1.0}",0.9874541365842111
+WDBC,44,1,SVM,"{""C"": 0.1}",0.9884009942004971
+WDBC,44,1,SVM,"{""C"": 1.0}",0.9800568114569772
+WDBC,44,1,KNN,"{""n_neighbors"": 5}",0.9743756657592615
+WDBC,44,1,KNN,"{""n_neighbors"": 25}",0.9841697242277192
+WDBC,44,1,GaussianNB,"{""var_smoothing"": 1e-09}",0.9864481003669073
+WDBC,44,1,GaussianNB,"{""var_smoothing"": 1e-07}",0.9864481003669073
+WDBC,44,1,DecisionTree,"{""max_depth"": 5}",0.9058468457805657
+WDBC,44,1,DecisionTree,"{""max_depth"": 10}",0.9058468457805657
+WDBC,44,1,RandomForest,"{""max_depth"": 5}",0.9849686353414606
+WDBC,44,1,RandomForest,"{""max_depth"": null}",0.9832228666114333
+WDBC,44,1,XGBoost,"{""max_depth"": 2}",0.9814179192803882
+WDBC,44,1,XGBoost,"{""max_depth"": 4}",0.9814475085808971
+WDBC,44,1,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.9863297431648714
+WDBC,44,1,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.987039886377086
+WDBC,44,2,Logistica,"{""C"": 0.1}",0.9939620918790051
+WDBC,44,2,Logistica,"{""C"": 1.0}",0.9945082258255415
+WDBC,44,2,SVM,"{""C"": 0.1}",0.9948742877432664
+WDBC,44,2,SVM,"{""C"": 1.0}",0.9935072620597536
+WDBC,44,2,KNN,"{""n_neighbors"": 5}",0.9823850667027374
+WDBC,44,2,KNN,"{""n_neighbors"": 25}",0.9908687418629424
+WDBC,44,2,GaussianNB,"{""var_smoothing"": 1e-09}",0.9825245591194224
+WDBC,44,2,GaussianNB,"{""var_smoothing"": 1e-07}",0.9825245591194224
+WDBC,44,2,DecisionTree,"{""max_depth"": 5}",0.9337495561604924
+WDBC,44,2,DecisionTree,"{""max_depth"": 10}",0.9277725174576874
+WDBC,44,2,RandomForest,"{""max_depth"": 5}",0.9909896352907359
+WDBC,44,2,RandomForest,"{""max_depth"": null}",0.9912263496948075
+WDBC,44,2,XGBoost,"{""max_depth"": 2}",0.9906396361361446
+WDBC,44,2,XGBoost,"{""max_depth"": 4}",0.9910538863432696
+WDBC,44,2,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.9928207902879462
+WDBC,44,2,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.9930008623167577
+Banknote,42,0,Logistica,"{""C"": 0.1}",0.9977313624336511
+Banknote,42,0,Logistica,"{""C"": 1.0}",0.9991407640981997
+Banknote,42,0,SVM,"{""C"": 0.1}",0.9991791245414811
+Banknote,42,0,SVM,"{""C"": 1.0}",0.999536062049039
+Banknote,42,0,KNN,"{""n_neighbors"": 5}",0.9989964252059771
+Banknote,42,0,KNN,"{""n_neighbors"": 25}",0.9994883372844114
+Banknote,42,0,GaussianNB,"{""var_smoothing"": 1e-09}",0.9415743829435115
+Banknote,42,0,GaussianNB,"{""var_smoothing"": 1e-07}",0.9415743829435115
+Banknote,42,0,DecisionTree,"{""max_depth"": 5}",0.9752183455516337
+Banknote,42,0,DecisionTree,"{""max_depth"": 10}",0.973959533582643
+Banknote,42,0,RandomForest,"{""max_depth"": 5}",0.9992940632674465
+Banknote,42,0,RandomForest,"{""max_depth"": null}",0.9997434080881877
+Banknote,42,0,XGBoost,"{""max_depth"": 2}",0.9996229078109657
+Banknote,42,0,XGBoost,"{""max_depth"": 4}",0.999719545705874
+Banknote,42,0,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",1.0
+Banknote,42,0,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",1.0
+Banknote,42,1,Logistica,"{""C"": 0.1}",0.9972559686377944
+Banknote,42,1,Logistica,"{""C"": 1.0}",0.9991313522422273
+Banknote,42,1,SVM,"{""C"": 0.1}",0.9992472416607153
+Banknote,42,1,SVM,"{""C"": 1.0}",0.9994883848190376
+Banknote,42,1,KNN,"{""n_neighbors"": 5}",0.9989964489732901
+Banknote,42,1,KNN,"{""n_neighbors"": 25}",0.9993141704142966
+Banknote,42,1,GaussianNB,"{""var_smoothing"": 1e-09}",0.9356026553982983
+Banknote,42,1,GaussianNB,"{""var_smoothing"": 1e-07}",0.9356026553982983
+Banknote,42,1,DecisionTree,"{""max_depth"": 5}",0.9858205398640585
+Banknote,42,1,DecisionTree,"{""max_depth"": 10}",0.9766348298754746
+Banknote,42,1,RandomForest,"{""max_depth"": 5}",0.9987616279202421
+Banknote,42,1,RandomForest,"{""max_depth"": null}",0.9995212312456886
+Banknote,42,1,XGBoost,"{""max_depth"": 2}",0.9994386636001129
+Banknote,42,1,XGBoost,"{""max_depth"": 4}",0.9991091060372017
+Banknote,42,1,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",1.0
+Banknote,42,1,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.9999806534071679
+Banknote,42,2,Logistica,"{""C"": 0.1}",0.9976533105775571
+Banknote,42,2,Logistica,"{""C"": 1.0}",0.9995733291959195
+Banknote,42,2,SVM,"{""C"": 0.1}",0.9996606027694814
+Banknote,42,2,SVM,"{""C"": 1.0}",0.999621814514565
+Banknote,42,2,KNN,"{""n_neighbors"": 5}",0.9989284744579341
+Banknote,42,2,KNN,"{""n_neighbors"": 25}",0.9990108994996315
+Banknote,42,2,GaussianNB,"{""var_smoothing"": 1e-09}",0.9390830456537761
+Banknote,42,2,GaussianNB,"{""var_smoothing"": 1e-07}",0.9390830456537761
+Banknote,42,2,DecisionTree,"{""max_depth"": 5}",0.9697548582289284
+Banknote,42,2,DecisionTree,"{""max_depth"": 10}",0.9689839416624647
+Banknote,42,2,RandomForest,"{""max_depth"": 5}",0.9987878670338621
+Banknote,42,2,RandomForest,"{""max_depth"": null}",0.9994181761762537
+Banknote,42,2,XGBoost,"{""max_depth"": 2}",0.9993212055389628
+Banknote,42,2,XGBoost,"{""max_depth"": 4}",0.999418176176254
+Banknote,42,2,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",1.0
+Banknote,42,2,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",1.0
+Banknote,43,0,Logistica,"{""C"": 0.1}",0.9980121019355339
+Banknote,43,0,Logistica,"{""C"": 1.0}",0.9995830262596486
+Banknote,43,0,SVM,"{""C"": 0.1}",0.9996606027694814
+Banknote,43,0,SVM,"{""C"": 1.0}",0.9996993910243979
+Banknote,43,0,KNN,"{""n_neighbors"": 5}",1.0
+Banknote,43,0,KNN,"{""n_neighbors"": 25}",0.9995733291959195
+Banknote,43,0,GaussianNB,"{""var_smoothing"": 1e-09}",0.9383363717466351
+Banknote,43,0,GaussianNB,"{""var_smoothing"": 1e-07}",0.9383363717466351
+Banknote,43,0,DecisionTree,"{""max_depth"": 5}",0.9788846437298786
+Banknote,43,0,DecisionTree,"{""max_depth"": 10}",0.9761209805670843
+Banknote,43,0,RandomForest,"{""max_depth"": 5}",0.9992048407742136
+Banknote,43,0,RandomForest,"{""max_depth"": null}",0.9995975718552421
+Banknote,43,0,XGBoost,"{""max_depth"": 2}",0.9989236259260696
+Banknote,43,0,XGBoost,"{""max_depth"": 4}",0.9987587758426748
+Banknote,43,0,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",1.0
+Banknote,43,0,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.9999806058725418
+Banknote,43,1,Logistica,"{""C"": 0.1}",0.9968774979446028
+Banknote,43,1,Logistica,"{""C"": 1.0}",0.9991982809958087
+Banknote,43,1,SVM,"{""C"": 0.1}",0.9994493113563644
+Banknote,43,1,SVM,"{""C"": 1.0}",0.9994880045420286
+Banknote,43,1,KNN,"{""n_neighbors"": 5}",0.9978819283618959
+Banknote,43,1,KNN,"{""n_neighbors"": 25}",0.9983341252602045
+Banknote,43,1,GaussianNB,"{""var_smoothing"": 1e-09}",0.9348437650922438
+Banknote,43,1,GaussianNB,"{""var_smoothing"": 1e-07}",0.9348437650922438
+Banknote,43,1,DecisionTree,"{""max_depth"": 5}",0.942621832197446
+Banknote,43,1,DecisionTree,"{""max_depth"": 10}",0.9562284525539784
+Banknote,43,1,RandomForest,"{""max_depth"": 5}",0.9980694286946383
+Banknote,43,1,RandomForest,"{""max_depth"": null}",0.9991411919098347
+Banknote,43,1,XGBoost,"{""max_depth"": 2}",0.9995945296391704
+Banknote,43,1,XGBoost,"{""max_depth"": 4}",0.9988611654273439
+Banknote,43,1,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",1.0
+Banknote,43,1,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.999990350470897
+Banknote,43,2,Logistica,"{""C"": 0.1}",0.998413864595526
+Banknote,43,2,Logistica,"{""C"": 1.0}",0.999555361107245
+Banknote,43,2,SVM,"{""C"": 0.1}",0.999671298060359
+Banknote,43,2,SVM,"{""C"": 1.0}",0.9997682686976501
+Banknote,43,2,KNN,"{""n_neighbors"": 5}",1.0
+Banknote,43,2,KNN,"{""n_neighbors"": 25}",0.9994547303037424
+Banknote,43,2,GaussianNB,"{""var_smoothing"": 1e-09}",0.9404939208917344
+Banknote,43,2,GaussianNB,"{""var_smoothing"": 1e-07}",0.9404939208917344
+Banknote,43,2,DecisionTree,"{""max_depth"": 5}",0.965401969910962
+Banknote,43,2,DecisionTree,"{""max_depth"": 10}",0.9650722697441725
+Banknote,43,2,RandomForest,"{""max_depth"": 5}",0.9977024613809684
+Banknote,43,2,RandomForest,"{""max_depth"": null}",0.9986241577814944
+Banknote,43,2,XGBoost,"{""max_depth"": 2}",0.9988995734052513
+Banknote,43,2,XGBoost,"{""max_depth"": 4}",0.9983012075316143
+Banknote,43,2,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",1.0
+Banknote,43,2,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.999990350470897
+Banknote,44,0,Logistica,"{""C"": 0.1}",0.9981284667002832
+Banknote,44,0,Logistica,"{""C"": 1.0}",0.9996993910243978
+Banknote,44,0,SVM,"{""C"": 0.1}",0.9997478763430434
+Banknote,44,0,SVM,"{""C"": 1.0}",0.9999321205538964
+Banknote,44,0,KNN,"{""n_neighbors"": 5}",0.999006050967767
+Banknote,44,0,KNN,"{""n_neighbors"": 25}",0.9988460494162368
+Banknote,44,0,GaussianNB,"{""var_smoothing"": 1e-09}",0.9438540010084946
+Banknote,44,0,GaussianNB,"{""var_smoothing"": 1e-07}",0.9438540010084946
+Banknote,44,0,DecisionTree,"{""max_depth"": 5}",0.9768046235599861
+Banknote,44,0,DecisionTree,"{""max_depth"": 10}",0.9694784919126489
+Banknote,44,0,RandomForest,"{""max_depth"": 5}",0.9981672549551995
+Banknote,44,0,RandomForest,"{""max_depth"": null}",0.9991709010511618
+Banknote,44,0,XGBoost,"{""max_depth"": 2}",0.9995636321321903
+Banknote,44,0,XGBoost,"{""max_depth"": 4}",0.9991272642643807
+Banknote,44,0,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",1.0
+Banknote,44,0,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.9999903029362709
+Banknote,44,1,Logistica,"{""C"": 0.1}",0.9967539079166828
+Banknote,44,1,Logistica,"{""C"": 1.0}",0.9991885363974533
+Banknote,44,1,SVM,"{""C"": 0.1}",0.9993044733505674
+Banknote,44,1,SVM,"{""C"": 1.0}",0.99929463368296
+Banknote,44,1,KNN,"{""n_neighbors"": 5}",0.9989144042086018
+Banknote,44,1,KNN,"{""n_neighbors"": 25}",0.9993627983368204
+Banknote,44,1,GaussianNB,"{""var_smoothing"": 1e-09}",0.9403329211130557
+Banknote,44,1,GaussianNB,"{""var_smoothing"": 1e-07}",0.9403329211130557
+Banknote,44,1,DecisionTree,"{""max_depth"": 5}",0.9553981652394871
+Banknote,44,1,DecisionTree,"{""max_depth"": 10}",0.9537690585329978
+Banknote,44,1,RandomForest,"{""max_depth"": 5}",0.998162786700344
+Banknote,44,1,RandomForest,"{""max_depth"": null}",0.9990233060370496
+Banknote,44,1,XGBoost,"{""max_depth"": 2}",0.9991789344029764
+Banknote,44,1,XGBoost,"{""max_depth"": 4}",0.9987539273108103
+Banknote,44,1,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.999990350470897
+Banknote,44,1,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.999971051412691
+Banknote,44,2,Logistica,"{""C"": 0.1}",0.9976993240956442
+Banknote,44,2,Logistica,"{""C"": 1.0}",0.999140478890443
+Banknote,44,2,SVM,"{""C"": 0.1}",0.9992854595001182
+Banknote,44,2,SVM,"{""C"": 1.0}",0.9994977491403838
+Banknote,44,2,KNN,"{""n_neighbors"": 5}",0.9990157480314961
+Banknote,44,2,KNN,"{""n_neighbors"": 25}",0.9991796711896814
+Banknote,44,2,GaussianNB,"{""var_smoothing"": 1e-09}",0.9323530932872742
+Banknote,44,2,GaussianNB,"{""var_smoothing"": 1e-07}",0.9323530932872742
+Banknote,44,2,DecisionTree,"{""max_depth"": 5}",0.9817493417404974
+Banknote,44,2,DecisionTree,"{""max_depth"": 10}",0.9751850237787214
+Banknote,44,2,RandomForest,"{""max_depth"": 5}",0.9985903606623209
+Banknote,44,2,RandomForest,"{""max_depth"": null}",0.999054346147908
+Banknote,44,2,XGBoost,"{""max_depth"": 2}",0.9995463770629077
+Banknote,44,2,XGBoost,"{""max_depth"": 4}",0.9987407364520611
+Banknote,44,2,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",1.0
+Banknote,44,2,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.999990350470897
+Spambase,42,0,Logistica,"{""C"": 0.1}",0.8024668288741323
+Spambase,42,0,Logistica,"{""C"": 1.0}",0.8040988213619142
+Spambase,42,0,SVM,"{""C"": 0.1}",0.7992756471607618
+Spambase,42,0,SVM,"{""C"": 1.0}",0.7976070044014436
+Spambase,42,0,KNN,"{""n_neighbors"": 5}",0.7945772358457381
+Spambase,42,0,KNN,"{""n_neighbors"": 25}",0.8118411133741383
+Spambase,42,0,GaussianNB,"{""var_smoothing"": 1e-09}",0.7337043853543173
+Spambase,42,0,GaussianNB,"{""var_smoothing"": 1e-07}",0.7337043853543173
+Spambase,42,0,DecisionTree,"{""max_depth"": 5}",0.8012159269656698
+Spambase,42,0,DecisionTree,"{""max_depth"": 10}",0.7506270295096247
+Spambase,42,0,RandomForest,"{""max_depth"": 5}",0.8343159435838579
+Spambase,42,0,RandomForest,"{""max_depth"": null}",0.8422803601379034
+Spambase,42,0,XGBoost,"{""max_depth"": 2}",0.8299136630326645
+Spambase,42,0,XGBoost,"{""max_depth"": 4}",0.8263515936213753
+Spambase,42,0,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.8152344043134623
+Spambase,42,0,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.8153459629071005
+Spambase,42,1,Logistica,"{""C"": 0.1}",0.798557367286763
+Spambase,42,1,Logistica,"{""C"": 1.0}",0.8042652705862031
+Spambase,42,1,SVM,"{""C"": 0.1}",0.8037217735623559
+Spambase,42,1,SVM,"{""C"": 1.0}",0.8048125683297377
+Spambase,42,1,KNN,"{""n_neighbors"": 5}",0.7895568941152046
+Spambase,42,1,KNN,"{""n_neighbors"": 25}",0.8109140320656137
+Spambase,42,1,GaussianNB,"{""var_smoothing"": 1e-09}",0.6901617056363296
+Spambase,42,1,GaussianNB,"{""var_smoothing"": 1e-07}",0.6901608160278463
+Spambase,42,1,DecisionTree,"{""max_depth"": 5}",0.8018736517055534
+Spambase,42,1,DecisionTree,"{""max_depth"": 10}",0.7648593668909757
+Spambase,42,1,RandomForest,"{""max_depth"": 5}",0.8309943734325438
+Spambase,42,1,RandomForest,"{""max_depth"": null}",0.8439204399273019
+Spambase,42,1,XGBoost,"{""max_depth"": 2}",0.8290059938991711
+Spambase,42,1,XGBoost,"{""max_depth"": 4}",0.8283418289961582
+Spambase,42,1,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.8162039740283811
+Spambase,42,1,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.8161516785998907
+Spambase,42,2,Logistica,"{""C"": 0.1}",0.7995106960879963
+Spambase,42,2,Logistica,"{""C"": 1.0}",0.8039017336006652
+Spambase,42,2,SVM,"{""C"": 0.1}",0.7967399591185024
+Spambase,42,2,SVM,"{""C"": 1.0}",0.796224675069868
+Spambase,42,2,KNN,"{""n_neighbors"": 5}",0.8076541188558883
+Spambase,42,2,KNN,"{""n_neighbors"": 25}",0.821463777621402
+Spambase,42,2,GaussianNB,"{""var_smoothing"": 1e-09}",0.6857710636583021
+Spambase,42,2,GaussianNB,"{""var_smoothing"": 1e-07}",0.6857728428752687
+Spambase,42,2,DecisionTree,"{""max_depth"": 5}",0.8180622930533061
+Spambase,42,2,DecisionTree,"{""max_depth"": 10}",0.7551165572028546
+Spambase,42,2,RandomForest,"{""max_depth"": 5}",0.842802428175776
+Spambase,42,2,RandomForest,"{""max_depth"": null}",0.8701834134065223
+Spambase,42,2,XGBoost,"{""max_depth"": 2}",0.848148555359222
+Spambase,42,2,XGBoost,"{""max_depth"": 4}",0.8585075448319139
+Spambase,42,2,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.8170785494911128
+Spambase,42,2,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.8172876805734732
+Spambase,43,0,Logistica,"{""C"": 0.1}",0.7918257116764766
+Spambase,43,0,Logistica,"{""C"": 1.0}",0.7938008001056218
+Spambase,43,0,SVM,"{""C"": 0.1}",0.7901576456929782
+Spambase,43,0,SVM,"{""C"": 1.0}",0.7894775319067509
+Spambase,43,0,KNN,"{""n_neighbors"": 5}",0.7757128201537444
+Spambase,43,0,KNN,"{""n_neighbors"": 25}",0.8002200050383653
+Spambase,43,0,GaussianNB,"{""var_smoothing"": 1e-09}",0.7051267717127361
+Spambase,43,0,GaussianNB,"{""var_smoothing"": 1e-07}",0.7051267717127361
+Spambase,43,0,DecisionTree,"{""max_depth"": 5}",0.7956256897779685
+Spambase,43,0,DecisionTree,"{""max_depth"": 10}",0.7593093690973226
+Spambase,43,0,RandomForest,"{""max_depth"": 5}",0.8245807786301196
+Spambase,43,0,RandomForest,"{""max_depth"": null}",0.8369840742112575
+Spambase,43,0,XGBoost,"{""max_depth"": 2}",0.8233944179659909
+Spambase,43,0,XGBoost,"{""max_depth"": 4}",0.8281207642337799
+Spambase,43,0,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.8049338717487389
+Spambase,43,0,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.8050177865727917
+Spambase,43,1,Logistica,"{""C"": 0.1}",0.8047903162951682
+Spambase,43,1,Logistica,"{""C"": 1.0}",0.8112410481776446
+Spambase,43,1,SVM,"{""C"": 0.1}",0.8056930434984904
+Spambase,43,1,SVM,"{""C"": 1.0}",0.8058902431536783
+Spambase,43,1,KNN,"{""n_neighbors"": 5}",0.8110489957149143
+Spambase,43,1,KNN,"{""n_neighbors"": 25}",0.8209688955504725
+Spambase,43,1,GaussianNB,"{""var_smoothing"": 1e-09}",0.7046384698059864
+Spambase,43,1,GaussianNB,"{""var_smoothing"": 1e-07}",0.7046384698059864
+Spambase,43,1,DecisionTree,"{""max_depth"": 5}",0.819788253489762
+Spambase,43,1,DecisionTree,"{""max_depth"": 10}",0.7560752163104756
+Spambase,43,1,RandomForest,"{""max_depth"": 5}",0.8434467343574215
+Spambase,43,1,RandomForest,"{""max_depth"": null}",0.8596393859909135
+Spambase,43,1,XGBoost,"{""max_depth"": 2}",0.8442167254128812
+Spambase,43,1,XGBoost,"{""max_depth"": 4}",0.8479494182177807
+Spambase,43,1,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.8241819686412952
+Spambase,43,1,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.8243067564393753
+Spambase,43,2,Logistica,"{""C"": 0.1}",0.802839217453785
+Spambase,43,2,Logistica,"{""C"": 1.0}",0.8046272206147009
+Spambase,43,2,SVM,"{""C"": 0.1}",0.8041826537492626
+Spambase,43,2,SVM,"{""C"": 1.0}",0.8022662391980393
+Spambase,43,2,KNN,"{""n_neighbors"": 5}",0.8111795817261727
+Spambase,43,2,KNN,"{""n_neighbors"": 25}",0.8200055658359826
+Spambase,43,2,GaussianNB,"{""var_smoothing"": 1e-09}",0.7064140344556091
+Spambase,43,2,GaussianNB,"{""var_smoothing"": 1e-07}",0.7064140344556091
+Spambase,43,2,DecisionTree,"{""max_depth"": 5}",0.8039808544142084
+Spambase,43,2,DecisionTree,"{""max_depth"": 10}",0.7493926280473376
+Spambase,43,2,RandomForest,"{""max_depth"": 5}",0.8417062243830901
+Spambase,43,2,RandomForest,"{""max_depth"": null}",0.8536714079588621
+Spambase,43,2,XGBoost,"{""max_depth"": 2}",0.8325022817304646
+Spambase,43,2,XGBoost,"{""max_depth"": 4}",0.8301845951436675
+Spambase,43,2,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.8227171555846375
+Spambase,43,2,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.8231114096439238
+Spambase,44,0,Logistica,"{""C"": 0.1}",0.797627098246181
+Spambase,44,0,Logistica,"{""C"": 1.0}",0.8034279022990725
+Spambase,44,0,SVM,"{""C"": 0.1}",0.8011128700189512
+Spambase,44,0,SVM,"{""C"": 1.0}",0.8027261101975114
+Spambase,44,0,KNN,"{""n_neighbors"": 5}",0.7927595803911203
+Spambase,44,0,KNN,"{""n_neighbors"": 25}",0.807465265207312
+Spambase,44,0,GaussianNB,"{""var_smoothing"": 1e-09}",0.6824839167917962
+Spambase,44,0,GaussianNB,"{""var_smoothing"": 1e-07}",0.6824839167917962
+Spambase,44,0,DecisionTree,"{""max_depth"": 5}",0.7983330946315428
+Spambase,44,0,DecisionTree,"{""max_depth"": 10}",0.7562679921106457
+Spambase,44,0,RandomForest,"{""max_depth"": 5}",0.8347779468001166
+Spambase,44,0,RandomForest,"{""max_depth"": null}",0.8473848088098812
+Spambase,44,0,XGBoost,"{""max_depth"": 2}",0.832711335479666
+Spambase,44,0,XGBoost,"{""max_depth"": 4}",0.831171911448725
+Spambase,44,0,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.8159737974069268
+Spambase,44,0,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.8159184074959471
+Spambase,44,1,Logistica,"{""C"": 0.1}",0.8039924171468733
+Spambase,44,1,Logistica,"{""C"": 1.0}",0.808282750573799
+Spambase,44,1,SVM,"{""C"": 0.1}",0.8025788737299024
+Spambase,44,1,SVM,"{""C"": 1.0}",0.8021778382588861
+Spambase,44,1,KNN,"{""n_neighbors"": 5}",0.8067954055002676
+Spambase,44,1,KNN,"{""n_neighbors"": 25}",0.8142222590280338
+Spambase,44,1,GaussianNB,"{""var_smoothing"": 1e-09}",0.6893981977697747
+Spambase,44,1,GaussianNB,"{""var_smoothing"": 1e-07}",0.6893973076465817
+Spambase,44,1,DecisionTree,"{""max_depth"": 5}",0.8060046522494687
+Spambase,44,1,DecisionTree,"{""max_depth"": 10}",0.7549614364905821
+Spambase,44,1,RandomForest,"{""max_depth"": 5}",0.838712581098942
+Spambase,44,1,RandomForest,"{""max_depth"": null}",0.8567231522173132
+Spambase,44,1,XGBoost,"{""max_depth"": 2}",0.8333517356003364
+Spambase,44,1,XGBoost,"{""max_depth"": 4}",0.8376114833787076
+Spambase,44,1,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.8208145257680413
+Spambase,44,1,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.8207940653905769
+Spambase,44,2,Logistica,"{""C"": 0.1}",0.8002621655667345
+Spambase,44,2,Logistica,"{""C"": 1.0}",0.8030642599286941
+Spambase,44,2,SVM,"{""C"": 0.1}",0.8026829252660959
+Spambase,44,2,SVM,"{""C"": 1.0}",0.802439721412303
+Spambase,44,2,KNN,"{""n_neighbors"": 5}",0.8080493596137528
+Spambase,44,2,KNN,"{""n_neighbors"": 25}",0.812361837972069
+Spambase,44,2,GaussianNB,"{""var_smoothing"": 1e-09}",0.6829041243138705
+Spambase,44,2,GaussianNB,"{""var_smoothing"": 1e-07}",0.6829041243138705
+Spambase,44,2,DecisionTree,"{""max_depth"": 5}",0.804207536429697
+Spambase,44,2,DecisionTree,"{""max_depth"": 10}",0.7504981575689167
+Spambase,44,2,RandomForest,"{""max_depth"": 5}",0.8347604396291948
+Spambase,44,2,RandomForest,"{""max_depth"": null}",0.8475737341971178
+Spambase,44,2,XGBoost,"{""max_depth"": 2}",0.8330441855772024
+Spambase,44,2,XGBoost,"{""max_depth"": 4}",0.8321262998749885
+Spambase,44,2,Propio,"{""alpha"": 0.0, ""l2"": 0.01}",0.8164375284444045
+Spambase,44,2,Propio,"{""alpha"": 0.25, ""l2"": 0.01}",0.8165692440297472

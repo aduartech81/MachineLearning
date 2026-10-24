@@ -1,0 +1,87 @@
+{
+  "semillas": [
+    42,
+    43,
+    44
+  ],
+  "outer": 3,
+  "inner": 2,
+  "grid": {
+    "Logistica": [
+      {
+        "C": 0.1
+      },
+      {
+        "C": 1.0
+      }
+    ],
+    "SVM": [
+      {
+        "C": 0.1
+      },
+      {
+        "C": 1.0
+      }
+    ],
+    "KNN": [
+      {
+        "n_neighbors": 5
+      },
+      {
+        "n_neighbors": 25
+      }
+    ],
+    "GaussianNB": [
+      {
+        "var_smoothing": 1e-09
+      },
+      {
+        "var_smoothing": 1e-07
+      }
+    ],
+    "DecisionTree": [
+      {
+        "max_depth": 5
+      },
+      {
+        "max_depth": 10
+      }
+    ],
+    "RandomForest": [
+      {
+        "max_depth": 5
+      },
+      {
+        "max_depth": null
+      }
+    ],
+    "XGBoost": [
+      {
+        "max_depth": 2
+      },
+      {
+        "max_depth": 4
+      }
+    ],
+    "Propio": [
+      {
+        "alpha": 0.0,
+        "l2": 0.01
+      },
+      {
+        "alpha": 0.25,
+        "l2": 0.01
+      }
+    ]
+  },
+  "metrica": "AUC",
+  "presupuesto": "2 candidatos × 2 folds internos por familia y fold externo",
+  "filtro": "Conservar columnas cuyos cinco cuantiles del ajuste sean estrictamente crecientes. Igual filtro para todos, aprendido dentro de cada ajuste.",
+  "adaptador": "El propio requiere cinco columnas categóricas de caries: se añaden constantes cero sin información de etiqueta; su núcleo se conserva.",
+  "limites": [
+    "Filtro elimina variables dispersas de Spambase; evaluación de representación restringida.",
+    "No se añade estado del arte reciente, por lo que este ejercicio no cierra toda la evaluación amplia E3.",
+    "Tres semillas y folds reutilizan datos; no son réplicas independientes para inferencia.",
+    "No transferencia de un modelo de caries: cada base se entrena por separado."
+  ]
+}

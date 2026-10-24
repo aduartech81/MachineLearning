@@ -1,0 +1,24 @@
+{
+  "modelos": [
+    "Propio",
+    "XGBoost",
+    "EBM"
+  ],
+  "semillas": [
+    42,
+    43,
+    44
+  ],
+  "fold_externo": 0,
+  "escenarios": [
+    "Original",
+    "50% perfiles de entrenamiento",
+    "10% perfiles con etiqueta de entrenamiento invertida"
+  ],
+  "seleccion": "Hiperparámetros ya elegidos por CV interna en cada base/semilla/fold 0. No se reoptimizan después de perturbar.",
+  "limites": [
+    "Análisis descriptivo y posterior al experimento principal.",
+    "No es un test de generalización clínica del modelo de caries.",
+    "Solo un fold externo por semilla; no muestra exhaustivamente todo ruido o desbalance posible."
+  ]
+}
