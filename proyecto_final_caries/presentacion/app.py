@@ -429,5 +429,8 @@ app.layout.children[0].children.append(html.Div([html.A('Portafolio de Machine L
 from proyecto_final_caries.presentacion.cierre_e3 import integrar as integrar_cierre_e3
 integrar_cierre_e3(app, SECCIONES)
 
+from proyecto_final_caries.presentacion.laboratorio_matematico import integrar as integrar_laboratorio
+integrar_laboratorio(server)
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8050)), debug=False)
